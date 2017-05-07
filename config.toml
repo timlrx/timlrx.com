@@ -1,0 +1,53 @@
+baseurl = "https://timlrx.github.io/"
+relativeurls = true
+languageCode = "en-us"
+title = "Quasilinear Musings"
+theme = "beautifulhugo"
+googleAnalytics = ""
+disqusShortname = ""
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "Blog"
+    url = "/post/"
+    weight = 1
+[[menu.main]]
+    name = "About"
+    url = "page/about/"
+    weight = 2
+[[menu.main]]
+    name = "Vancouver"
+    url = "/page/vancouver/"
+    weight = 3
+[[menu.main]]
+    name = "Categories"
+    url = "categories"
+    weight = 4
+[[menu.main]]
+    name = "Tags"
+    url = "tags"
+    weight = 5
+
+[params]
+
+    subtitle = "Thoughts from a wandering mind"
+
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.11.0"
+    highlightjsCDN = "//cdn.bootcss.com"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
+
+    MathJaxCDN = "//cdn.bootcss.com"
+    MathJaxVersion = "2.7.1"
+    rss = true
+
+
+
+[Author]
+  name = "Timothy Lin"
+  email = "timothy.lin@alumni.ubc.ca"
+  github = "timlrx"
+  linkedin = "timothy-lin-0600ba141"
