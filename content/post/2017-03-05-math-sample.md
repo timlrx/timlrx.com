@@ -1,9 +1,10 @@
 ---
 title: Math Sample
 subtitle: Using KaTeX
+draft: true
 date: 2017-03-05
 tags: ["example", "math"]
-draft: true
+
 ---
 
 KaTeX can be used to generate complex math formulas server-side. 

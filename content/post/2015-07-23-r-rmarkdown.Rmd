@@ -1,7 +1,8 @@
 ---
 title: "Hello R Markdown"
-author: "Frida Gomam"
-date: 2015-07-23T21:13:14-05:00
+author: "Timothy Lin"
+draft: true
+date: 2017-05-11T21:13:14-05:00
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
@@ -12,7 +13,9 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 # R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+[![vancouver](http://weknownyourdreamz.com/images/seaside/seaside-04.jpg)](http://weknownyourdreamz.com/seaside.html)
+
+This is a R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 You can embed an R code chunk like this:
 
@@ -34,4 +37,15 @@ pie(
   col = c('#0292D8', '#F7EA39', '#C4B632'),
   init.angle = -50, border = NA
 )
+```
+
+Test of scatterplot with ggplot and plotly 
+
+```{r scatter, fig.cap='Plotly', message=FALSE}
+library(ggplot2)
+library(plotly)
+x<-seq(1,10,1)
+y<-x + rnorm(n=10, mean=0, sd=3)
+scatter<-ggplot(as.data.frame(cbind(x,y)), aes(x,y)) + geom_point() + geom_smooth()
+ggplotly(scatter)
 ```
