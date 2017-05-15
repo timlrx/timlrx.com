@@ -1,6 +1,7 @@
 ---
 title: "A Plain Markdown Post"
 date: "2016-12-30T21:49:57-07:00"
+draft: true
 ---
 
 This is a post written in plain Markdown (`*.md`) instead of R Markdown (`*.Rmd`). The major differences are:
@@ -22,3 +23,4 @@ When creating a new post, you have to decide whether the post format is Markdown
 ```r
 blogdown::new_post("Post Title", rmd = FALSE)
 ```
+

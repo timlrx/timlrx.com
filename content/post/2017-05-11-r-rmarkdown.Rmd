@@ -1,7 +1,7 @@
 ---
 title: "Hello R Markdown"
 author: "Timothy Lin"
-draft: true
+draft: false
 date: 2017-05-11T21:13:14-05:00
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
@@ -23,6 +23,7 @@ You can embed an R code chunk like this:
 summary(cars)
 fit <- lm(dist ~ speed, data = cars)
 fit
+
 ```
 
 # Including Plots
@@ -48,4 +49,14 @@ x<-seq(1,10,1)
 y<-x + rnorm(n=10, mean=0, sd=3)
 scatter<-ggplot(as.data.frame(cbind(x,y)), aes(x,y)) + geom_point() + geom_smooth()
 ggplotly(scatter)
+```
+
+Using shortcodes with rmd
+
+```{r shortcode}
+blogdown::shortcode('tweet', '666616452582129664')
+```
+
+```{r shortcode2}
+blogdown::shortcode('youtube', 'w7Ft2ymGmfc')
 ```

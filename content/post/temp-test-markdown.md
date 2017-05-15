@@ -1,6 +1,7 @@
 ---
 title: Test markdown
 subtitle: Each post also has a subtitle
+draft: true
 date: 2015-02-20
 tags: ["example", "markdown"]
 ---

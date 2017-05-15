@@ -1,16 +1,16 @@
 ---
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: About
 comments: false
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Welcome to Quasilinear Musings! I am currently a Masters student in the Vancouver School of Economics and my research interest revolves around technological change, labour markets and econometrics. You can find more information about me at my [Linkedin profile](https://www.linkedin.com/in/timothy-lin-0600ba141/). 
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+I plan to use this blog to document ongoing projects and share some thoughts on data analytics. The blog also provides a nice platform to share some of my works in a more accessible manner and explore the use of data to communicate ideas. This blog was developed using [Blogdown](https://github.com/rstudio/blogdown), an excellent R package that provides a wrapper for Hugo (a static site generator) and synthesizes well with the R markdown scripts. Source code is available at my [Github page](https://github.com/timlrx/timlrx.github.io).
 
-What else do you need?
+Upcoming blog plans:
 
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+- Convert and compile my hard-copy statistics and econometric notes to an online version
+- Share some thoughts on the Singapore economy
+- Document my current masters research project
+- Experiment with some cool data visualisation and presentation techniques
+- Rant about causal inference

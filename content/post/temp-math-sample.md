@@ -2,12 +2,12 @@
 title: Math Sample
 subtitle: Using KaTeX
 draft: true
-date: 2017-03-05
+date: 2015-02-20
 tags: ["example", "math"]
 
 ---
 
-KaTeX can be used to generate complex math formulas server-side. 
+KaTeX can also be used to generate complex math formulas server-side. 
 
 $$
 \phi = \frac{(1+\sqrt{5})}{2} = 1.6180339887\cdots
