@@ -4,7 +4,7 @@ author: ~
 date: '2017-05-07'
 ---
 
-Playing around with shortcode - Does this work?
+Playing around with shortcode - Does this work? 
 
 {{< gallery dir="/img/" />}}
 

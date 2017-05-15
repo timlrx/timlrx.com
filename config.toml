@@ -15,11 +15,11 @@ disqusShortname = ""
     weight = 1
 [[menu.main]]
     name = "About"
-    url = "page/about/"
+    url = "/about/"
     weight = 2
 [[menu.main]]
     name = "Vancouver"
-    url = "/page/vancouver/"
+    url = "page/vancouver/"
     weight = 3
 [[menu.main]]
     name = "Categories"
