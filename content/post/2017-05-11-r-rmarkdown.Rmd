@@ -1,7 +1,7 @@
 ---
 title: "Hello R Markdown"
 author: "Timothy Lin"
-draft: false
+draft: true
 date: 2017-05-11T21:13:14-05:00
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
