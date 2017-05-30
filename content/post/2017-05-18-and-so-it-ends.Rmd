@@ -8,20 +8,21 @@ tags: ["personal"]
 subtitle: ''
 ---
 
-And so it ends with `ivregress 2sls y (x=z)`, 
-the last line of my do file reads.
+And so it ends with `ivregress 2sls y (x=z)`,   
+the last line of my do file reads.  
 
-Competition promotes efficiency, maximises welfare,
-the official doctrine proclaims.
-So took the chance I did.
+Competition promotes efficiency, maximises welfare,  
+the official doctrine proclaims.  
+So took the chance I did.  
 
-Hyperplanes, Hamiltonians and more contrived jargon,
-the beauty of the abstractness.
-Yet the triviality of it all.
+Hyperplanes, Hamiltonians and more contrived jargon,  
+the beauty of the abstractness.  
+Yet the triviality of it all.  
 
-He who roll the dice should pay its price,
-the lesson from the probability gods.
-But at least it is unbiased?
+He who roll the dice should be prepared to pay its price,  
+the lesson from the probability gods.  
+But at least it is unbiased?  
 
-The mirage evaporates in the march of time,
-and so it ends at the start.
+Thus it was, that in the march of time,  
+the mirage evaporates,  
+and marks the end.  
