@@ -3,8 +3,9 @@ relativeurls = true
 languageCode = "en-us"
 title = "Quasilinear Musings"
 theme = "beautifulhugo"
-googleAnalytics = ""
+googleAnalytics = "UA-100201704-1"
 disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
