@@ -1,0 +1,151 @@
+---
+title: Scraping SG's GDP data using SingStat's API
+author: Timothy Lin
+date: '2017-05-31'
+slug: scraping-sg-s-gdp-data-using-singstat-s-api
+categories: []
+tags: ["Singapore","Web-Scraping","R"]
+subtitle: ''
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+
+I have been trying to catch-up on the latest release of Singapore's economic results. Unfortunately, the official press release or media reports are not very useful. They contain too much irrelevant information or do not have enough information for more liking. Maybe I just like taking a look at the data and letting the figures speak for themselves. Hence, I decided to obtain the data from the official SingStat's Table Builder website. Turns out that they have a set of APIs available that provides data for selected data series including the [GDP figures](http://www.tablebuilder.singstat.gov.sg/publicfacing/initApiList.action).  
+
+This makes it much easier to obtain the required data without having to navigate through the complicated tree structure of table builder. The best part about having an API is that I can just re-run the same set of codes and produce my own set of customise GDP report tailored made to my liking! For the first technical post of this blog, I decided to do a write-up on using the API to extract GDP figures and generate some graphs in R. A more detailed set of codes is available on [github](https://github.com/timlrx/sg-econ-api).
+
+I use the `httr` package to read in JSON data before manipulating the data in `dplyr` and `reshape2`. `ggplot2` is used for graphing and to add a little interactivity we can also play around with the `plotly` package. First, we have to read in the JSON data and convert it to string format. I decided to read in both the seasonally-adjusted VA figures and raw VA figures as they are used to calculate quarter-on-quarter and year-on-year growth respectively.
+
+```{r setup}
+library(httr)
+library(reshape2)
+library(dplyr)
+library(ggplot2)
+
+url_va_sa  <- "http://www.tablebuilder.singstat.gov.sg/publicfacing/api/json/title/12411.json"
+url_va  <- "http://www.tablebuilder.singstat.gov.sg/publicfacing/api/json/title/12407.json"
+
+raw.result <- GET(url=url_va_sa)
+names(raw.result)
+raw.content <- rawToChar(raw.result$content) # Convert raw bytes to string
+raw.content <- content(raw.result)
+# levels correspond to the statistics level of aggregation
+# 1 - overall economy, 2 - goods / services, 3 - sector level
+```
+
+Browsing the raw.content variable, we can see that it is a messy list of lists. 
+
+```{r namescontent}
+names(raw.content)
+```
+
+Level1, Level2, Level3 contain the data we are interested in at various levels of industry aggregation. Let's convert it to a more managable dataframe format and extract the required data. The do.call function along with lapply helps to unpack the list. 
+
+```{r unpacklist}
+data <- do.call(what = "rbind", args = lapply(raw.content$Level1, as.data.frame))
+data.sector <- do.call(what = "rbind", args = lapply(raw.content$Level3, as.data.frame))
+data$value <- as.numeric(as.character(data$value))
+data.sector$value <- as.numeric(as.character(data.sector$value))
+data <- data[,c("quarter","value")]
+data.sector <- data.sector[,c("quarter","value","level_3")]
+names(data)[names(data) == 'quarter'] <- 'period'
+names(data.sector)[names(data.sector) == 'quarter'] <- 'period'
+names(data.sector)[names(data.sector) == 'level_3'] <- 'industry'
+```
+
+Now we can use the levels data and calculate the quarter-on-quarter seasonally-adjusted annualised growth rate (qoqsaa). 
+
+```{r qoqsaa}
+data <- data %>% mutate(qoqsaa = ((value/lag(value))^4-1)*100)
+data.sector <- data.sector %>% group_by(industry) %>% 
+               mutate(qoqsaa = ((value/lag(value))^4-1)*100) %>% ungroup()
+```
+
+We can repeat the process for the non-seasonally-adjusted data and calculate the year-on-year growth rates.[Code omitted due to repetition.]  
+
+```{r nonsa_yoy, include=FALSE}
+# Non-seasonally adjusted series for YoY calculations
+raw.result <- GET(url=url_va)
+names(raw.result)
+raw.content <- rawToChar(raw.result$content) # Convert raw bytes to string
+raw.content <- content(raw.result)
+names(raw.content)
+# levels correspond to the statistics level of aggregation
+# 1 - overall economy, 2 - goods / services, 3 - sector level
+
+# Converts the list of list into a dataframe
+va <- do.call(what = "rbind", args = lapply(raw.content$Level1, as.data.frame))
+va.sector <- do.call(what = "rbind", args = lapply(raw.content$Level3, as.data.frame))
+va$value <- as.numeric(as.character(va$value))
+va.sector$value <- as.numeric(as.character(va.sector$value))
+va <- va[,c("quarter","value")]
+va.sector <- va.sector[,c("quarter","value","level_3")]
+names(va)[names(va) == 'quarter'] <- 'period'
+names(va.sector)[names(va.sector) == 'quarter'] <- 'period'
+names(va.sector)[names(va.sector) == 'level_3'] <- 'industry'
+
+
+
+#calculate qoq SA annualised growth rate (qoqsaa)
+va<-va %>% mutate(year = as.numeric(substr(period, 1, 4)), quarter = substr(period, 6, 7)) %>%  
+           group_by(quarter) %>% mutate(yoy = (value/lag(value)-1)*100) %>% ungroup()
+va.sector<-va.sector %>% mutate(year = as.numeric(substr(period, 1, 4)), quarter = substr(period, 6, 7)) %>% 
+                         group_by(quarter, industry) %>% mutate(yoy = (value/lag(value)-1)*100) %>%
+                         ungroup()
+
+# Combine va data from both series
+data$industry<-as.factor("Overall Economy")
+va$industry<-as.factor("Overall Economy")
+va.sector.comb<-merge(rbind(va, va.sector), rbind(data, data.sector), by=c("industry","period"))
+names(va.sector.comb)[names(va.sector.comb) == 'value.x'] <- 'va.sa'
+names(va.sector.comb)[names(va.sector.comb) == 'value.y'] <- 'va'
+va.sector.comb<-arrange(va.sector.comb, year, quarter)
+va.sector.comb$industry.short<-va.sector.comb$industry
+va.sector.comb$industry.short<-plyr::revalue(va.sector.comb$industry, 
+                                          c("Overall Economy"="Overall",
+                                         "Manufacturing"="Mfg",
+                                         "Other Goods Industries"="Other Goods",
+                                         "Wholesale & Retail Trade"="Wholesale Retail",
+                                         "Transportation & Storage"="Tpt & Storage",
+                                         "Accommodation & Food Services"="Acc & Food",
+                                         "Finance & Insurance"="F&I",
+                                         "Information & Communications"="Infocomms",
+                                         "Business Services"="Business Ser",
+                                         "Other Services Industries"="Other Ser"))
+```
+
+Let's take a look at some plots of the data.
+
+```{r qoqsa_plot, fig.cap='QoQ GDP Trend'}
+overall.trend<-ggplot(data[(nrow(data)-16+1):nrow(data),], aes(period, qoqsaa, group=1)) +
+  geom_point() + geom_line() + ylab("QoQ SA (%)") + xlab("Period") + theme_classic() +
+  theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))
+overall.trend
+```
+
+And here's a plot comparing qoq and yoy growth for all the industries: 
+
+```{r reshape_plot, echo=FALSE}
+melt.va.sector.comb <- melt(va.sector.comb[(nrow(va.sector.comb)-11):nrow(va.sector.comb),],
+                            measure.vars=c("yoy","qoqsaa"))
+names(melt.va.sector.comb)[names(melt.va.sector.comb) == 'variable'] <- 'series'
+melt.va.sector.comb$industry.short <- factor(melt.va.sector.comb$industry.short,
+                                             levels=rev(levels(melt.va.sector.comb$industry.short)))
+sector.bar<-ggplot(melt.va.sector.comb,aes(industry.short, value)) +
+            geom_bar(aes(fill=series), stat="identity", position=position_dodge(width=1)) +
+            ylab("Growth (%)") + xlab("Industry") +                              theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1),
+            axis.title.x=element_blank()) +
+            theme_classic() + coord_flip()
+sector.bar
+```
+
+Wondering what the actual percentage change is? We can convert the graph into a more interactive one using a simple line of code. And since it is locally generated, it can be hosted on github as well.
+
+```{r sector_bar_plotly}
+library(plotly)
+ggplotly(sector.bar)
+```
+
+
