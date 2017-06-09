@@ -1,0 +1,89 @@
+---
+title: Some Thoughts on Regression
+author: Timothy Lin
+date: '2017-06-04'
+draft: TRUE
+slug: some-thoughts-on-regression
+categories: []
+tags: []
+subtitle: ''
+---
+
+This post is a compilation of my study notes on regression analysis. I remember first learning about it as a way of fitting a line through a series of points. Invoke some assumptions and one obtains the relationship between two variables. Simple...or so I thought. Subsequently, through the course of my study, I came across various perspectives that gave me a new appreciation of the method and human ingenuity. 
+
+The advancements in understanding since it was introduced by Gauss in the early 19th century is an interesting case study of scientific development. I would argue that the major advances in came not from mathematical breakthroughs but questioning the assumptions implicit in the standard framework and expanding it from there.
+
+In this review, I shall focus mainly on the simple linear regression and omit treatment of its many descendents.^[The popularity and limitations of the simple OLS regression has spawn so many related techniques that are the subject of numerous research papers by themselves.] Let's start at the source and cover regression as a solution to the least squares minimisation problem, before going to deeper waters!
+
+## Preliminaries / Notation
+Using matrix notation, let $n$ denote the number of observations and $k$ denote the number of regressors. 
+
+The vector of outcome variables $\mathbf{Y}$ is a $n \times 1$ matrix,
+$$\mathbf{Y} = \left[\begin{array}
+{c}
+y_1 \\
+. \\
+. \\
+. \\
+y_n
+\end{array}\right]
+$$
+
+The matrix of regressors $\mathbf{X}$ is a $n \times k$ matrix (or each row is a $k \times 1$ vector), 
+$$\mathbf{X} = \left[\begin{array}
+{ccccc}
+x_{11} & . & . & . & x_{1k} \\
+. & . & . & . & .  \\
+. & . & . & . & .  \\
+. & . & . & . & .  \\
+x_{n1} & . & . & . & x_{nn} 
+\end{array}\right] =
+\left[\begin{array}
+{c}
+\mathbf{x}'_1 \\
+. \\
+. \\
+. \\
+\mathbf{x}'_n
+\end{array}\right]
+$$
+The vector of error terms $\mathbf{U}$ is also a $n \times 1$ matrix.
+
+At times it might be easier to use vector notation. For consistency I will use the bold small x to denote a vector and capital letters to denote a matrix. Single observations are denoted by the subscript.
+
+## Least squares 
+__Start__:  
+$$Y_i = X'_i \beta + u_i$$
+
+__Assumptions__:  
+1. Linearity (given above)  
+2. $E(\mathbf{U}|\mathbf{X}) = 0$ (conditional independence)  
+3. rank($\mathbf{X}$) = $k$ (no multi-collinearity i.e. full rank)  
+4. $Var(\mathbf{U}|\mathbf{X}) = \sigma^2 I_n$ (Homoskedascity)
+
+__Aim__:  
+Find $\beta$ that minimises sum of squared errors:
+$$\begin{equation}
+Q = \sum_{i=1}^{n}{u_i^2} = \sum_{i=1}^{n}{(y_i - \mathbf{x}'_i\beta)^2} = (Y-X\beta)'(Y-X\beta)
+\end{equation}$$ 
+
+__Solution__:  
+Hints: end result needs to be $1 \times 1$, by symmetry $\frac{\partial b'Ab}{\partial b} = 2Ab$
+Take matrix derivative w.r.t $\beta$:
+$$\begin{align*}
+\min Q &= \min_{\beta} \mathbf{Y}'\mathbf{Y} - 2\beta'\mathbf{X}'\mathbf{Y} +
+\beta'\mathbf{X}'\mathbf{X}\beta \\
+&= \min_{\beta} - 2\beta'\mathbf{X}'\mathbf{Y} + \beta'\mathbf{X}'\mathbf{X}\beta \\
+\text{[FOC]}~~~0 &=  - 2\mathbf{X}'\mathbf{Y} + 2\mathbf{X}'\mathbf{X}\hat{\beta} \\
+\hat{\beta} &= (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{Y} \\
+&= (\sum^{n} x_i x'_i)^{-1} \sum^{n} x_i y_i
+\end{align*}$$
+
+__Notes__:  
+1. $\hat{\beta}$ is a linear estimator. It can be written in the form $b=AY$ where $A$ only depends on $X$ but not $Y$.  
+2. Under assumptions 1-3, the estimator is unbiased. Use Law of Iterated expectations to prove.  
+3. If we add the homoskedascity assumption, the OLS estimator is the Best Linear Unbiased Estimator (BLUE) i.e. smallest variance among other linear and unbiased estimators or $Var(b|\mathbf{X}) - Var(\hat{\beta}|\mathbf{X})$ is p.s.d.  
+4. If errors are normally distributed then the estimator is also normally distributed.  
+
+__Additional Comments__:  
+1. It is almost impossible for any real life data to satisfy the above assumptions, an exception is when $Y$ and $X$ are jointly normal but that is a stretch to belief. 

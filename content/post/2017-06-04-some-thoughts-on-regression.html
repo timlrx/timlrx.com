@@ -1,0 +1,83 @@
+---
+title: Some Thoughts on Regression
+author: Timothy Lin
+date: '2017-06-04'
+draft: TRUE
+slug: some-thoughts-on-regression
+categories: []
+tags: []
+subtitle: ''
+---
+
+
+
+<p>This post is a compilation of my study notes on regression analysis. I remember first learning about it as a way of fitting a line through a series of points. Invoke some assumptions and one obtains the relationship between two variables. Simple…or so I thought. Subsequently, through the course of my study, I came across various perspectives that gave me a new appreciation of the method and human ingenuity.</p>
+<p>The advancements in understanding since it was introduced by Gauss in the early 19th century is an interesting case study of scientific development. I would argue that the major advances in came not from mathematical breakthroughs but questioning the assumptions implicit in the standard framework and expanding it from there.</p>
+<p>In this review, I shall focus mainly on the simple linear regression and omit treatment of its many descendents.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> Let’s start at the source and cover regression as a solution to the least squares minimisation problem, before going to deeper waters!</p>
+<div id="preliminaries-notation" class="section level2">
+<h2>Preliminaries / Notation</h2>
+<p>Using matrix notation, let <span class="math inline">\(n\)</span> denote the number of observations and <span class="math inline">\(k\)</span> denote the number of regressors.</p>
+<p>The vector of outcome variables <span class="math inline">\(\mathbf{Y}\)</span> is a <span class="math inline">\(n \times 1\)</span> matrix, <span class="math display">\[\mathbf{Y} = \left[\begin{array}
+{c}
+y_1 \\
+. \\
+. \\
+. \\
+y_n
+\end{array}\right]
+\]</span></p>
+<p>The matrix of regressors <span class="math inline">\(\mathbf{X}\)</span> is a <span class="math inline">\(n \times k\)</span> matrix (or each row is a <span class="math inline">\(k \times 1\)</span> vector), <span class="math display">\[\mathbf{X} = \left[\begin{array}
+{ccccc}
+x_{11} &amp; . &amp; . &amp; . &amp; x_{1k} \\
+. &amp; . &amp; . &amp; . &amp; .  \\
+. &amp; . &amp; . &amp; . &amp; .  \\
+. &amp; . &amp; . &amp; . &amp; .  \\
+x_{n1} &amp; . &amp; . &amp; . &amp; x_{nn} 
+\end{array}\right] =
+\left[\begin{array}
+{c}
+\mathbf{x}&#39;_1 \\
+. \\
+. \\
+. \\
+\mathbf{x}&#39;_n
+\end{array}\right]
+\]</span> The vector of error terms <span class="math inline">\(\mathbf{U}\)</span> is also a <span class="math inline">\(n \times 1\)</span> matrix.</p>
+<p>At times it might be easier to use vector notation. For consistency I will use the bold small x to denote a vector and capital letters to denote a matrix. Single observations are denoted by the subscript.</p>
+</div>
+<div id="least-squares" class="section level2">
+<h2>Least squares</h2>
+<p><strong>Start</strong>:<br />
+<span class="math display">\[Y_i = X&#39;_i \beta + u_i\]</span></p>
+<p><strong>Assumptions</strong>:<br />
+1. Linearity (given above)<br />
+2. <span class="math inline">\(E(\mathbf{U}|\mathbf{X}) = 0\)</span> (conditional independence)<br />
+3. rank(<span class="math inline">\(\mathbf{X}\)</span>) = <span class="math inline">\(k\)</span> (no multi-collinearity i.e. full rank)<br />
+4. <span class="math inline">\(Var(\mathbf{U}|\mathbf{X}) = \sigma^2 I_n\)</span> (Homoskedascity)</p>
+<p><strong>Aim</strong>:<br />
+Find <span class="math inline">\(\beta\)</span> that minimises sum of squared errors: <span class="math display">\[\begin{equation}
+Q = \sum_{i=1}^{n}{u_i^2} = \sum_{i=1}^{n}{(y_i - \mathbf{x}&#39;_i\beta)^2} = (Y-X\beta)&#39;(Y-X\beta)
+\end{equation}\]</span></p>
+<p><strong>Solution</strong>:<br />
+Hints: end result needs to be <span class="math inline">\(1 \times 1\)</span>, by symmetry <span class="math inline">\(\frac{\partial b&#39;Ab}{\partial b} = 2Ab\)</span> Take matrix derivative w.r.t <span class="math inline">\(\beta\)</span>: <span class="math display">\[\begin{align*}
+\min Q &amp;= \min_{\beta} \mathbf{Y}&#39;\mathbf{Y} - 2\beta&#39;\mathbf{X}&#39;\mathbf{Y} +
+\beta&#39;\mathbf{X}&#39;\mathbf{X}\beta \\
+&amp;= \min_{\beta} - 2\beta&#39;\mathbf{X}&#39;\mathbf{Y} + \beta&#39;\mathbf{X}&#39;\mathbf{X}\beta \\
+\text{[FOC]}~~~0 &amp;=  - 2\mathbf{X}&#39;\mathbf{Y} + 2\mathbf{X}&#39;\mathbf{X}\hat{\beta} \\
+\hat{\beta} &amp;= (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{Y} \\
+&amp;= (\sum^{n} x_i x&#39;_i)^{-1} \sum^{n} x_i y_i
+\end{align*}\]</span></p>
+<p><strong>Notes</strong>:<br />
+1. <span class="math inline">\(\hat{\beta}\)</span> is a linear estimator. It can be written in the form <span class="math inline">\(b=AY\)</span> where <span class="math inline">\(A\)</span> only depends on <span class="math inline">\(X\)</span> but not <span class="math inline">\(Y\)</span>.<br />
+2. Under assumptions 1-3, the estimator is unbiased. Use Law of Iterated expectations to prove.<br />
+3. If we add the homoskedascity assumption, the OLS estimator is the Best Linear Unbiased Estimator (BLUE) i.e. smallest variance among other linear and unbiased estimators or <span class="math inline">\(Var(b|\mathbf{X}) - Var(\hat{\beta}|\mathbf{X})\)</span> is p.s.d.<br />
+4. If errors are normally distributed then the estimator is also normally distributed.</p>
+<p><strong>Additional Comments</strong>:<br />
+1. It is almost impossible for any real life data to satisfy the above assumptions, an exception is when <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are jointly normal but that is a stretch to belief.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>The popularity and limitations of the simple OLS regression has spawn so many related techniques that are the subject of numerous research papers by themselves.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
