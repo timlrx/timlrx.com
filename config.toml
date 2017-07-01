@@ -20,8 +20,8 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     url = "/about/"
     weight = 2
 [[menu.main]]
-    name = "Vancouver"
-    url = "page/vancouver/"
+    name = "SG-Dashboard"
+    url = "dashboard/sg-dashboard/"
     weight = 3
 [[menu.main]]
     name = "Categories"
