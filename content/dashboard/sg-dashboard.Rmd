@@ -5,6 +5,7 @@ title: "SG-Dashboard"
 ###Date: `r format(Sys.time(), '%d %B, %Y')`
 
 ```{r global_options, include=FALSE}
+### Change cache=FALSE when updating
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=TRUE)
 ```
 
@@ -213,7 +214,7 @@ change_emp_year <- ytd_emp %>%
   geom_col(aes(y = change_emp, fill = year),  
            position = position_stack(reverse = TRUE)) +
   coord_flip() +
-  ylab("Change in Employment Relative to 2011 (thousands)") +
+  ylab("Change in Employment (thousands)") +
   xlab("Industry") +
   scale_y_continuous(breaks=c(-40,-20,0,20,40,60,80,100)) +
   theme_classic() 
