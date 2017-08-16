@@ -1,0 +1,112 @@
+---
+title: Notes on Regression - OLS
+author: Timothy Lin
+date: '2017-08-16'
+slug: notes-on-regression-ols
+categories: []
+tags: ["regression", "ols", "notes"]
+subtitle: ''
+---
+
+
+
+<p>This post is the first in a series of my study notes on regression techniques. I first learnt about regression as a way of fitting a line through a series of points. Invoke some assumptions and one obtains the relationship between two variables. Simple…or so I thought. Through the course of my study, I developed a deeper appreciation of its nuances which I hope to elucidate in these set of notes.</p>
+<p>Aside: The advancements in regression analysis, since it was introduced by Gauss in the early 19th century, is an interesting case study of the development of applied mathematics. The method remains roughly the same, but advances in other related fields (linear algebra, statistics) and applied econometrics helped clarify the assumptions used and elevate its status in modern applied research.</p>
+<p>In this review, I shall focus on the ordinary linear regression (OLS) and omit treatment of its many descendants.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> Let’s start at the source and cover regression as a solution to the least squares minimisation problem, before going to deeper waters!</p>
+<div id="preliminaries-notation" class="section level2">
+<h2>Preliminaries / Notation</h2>
+<p>Using matrix notation, let <span class="math inline">\(n\)</span> denote the number of observations and <span class="math inline">\(k\)</span> denote the number of regressors.</p>
+<p>The vector of outcome variables <span class="math inline">\(\mathbf{Y}\)</span> is a <span class="math inline">\(n \times 1\)</span> matrix, <span class="math display">\[\mathbf{Y} = \left[\begin{array}
+{c}
+y_1 \\
+. \\
+. \\
+. \\
+y_n
+\end{array}\right]
+\]</span></p>
+<p>The matrix of regressors <span class="math inline">\(\mathbf{X}\)</span> is a <span class="math inline">\(n \times k\)</span> matrix (or each row is a <span class="math inline">\(k \times 1\)</span> vector), <span class="math display">\[\mathbf{X} = \left[\begin{array}
+{ccccc}
+x_{11} &amp; . &amp; . &amp; . &amp; x_{1k} \\
+. &amp; . &amp; . &amp; . &amp; .  \\
+. &amp; . &amp; . &amp; . &amp; .  \\
+. &amp; . &amp; . &amp; . &amp; .  \\
+x_{n1} &amp; . &amp; . &amp; . &amp; x_{nn} 
+\end{array}\right] =
+\left[\begin{array}
+{c}
+\mathbf{x}&#39;_1 \\
+. \\
+. \\
+. \\
+\mathbf{x}&#39;_n
+\end{array}\right]
+\]</span> The vector of error terms <span class="math inline">\(\mathbf{U}\)</span> is also a <span class="math inline">\(n \times 1\)</span> matrix.</p>
+<p>At times it might be easier to use vector notation. For consistency I will use the bold small x to denote a vector and capital letters to denote a matrix. Single observations are denoted by the subscript.</p>
+</div>
+<div id="least-squares" class="section level2">
+<h2>Least Squares</h2>
+<p><strong>Start</strong>:<br />
+<span class="math display">\[y_i = \mathbf{x}&#39;_i \beta + u_i\]</span></p>
+<p><strong>Assumptions</strong>:<br />
+1. Linearity (given above)<br />
+2. <span class="math inline">\(E(\mathbf{U}|\mathbf{X}) = 0\)</span> (conditional independence)<br />
+3. rank(<span class="math inline">\(\mathbf{X}\)</span>) = <span class="math inline">\(k\)</span> (no multi-collinearity i.e. full rank)<br />
+4. <span class="math inline">\(Var(\mathbf{U}|\mathbf{X}) = \sigma^2 I_n\)</span> (Homoskedascity)</p>
+<p><strong>Aim</strong>:<br />
+Find <span class="math inline">\(\beta\)</span> that minimises sum of squared errors: <span class="math display">\[
+Q = \sum_{i=1}^{n}{u_i^2} = \sum_{i=1}^{n}{(y_i - \mathbf{x}&#39;_i\beta)^2} = (Y-X\beta)&#39;(Y-X\beta)
+\]</span></p>
+<p><strong>Solution</strong>:<br />
+Hints: <span class="math inline">\(Q\)</span> is a <span class="math inline">\(1 \times 1\)</span> scalar, by symmetry <span class="math inline">\(\frac{\partial b&#39;Ab}{\partial b} = 2Ab\)</span>.</p>
+<p>Take matrix derivative w.r.t <span class="math inline">\(\beta\)</span>: <span class="math display">\[
+\begin{aligned}
+\min Q &amp;= \min_{\beta} \mathbf{Y}&#39;\mathbf{Y} - 2\beta&#39;\mathbf{X}&#39;\mathbf{Y} +
+\beta&#39;\mathbf{X}&#39;\mathbf{X}\beta \\
+&amp;= \min_{\beta} - 2\beta&#39;\mathbf{X}&#39;\mathbf{Y} + \beta&#39;\mathbf{X}&#39;\mathbf{X}\beta \\
+\text{[FOC]}~~~0 &amp;=  - 2\mathbf{X}&#39;\mathbf{Y} + 2\mathbf{X}&#39;\mathbf{X}\hat{\beta} \\
+\hat{\beta} &amp;= (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{Y} \\
+&amp;= (\sum^{n} \mathbf{x}_i \mathbf{x}&#39;_i)^{-1} \sum^{n} \mathbf{x}_i y_i
+\end{aligned}
+\]</span></p>
+<p><strong>Notes</strong>:<br />
+1. <span class="math inline">\(\hat{\beta}\)</span> is a linear estimator i.e. it can be written in the form <span class="math inline">\(b=AY\)</span> where <span class="math inline">\(A\)</span> only depends on <span class="math inline">\(X\)</span> but not <span class="math inline">\(Y\)</span>.<br />
+2. Under assumptions 1-3, the estimator is unbiased. Substituting <span class="math inline">\(y_{i}\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(\hat{\beta}|\mathbf{X}) &amp;= \beta + E((\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;U|X) \\
+&amp;= \beta + (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;E(U|X) \\
+&amp;= \beta
+\end{aligned}
+\]</span></p>
+<p>By law of iterated expectation <span class="math inline">\(E(\hat{\beta}) = EE(\hat{\beta}|\mathbf{X}) = \beta\)</span><br />
+3. Adding in the homoskedascity assumption, the OLS estimator is the Best Linear Unbiased Estimator (BLUE) i.e. smallest variance among other linear and unbiased estimators or <span class="math inline">\(Var(b|\mathbf{X}) - Var(\hat{\beta}|\mathbf{X})\)</span> is p.s.d.<br />
+4. If the errors are normally distributed then conditional on <span class="math inline">\(\mathbf{X}\)</span>, <span class="math inline">\(\hat{\beta}\)</span> is also normally distributed.</p>
+</div>
+<div id="large-sample-properties" class="section level2">
+<h2>Large Sample Properties</h2>
+<p>It is almost impossible for any real life data to satisfy the above assumptions, an exception is when <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are jointly normal but that is a stretch to belief. To get around this issue, one can replace assumption 2 (conditional independence) with a weaker assumption: <span class="math inline">\(E(u_{i}\mathbf{x_{i}}) = 0\)</span> (weak exogeneity). Under this weaker assumption, the estimator is no longer unbiased.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> One must appeal to large sample theory to draw any meaningful results. More specifically, we use the idea of convergence in probability and weak law of large numbers to show that the estimator is consistent.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+<p><strong>Assumptions</strong>:<br />
+1. Linearity<br />
+2. <span class="math inline">\(E(u_{i}\mathbf{x_{i}}) = 0\)</span> (weak exogeneity)<br />
+3. <span class="math inline">\((y_{i},\mathbf{x}_{i})\)</span> are i.i.d<br />
+4. <span class="math inline">\(E(\mathbf{x}_{i}\mathbf{x}_{i}&#39;)\)</span> is p.s.d<br />
+5. <span class="math inline">\(Ex^{4}_{i,j} &lt; \infty\)</span><br />
+6. <span class="math inline">\(Eu^{4}_{i} &lt; \infty\)</span><br />
+7. <span class="math inline">\(Eu^{2}_{i}\mathbf{x}_{i}\mathbf{x}_{i}&#39;\)</span> is p.s.d</p>
+<p><strong>Notes</strong>:<br />
+1. <span class="math inline">\(\hat{\beta}_{n}\)</span> is consistent since <span class="math inline">\(\hat{\beta}_{n} \rightarrow_{p} \beta\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a><br />
+2. Large sample assumptions 3 and 4 are needed to establish convergence in probability: <span class="math display">\[
+\hat{\beta}_{n} = \beta +(\frac{1}{n} \sum^{n} \mathbf{x}_i \mathbf{x}&#39;_i)^{-1} \frac{1}{n}\sum^{n} \mathbf{x}_i u_i
+\]</span> Use the fact that <span class="math inline">\(\frac{1}{n} \sum^{n} \mathbf{x}_i \mathbf{x}&#39;_i \rightarrow_{p} E(\mathbf{x}_{i}\mathbf{x}_{i}&#39;)\)</span> while <span class="math inline">\(\frac{1}{n} \sum^{n} \mathbf{x}_i u_i \rightarrow_{p} E(u_{i}\mathbf{x_{i}}) = 0\)</span> to prove consistency.<br />
+3. Large sample assumptions 1-7 are used to prove asymptotic normality of the estimator.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>The popularity and limitations of the simple OLS regression has spawn many related techniques that are the subject of numerous research papers by themselves.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Recall that unbiasedness requires conditional independence to hold but uncorrelatedness does not imply conditional independence.<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Similarly, the central limit theorem is used to establish convergence in distribution which is needed for statistical inference.<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p><span class="math inline">\(\beta\)</span> is denoted with a subscript n to signify that it is a function of the sample size.<a href="#fnref4">↩</a></p></li>
+</ol>
+</div>
