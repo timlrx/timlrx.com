@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Quasilinear Musings</title>
+    <link>https://timlrx.github.io/page/</link>
+    <description>Recent content in Pages on Quasilinear Musings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
+    <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
+    <lastBuildDate>Sun, 07 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://timlrx.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vancouver</title>
+      <link>https://timlrx.github.io/page/vancouver/</link>
+      <pubDate>Sun, 07 May 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/page/vancouver/</guid>
+      <description>Playing around with shortcode - Does this work?
+  T t foreign born stock
+      T t maps 2012 india china
+      T t maps fb1970 2012
+      Pic 1
+      Pic 2
+     bigimg: [{src: &amp;ldquo;/img/pic_1.jpg&amp;rdquo;, desc: &amp;ldquo;Fall&amp;rdquo;}, {src: &amp;ldquo;/img/pic_2.jpg&amp;rdquo;, desc: &amp;ldquo;Winter&amp;rdquo;}]</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://timlrx.github.io/page/mig_cons_slides/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/page/mig_cons_slides/</guid>
+      <description>The Effect of Migrant Diversity on Household’s Consumption Patternscode{white-space: pre;}The Effect of Migrant Diversity on Household’s Consumption PatternsTimothy Lin6 July 2017
+Background &amp;amp; MotivationThe share of foreign born in the U.S. has seen a sharp increase from 1970 to 2010Background &amp;amp; MotivationThere is also substantial variation in the diversity and intensity of migrant inflow across countiesHow do these settlement patterns shape local communities and preferences?</description>
+    </item>
+    
+  </channel>
+</rss>

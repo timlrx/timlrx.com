@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Thesis Thursday 4 - Analysing Recipes</title>
+  <meta property="og:title" content="Thesis Thursday 4 - Analysing Recipes" />
+  <meta name="twitter:title" content="Thesis Thursday 4 - Analysing Recipes" />
+  <meta name="description" content="One of the main component of my thesis is a mapping from consumers’ purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. I have briefly discussed the issue in the introductory post but have made significant progress on this front that I think is worth sharing.
+The recipe datasetThis recipe dataset was created by scraping recipes from allrecipes.com that are tagged to particular region or country.">
+  <meta property="og:description" content="One of the main component of my thesis is a mapping from consumers’ purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. I have briefly discussed the issue in the introductory post but have made significant progress on this front that I think is worth sharing.
+The recipe datasetThis recipe dataset was created by scraping recipes from allrecipes.com that are tagged to particular region or country.">
+  <meta name="twitter:description" content="One of the main component of my thesis is a mapping from consumers’ purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. …">
+  <meta name="author" content="Timothy Lin"/>
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Quasilinear Musings" />
+
+  <meta name="generator" content="Hugo 0.20.7" />
+  <link rel="canonical" href="https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/" />
+  <link rel="alternate" href="https://timlrx.github.io/index.xml" type="application/rss+xml" title="Quasilinear Musings">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://timlrx.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://timlrx.github.io/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://timlrx.github.io/css/highlight.min.css" />
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-100201704-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://timlrx.github.io/">Quasilinear Musings</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="../../../../post/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="../../../../about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="../../../../categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="../../../../tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Thesis Thursday 4 - Analysing Recipes</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on June 24, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>One of the main component of my thesis is a mapping from consumers’ purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. I have briefly discussed the issue in the <a href="https://timlrx.github.io/2017/06/02/thesis-thursday-introduction/">introductory post</a> but have made significant progress on this front that I think is worth sharing.</p>
+<div id="the-recipe-dataset" class="section level3">
+<h3>The recipe dataset</h3>
+<p>This recipe dataset was created by scraping recipes from allrecipes.com that are tagged to particular region or country. For each recipe, I collected information on the ingredients used, as well as other interesting but less immediately relevant characteristics like recipe time, servings, calories, number of reviews and ratings. After some simple data cleaning I am left with a collection of about 6000 recipes. I edited the geographical region tagged to each recipe to be consistent with the level of aggregation I have in the U.S. census.</p>
+</div>
+<div id="a-first-look" class="section level3">
+<h3>A first look</h3>
+<p>Let us explore the dataset to pick up some trends and characteristics. I normally like to produce some simple summary statistics to get a better understanding of the data I have on hand.</p>
+<pre class="r"><code>cols &lt;- c(&quot;recipe_time&quot;, &quot;recipe_calorie&quot;, &quot;recipe_reviews&quot;,
+          &quot;recipe_stars&quot;, &quot;num_ingr&quot;)
+
+stargazer(recipe_df[recipe_df$recipe_reviews&gt;1, cols],
+          type= &quot;html&quot;,
+          title = &quot;Summary Statistics of Allrecipe Data (Reviews &gt; 1)&quot;,
+          summary.stat = c(&quot;min&quot;, &quot;p25&quot;, &quot;median&quot;, &quot;p75&quot;, &quot;max&quot;, &quot;mean&quot;, &quot;sd&quot;),
+          digits=2,
+          flip=T)</code></pre>
+<table style="text-align:center">
+<caption>
+<strong>Summary Statistics of Allrecipe Data (Reviews &gt; 1)</strong>
+</caption>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Statistic
+</td>
+<td>
+recipe_time
+</td>
+<td>
+recipe_calorie
+</td>
+<td>
+recipe_reviews
+</td>
+<td>
+recipe_stars
+</td>
+<td>
+num_ingr
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Min
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+1.33
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Pctl(25)
+</td>
+<td>
+30
+</td>
+<td>
+179
+</td>
+<td>
+10
+</td>
+<td>
+4.15
+</td>
+<td>
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Median
+</td>
+<td>
+55
+</td>
+<td>
+306.5
+</td>
+<td>
+29
+</td>
+<td>
+4.43
+</td>
+<td>
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Pctl(75)
+</td>
+<td>
+100
+</td>
+<td>
+466
+</td>
+<td>
+110
+</td>
+<td>
+4.60
+</td>
+<td>
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Max
+</td>
+<td>
+1,035
+</td>
+<td>
+3,274
+</td>
+<td>
+10,644
+</td>
+<td>
+5.00
+</td>
+<td>
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Mean
+</td>
+<td>
+98.20
+</td>
+<td>
+343.91
+</td>
+<td>
+124.26
+</td>
+<td>
+4.33
+</td>
+<td>
+10.01
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+St. Dev.
+</td>
+<td>
+129.92
+</td>
+<td>
+227.41
+</td>
+<td>
+336.04
+</td>
+<td>
+0.41
+</td>
+<td>
+4.02
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</table>
+<p>Next, let us take a look at the distribution of ratings across the dataset.</p>
+<pre class="r"><code>ggplot(recipe_df, aes(x = recipe_stars)) + geom_density() + theme_classic()</code></pre>
+<div class="figure"><span id="fig:stardensity"></span>
+<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/stardensity-1.png" alt="Density plot of number of stars a recipe is rated" width="672" />
+<p class="caption">
+Figure 1: Density plot of number of stars a recipe is rated
+</p>
+</div>
+<p>Not surprisingly, people who leave a rating tend to be on the generous side. The median recipe score is 4.4. There are also quite a significant fraction of recipes without any reviews. The distribution of reviews is closer to a pareto distribution or log-normal.</p>
+<pre class="r"><code>ggplot(recipe_df, aes(x=ln_recipe_reviews)) + geom_density() + theme_classic()</code></pre>
+<div class="figure"><span id="fig:reviewsdensity"></span>
+<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/reviewsdensity-1.png" alt="Density plot of log recipe reviews" width="672" />
+<p class="caption">
+Figure 2: Density plot of log recipe reviews
+</p>
+</div>
+<p>Do recipes with more reviews score better? Apparently so.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<pre class="r"><code>ggplot(recipe_df, aes(y=recipe_stars, x=ln_recipe_reviews)) + geom_point() + theme_classic()</code></pre>
+<div class="figure"><span id="fig:reviewsstar"></span>
+<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/reviewsstar-1.png" alt="Plot of recipe rating on log reviews" width="672" />
+<p class="caption">
+Figure 3: Plot of recipe rating on log reviews
+</p>
+</div>
+</div>
+<div id="text-analysis" class="section level3">
+<h3>Text analysis</h3>
+<p>Now for the fun part - an analysis on the ingredients used. I will skip over the slightly tedious data cleaning procedures used to transform the recipe dataset to a coherent list of words associated with each geographical region / country.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>Let us take a look at the most common ingredient related words used across all recipes.</p>
+<pre class="r"><code>tidy_recipe %&gt;%
+  count(word, sort = TRUE) %&gt;%
+  filter(n &gt; 1500) %&gt;%
+  mutate(word = reorder(word, n)) %&gt;%
+  ggplot(aes(word, n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip() +
+  theme_classic()</code></pre>
+<div class="figure"><span id="fig:commonwords"></span>
+<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/commonwords-1.png" alt="List of common words" width="672" />
+<p class="caption">
+Figure 4: List of common words
+</p>
+</div>
+<p>Salt and pepper comes up on top. White and black ranks highly too. These words are normally used to describe certain ingredients (e.g. white pepper, white flour).<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> Next, we can compare the frequency of words used in recipes from two different countries.</p>
+<pre class="r"><code>frequency &lt;- tidy_recipe %&gt;%
+             count(geog, word) %&gt;%
+             group_by(geog) %&gt;%
+             mutate(proportion = n / sum(n)) %&gt;%
+             select(-n) %&gt;%
+             ungroup() %&gt;%
+             dcast(word ~ geog)
+
+ggplot(frequency, aes(x = France, y = China)) +
+  geom_abline(color = &quot;gray40&quot;, lty = 2) +
+  geom_text(aes(label = word), check_overlap = TRUE, vjust = 1.5) +
+  scale_x_log10(labels = percent_format()) +
+  scale_y_log10(labels = percent_format()) +
+  theme_classic() +
+  theme(legend.position=&quot;none&quot;)</code></pre>
+<div class="figure"><span id="fig:freq"></span>
+<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/freq-1.png" alt="Comparison of words used in recipes tagged with France and China" width="672" />
+<p class="caption">
+Figure 5: Comparison of words used in recipes tagged with France and China
+</p>
+</div>
+<p>Observations at the top right are ingredients which are commonly used across both recipe groups while those at the bottom left are rarely used. The results are in line with my prior expectations - chinese recipes use rice, soy and sesame a lot more frequently, while french recipes tend to feature dairy ingredients more prominently.</p>
+<p>To summarise the similarity between recipes from different regions, we can calculate the correlation between the frequency of words used across regions.</p>
+<pre class="r"><code>temp &lt;- cbind(frequency$China, frequency$India, frequency$France, frequency$Italy, frequency$Japan)
+colnames(temp) &lt;- c(&quot;China&quot;, &quot;India&quot;, &quot;France&quot;, &quot;Italy&quot;, &quot;Japan&quot;)
+cor_matrix &lt;- cor(temp, use=&quot;pairwise.complete.obs&quot;)
+stargazer(cor_matrix, type=&quot;html&quot;,
+          title=&quot;Country correlation matrix&quot;)</code></pre>
+<table style="text-align:center">
+<caption>
+<strong>Country correlation matrix</strong>
+</caption>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+China
+</td>
+<td>
+India
+</td>
+<td>
+France
+</td>
+<td>
+Italy
+</td>
+<td>
+Japan
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+China
+</td>
+<td>
+1
+</td>
+<td>
+0.649
+</td>
+<td>
+0.582
+</td>
+<td>
+0.539
+</td>
+<td>
+0.837
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+India
+</td>
+<td>
+0.649
+</td>
+<td>
+1
+</td>
+<td>
+0.622
+</td>
+<td>
+0.623
+</td>
+<td>
+0.571
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+France
+</td>
+<td>
+0.582
+</td>
+<td>
+0.622
+</td>
+<td>
+1
+</td>
+<td>
+0.726
+</td>
+<td>
+0.583
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Italy
+</td>
+<td>
+0.539
+</td>
+<td>
+0.623
+</td>
+<td>
+0.726
+</td>
+<td>
+1
+</td>
+<td>
+0.503
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Japan
+</td>
+<td>
+0.837
+</td>
+<td>
+0.571
+</td>
+<td>
+0.583
+</td>
+<td>
+0.503
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</table>
+<p>That is about it for an exploratory analysis of the recipe dataset. I plan on using it as a word corpus. By mapping product information to the relative frequency of words used, I would be able to construct a measure of product to country similarity and finally a country weighted expenditure basket.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Of course one cannot conclude the direction of causality. It could be the case that truly better recipes are rated more highly and also receive more reviews. One could also argue that more highly rated recipes receive more reviews or even recipes with more reviews tend to appear better attracting higher scores.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Basically, this involves cleaning up the text field and removing words not related to ingredients such as cooking procedures and measurement terms. Subsequently, I tokenise the entire list of ingredients such that each word is an observation by itself.<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>In my research I consider both single words and bi-grams (two words) to get better accuracy on matching.<a href="#fnref3">↩</a></p></li>
+</ol>
+</div>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://timlrx.github.io/2017/06/23/thesis-thursday-3-model-and-methodology/" data-toggle="tooltip" data-placement="top" title="Thesis Thursday 3 - Model and Methodology">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="https://timlrx.github.io/2017/07/01/thesis-thursday-5-from-recipes-to-weights/" data-toggle="tooltip" data-placement="top" title="Thesis Thursday 5 - From recipes to weights">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:timothy.lin@alumni.ubc.ca" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/timlrx" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/timothy-lin-0600ba141" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://timlrx.github.io/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Timothy Lin
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://timlrx.github.io/">Quasilinear Musings</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.20.7</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://timlrx.github.io/js/main.js"></script>
+<script src="https://timlrx.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+  </body>
+</html>
+

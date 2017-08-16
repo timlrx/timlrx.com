@@ -1,5 +1,5 @@
 baseurl = "https://timlrx.github.io/"
-publishDir = "C:/Users/Timothy Lin/Documents/Repo/timlrx.github.io.git"
+publishDir = "./public"
 relativeurls = true
 languageCode = "en-us"
 title = "Quasilinear Musings"

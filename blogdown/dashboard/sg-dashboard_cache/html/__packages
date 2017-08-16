@@ -1,0 +1,7 @@
+base
+dplyr
+reshape2
+ggplot2
+gridExtra
+knitr
+kableExtra

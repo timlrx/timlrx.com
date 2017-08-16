@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quasilinear Musings</title>
+    <link>https://timlrx.github.io/</link>
+    <description>Recent content on Quasilinear Musings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
+    <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
+    <lastBuildDate>Wed, 16 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://timlrx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Notes on Regression - OLS</title>
+      <link>https://timlrx.github.io/2017/08/16/notes-on-regression-ols/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/08/16/notes-on-regression-ols/</guid>
+      <description>This post is the first in a series of my study notes on regression techniques. I first learnt about regression as a way of fitting a line through a series of points. Invoke some assumptions and one obtains the relationship between two variables. Simple…or so I thought. Through the course of my study, I developed a deeper appreciation of its nuances which I hope to elucidate in these set of notes.</description>
+    </item>
+    
+    <item>
+      <title>Update on the SG Economic Dashboard</title>
+      <link>https://timlrx.github.io/2017/08/15/update-on-the-sg-economic-dashboard/</link>
+      <pubDate>Tue, 15 Aug 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/08/15/update-on-the-sg-economic-dashboard/</guid>
+      <description>I have updated the SG-Dashboard with 2Q 2017 numbers. I also took the opportunity to add in a few new tables and charts. There is a new table that keeps track of value-added (VA) revisions of last quarter’s result. VA for certain industries such as construction are approximated based on early indicators and the actual numbers take a quarter or more to stream in. It is also interesting to see the actual economic performance and whether it matches up to the narrative of last quarter’s release.</description>
+    </item>
+    
+    <item>
+      <title>Thesis Thursday 6 - The Final Stretch</title>
+      <link>https://timlrx.github.io/2017/07/20/thesis-thursday-6-the-final-stretch/</link>
+      <pubDate>Thu, 20 Jul 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/07/20/thesis-thursday-6-the-final-stretch/</guid>
+      <description>Since my presentation about two weeks ago, I have been working on incorporating some of the suggestions and performing additional robustness tests. The updated version of the slides can be found here.
+A recap of the key results - I find a positive correlation between the foreign-born and consumption shares within U.S. counties but this result does not hold across Asian countries. In fact, an increase in foreign-born share led to a decline in consumption of Asian-related consumer packaged goods.</description>
+    </item>
+    
+    <item>
+      <title>Thesis Thursday 5 - From recipes to weights</title>
+      <link>https://timlrx.github.io/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</guid>
+      <description>In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
+TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
+\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&amp;#39;\in d}f_{t&amp;#39;,d}} \cdot log \frac{N}{n_{t}+1}\] where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.</description>
+    </item>
+    
+    <item>
+      <title>Thesis Thursday 4 - Analysing Recipes</title>
+      <link>https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/</link>
+      <pubDate>Sat, 24 Jun 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/</guid>
+      <description>One of the main component of my thesis is a mapping from consumers’ purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. I have briefly discussed the issue in the introductory post but have made significant progress on this front that I think is worth sharing.
+The recipe datasetThis recipe dataset was created by scraping recipes from allrecipes.com that are tagged to particular region or country.</description>
+    </item>
+    
+    <item>
+      <title>Thesis Thursday 3 - Model and Methodology</title>
+      <link>https://timlrx.github.io/2017/06/23/thesis-thursday-3-model-and-methodology/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/06/23/thesis-thursday-3-model-and-methodology/</guid>
+      <description>This week’s Thesis Thursday will be a two part special, partly to make up for last week’s missing post. I also want to take the opportunity to document some thoughts and progress. This post is arguably the more technical of the two and focuses on issues relating to the model and methodology of my paper. In the subsequent post I plan to document some analysis on the recipe dataset which I think is very interesting (maybe even more so then the actual thesis itself).</description>
+    </item>
+    
+    <item>
+      <title>Binscatter for R</title>
+      <link>https://timlrx.github.io/2017/06/11/binscatter-for-r/</link>
+      <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/06/11/binscatter-for-r/</guid>
+      <description>I was trying to find an R package that provides features similar to Stata’s binscatter user written program but there does not appear to be any good substitutes around. Hence, I decided to write a function that replicates it in R. Turns out it actually took longer than I thought and there are still many bugs to fix but the developmental version is worth sharing. It can be downloaded from my Github page.</description>
+    </item>
+    
+    <item>
+      <title>Thesis Thursday #2</title>
+      <link>https://timlrx.github.io/2017/06/09/thesis-thursday-2/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/06/09/thesis-thursday-2/</guid>
+      <description>Over the past week I made a few detours and explored other options that yielded little. On the positive side, I managed to merge and clean most of the datasets and started generating some descriptive statistics to get a better understanding of the data.
+Migration to the U.S. Let us take a look at U.S. migration patterns from 1970 to 2012.1 I use the share of foreign born as surveyed in the decennial census and American Community Survey as a proxy for migration trends.</description>
+    </item>
+    
+    <item>
+      <title>Thesis Thursday - Introduction</title>
+      <link>https://timlrx.github.io/2017/06/02/thesis-thursday-introduction/</link>
+      <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/06/02/thesis-thursday-introduction/</guid>
+      <description>I decided to document my progress on my masters thesis as a weekly Thursday special. Hopefully I would have enough materials or progress to continue the weekly post but this should also give me some motivation to work on it. I find the process of writing also useful to think through some ideas more carefully. This week I will be introducing the idea of my research project, the data I will be using and some issues I am trying to solve.</description>
+    </item>
+    
+    <item>
+      <title>Scraping SG&#39;s GDP data using SingStat&#39;s API</title>
+      <link>https://timlrx.github.io/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</link>
+      <pubDate>Wed, 31 May 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</guid>
+      <description>I have been trying to catch-up on the latest release of Singapore’s economic results. Unfortunately, the official press release or media reports are not very useful. They either contain too much irrelevant information or not enough details for my liking. Maybe I just like looking at the numbers and letting the figures speak for themselves. Hence, I decided to obtain the data from the official SingStat’s Table Builder website.</description>
+    </item>
+    
+    <item>
+      <title>And so it ends</title>
+      <link>https://timlrx.github.io/2017/05/18/and-so-it-ends/</link>
+      <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/05/18/and-so-it-ends/</guid>
+      <description>And so it ends with ivregress 2sls y (x=z),
+the last line of my do file reads.
+Competition promotes efficiency, maximises welfare,
+the official doctrine proclaims.
+So took the chance I did.
+Hyperplanes, Hamiltonians and more contrived jargon,
+the beauty of the abstractness.
+Yet the triviality of it all.
+He who roll the dice should be prepared to pay its price,
+the lesson from the probability gods.
+But at least it is unbiased?</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://timlrx.github.io/2017/05/15/hello-world/</link>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/2017/05/15/hello-world/</guid>
+      <description>I have been toying with the idea of starting up a new blog for quite a while but school has kept me occupied and the plans were constantly pushed back. Last year, I explored the possibility of using a wordpress system but it just seems too much of a trouble to incorporate all the features I wanted. The recently introduced blogdown R package, which this website is built on, seems like a perfect solution.</description>
+    </item>
+    
+    <item>
+      <title>Vancouver</title>
+      <link>https://timlrx.github.io/page/vancouver/</link>
+      <pubDate>Sun, 07 May 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/page/vancouver/</guid>
+      <description>Playing around with shortcode - Does this work?
+  T t foreign born stock
+      T t maps 2012 india china
+      T t maps fb1970 2012
+      Pic 1
+      Pic 2
+     bigimg: [{src: &amp;ldquo;/img/pic_1.jpg&amp;rdquo;, desc: &amp;ldquo;Fall&amp;rdquo;}, {src: &amp;ldquo;/img/pic_2.jpg&amp;rdquo;, desc: &amp;ldquo;Winter&amp;rdquo;}]</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://timlrx.github.io/page/mig_cons_slides/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/page/mig_cons_slides/</guid>
+      <description>The Effect of Migrant Diversity on Household’s Consumption Patternscode{white-space: pre;}The Effect of Migrant Diversity on Household’s Consumption PatternsTimothy Lin6 July 2017
+Background &amp;amp; MotivationThe share of foreign born in the U.S. has seen a sharp increase from 1970 to 2010Background &amp;amp; MotivationThere is also substantial variation in the diversity and intensity of migrant inflow across countiesHow do these settlement patterns shape local communities and preferences?</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://timlrx.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/about/</guid>
+      <description>Welcome to Quasilinear Musings! I am currently a Masters student in the Vancouver School of Economics and my research interest revolves around technological change, labour markets and econometrics. You can find more information about me at my Linkedin profile.
+I plan to use this blog to document ongoing projects and share some thoughts on data analytics. The blog also provides a nice platform to share some of my works in a more accessible manner and explore the use of data to communicate ideas.</description>
+    </item>
+    
+    <item>
+      <title>SG-Dashboard</title>
+      <link>https://timlrx.github.io/dashboard/sg-dashboard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://timlrx.github.io/dashboard/sg-dashboard/</guid>
+      <description>Date: 16 August, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,7 @@
+base
+httr
+reshape2
+dplyr
+ggplot2
+plotly
+ggrepel

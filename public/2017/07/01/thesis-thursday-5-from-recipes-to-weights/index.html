@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Thesis Thursday 5 - From recipes to weights</title>
+  <meta property="og:title" content="Thesis Thursday 5 - From recipes to weights" />
+  <meta name="twitter:title" content="Thesis Thursday 5 - From recipes to weights" />
+  <meta name="description" content="In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
+TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
+\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}&#43;1}\] where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.">
+  <meta property="og:description" content="In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
+TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
+\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}&#43;1}\] where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.">
+  <meta name="twitter:description" content="In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
+TF-IDFTo obtain …">
+  <meta name="author" content="Timothy Lin"/>
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://timlrx.github.io/2017/07/01/thesis-thursday-5-from-recipes-to-weights/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Quasilinear Musings" />
+
+  <meta name="generator" content="Hugo 0.20.7" />
+  <link rel="canonical" href="https://timlrx.github.io/2017/07/01/thesis-thursday-5-from-recipes-to-weights/" />
+  <link rel="alternate" href="https://timlrx.github.io/index.xml" type="application/rss+xml" title="Quasilinear Musings">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://timlrx.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://timlrx.github.io/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://timlrx.github.io/css/highlight.min.css" />
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-100201704-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://timlrx.github.io/">Quasilinear Musings</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="../../../../post/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="../../../../about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="../../../../categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="../../../../tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Thesis Thursday 5 - From recipes to weights</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on July 1, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>In the <a href="https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/">previous post</a>, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.</p>
+<div id="tf-idf" class="section level3">
+<h3>TF-IDF</h3>
+<p>To obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:</p>
+<p><span class="math display">\[
+TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}+1}
+\]</span> where <span class="math inline">\(f_{t,d}\)</span> is the frequency in which a term, <span class="math inline">\(t\)</span>, appears in document <span class="math inline">\(d\)</span>, <span class="math inline">\(N\)</span> is the total number of documents in the corpus and <span class="math inline">\(n_{t}\)</span> is the total number of documents where term <span class="math inline">\(t\)</span> is found.</p>
+<p>The first term takes the number of times a particular word appears in a document and normalise it against the document length. This is also known as the term frequency (TF). The second term takes the logarithm of the ratio of the total number of documents divided by the frequency which the term is found across all documents in the corpus and is known as the inverse document frequency (IDF).</p>
+<p>A term associated with a particular document has a high TF-IDF score if it frequently recurs in the document and is rarely found in other documents.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> As applied in my context, ingredients take the place of terms and geographical regions, documents. One could imagine that a word like kimchi would rank very highly as it is frequently featured in Korean recipes and are rarely found (or non-existent) in other cuisines. On the other hand, common ingredients such as salt and pepper would have a TF-IDF score of 0.</p>
+<p>The <code>tidytext</code> package in R makes constructing the TF-IDF score a breeze.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> All it needs is a vector of words, associated with each particular document and the frequency which it is found in the document. The <code>bind_tf_idf</code> function does the rest.</p>
+<pre class="r"><code>geog_words &lt;- tidy_recipe %&gt;%
+  count(geog, word, sort = TRUE) %&gt;%
+  ungroup() %&gt;%
+  bind_tf_idf(word, geog, n) %&gt;%
+  arrange(desc(tf_idf))</code></pre>
+<p>Now we can do a little visualisation of the top TF-IDF scores obtained</p>
+<pre class="r"><code>plot_geog &lt;- geog_words %&gt;%
+  arrange(desc(tf_idf)) %&gt;%
+  mutate(word = factor(word, levels = rev(unique(word))))
+
+plot_geog %&gt;% 
+  top_n(20) %&gt;%
+  ggplot(aes(word, tf_idf)) +
+  geom_col() +
+  labs(x = NULL, y = &quot;tf-idf&quot;) +
+  coord_flip() +
+  theme_classic()</code></pre>
+<div class="figure"><span id="fig:topscores"></span>
+<img src="../../../../post/2017-07-01-thesis-thursday-5-from-recipes-to-weights_files/figure-html/topscores-1.png" alt="Top 20 TF-IDF scores" width="672" />
+<p class="caption">
+Figure 1: Top 20 TF-IDF scores
+</p>
+</div>
+<p>Country names dominate the top of the charts while other cuisine specific ingredients (e.g. Kimchi) also rank highly. A plot of the top 10 TF-IDF scores for selected regions also seem to produce sensible results.</p>
+<pre class="r"><code>plot_geog %&gt;% 
+  filter(geog==&quot;Italy&quot; | geog==&quot;India&quot; |
+         geog==&quot;Central_America&quot; | geog==&quot;Middle_East&quot;) %&gt;%
+  group_by(geog) %&gt;% 
+  arrange(geog, desc(tf_idf)) %&gt;%
+  top_n(10) %&gt;% 
+  ungroup %&gt;%
+  ggplot(aes(word, tf_idf, fill = geog)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = &quot;tf-idf&quot;) +
+  facet_wrap(~geog, ncol = 2, scales = &quot;free&quot;) +
+  coord_flip() +
+  theme_classic()</code></pre>
+<div class="figure"><span id="fig:ctyplot"></span>
+<img src="../../../../post/2017-07-01-thesis-thursday-5-from-recipes-to-weights_files/figure-html/ctyplot-1.png" alt="Top 10 TF-IDF scores for selected regions" width="672" />
+<p class="caption">
+Figure 2: Top 10 TF-IDF scores for selected regions
+</p>
+</div>
+<p>Subsequently, I match the TF-IDF scores for each word to the product description given by the Nielsen dataset. The scores are then normalised such that they sum up to one. This gives the metric a probabilistic interpretation, where the weight for a particular product can be thought of as the naive bayes estimate.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+<p>Using the dataset of household purchases, I am then able to calculate each household geographical region weighted expenditure share, which is the dependent variable in my regression analysis.</p>
+</div>
+<div id="other-updates" class="section level3">
+<h3>Other updates</h3>
+<p>On top of working on the actual regression analysis, I have also started collecting a 2nd set of food-region terms. Using two different data sources where the errors are quite likely uncorrelated would give me a better signal of the dependent variable, reducing problems of measurement error.</p>
+<p>The next update should be quite a big one and would bring all the previous blog posts together so stay tune (if you are following).</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>If it is found it every document <span class="math inline">\(n_{t}=N\)</span> and <span class="math inline">\(log 1 = 0\)</span><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>The <code>tm</code> package is another popular choice for text analysis.<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Interestingly, while the TF-IDF approach seems relatively intuitive and sensible, the theoretical groundings for it are far less established. Nonetheless, it has be shown to be far better than traditional naive bayes for text categorisation purposes. See <a href="http://www.cs.waikato.ac.nz/~eibe/pubs/kibriya_et_al_cr.pdf">Kibriya et.al. (2004)</a> for a comparison.<a href="#fnref3">↩</a></p></li>
+</ol>
+</div>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/" data-toggle="tooltip" data-placement="top" title="Thesis Thursday 4 - Analysing Recipes">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="https://timlrx.github.io/2017/07/20/thesis-thursday-6-the-final-stretch/" data-toggle="tooltip" data-placement="top" title="Thesis Thursday 6 - The Final Stretch">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:timothy.lin@alumni.ubc.ca" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/timlrx" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/timothy-lin-0600ba141" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://timlrx.github.io/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Timothy Lin
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://timlrx.github.io/">Quasilinear Musings</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.20.7</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://timlrx.github.io/js/main.js"></script>
+<script src="https://timlrx.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+  </body>
+</html>
+

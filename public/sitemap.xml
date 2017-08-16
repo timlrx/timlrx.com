@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/08/16/notes-on-regression-ols/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/08/15/update-on-the-sg-economic-dashboard/</loc>
+    <lastmod>2017-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/07/20/thesis-thursday-6-the-final-stretch/</loc>
+    <lastmod>2017-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</loc>
+    <lastmod>2017-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/</loc>
+    <lastmod>2017-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/06/23/thesis-thursday-3-model-and-methodology/</loc>
+    <lastmod>2017-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/06/11/binscatter-for-r/</loc>
+    <lastmod>2017-06-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/06/09/thesis-thursday-2/</loc>
+    <lastmod>2017-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/06/02/thesis-thursday-introduction/</loc>
+    <lastmod>2017-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</loc>
+    <lastmod>2017-05-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/05/18/and-so-it-ends/</loc>
+    <lastmod>2017-05-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/2017/05/15/hello-world/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/page/vancouver/</loc>
+    <lastmod>2017-05-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/page/mig_cons_slides/</loc>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/binscatter/</loc>
+    <lastmod>2017-06-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/dashboard/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/notes/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/ols/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/page/</loc>
+    <lastmod>2017-05-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/personal/</loc>
+    <lastmod>2017-05-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/post/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/r/</loc>
+    <lastmod>2017-08-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/regression/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/dashboard/sg-dashboard/</loc>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/sg-economy/</loc>
+    <lastmod>2017-08-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/singapore/</loc>
+    <lastmod>2017-08-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/</loc>
+    <lastmod>2017-06-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/thesis-thursday/</loc>
+    <lastmod>2017-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://timlrx.github.io/tags/web-scraping/</loc>
+    <lastmod>2017-06-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
