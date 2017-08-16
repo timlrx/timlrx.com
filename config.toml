@@ -1,4 +1,4 @@
-baseurl = "https://timlrx.github.io/"
+baseurl = "https://www.timlrx.com/"
 publishDir = "./public"
 relativeurls = true
 languageCode = "en-us"
