@@ -1,2 +1,2 @@
-options(blogdown.rmd = TRUE)
+options(blogdown.ext = '.Rmd')
 options(blogdown.author = 'Timothy Lin')

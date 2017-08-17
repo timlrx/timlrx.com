@@ -19,9 +19,8 @@
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</guid>
-      <description>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide to some time to reflect on what I have learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
-###On R and Stata
-I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</description>
+      <description>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
+On R and StataI decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</description>
     </item>
     
     <item>
