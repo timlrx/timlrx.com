@@ -72,10 +72,6 @@
   </url>
   
   <url>
-    <loc>https://www.timlrx.com/mig_cons_slides/</loc>
-  </url>
-  
-  <url>
     <loc>https://www.timlrx.com/about/</loc>
   </url>
   
@@ -92,11 +88,6 @@
   
   <url>
     <loc>https://www.timlrx.com/dashboard/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.timlrx.com/mig_cons_slides/</loc>
     <priority>0</priority>
   </url>
   
@@ -138,7 +129,7 @@
   
   <url>
     <loc>https://www.timlrx.com/tags/r/</loc>
-    <lastmod>2017-08-15T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -161,6 +152,12 @@
   <url>
     <loc>https://www.timlrx.com/tags/singapore/</loc>
     <lastmod>2017-08-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.timlrx.com/tags/stata/</loc>
+    <lastmod>2017-08-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

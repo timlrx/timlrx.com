@@ -19,7 +19,9 @@
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</guid>
-      <description>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide to take this time to reflect on what I have learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.</description>
+      <description>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide to some time to reflect on what I have learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
+###On R and Stata
+I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</description>
     </item>
     
     <item>
@@ -158,16 +160,6 @@ But at least it is unbiased?</description>
       Pic 1
       Pic 2
      bigimg: [{src: &amp;ldquo;/img/pic_1.jpg&amp;rdquo;, desc: &amp;ldquo;Fall&amp;rdquo;}, {src: &amp;ldquo;/img/pic_2.jpg&amp;rdquo;, desc: &amp;ldquo;Winter&amp;rdquo;}]</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://www.timlrx.com/mig_cons_slides/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/mig_cons_slides/</guid>
-      <description>The Effect of Migrant Diversity on Household’s Consumption Patternscode{white-space: pre;}The Effect of Migrant Diversity on Household’s Consumption PatternsTimothy Lin6 July 2017
-Background &amp;amp; MotivationThe share of foreign born in the U.S. has seen a sharp increase from 1970 to 2010Background &amp;amp; MotivationThere is also substantial variation in the diversity and intensity of migrant inflow across countiesHow do these settlement patterns shape local communities and preferences?</description>
     </item>
     
     <item>
