@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Personal on Quasilinear Musings</title>
-    <link>https://timlrx.github.io/tags/personal/</link>
+    <link>https://www.timlrx.com/tags/personal/</link>
     <description>Recent content in Personal on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Thu, 18 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.github.io/tags/personal/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.timlrx.com/tags/personal/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>And so it ends</title>
-      <link>https://timlrx.github.io/2017/05/18/and-so-it-ends/</link>
+      <link>https://www.timlrx.com/2017/05/18/and-so-it-ends/</link>
       <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/05/18/and-so-it-ends/</guid>
+      <guid>https://www.timlrx.com/2017/05/18/and-so-it-ends/</guid>
       <description>And so it ends with ivregress 2sls y (x=z),
 the last line of my do file reads.
 Competition promotes efficiency, maximises welfare,

@@ -12,7 +12,7 @@ subtitle: ''
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=TRUE)
 ```
 
-In the [previous post](https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/), I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus. 
+In the [previous post](https://www.timlrx.com/2017/06/24/thesis-thursday-4-analysing-recipes/), I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus. 
 
 ### TF-IDF
 

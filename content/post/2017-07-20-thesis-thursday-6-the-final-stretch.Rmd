@@ -8,7 +8,7 @@ tags: ["Thesis Thursday"]
 subtitle: ''
 ---
 
-Since my presentation about two weeks ago, I have been working on incorporating some of the suggestions and performing additional robustness tests. The updated version of the slides can be found [here](https://timlrx.github.io/page/mig_cons_slides/).
+Since my presentation about two weeks ago, I have been working on incorporating some of the suggestions and performing additional robustness tests. The updated version of the slides can be found [here](/mig_cons_slides/).
 
 A recap of the key results - I find a positive correlation between the foreign-born and consumption shares within U.S. counties but this result does not hold across Asian countries. In fact, an increase in foreign-born share led to a decline in consumption of Asian-related consumer packaged goods.
 

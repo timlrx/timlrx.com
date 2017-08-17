@@ -23,7 +23,7 @@ load(file = "C:/Users/Timothy Lin/Documents/Repo/website-hugo/datasets/tidy_reci
 ```
 
 
-One of the main component of my thesis is a mapping from consumers' purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. I have briefly discussed the issue in the [introductory post](https://timlrx.github.io/2017/06/02/thesis-thursday-introduction/) but have made significant progress on this front that I think is worth sharing. 
+One of the main component of my thesis is a mapping from consumers' purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. I have briefly discussed the issue in the [introductory post](https://www.timlrx.com/2017/06/02/thesis-thursday-introduction/) but have made significant progress on this front that I think is worth sharing. 
 
 ### The recipe dataset
 This recipe dataset was created by scraping recipes from allrecipes.com that are tagged to particular region or country. For each recipe, I collected information on the ingredients used, as well as other interesting but less immediately relevant characteristics like recipe time, servings, calories, number of reviews and ratings. After some simple data cleaning I am left with a collection of about 6000 recipes. I edited the geographical region tagged to each recipe to be consistent with the level of aggregation I have in the U.S. census.

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Regression on Quasilinear Musings</title>
-    <link>https://timlrx.github.io/tags/regression/</link>
+    <link>https://www.timlrx.com/tags/regression/</link>
     <description>Recent content in Regression on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Wed, 16 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.github.io/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.timlrx.com/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes on Regression - OLS</title>
-      <link>https://timlrx.github.io/2017/08/16/notes-on-regression-ols/</link>
+      <link>https://www.timlrx.com/2017/08/16/notes-on-regression-ols/</link>
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/08/16/notes-on-regression-ols/</guid>
+      <guid>https://www.timlrx.com/2017/08/16/notes-on-regression-ols/</guid>
       <description>This post is the first in a series of my study notes on regression techniques. I first learnt about regression as a way of fitting a line through a series of points. Invoke some assumptions and one obtains the relationship between two variables. Simple…or so I thought. Through the course of my study, I developed a deeper appreciation of its nuances which I hope to elucidate in these set of notes.</description>
     </item>
     

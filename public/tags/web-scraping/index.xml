@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web Scraping on Quasilinear Musings</title>
-    <link>https://timlrx.github.io/tags/web-scraping/</link>
+    <link>https://www.timlrx.com/tags/web-scraping/</link>
     <description>Recent content in Web Scraping on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,25 +10,25 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sat, 24 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.github.io/tags/web-scraping/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.timlrx.com/tags/web-scraping/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Thesis Thursday 4 - Analysing Recipes</title>
-      <link>https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/</link>
+      <link>https://www.timlrx.com/2017/06/24/thesis-thursday-4-analysing-recipes/</link>
       <pubDate>Sat, 24 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/</guid>
+      <guid>https://www.timlrx.com/2017/06/24/thesis-thursday-4-analysing-recipes/</guid>
       <description>One of the main component of my thesis is a mapping from consumers’ purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. I have briefly discussed the issue in the introductory post but have made significant progress on this front that I think is worth sharing.
 The recipe datasetThis recipe dataset was created by scraping recipes from allrecipes.com that are tagged to particular region or country.</description>
     </item>
     
     <item>
       <title>Scraping SG&#39;s GDP data using SingStat&#39;s API</title>
-      <link>https://timlrx.github.io/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</link>
+      <link>https://www.timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</link>
       <pubDate>Wed, 31 May 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</guid>
+      <guid>https://www.timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</guid>
       <description>I have been trying to catch-up on the latest release of Singapore’s economic results. Unfortunately, the official press release or media reports are not very useful. They either contain too much irrelevant information or not enough details for my liking. Maybe I just like looking at the numbers and letting the figures speak for themselves. Hence, I decided to obtain the data from the official SingStat’s Table Builder website.</description>
     </item>
     

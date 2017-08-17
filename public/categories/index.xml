@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Quasilinear Musings</title>
-    <link>https://timlrx.github.io/categories/</link>
+    <link>https://www.timlrx.com/categories/</link>
     <description>Recent content in Categories on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     
-	<atom:link href="https://timlrx.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.timlrx.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

@@ -2,33 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thesis Thursday on Quasilinear Musings</title>
-    <link>https://timlrx.github.io/tags/thesis-thursday/</link>
+    <link>https://www.timlrx.com/tags/thesis-thursday/</link>
     <description>Recent content in Thesis Thursday on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Thu, 20 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.github.io/tags/thesis-thursday/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.timlrx.com/tags/thesis-thursday/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Thesis Thursday 7 - Conclusion</title>
+      <link>https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</guid>
+      <description>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide to take this time to reflect on what I have learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.</description>
+    </item>
+    
+    <item>
       <title>Thesis Thursday 6 - The Final Stretch</title>
-      <link>https://timlrx.github.io/2017/07/20/thesis-thursday-6-the-final-stretch/</link>
+      <link>https://www.timlrx.com/2017/07/20/thesis-thursday-6-the-final-stretch/</link>
       <pubDate>Thu, 20 Jul 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/07/20/thesis-thursday-6-the-final-stretch/</guid>
+      <guid>https://www.timlrx.com/2017/07/20/thesis-thursday-6-the-final-stretch/</guid>
       <description>Since my presentation about two weeks ago, I have been working on incorporating some of the suggestions and performing additional robustness tests. The updated version of the slides can be found here.
 A recap of the key results - I find a positive correlation between the foreign-born and consumption shares within U.S. counties but this result does not hold across Asian countries. In fact, an increase in foreign-born share led to a decline in consumption of Asian-related consumer packaged goods.</description>
     </item>
     
     <item>
       <title>Thesis Thursday 5 - From recipes to weights</title>
-      <link>https://timlrx.github.io/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</link>
+      <link>https://www.timlrx.com/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</guid>
+      <guid>https://www.timlrx.com/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</guid>
       <description>In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
 TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
 \[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&amp;#39;\in d}f_{t&amp;#39;,d}} \cdot log \frac{N}{n_{t}+1}\] where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.</description>
@@ -36,39 +45,39 @@ TF-IDFTo obtain a measure of how unique a particular word is to given recipe ca
     
     <item>
       <title>Thesis Thursday 4 - Analysing Recipes</title>
-      <link>https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/</link>
+      <link>https://www.timlrx.com/2017/06/24/thesis-thursday-4-analysing-recipes/</link>
       <pubDate>Sat, 24 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/06/24/thesis-thursday-4-analysing-recipes/</guid>
+      <guid>https://www.timlrx.com/2017/06/24/thesis-thursday-4-analysing-recipes/</guid>
       <description>One of the main component of my thesis is a mapping from consumers’ purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. I have briefly discussed the issue in the introductory post but have made significant progress on this front that I think is worth sharing.
 The recipe datasetThis recipe dataset was created by scraping recipes from allrecipes.com that are tagged to particular region or country.</description>
     </item>
     
     <item>
       <title>Thesis Thursday 3 - Model and Methodology</title>
-      <link>https://timlrx.github.io/2017/06/23/thesis-thursday-3-model-and-methodology/</link>
+      <link>https://www.timlrx.com/2017/06/23/thesis-thursday-3-model-and-methodology/</link>
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/06/23/thesis-thursday-3-model-and-methodology/</guid>
+      <guid>https://www.timlrx.com/2017/06/23/thesis-thursday-3-model-and-methodology/</guid>
       <description>This week’s Thesis Thursday will be a two part special, partly to make up for last week’s missing post. I also want to take the opportunity to document some thoughts and progress. This post is arguably the more technical of the two and focuses on issues relating to the model and methodology of my paper. In the subsequent post I plan to document some analysis on the recipe dataset which I think is very interesting (maybe even more so then the actual thesis itself).</description>
     </item>
     
     <item>
       <title>Thesis Thursday #2</title>
-      <link>https://timlrx.github.io/2017/06/09/thesis-thursday-2/</link>
+      <link>https://www.timlrx.com/2017/06/09/thesis-thursday-2/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/06/09/thesis-thursday-2/</guid>
+      <guid>https://www.timlrx.com/2017/06/09/thesis-thursday-2/</guid>
       <description>Over the past week I made a few detours and explored other options that yielded little. On the positive side, I managed to merge and clean most of the datasets and started generating some descriptive statistics to get a better understanding of the data.
 Migration to the U.S. Let us take a look at U.S. migration patterns from 1970 to 2012.1 I use the share of foreign born as surveyed in the decennial census and American Community Survey as a proxy for migration trends.</description>
     </item>
     
     <item>
       <title>Thesis Thursday - Introduction</title>
-      <link>https://timlrx.github.io/2017/06/02/thesis-thursday-introduction/</link>
+      <link>https://www.timlrx.com/2017/06/02/thesis-thursday-introduction/</link>
       <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.github.io/2017/06/02/thesis-thursday-introduction/</guid>
+      <guid>https://www.timlrx.com/2017/06/02/thesis-thursday-introduction/</guid>
       <description>I decided to document my progress on my masters thesis as a weekly Thursday special. Hopefully I would have enough materials or progress to continue the weekly post but this should also give me some motivation to work on it. I find the process of writing also useful to think through some ideas more carefully. This week I will be introducing the idea of my research project, the data I will be using and some issues I am trying to solve.</description>
     </item>
     
