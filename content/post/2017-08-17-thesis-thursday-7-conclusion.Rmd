@@ -41,17 +41,17 @@ Nonetheless, Stata still has certain advantages:
 ###Misc thoughts
 
 - More data is not necessary better.
-
- + When working with shapefiles, try to find the simplest one that gives you the necessary detail. Any more is just a waste of memory and a waste of time to compress it down.
+  
+   + When working with shapefiles, try to find the simplest one that gives you the necessary detail. Any more is just a waste of memory and a waste of time to compress it down.
  
- + There isn't much point using micro level data when working at the broader aggregate level. Just take the mean and use the number of observation as weights. The regression results will be the same but much faster to compute.
+   + There isn't much point using micro level data when working at the broader aggregate level. Just take the mean and use the number of observation as weights. The regression results will be the same but much faster to compute.
  
 - On a similar note, work with a small sample before running the code on the entire dataset.
 
-- For complex text manipulation, use regex. Most helpful guide which I constantly refer to comes is from a [UBC stat's class.](http://stat545.com/block022_regular-expression.html)
+- For complex text manipulation, use regex. Most helpful guide which I constantly refer to comes from a [UBC stat's class.](http://stat545.com/block022_regular-expression.html)
 
 - While ggcounty and choroplethr make mapping of U.S. states and counties a relatively simple task, it is worth learning to work with shapefiles. Doing it manually also made me realise how much of an art mapping is and the arbitrariness from the different projection systems.
 
-- More RAM is better. It's hard to go back once you are used to 64GB.
+- More RAM is better. It's hard to go back to 4GB once you are used to 64GB.
 
 
