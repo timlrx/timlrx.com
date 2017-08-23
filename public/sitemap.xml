@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.timlrx.com/2017/08/23/notes-on-regression-projection/</loc>
+    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</loc>
     <lastmod>2017-08-17T00:00:00+00:00</lastmod>
   </url>
@@ -93,13 +98,13 @@
   
   <url>
     <loc>https://www.timlrx.com/tags/notes/</loc>
-    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.timlrx.com/tags/ols/</loc>
-    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -117,13 +122,13 @@
   
   <url>
     <loc>https://www.timlrx.com/post/</loc>
-    <lastmod>2017-08-17T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.timlrx.com/</loc>
-    <lastmod>2017-08-17T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -135,7 +140,7 @@
   
   <url>
     <loc>https://www.timlrx.com/tags/regression/</loc>
-    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

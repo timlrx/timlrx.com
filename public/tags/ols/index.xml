@@ -8,10 +8,20 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Wed, 16 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/tags/ols/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Regression - Projection</title>
+      <link>https://www.timlrx.com/2017/08/23/notes-on-regression-projection/</link>
+      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/08/23/notes-on-regression-projection/</guid>
+      <description>This is one of my favourite ways of establishing the traditional OLS formula. I remember being totally amazed when I first found out how to derive the OLS formula in a class on linear algebra. Understanding regression through the perspective of projections also shows the connection between the least squares method and linear algebra. It also gives a nice way of visualising the geometry of the OLS technique.
+This set of notes is largely inspired by a section in Gilbert Strang’s course on linear algebra.</description>
+    </item>
     
     <item>
       <title>Notes on Regression - OLS</title>

@@ -5,22 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Thesis Thursday 7 - Conclusion</title>
-  <meta property="og:title" content="Thesis Thursday 7 - Conclusion" />
-  <meta name="twitter:title" content="Thesis Thursday 7 - Conclusion" />
-  <meta name="description" content="Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
-On R and StataI decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.">
-  <meta property="og:description" content="Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
-On R and StataI decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.">
-  <meta name="twitter:description" content="Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some …">
+  <title>Notes on Regression - Geometry</title>
+  <meta property="og:title" content="Notes on Regression - Geometry" />
+  <meta name="twitter:title" content="Notes on Regression - Geometry" />
+  <meta name="description" content="test \(a \in b\)This is one of my favourite ways of establishing the traditional OLS formula. I remember being totally amazed when I first found out how to derive the OLS formula in a class on linear algebra. Understanding regression through the perspective of projections shows the connection between the least squares method and linear algebra. It also gives a nice way of visualising regressions.
+This set of notes is largerly inspired by a section in Gilbert Strang’s course on linear algebra.">
+  <meta property="og:description" content="test \(a \in b\)This is one of my favourite ways of establishing the traditional OLS formula. I remember being totally amazed when I first found out how to derive the OLS formula in a class on linear algebra. Understanding regression through the perspective of projections shows the connection between the least squares method and linear algebra. It also gives a nice way of visualising regressions.
+This set of notes is largerly inspired by a section in Gilbert Strang’s course on linear algebra.">
+  <meta name="twitter:description" content="test \(a \in b\)This is one of my favourite ways of establishing the traditional OLS formula. I remember being totally amazed when I first found out how to derive the OLS formula in a class on linear …">
   <meta name="author" content="Timothy Lin"/>
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/" />
+  <meta property="og:url" content="https://www.timlrx.com/2017/08/23/notes-on-regression-geometry/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Quasilinear Musings" />
 
   <meta name="generator" content="Hugo 0.20.7" />
-  <link rel="canonical" href="https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/" />
+  <link rel="canonical" href="https://www.timlrx.com/2017/08/23/notes-on-regression-geometry/" />
   <link rel="alternate" href="https://www.timlrx.com/index.xml" type="application/rss+xml" title="Quasilinear Musings">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -125,11 +125,11 @@ ga('send', 'pageview');
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
-              <h1>Thesis Thursday 7 - Conclusion</h1>
+              <h1>Notes on Regression - Geometry</h1>
                 
                 
                   <span class="post-meta">
-  Posted on August 17, 2017
+  Posted on August 23, 2017
   
 </span>
 
@@ -148,38 +148,55 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed <a href="../../../../files/mig_cons_paper.pdf">research paper</a> and <a href="../../../../mig_cons_slides/">accompanying slides</a> can be downloaded from my website.</p>
-<div id="on-r-and-stata" class="section level3">
-<h3>On R and Stata</h3>
-<p>I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</p>
-<p>Features that I like:</p>
-<ul>
-<li><p>Graphing capabilities. Ggplot2 offers great default graphics, not to mention the numerous other add-ons and mapping tools (plotly, ggally, htmlwidgets, choroplethr, tmap).</p></li>
-<li><p>Superior workflow. I can code in R, write a report in R markdown, produce tables in both html and tex, pull together a series of slides using ioslides/slidfy and blog in the same interface. The only time I moved out of Rstudio was when I was writing up my paper (Latex), though bookdown is an attractive alternative.</p></li>
-<li><p>Pipe syntax. I used to dislike it but I noticed that I have been using it quite often over the past few months. It does help reduce clutter but requires a certain frame of mind to read the syntax (Think of it as water flowing through a pipe).</p></li>
-<li><p>Dplyr. Greatly speeds up the time it takes to do simple data manipulation compared to base R commands and replicates egen type commands in Stata.</p></li>
-<li><p>Free</p></li>
-</ul>
-<p>Nonetheless, Stata still has certain advantages:</p>
-<ul>
-<li><p>Help manual. Stata’s help files are the best, comprehensive with examples. Unfortunately, some R packages, being user written, are not as helpful. Stackoverflow and google make it much better though.</p></li>
-<li><p>Syntax. I still find Stata’s syntax more direct and intuitive. A problem with the many user written commands in R is that everyone tries to come up with new names for functions, many of which are not the most intuitive.</p></li>
-<li><p>Reshape. Reshape2 does not allow one to change multiple variables from long to wide. One can use reshape from the data.table package but I find it a hassle to use another package to do an elementary task.</p></li>
-<li><p>Speed. Stata is much faster at reading and processing large datasets on memory.</p></li>
-<li><p>Econometric tools. This is a major selling point of Stata and is where it still holds a comparative advantage. Recently developed tools in applied econometrics are introduced in Stata over R (e.g. ivreg2). By default, Stata commands normally come with the option of weights and different standard errors. To implement these features in R normally require an additional package and some clunky syntax.</p></li>
-</ul>
+        <p>test <span class="math inline">\(a \in b\)</span>This is one of my favourite ways of establishing the traditional OLS formula. I remember being totally amazed when I first found out how to derive the OLS formula in a class on linear algebra. Understanding regression through the perspective of projections shows the connection between the least squares method and linear algebra. It also gives a nice way of visualising regressions.</p>
+<p>This set of notes is largerly inspired by a section in <a href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/index.htm">Gilbert Strang’s course on linear algebra</a>.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> I will use the same terminology as in the <a href="../../../../2017/08/16/notes-on-regression-ols/">previous post</a>.</p>
+<p>Recall the standard regression model and observe the similarities with the commonly used expression in linear algebra written below:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{y} &amp;= \mathbf{X}\mathbf{\beta} \\
+b &amp;= Ax
+\end{aligned}
+\]</span> Thus, the OLS regression can be motivated as a means of finding the projection of <span class="math inline">\(\mathbf{y}\)</span> on the space span by <span class="math inline">\(\mathbf{X}\)</span>.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> Or to put it another way, we want to find the vector <span class="math inline">\(\beta\)</span> that would be the closest to <span class="math inline">\(\mathbf{y}\)</span>.</p>
+<div class="figure">
+<img src="../../../../img/projection_reg.png" alt="projection" />
+<p class="caption">projection</p>
 </div>
-<div id="misc-thoughts" class="section level3">
-<h3>Misc thoughts</h3>
-<ul>
-<li><p>More data is not necessary better.</p></li>
-<li><p>When working with shapefiles, try to find the simplest one that gives you the necessary detail. Any more is just a waste of memory and a waste of time to compress it down.</p></li>
-<li><p>There isn’t much point using micro level data when working at the broader aggregate level. Just take the mean and use the number of observation as weights. The regression results will be the same but much faster to compute.</p></li>
-<li><p>On a similar note, work with a small sample before running the code on the entire dataset.</p></li>
-<li><p>For complex text manipulation, use regex. Most helpful guide which I constantly refer to comes from a <a href="http://stat545.com/block022_regular-expression.html">UBC stat’s class.</a></p></li>
-<li><p>While ggcounty and choroplethr make mapping of U.S. states and counties a relatively simple task, it is worth learning to work with shapefiles. Doing it manually also made me realise how much of an art mapping is and the arbitrariness from the different projection systems.</p></li>
-<li><p>More RAM is better. It’s hard to go back to 4GB once you are used to 64GB.</p></li>
-</ul>
+<p>Notice that <span class="math inline">\((\mathbf{y} - \mathbf{X}\beta)\)</span> is orthogonal to <span class="math inline">\(Span (\mathbf{X})\)</span> i.e. it is in the left nullspace of <span class="math inline">\(\mathbf{X}\)</span>. By the definition of nullspace:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{X}&#39;(\mathbf{y} -\mathbf{X}\hat{\beta}) &amp;= 0 \\
+\mathbf{X}&#39;\mathbf{y} &amp;= \mathbf{X}&#39;\mathbf{X}\hat{\beta} \\
+\hat{\beta} &amp;= (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{y}
+\end{aligned}
+\]</span></p>
+<p><strong>Notes</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mathbf{X}\hat{\beta} = \mathbf{X}(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{y} = P_{X}\)</span> is also known as the orthogonal projection matrix. The matrix is <span class="math inline">\(n~\times~n\)</span> dimension. As given by its name, for any vector <span class="math inline">\(b \in R^{n}\)</span>, <span class="math inline">\(P_{X}b \in Span(X)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbf{y} - \mathbf{X}\hat{\beta}\)</span> is simply the vector of residuals and can be written in the following form:</p></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{u} &amp;= \mathbf{y} - \mathbf{X}\hat{\beta} \\
+&amp;= \mathbf{y} - P_{X}\mathbf{y} \\
+&amp;= (I_{n} - P_{X})\mathbf{y} \\
+&amp;= M_{X}\mathbf{y}
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(M_{X}\)</span> is the projection onto the space orthogonal to <span class="math inline">\(Span(X)\)</span>.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>The projection matrices have the following four properties: <span class="math inline">\(P_{X} + M_{X} = I_{n}\)</span>, Symmetry (<span class="math inline">\(A&#39;=A\)</span>), Idempotent (<span class="math inline">\(AA=A\)</span>), Orthogonal (<span class="math inline">\(P_{X}M_{X} = 0\)</span>).</li>
+</ol>
+<p><strong>Additional Comments:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The idea of seeing fitted values and residuals in terms of projections and orthogonal spaces have further applications in establishing the partitioned regression formula and other properties of the OLS regression.</p></li>
+<li><p>As a fun exercise one can try to derive the OLS formula for a weighted regression <span class="math inline">\(\mathbf{W}\mathbf{X}\beta = \mathbf{W}\mathbf{y}\)</span> where <span class="math inline">\(\mathbf{W}\)</span> is an <span class="math inline">\(n \times n\)</span> matrix of weights using the same idea.</p></li>
+</ol>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>My two favourite sources covering the basics of linear algebra are <a href="http://joshua.smcvt.edu/linearalgebra/">Hefferon’s linear algebra</a>, a free textbook, and Gilbert Strang’s course mentioned above. Hefferon provides a very clear treatment on the more theoretical aspects of the subject, while the latter highlights the many possibilites and applications that one can do with it.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>The span of the vectors in <span class="math inline">\(\mathbf{X}\)</span> (column space) is the set of all vectors in <span class="math inline">\(R^{n}\)</span> that can be written as linear combinations of the columns of <span class="math inline">\(\mathbf{X}\)</span><a href="#fnref2">↩</a></p></li>
+</ol>
 </div>
 
       </article>
@@ -187,13 +204,9 @@ ga('send', 'pageview');
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="https://www.timlrx.com/2017/08/16/notes-on-regression-ols/" data-toggle="tooltip" data-placement="top" title="Notes on Regression - OLS">&larr; Previous Post</a>
+            <a href="https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/" data-toggle="tooltip" data-placement="top" title="Thesis Thursday 7 - Conclusion">&larr; Previous Post</a>
           </li>
         
-        
-          <li class="next">
-            <a href="https://www.timlrx.com/2017/08/23/notes-on-regression-projection/" data-toggle="tooltip" data-placement="top" title="Notes on Regression - Projection">Next Post &rarr;</a>
-          </li>
         
       </ul>
 
