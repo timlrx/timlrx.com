@@ -156,9 +156,10 @@ But at least it is unbiased?</description>
   T t foreign born stock
       T t maps 2012 india china
       T t maps fb1970 2012
+      About me pic
       Pic 1
       Pic 2
-     bigimg: [{src: &amp;ldquo;/img/pic_1.jpg&amp;rdquo;, desc: &amp;ldquo;Fall&amp;rdquo;}, {src: &amp;ldquo;/img/pic_2.jpg&amp;rdquo;, desc: &amp;ldquo;Winter&amp;rdquo;}]</description>
+     bigimg: [{src: &amp;ldquo;/img/pic_1.</description>
     </item>
     
     <item>
@@ -167,8 +168,8 @@ But at least it is unbiased?</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/about/</guid>
-      <description>Welcome to Quasilinear Musings! I am currently a Masters student in the Vancouver School of Economics and my research interest revolves around technological change, labour markets and econometrics. You can find more information about me at my Linkedin profile.
-I plan to use this blog to document ongoing projects and share some thoughts on data analytics. The blog also provides a nice platform to share some of my works in a more accessible manner and explore the use of data to communicate ideas.</description>
+      <description>Welcome to Quasilinear Musings! I am Timothy, a Masters student in the Vancouver School of Economics and my research interest revolves around technological change, labour markets and econometrics. For more information check out my Linkedin profile.
+I plan to use this blog to document ongoing projects and play around with new ideas. The blog also allows me to share some of my works in a more accessible manner and explore the use of data to communicate ideas.</description>
     </item>
     
     <item>
@@ -177,7 +178,7 @@ I plan to use this blog to document ongoing projects and share some thoughts on 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/dashboard/sg-dashboard/</guid>
-      <description>Date: 18 August, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
+      <description>Date: 23 August, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
     </item>
     
   </channel>
