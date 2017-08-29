@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Mapping the Distribution of Religious Beliefs in Singapore</title>
+  <meta property="og:title" content="Mapping the Distribution of Religious Beliefs in Singapore" />
+  <meta name="twitter:title" content="Mapping the Distribution of Religious Beliefs in Singapore" />
+  <meta name="description" content="Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the final copy of my paper I had fun toying around with the various mapping packages. In this post, I decided to apply what I have learnt and take a look at the spatial distribution of Singapore’s population.">
+  <meta property="og:description" content="Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the final copy of my paper I had fun toying around with the various mapping packages. In this post, I decided to apply what I have learnt and take a look at the spatial distribution of Singapore’s population.">
+  <meta name="twitter:description" content="Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the …">
+  <meta name="author" content="Timothy Lin"/>
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Quasilinear Musings" />
+
+  <meta name="generator" content="Hugo 0.20.7" />
+  <link rel="canonical" href="https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/" />
+  <link rel="alternate" href="https://www.timlrx.com/index.xml" type="application/rss+xml" title="Quasilinear Musings">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.timlrx.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://www.timlrx.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://www.timlrx.com/css/highlight.min.css" />
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-100201704-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.timlrx.com/">Quasilinear Musings</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="../../../../post/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="../../../../about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="../../../../categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="../../../../tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Mapping the Distribution of Religious Beliefs in Singapore</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on August 29, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the final copy of my paper I had fun toying around with the various mapping packages. In this post, I decided to apply what I have learnt and take a look at the spatial distribution of Singapore’s population. This is also slightly related to another idea that I have been pondering on for a while - finding an equivalent of U.S. counties to run a fixed effect model.</p>
+<div id="data-sources" class="section level3">
+<h3>Data sources</h3>
+<p>Shape files for Singapore can be found on data.gov.sg portal. The most recent map polygon can be downloaded from <a href="https://data.gov.sg/dataset/national-map-polygon" class="uri">https://data.gov.sg/dataset/national-map-polygon</a>. <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> A secondary mapping source subdividing Singapore into 55 regions is released under the URA 2014 Master Plan: <a href="https://data.gov.sg/dataset/master-plan-2014-planning-area-boundary-web" class="uri">https://data.gov.sg/dataset/master-plan-2014-planning-area-boundary-web</a>.</p>
+<p>Next, we need some data by geographical distribution. There are a variety of aggregate survey data from the 2000 / 2010 Census of Population and 2015 General Household Survey (GHS) subdivided by geographical regions that one could play around with. They can be found using <a href="http://www.tablebuilder.singstat.gov.sg/">Singstat’s Table Builder</a> under the population, geographical distribution subfield. For this analysis, I decided to take a look at the distribution of religious beliefs and downloaded Table 141 from the 2015 GHS, “Resident Population Aged 15 Years and Over by Planning Area and Religion.” A convenient feature is that the survey was conducted based on the planning areas demarcated in URA’s master plan 2014 so that makes mapping the statistics to regions straightforward.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+</div>
+<div id="analysis" class="section level3">
+<h3>Analysis</h3>
+<p>I will be using the following R packages: <code>rgdal, rgeos, raster, maptools</code> for reading in and processing shapefiles, <code>tmap</code> and <code>tmaptools</code> for graphing maps and <code>dplyr</code> for general data manipulation.</p>
+<p>Reading in a shapefile can be done using the <code>readOGR</code> function. The file is formatted such that it contains the GIS information as well as other appended data fields. To properly align and display different shapefiles, one has to ensure that the maps are projected using a similar system (check using <code>proj4string</code>). The <code>names()</code> function reveals the data fields that are appended with the GIS information and one can further manipulate those variables using standard r commands. The most relevant variable here is the one entitled FOLDERPATH which list what category each polygon belongs to.</p>
+<pre class="r"><code>sg_shape &lt;- readOGR(dsn=GIS_path, layer=&quot;SingaporeMap_Polygon&quot;, verbose=FALSE)
+sg_plan &lt;- readOGR(dsn=GIS_path, layer=&quot;MP14_PLNG_AREA_WEB_PL&quot;, verbose=FALSE)
+proj4string(sg_shape)</code></pre>
+<pre><code>## [1] &quot;+proj=tmerc +lat_0=1.366666666666667 +lon_0=103.8333333333333 +k=1 +x_0=28001.642 +y_0=38744.572 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0&quot;</code></pre>
+<pre class="r"><code>names(sg_shape)</code></pre>
+<pre><code>## [1] &quot;OBJECTID&quot;   &quot;NAME&quot;       &quot;FOLDERPATH&quot; &quot;INC_CRC&quot;    &quot;FMEL_UPD_D&quot;
+## [6] &quot;X_ADDR&quot;     &quot;Y_ADDR&quot;     &quot;SHAPE_Leng&quot; &quot;SHAPE_Area&quot;</code></pre>
+<pre class="r"><code>unique(sg_shape$FOLDERPATH)</code></pre>
+<pre><code>##  [1] Layers/SMap_Anno1                  Layers/SMap_PedraBranca_Inset_Anno
+##  [3] Layers/SMap_Anno2                  Layers/Hydrographic_Anno          
+##  [5] Layers/PB_draw_frame               Layers/Hydrographic               
+##  [7] Layers/Airport_Runway              Layers/Central_Business_District  
+##  [9] Layers/Parks_NaturalReserve        Layers/Coastal_Outline            
+## 10 Levels: Layers/Airport_Runway ... Layers/SMap_PedraBranca_Inset_Anno</code></pre>
+<p>The names of the FOLDERPATH variable suggests that the dataset contains shapefiles for Singapore as well as the surrounding area. Let’s restrict the plotting boundaries to mainland Singapore and exclude Pedra Branca. The base R <code>plot</code> function suffice for simple plotting, though for more complicated plots I prefer to use the <code>tmap</code> package.</p>
+<pre class="r"><code>exclude &lt;- c(&quot;PEDRA BRANCA&quot;, &quot;JOHOR&quot;)
+sg_shape_main &lt;- sg_shape[(sg_shape$FOLDERPATH %in% c(&quot;Layers/Coastal_Outline&quot;)) &amp;     !grepl(paste(exclude,collapse=&quot;|&quot;), sg_shape$NAME),]
+plot(sg_shape_main)</code></pre>
+<div class="figure"><span id="fig:plot-outline"></span>
+<img src="../../../../post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-outline-1.png" alt="Outline of Singapore" width="672" />
+<p class="caption">
+Figure 1: Outline of Singapore
+</p>
+</div>
+<p>A similar set of procedures can be run on URA’s planning boundaries as well. There are two main differences between the maps. First, the current national map does not contain the region boundaries. Second, URA’s projected land surface differs from the actual map.</p>
+<pre class="r"><code>tm_shape(sg_shape_main) +
+  tm_polygons(col=&quot;yellow&quot;) +
+  tm_shape(sg_plan)+
+  tm_polygons(col=&quot;blue&quot;, alpha=0.5) +
+  tm_layout(frame=FALSE)</code></pre>
+<div class="figure"><span id="fig:plot-comparison"></span>
+<img src="../../../../post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-comparison-1.png" alt="Comparison of the current map and URA's plans" width="672" />
+<p class="caption">
+Figure 2: Comparison of the current map and URA’s plans
+</p>
+</div>
+<p>The main differences are the extra land reclamation at Tuas South, Pulau Tekong and the northern boundaries.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> To transfer the region boundaries to the current map, we will need to employ a few tricks. This involves intersecting each region of URA’s planning boundaries with the current map before taking the union of all these regions and appending the data back to the shapefile. The <code>buffer</code> function is used to bypass a ‘self-intersecting polygon’ problem and the <code>unionSpatialPolygons</code> function is needed to combine small isolated polygons.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+<pre class="r"><code>### Combine region mapping with actual Singapore map
+sg &lt;- raster::intersect(buffer(sg_plan, dissolve=FALSE), as(sg_shape_main, &#39;SpatialPolygons&#39;))
+sg &lt;- unionSpatialPolygons(sg, IDs=as.factor(sg$PLN_AREA_N))
+### Append the data back
+sg &lt;- SpatialPolygonsDataFrame(sg, sg_plan@data, match.ID=&quot;PLN_AREA_N&quot;)</code></pre>
+<p>Next, we prepare the census data before merging it in with the shapefile. This involves reading in the 2 csv files (national and region) and standardising the region names such that they match the ones that come with the shape file. In addition, I calculate the proportion of each religion living in a particular area.</p>
+<pre class="r"><code>ghs2015_national_rel$Level_1 &lt;- trimws(gsub(&quot;(- Catholic)|(- Other Christians)&quot;, &quot;&quot;, ghs2015_national_rel$Level_1))
+                        
+ghs2015_national_rel &lt;- ghs2015_national_rel %&gt;%
+  group_by(Level_1) %&gt;%
+  mutate(Value = sum(Value),
+         national_prop = Value / 3275.9 *100) %&gt;%
+  ungroup() %&gt;%
+  distinct() %&gt;%
+  rename(rel = Level_1) %&gt;%
+  dplyr::select(rel, national_prop) 
+
+ghs2015_religion$Level_3 &lt;- toupper(trimws(ghs2015_religion$Level_3))
+ghs2015_religion$Level_2 &lt;- trimws(ghs2015_religion$Level_2)
+ghs2015_religion$Level_1 &lt;- trimws(ghs2015_religion$Level_1)
+ghs2015_religion$rel &lt;- ghs2015_religion$Level_1
+ghs2015_religion$rel &lt;- ifelse(ghs2015_religion$rel==&quot;Christianity- Other Christians&quot;,
+                               &quot;Christianity&quot;,ghs2015_religion$rel)
+ghs2015_religion$rel &lt;- ifelse(ghs2015_religion$rel==&quot;Christianity- Catholic&quot;,
+                               &quot;Christianity&quot;,ghs2015_religion$rel)
+ghs2015_religion$Value &lt;- as.numeric(ghs2015_religion$Value)
+ghs2015_religion_total &lt;- ghs2015_religion %&gt;%
+  filter(Level_1==&quot;Total&quot;) %&gt;%
+  dplyr::select(Level_3, Value) %&gt;%
+  rename(Total = Value) 
+
+ghs2015_religion &lt;- ghs2015_religion %&gt;%
+  filter(Level_1!=&quot;Total&quot;) %&gt;%
+  group_by(Level_3, rel) %&gt;%
+  mutate(num = sum(Value)) %&gt;% 
+  ungroup() %&gt;%
+  left_join(ghs2015_religion_total, by=&quot;Level_3&quot;) %&gt;%
+  mutate(prop = Value/Total * 100)</code></pre>
+<p>Now it is time to dive into the data and uncover some interesting facts. First, let us find out the most prevalent religious beliefs in Singapore.</p>
+<pre class="r"><code>knitr::kable(arrange(ghs2015_national_rel, desc(national_prop)), format=&quot;html&quot;)</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+rel
+</th>
+<th style="text-align:right;">
+national_prop
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+100.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Buddhism
+</td>
+<td style="text-align:right;">
+33.1908788
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Christianity
+</td>
+<td style="text-align:right;">
+18.8070454
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+No Religion
+</td>
+<td style="text-align:right;">
+18.4529442
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Islam
+</td>
+<td style="text-align:right;">
+14.0358375
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Taoism
+</td>
+<td style="text-align:right;">
+9.9636741
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hinduism
+</td>
+<td style="text-align:right;">
+4.9604689
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sikhism
+</td>
+<td style="text-align:right;">
+0.3510486
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Other Religions
+</td>
+<td style="text-align:right;">
+0.2411551
+</td>
+</tr>
+</tbody>
+</table>
+<p>Next, we can visualise the distribution of religious beliefs. The <code>append_data</code> function is used to append the data to the shapefile. For the following plot, I show the distribution of the top 4 religious beliefs in Singapore.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<pre class="r"><code>ghs2015_religion_prop &lt;- ghs2015_religion %&gt;%
+                         filter(Level_1!=&quot;Christianity- Catholic&quot;) %&gt;%
+                         dplyr::select(rel, Level_3, prop) %&gt;%
+                         reshape2::dcast(Level_3 ~ rel)
+
+sg_religion_map &lt;- append_data(sg, ghs2015_religion_prop, key.shp=&quot;PLN_AREA_N&quot;,key.data=&quot;Level_3&quot;)
+
+tm_shape(sg_religion_map) +
+  tm_polygons(c(&quot;Buddhism&quot;,&quot;Christianity&quot;,&quot;Islam&quot;,&quot;No Religion&quot;),
+              breaks = c(0, 5, 10, 20, 30, 40, Inf), colorNA=&quot;light grey&quot;,
+              title=&quot;Proportion (%)&quot;) +
+  tm_facets(free.scales = FALSE) +
+  tm_layout(panel.labels=c(&quot;Buddhism&quot;,&quot;Christianity&quot;,&quot;Islam&quot;,&quot;No Religion&quot;))</code></pre>
+<div class="figure"><span id="fig:plot-religion"></span>
+<img src="../../../../post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-religion-1.png" alt="Distribution of Religious Beliefs" width="175%" />
+<p class="caption">
+Figure 3: Distribution of Religious Beliefs
+</p>
+</div>
+<p>Data is available only for 27 out of the 55 regions. The excluded regions such as the Central Water Catchment or Downtown area probably contain too few residents and the data has been suppressed. Another way of visualising the distribution would be to compare it against the national average. This would give a clearer picture on which regions contain relatively more/less people of certain religious beliefs.</p>
+<pre class="r"><code>ghs2015_religion_nat &lt;- ghs2015_religion %&gt;%
+  filter(Level_1!=&quot;Christianity- Catholic&quot;) %&gt;%
+  dplyr::select(rel, Level_3, prop) %&gt;%
+  left_join(ghs2015_national_rel, by=&quot;rel&quot;) %&gt;%
+  mutate(diff = prop - national_prop, relative_diff = diff/national_prop *100) %&gt;%
+  dplyr::select(Level_3, rel, relative_diff) %&gt;%
+  reshape2::dcast(Level_3 ~ rel)
+
+sg_religion_map2 &lt;- append_data(sg, ghs2015_religion_nat, key.shp=&quot;PLN_AREA_N&quot;,key.data=&quot;Level_3&quot;)
+
+tm_shape(sg_religion_map2) +
+  tm_polygons(c(&quot;Buddhism&quot;,&quot;Christianity&quot;,&quot;Islam&quot;,&quot;No Religion&quot;),
+              breaks=c(-100,-50, -25, -10, 10, 25, 50, 100),
+              colorNA=&quot;light grey&quot;,
+              title=&quot;Proportion (%)&quot;) +
+  tm_facets(free.scales = FALSE) +
+  tm_layout(panel.labels=c(&quot;Buddhism&quot;,&quot;Christianity&quot;,&quot;Islam&quot;,&quot;No Religion&quot;))</code></pre>
+<div class="figure"><span id="fig:plot-religion2"></span>
+<img src="../../../../post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-religion2-1.png" alt="Distribution of Religious Beliefs (Relative to National Average)" width="175%" />
+<p class="caption">
+Figure 4: Distribution of Religious Beliefs (Relative to National Average)
+</p>
+</div>
+<p>It appears that the distribution of people who holds Buddhist beliefs are quite evenly distributed across Singapore. By contrast, the Christian population is concentrated around Southern and Central Singapore while believers of Islam are concentrated around the peripheral regions of the island. There is also a greater fraction of people with no religion residing in the Southern area of Singapore.</p>
+<p>Of course, care should be taken in interpreting what drives this pattern of religious segregation. While people choosing their place of residence based on religious affinity could explain such patterns, other factors such as race and income could also drive such trends. A more thorough analysis might attempt to combine survey data through the years into a synthetic panel and apply some fixed effect methods.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Unlike what is indicated on the description, it does not contain road and contour data. That information is contained in another file entitled “National Map Line”.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>I used the “Level_1” and “Level_2” files downloaded from Table Builder in the tidy data format which makes it even easier to manipulate the data (no need for a reshape!). Glad to know someone from DOS is reading Hadley Wickham and hopefully they extend it to all past and future data releases.<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Marina Bay is a strange case since it is reflected on the actual map but not in the planned map. However, other water features are contained under a separate layer.<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>One could also use the functions from the <code>rgeos</code> package such as <code>gIntersection</code> but the functions in <code>raster</code> make it slightly easier since they keep the file as a <code>SpatialPolygonsDataFrame</code>.<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>Christianity combines both Catholics and other Christians.<a href="#fnref5">↩</a></p></li>
+</ol>
+</div>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://www.timlrx.com/2017/08/23/notes-on-regression-projection/" data-toggle="tooltip" data-placement="top" title="Notes on Regression - Projection">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:timothy.lin@alumni.ubc.ca" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/timlrx" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/timothy-lin-0600ba141" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://www.timlrx.com/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Timothy Lin
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.timlrx.com/">Quasilinear Musings</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.20.7</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://www.timlrx.com/js/main.js"></script>
+<script src="https://www.timlrx.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+  </body>
+</html>
+

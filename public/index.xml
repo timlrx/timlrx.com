@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Wed, 23 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mapping the Distribution of Religious Beliefs in Singapore</title>
+      <link>https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</guid>
+      <description>Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the final copy of my paper I had fun toying around with the various mapping packages. In this post, I decided to apply what I have learnt and take a look at the spatial distribution of Singapore’s population.</description>
+    </item>
     
     <item>
       <title>Notes on Regression - Projection</title>
@@ -188,7 +197,7 @@ I plan to use this blog to document ongoing projects and play around with new id
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/dashboard/sg-dashboard/</guid>
-      <description>Date: 23 August, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
+      <description>Date: 29 August, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
     </item>
     
   </channel>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sg Social on Quasilinear Musings</title>
+    <link>https://www.timlrx.com/tags/sg-social/</link>
+    <description>Recent content in Sg Social on Quasilinear Musings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
+    <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
+    <lastBuildDate>Tue, 29 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.timlrx.com/tags/sg-social/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mapping the Distribution of Religious Beliefs in Singapore</title>
+      <link>https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</guid>
+      <description>Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the final copy of my paper I had fun toying around with the various mapping packages. In this post, I decided to apply what I have learnt and take a look at the spatial distribution of Singapore’s population.</description>
+    </item>
+    
+  </channel>
+</rss>

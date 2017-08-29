@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.timlrx.com/2017/08/23/notes-on-regression-projection/</loc>
     <lastmod>2017-08-23T00:00:00+00:00</lastmod>
   </url>
@@ -122,19 +127,19 @@
   
   <url>
     <loc>https://www.timlrx.com/post/</loc>
-    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.timlrx.com/</loc>
-    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.timlrx.com/tags/r/</loc>
-    <lastmod>2017-08-17T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -155,8 +160,20 @@
   </url>
   
   <url>
+    <loc>https://www.timlrx.com/tags/sg-social/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.timlrx.com/tags/singapore/</loc>
-    <lastmod>2017-08-15T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.timlrx.com/tags/spatial/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -175,6 +192,12 @@
   <url>
     <loc>https://www.timlrx.com/tags/thesis-thursday/</loc>
     <lastmod>2017-08-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.timlrx.com/tags/visualisation/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
