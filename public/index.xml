@@ -8,10 +8,20 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Thu, 31 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Examining the Changes in Religious Beliefs - Part 2</title>
+      <link>https://www.timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</guid>
+      <description>In a previous post, I took a look at the distribution of religious beliefs in Singapore. Having compiled additional characteristics across 3 time periods (2000, 2010, 2015), I decided to write a follow-up post to examine the changes across time.
+The dataset that I will be using is aggregated from the 2000 and 2010 Census as well as the 2015 General Household Survey.</description>
+    </item>
     
     <item>
       <title>Notes on Regression - Method of Moments</title>
@@ -207,7 +217,7 @@ I plan to use this blog to document ongoing projects and play around with new id
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/dashboard/sg-dashboard/</guid>
-      <description>Date: 01 September, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
+      <description>Date: 10 September, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
     </item>
     
   </channel>
