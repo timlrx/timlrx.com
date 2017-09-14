@@ -1,0 +1,10 @@
+base
+sp
+rgdal
+rgeos
+maptools
+tmap
+tmaptools
+dplyr
+raster
+reshape2

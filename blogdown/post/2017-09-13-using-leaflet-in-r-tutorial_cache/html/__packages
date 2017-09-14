@@ -1,0 +1,9 @@
+base
+sp
+rgdal
+rgeos
+maptools
+leaflet
+dplyr
+raster
+reshape2
