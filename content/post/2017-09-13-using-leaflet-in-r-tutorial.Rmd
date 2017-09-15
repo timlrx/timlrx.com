@@ -34,6 +34,7 @@ sg_shape_main <- sg_shape[(sg_shape$FOLDERPATH %in% c("Layers/Coastal_Outline"))
 ### Combine region mapping with actual Singapore map
 sg <- raster::intersect(buffer(sg_plan_2015, dissolve=FALSE), as(sg_shape_main, 'SpatialPolygons'))
 sg <- unionSpatialPolygons(sg, IDs=as.factor(sg$PLN_AREA_N))
+sg <- SpatialPolygonsDataFrame(sg, sg_plan_2015@data, match.ID ="PLN_AREA_N")
 sg <- rmapshaper::ms_simplify(sg, keep=0.05, keep_shapes=TRUE)
 ## sg <- gSimplify(sg, 20, topologyPreserve=TRUE)
 ### Append the data back
@@ -85,7 +86,7 @@ for (i in c(2000,2010,2015)){
 
 religion_data$Christianity_diff <- religion_data$Christianity_2015 - religion_data$Christianity_2000
 
-religion_map <- tmaptools::append_data(sg_data, religion_data, key.shp="PLN_AREA_N",key.data="Level_3")
+religion_map <- tmaptools::append_data(sg, religion_data, key.shp="PLN_AREA_N",key.data="Level_3")
 ```
 
 ### Initialising
