@@ -34,9 +34,10 @@ sg_shape_main <- sg_shape[(sg_shape$FOLDERPATH %in% c("Layers/Coastal_Outline"))
 ### Combine region mapping with actual Singapore map
 sg <- raster::intersect(buffer(sg_plan_2015, dissolve=FALSE), as(sg_shape_main, 'SpatialPolygons'))
 sg <- unionSpatialPolygons(sg, IDs=as.factor(sg$PLN_AREA_N))
-sg <- gSimplify(sg, 0.00001, topologyPreserve=TRUE)
+sg <- rmapshaper::ms_simplify(sg, keep=0.05, keep_shapes=TRUE)
+## sg <- gSimplify(sg, 20, topologyPreserve=TRUE)
 ### Append the data back
-sg <- SpatialPolygonsDataFrame(sg, sg_plan_2015@data, match.ID="PLN_AREA_N")
+sg_data <- SpatialPolygonsDataFrame(sg, sg_plan_2015@data)
 df <- readRDS(data_path)
 
 SelectData <- function(df, name, variable){
@@ -84,12 +85,12 @@ for (i in c(2000,2010,2015)){
 
 religion_data$Christianity_diff <- religion_data$Christianity_2015 - religion_data$Christianity_2000
 
-religion_map <- tmaptools::append_data(sg, religion_data, key.shp="PLN_AREA_N",key.data="Level_3")
+religion_map <- tmaptools::append_data(sg_data, religion_data, key.shp="PLN_AREA_N",key.data="Level_3")
 ```
 
 ### Initialising
 
-I will be using a Singapore dataset consisting of the change in religious beliefs from 2000 to 2015, documented in the [previous post](/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/). The file `religion_map` belongs to the `SpatialPolygonsDataFrame` class (though leaflet is also compatible with other classes of data). 
+I will be using a Singapore dataset consisting of the change in religious beliefs from 2000 to 2015, documented in the [previous post](/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/). The file `religion_map` belongs to the `SpatialPolygonsDataFrame` class (though leaflet is also compatible with other classes of data). I have also used the `ms_simplify` function from the `rmapshaper` package to simplify the shapefile for web-plotting purposes.
 
 First, we will need to change the projection of the shape file so that it uses a latitude/longitude system. 
 
@@ -104,7 +105,7 @@ Now we can initialise the leaflet file by choosing a basemap which the polygons 
 ```{r providertiles}
 rawleafletmap <- leaflet() %>% 
   addProviderTiles("CartoDB.Positron",
-                   options = tileOptions(minZoom=11, maxZoom=13))
+                   options = tileOptions(minZoom=10, maxZoom=13))
 ```
 
 The `addPolygons` function overlay the base map with our desired shapefile. In order to fill the shapes with the desired colours, we need to pass a vector containing the colour hex codes to the `fillColor` argument of the function. The `colorBin` function simplifies this task. In this example, I use the "RdYlGn" palette from RColorBrewer which has a nice divergent scheme that suits the data that is going to be presented. To make it easy to follow through the steps, I shall plot the change in Christianity share from 2000 to 2015 (`Christianity_diff`) for all the subsequent examples. 
@@ -160,7 +161,7 @@ An alternative to the mouse over highlight function is to display the required i
 ```{r popup}
 leafletmap <- leaflet() %>% 
   addProviderTiles("Esri.WorldStreetMap",
-                   options = tileOptions(minZoom=11, maxZoom=13)) %>%
+                   options = tileOptions(minZoom=10, maxZoom=13)) %>%
   addPolygons(data=religion_map,
               fillColor = ~pal(Christianity_diff),
               weight = 2,
@@ -184,7 +185,7 @@ labels2 <- sprintf(
 
 leafletmap <- leaflet() %>% 
   addProviderTiles("Esri.WorldStreetMap",
-                   options = tileOptions(minZoom=11, maxZoom=13)) %>%
+                   options = tileOptions(minZoom=10, maxZoom=13)) %>%
   addPolygons(data=religion_map,
               fillColor = ~pal(Christianity_diff),
               weight = 2,
