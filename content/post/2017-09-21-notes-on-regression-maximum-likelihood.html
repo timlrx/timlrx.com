@@ -1,0 +1,73 @@
+---
+title: Notes on Regression - Maximum Likelihood
+author: Timothy Lin
+date: '2017-09-21'
+slug: notes-on-regression-maximum-likelihood
+categories: []
+tags: ["regression", "ols", "notes"]
+subtitle: ''
+---
+
+
+
+<p>Part 4 in the series of notes on regression analysis derives the OLS formula through the maximum likelihood approach. Maximum likelihood involves finding the value of the parameters that maximise the probably of the observed data under an assumption of the distribution of the distribution of the random variables.</p>
+<div id="bernoulli-example" class="section level3">
+<h3>Bernoulli example</h3>
+<p>Take for example a dataset consisting of the results of a series of coin flips. The coin may be biased and we want to find an estimator for the probability of the coin landing heads. A fair assumption is that observations are drawn from <span class="math inline">\(n\)</span> independent coin flips drawn from the same <span class="math inline">\(Bernoulli(p)\)</span> distribution. This means that the probability mass function of a single observation <span class="math inline">\(x_{i}\)</span> is given by: <span class="math display">\[
+f(x_{i};p) = p^{x_{i}}(1-p)^{1-x_{i}}
+\]</span> Note that <span class="math inline">\(x_{i}\)</span> is a single observation and takes the value of 0 or 1. The likelihood function can be written as: <span class="math display">\[
+\begin{aligned}
+L(p) &amp;= P(X_{1}=x_{1}, X_{2}=x_{2},...,X_{n}=x_{n}; p) \\
+&amp;= \prod_{i=1}^{n} f(x_{i};p)~~(\text{by independence})\\
+&amp;= p^{\sum x_{i}} (1-p)^{n - \sum x_{i}}
+\end{aligned}
+\]</span></p>
+<p>Now we want to find the value <span class="math inline">\(p\)</span> that maximises the likelihood, <span class="math inline">\(L(p)\)</span>. One can alternatively maximise the log likelihood which makes the derivation easier.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> The maximum likelihood estimate can then be calculated by finding the value <span class="math inline">\(p\)</span> that maximises the log likelihood:</p>
+<p><span class="math display">\[
+\begin{aligned}
+ln L(p) &amp;= (\sum x_{i}) ln~p + (n - \sum x_{i}) ln (1-p) \\
+\frac{\partial ln L(p)}{\partial p} &amp;= \frac{\sum x_{i}}{p} - \frac{n - \sum x_{i}}{1 -p} \\
+0 &amp;= (1-p)\sum x_{i} - p(n - \sum x_{i}) \\
+\hat{p} &amp;= \frac{\sum x_{i}}{n}
+\end{aligned}
+\]</span> Not surprisingly, the probability that the biased coin will land heads is simply the average number of heads across all observations.</p>
+</div>
+<div id="linear-regression" class="section level3">
+<h3>Linear regression</h3>
+<p>Similarly, one can derive the formula for the OLS estimator through the maximum likelihood approach. Recall that the linearity implies the following specification for the regression model: <span class="math inline">\(y_{i} = \mathbf{x}_{i}&#39;\beta + u_{i}\)</span>. In the maximum likelihood approach, we need to assume that the error terms conditional on <span class="math inline">\(x_{i}\)</span> are normally distributed with unknown variance i.e. $ u_{i} | _{i} N(0,^2)$. The PDF of a single observation is given by: <span class="math display">\[
+f(y_{i},\mathbf{x}_{i};\beta, \sigma^2) = 
+\frac{1}{\sqrt{2\pi\sigma^2}} exp(\frac{-(y_{i} -\mathbf{x}&#39;_{i}\beta)^2}{2\sigma^2})
+\]</span> The likelihood or the joint PDF is: <span class="math display">\[
+L(\beta, \sigma^2) = \prod_{i=1}^{n}
+\frac{1}{\sqrt{2\pi\sigma^2}} exp(\frac{-(y_{i} -\mathbf{x}&#39;_{i}\beta)^2}{2\sigma^2})
+\]</span> The log likelihood can be written as: <span class="math display">\[
+\begin{aligned}
+ln~L(\beta, \sigma^2) &amp;= ln \prod_{i=1}^{n} f(y_{i},\mathbf{x}_{i};\beta, \sigma^2) \\
+&amp;= \sum_{i=1}^{n} ln~f(y_{i},\mathbf{x}_{i};\beta, \sigma^2) \\
+&amp;= \sum_{i=1}^{n} ln~\Big( 
+\frac{1}{\sqrt{2\pi\sigma^2}} exp(\frac{-(y_{i} -\mathbf{x}&#39;_{i}\beta)^2}{2\sigma^2}) \Big) \\
+&amp;= -\frac{n}{2} ln~2\pi -\frac{n}{2} ln~\sigma^2 -\frac{1}{2\sigma^2}\sum_{i=1}^{n}(y_{i} -\mathbf{x}&#39;_{i}\beta)^2
+\end{aligned}
+\]</span> Take the derivative with respect to <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\sigma\)</span> to derive the maximum likelihood estimator:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\beta_{ML} &amp;= (\sum_{i=1}^{n}\mathbf{x}_{i}\mathbf{x}_{i}&#39;)^{-1}(\sum_{i=1}^{n}\mathbf{x}_{i}y_{i}) \\
+\sigma^{2}_{ML} &amp;= \frac{\sum_{i=1}^{n}(y_{i} -\mathbf{x}&#39;_{i}\beta)^2}{n}
+\end{aligned}
+\]</span></p>
+</div>
+<div id="additional-comments" class="section level3">
+<h3>Additional Comments</h3>
+<p>While the maximum likelihood estimator can only be derived only under very strong assumptions of the functional form which the error term takes, it is a very popular method in statistics and has many other applications. For example, binary choice models such as probit and logit assume that the dependent variable takes the value of 0 or 1 and could be modelled using the following functional form:</p>
+<p><span class="math display">\[
+P(y_{i}=1 | \mathbf{x}_{i}) = f(\mathbf{x}_{i}&#39;\beta)
+\]</span> where f is the CDF for the normal distribution in the case of the probit model or the logistic CDF for the logistic regression.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>In most cases, such as the logit model discussed above, there is no explicit solution for the maximisation problem and the solution has to be derived using numerical optimisation.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Since the <span class="math inline">\(ln\)</span> function is monotonic, the parameter value that maximises the log likelihood will also maximise the likelihood.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>This corresponds to a latent variable model where the error terms are iid drawn from a normal or logistic distribution.<a href="#fnref2">↩</a></p></li>
+</ol>
+</div>

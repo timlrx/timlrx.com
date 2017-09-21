@@ -8,10 +8,20 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Thu, 31 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Regression - Maximum Likelihood</title>
+      <link>https://www.timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</link>
+      <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</guid>
+      <description>Part 4 in the series of notes on regression analysis derives the OLS formula through the maximum likelihood approach. Maximum likelihood involves finding the value of the parameters that maximise the probably of the observed data under an assumption of the distribution of the distribution of the random variables.
+Bernoulli exampleTake for example a dataset consisting of the results of a series of coin flips. The coin may be biased and we want to find an estimator for the probability of the coin landing heads.</description>
+    </item>
     
     <item>
       <title>Notes on Regression - Method of Moments</title>
