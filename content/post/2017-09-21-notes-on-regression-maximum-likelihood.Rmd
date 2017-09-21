@@ -39,7 +39,7 @@ Not surprisingly, the probability that the biased coin will land heads is simply
 
 ### Linear regression
 
-Similarly, one can derive the formula for the OLS estimator through the maximum likelihood approach. Recall that linearity implies the following specification for the regression model: $y_{i} = \mathbf{x}_{i}'\beta + u_{i}$. In the maximum likelihood approach, we need to assume that the error terms conditional on $x_{i}$ are normally distributed with unknown variance i.e. $ u_{i}|\mathbf{x}_{i} \sim N(0,\sigma^{2})$. The PDF of a single observation is given by:
+Similarly, one can derive the formula for the OLS estimator through the maximum likelihood approach. Recall that linearity implies the following specification for the regression model: $y_{i} = \mathbf{x}_{i}'\beta + u_{i}$. In the maximum likelihood approach, we need to assume that the error terms conditional on $x_{i}$ are normally distributed with unknown variance i.e. $ u_{i}\vert\mathbf{x}_{i} \sim N(0,\sigma^{2})$. The PDF of a single observation is given by:
 $$
 f(y_{i},\mathbf{x}_{i};\beta, \sigma^2) = 
 \frac{1}{\sqrt{2\pi\sigma^2}} exp(\frac{-(y_{i} -\mathbf{x}'_{i}\beta)^2}{2\sigma^2})

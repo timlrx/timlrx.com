@@ -34,7 +34,7 @@ ln L(p) &amp;= (\sum x_{i}) ln~p + (n - \sum x_{i}) ln (1-p) \\
 </div>
 <div id="linear-regression" class="section level3">
 <h3>Linear regression</h3>
-<p>Similarly, one can derive the formula for the OLS estimator through the maximum likelihood approach. Recall that linearity implies the following specification for the regression model: <span class="math inline">\(y_{i} = \mathbf{x}_{i}&#39;\beta + u_{i}\)</span>. In the maximum likelihood approach, we need to assume that the error terms conditional on <span class="math inline">\(x_{i}\)</span> are normally distributed with unknown variance i.e. $ u_{i}|_{i} N(0,^{2})$. The PDF of a single observation is given by: <span class="math display">\[
+<p>Similarly, one can derive the formula for the OLS estimator through the maximum likelihood approach. Recall that linearity implies the following specification for the regression model: <span class="math inline">\(y_{i} = \mathbf{x}_{i}&#39;\beta + u_{i}\)</span>. In the maximum likelihood approach, we need to assume that the error terms conditional on <span class="math inline">\(x_{i}\)</span> are normally distributed with unknown variance i.e. $ u_{i}_{i} N(0,^{2})$. The PDF of a single observation is given by: <span class="math display">\[
 f(y_{i},\mathbf{x}_{i};\beta, \sigma^2) = 
 \frac{1}{\sqrt{2\pi\sigma^2}} exp(\frac{-(y_{i} -\mathbf{x}&#39;_{i}\beta)^2}{2\sigma^2})
 \]</span> The likelihood or the joint PDF is: <span class="math display">\[
