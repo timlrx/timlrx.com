@@ -1,0 +1,142 @@
+---
+title: A Cross-section Analysis of Singapore's Population Using Aggregate Regions
+author: Timothy Lin
+draft: true
+date: '2017-09-26'
+slug: a-cross-section-analysis-of-singapore-s-population-using-aggregate-regions
+categories: []
+tags: ["Singapore", "R", "spatial", "sg-social"]
+subtitle: ''
+---
+
+<!--
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=FALSE)
+```
+
+### Applying it to Singapore's Data
+
+In this section, I apply the group regression methodology method outlined above to estimate the underlying correlation across certain population characteristics. I will be using data from the Singapore Census, which was also used in my previous visualisation [pieces](/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/) and can be downloaded from the following [link](https://github.com/timlrx/sg-mapping)(SG_region_data_clean.rds). 
+
+Selecting the right variables to study is more of a problem due to the strong assumptions needed and described above. While income and housing would be interesting issues to examine, it is almost a certainity that people sort into regions base on their income, with higher earning individuals more likely to be located nearer to the city than their lower earning counterparts. This makes an aggregate level regression of income on housing quite pointless. Instead, I will explore the relationship between race and religion. This requires assuming that people do not select into regions base on race or religion. 
+
+```{r prelim, include=FALSE}
+library(dplyr)
+library(reshape2)
+data_path <- "C:/Users/Timothy Lin/Documents/Repo/website-hugo/datasets/SG_region_data_clean.rds"
+df <- readRDS(data_path)
+```
+
+### Pre-processing
+
+After reading in the data file, we will first need to extract the relevant variables for the analysis. To do so, we can use the `SelectData` function which I modified to include an option to output the selected data in either wide or long format. While the wide format is more useful for visualisation purposes, here I extract the data in a long format to build a panel.
+
+```{r extract-function}
+#' This function extracts the required variables in wide form.
+#' @param df dataframe containing the cleaned region data.
+#' @param name name of content that is extracted
+#' @param variable either "Value" or "prop"
+#' @param year_opt either "wide" or "long"
+#' @return data extract in wide form.
+SelectData <- function(df, name, variable, year_opt){
+  
+  data_total <- df%>%
+    filter(content==name & Level_1=="Total" & Level_2=="Total") %>%
+    rename(total = Value) %>%
+    dplyr:: select(Year, Level_3, total)
+  
+  data <- df%>%
+    filter(content==name & Level_1!="Total") %>%
+    left_join(data_total, by=c("Year", "Level_3")) %>%
+    mutate(prop = Value/total *100,
+           Level_3 = toupper(Level_3))
+  
+  if(length(unique(data$Level_2))==1){
+    form <- ifelse(year_opt=="wide", "Level_3 ~ Level_1 + Year", 
+                   ifelse(year_opt=="long", "Year + Level_3 ~ Level_1",
+                          stop("Invalid year option")))
+    data_wide <- data %>%
+      dplyr::select(Level_1, Level_3, get(variable), Year) %>%
+      dcast(as.formula(form), value.var=variable)
+    vec_names <- unique(data$Level_1)
+    } else{
+    form <- ifelse(year_opt=="wide", "Level_3 ~ Level_1 + Level_2 + Year", 
+                     ifelse(year_opt=="long", "Year + Level_3 ~ Level_1 + Level_2",
+                            stop("Invalid year option")))
+    data_wide <- data %>%
+      dplyr::select(Level_1, Level_2, Level_3, get(variable), Year) %>%
+      dcast(as.formula(form), value.var=variable)
+    vec_names <- as.vector(outer(unique(data$Level_1), unique(data$Level_2), paste, sep="_"))
+    }
+  
+  if(year_opt=="wide"){
+    tryCatch(  
+      for(i in 1:length(vec_names)){
+        data_wide[,paste0(vec_names[i], "_diff")] <- 
+          data_wide[,paste0(vec_names[i], "_2015")] - data_wide[,paste0(vec_names[i], "_2000")]
+      }, 
+      error = function(e) print("Err: Not all columns have data in 2015 and 2000"))
+    return(data_wide)
+  }
+  return(data_wide)
+}
+```
+
+I extract the main variables of interest (race, religion, income, housing) and merge them to create a panel where the rows correspond to the average proportion of a selected group living in a particular area of interest. I also binned data on income at the household level into 3 categories (proportion of households with an income less than the 20th percentile, 50th percentile and 80th percentile).^[Note: This is compared with the national household income distribution. As income data by region is released in income bands, I assume a uniform distribution when calculating the percentage of people who fall into a particular category.]
+
+```{r preprocess}
+df2 <- df %>% filter(Level_2 == "Total") 
+religion_data <- SelectData(df2, "resident_pop_religion", "prop", "long")
+religion_data$Christianity  <- religion_data$`Christianity Catholic` +
+  religion_data$`Christianity Other Christians`
+ethnic_data <- SelectData(df2, "resident_pop_ethnic_sex", "prop", "long")
+dwelling_data <- SelectData(df2, "resident_hh_dwelling", "prop", "long")
+income_data <- SelectData(df2, "resident_hh_income", "prop", "long")
+
+### Group income into 3 bins <20%, <50%, <80%
+### Assume uniform distribution across each range
+## 2000: 20% - 2241, 50% - 4505, 80% - 7608  data max 8000 over
+## 2010: 20% - 2940, 50% - 6603, 80% - 11105 data max 10000 over
+## 2015: 20% - 3815, 50% - 8733, 80% - 14929 data max 20000 over
+
+income_data$pc20 <- ifelse(income_data$Year==2000, income_data$`Below $1,000` +
+                           income_data$`$1,000 $1,999` + 0.241*income_data$`$2,000 $2,999`,
+                    ifelse(income_data$Year==2010, income_data$`Below $1,000` +
+                           income_data$`$1,000 $1,999` + 0.94*income_data$`$2,000 $2,999`,
+                    ifelse(income_data$Year==2015, income_data$`Below $1,000` +
+                           income_data$`$1,000 $1,999` + income_data$`$2,000 $2,999` +
+                           0.815*income_data$`$3,000 $3,999`,NA)))
+                             
+income_data$pc50 <- ifelse(income_data$Year==2000, income_data$`Below $1,000` +
+                           income_data$`$1,000 $1,999` + income_data$`$2,000 $2,999` + income_data$`$3,000 $3,999` +
+                           0.505*income_data$`$4,000 $4,999`,
+                    ifelse(income_data$Year==2010, income_data$`Below $1,000` + income_data$`$1,000 $1,999` +
+                           income_data$`$2,000 $2,999` + income_data$`$3,000 $3,999` +
+                           income_data$`$4,000 $4,999` + income_data$`$5,000 $5,999` + 
+                           0.603*income_data$`$6,000 $6,999`,
+                    ifelse(income_data$Year==2015, income_data$`Below $1,000` + income_data$`$1,000 $1,999` +
+                           income_data$`$2,000 $2,999` + income_data$`$3,000 $3,999` +
+                           income_data$`$4,000 $4,999` + income_data$`$5,000 $5,999` + 
+                           income_data$`$6,000 $6,999` + income_data$`$7,000 $7,999` +
+                           0.733*income_data$`$8,000 $8,999`, NA)))
+                                                                    
+income_data$pc80 <- ifelse(income_data$Year==2000, 100 - income_data$`$8,000 & Over` ,
+                    ifelse(income_data$Year==2010, 100 - income_data$`$10,000 & Over`,
+                    ifelse(income_data$Year==2015, 100 - income_data$`$20,000 & Over` -
+                           income_data$`$17,500 $19,999` - income_data$`$15,000 $17,499`, NA)))
+
+income_data <- income_data %>%
+  dplyr::select(Year, Level_3, pc20, pc80, pc50)
+
+# dwelling_data$check <- rowSums( dwelling_data[,c(3,8:10)], na.rm=TRUE)
+df_panel <- religion_data %>%
+  left_join(ethnic_data, by = c("Year", "Level_3")) %>%
+  left_join(dwelling_data, by = c("Year", "Level_3")) %>%
+  left_join(income_data, by = c("Year", "Level_3"))
+
+df_panel_2015 <- df_panel[df_panel$Year==2015,]
+```
+
+### Analysis
+
+Now, we are ready to run some regressions. First, let us take a look at the correlation between race and religion. To get more power for the test, I pool the data across the 3 survey years and control for year fixed effect. Clustering the standard errors by regions also adjust the covariance matrix to account for correlation across years for a particular region. 

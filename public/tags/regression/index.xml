@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Thu, 21 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Comparing the Population and Group Level Regression</title>
+      <link>https://www.timlrx.com/2017/10/01/comparing-the-population-and-group-level-regression/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/10/01/comparing-the-population-and-group-level-regression/</guid>
+      <description>I was planning to write a post on using region level data to infer the underlying relationship at the population level. After thinking through the issue over the past few days and working out the math (below), I realise that the question I wanted to answer could not be solved using the aggregate data at hand. Nonetheless, here is a formal description of the problem outlining the assumptions needed to infer population level trends from more aggregated data.</description>
+    </item>
     
     <item>
       <title>Notes on Regression - Maximum Likelihood</title>
