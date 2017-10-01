@@ -8,7 +8,7 @@ tags: ["regression", "notes"]
 subtitle: ''
 ---
 
-I was planning to write a post on using region level data to infer the underlying relationship at the population level. After thinking through the issue over the past few days and working out the math (below), I realise that the question I wanted to answer could not be solved using the aggregate data at hand. Nonetheless, here is a formal description of the problem outlining the assumptions needed to infer population level trends from more aggregated data.
+I was planning to write a post that uses region level data to infer the underlying relationship at the population level. However, after thinking through the issue over the past few days and working out the math (below), I realise that the question I wanted to answer could not be solved using the aggregate data at hand. Nonetheless, here is a formal description of the problem outlining the assumptions needed to infer population level trends from more aggregated data.
 
 The set-up of the problem is as follows: one is interested in examining the correlation of certain individual level characteristics. However, such data is unavailable. A possible alternative is to use more aggregated data, for example at the level of a county or region, in place of the individual. For the U.S., this would mean examining the correlation of variables across states or counties. In Singapore's case, one could use region level data from the Censuses. To what extent do the coefficients obtained from a regression carried out at the group level correspond to the estimates at the individual level?
 
