@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Wed, 13 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mapping SG - Shiny App</title>
+      <link>https://www.timlrx.com/2017/10/11/mapping-sg-shiny-app/</link>
+      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/10/11/mapping-sg-shiny-app/</guid>
+      <description>While my previous posts on the Singapore census data focused mainly on the distribution of religious beliefs, there are many interesting trends that could be observed on other characteristics. I decided to pool the data which I have cleaned and processed into a Shiny app. Took a little longer than I expected but it is done. Have fun with it and hope you learn a little bit more about Singapore!</description>
+    </item>
     
     <item>
       <title>Using Leaflet in R - Tutorial</title>
