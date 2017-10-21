@@ -8,10 +8,20 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Wed, 11 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Regression - Singular Vector Decomposition</title>
+      <link>https://www.timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</link>
+      <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</guid>
+      <description>Here’s a fun take on the OLS that I picked up from The Elements of Statistical Learning. It applies the Singular Value Decomposition, also known as the method used in principal component analysis, to the regression framework.
+Singular Vector Decomposition (SVD)First, a little background on the SVD. The SVD could be thought of as a generalisation of the eigendecomposition. An eigenvector v of matrix \(\mathbf{A}\) is a vector that is mapped to a scaled version of itself: \[\mathbf{A}v = \lambda v\] where \(\lambda\) is known as the eigenvalue.</description>
+    </item>
     
     <item>
       <title>Mapping SG - Shiny App</title>
@@ -229,13 +239,13 @@ But at least it is unbiased?</description>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/page/vancouver/</guid>
       <description>Playing around with shortcode - Does this work?
-  T t foreign born stock
+  S v d dimension
+      T t foreign born stock
       T t maps 2012 india china
       T t maps fb1970 2012
       About me pic
       Pic 1
-      Pic 2
-      Projection reg</description>
+      Pic 2</description>
     </item>
     
     <item>
@@ -254,7 +264,7 @@ I plan to use this blog to document ongoing projects and play around with new id
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/dashboard/sg-dashboard/</guid>
-      <description>Date: 11 October, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
+      <description>Date: 21 October, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
     </item>
     
   </channel>

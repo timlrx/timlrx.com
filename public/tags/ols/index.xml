@@ -8,10 +8,20 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Thu, 21 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/tags/ols/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Regression - Singular Vector Decomposition</title>
+      <link>https://www.timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</link>
+      <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</guid>
+      <description>Here’s a fun take on the OLS that I picked up from The Elements of Statistical Learning. It applies the Singular Value Decomposition, also known as the method used in principal component analysis, to the regression framework.
+Singular Vector Decomposition (SVD)First, a little background on the SVD. The SVD could be thought of as a generalisation of the eigendecomposition. An eigenvector v of matrix \(\mathbf{A}\) is a vector that is mapped to a scaled version of itself: \[\mathbf{A}v = \lambda v\] where \(\lambda\) is known as the eigenvalue.</description>
+    </item>
     
     <item>
       <title>Notes on Regression - Maximum Likelihood</title>
