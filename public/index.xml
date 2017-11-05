@@ -8,10 +8,21 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Sat, 21 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>November Reflections</title>
+      <link>https://www.timlrx.com/2017/11/05/november-reflections/</link>
+      <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/11/05/november-reflections/</guid>
+      <description>A collection of thoughts to start the month off.
+On the blog - Had a look at the google analytics data. There are about 750 views in total since the blog’s inception with a few users clocking in 5-10 minutes per post - so thank you for bumping up the stats if you are a regular reader!
+The most popular post…is the SG dashboard. This was a little surprisingly. I thought my thesis or any of the mathy stuff is more interesting but who knows?</description>
+    </item>
     
     <item>
       <title>Notes on Regression - Singular Vector Decomposition</title>
@@ -264,7 +275,7 @@ This blog serves as a playground for me to share some of my works in a more acce
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/dashboard/sg-dashboard/</guid>
-      <description>Date: 30 October, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
+      <description>Date: 05 November, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
     </item>
     
   </channel>

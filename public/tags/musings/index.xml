@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Personal on Quasilinear Musings</title>
-    <link>https://www.timlrx.com/tags/personal/</link>
-    <description>Recent content in Personal on Quasilinear Musings</description>
+    <title>Musings on Quasilinear Musings</title>
+    <link>https://www.timlrx.com/tags/musings/</link>
+    <description>Recent content in Musings on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sun, 05 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.timlrx.com/tags/personal/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.timlrx.com/tags/musings/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,25 +22,6 @@
       <description>A collection of thoughts to start the month off.
 On the blog - Had a look at the google analytics data. There are about 750 views in total since the blog’s inception with a few users clocking in 5-10 minutes per post - so thank you for bumping up the stats if you are a regular reader!
 The most popular post…is the SG dashboard. This was a little surprisingly. I thought my thesis or any of the mathy stuff is more interesting but who knows?</description>
-    </item>
-    
-    <item>
-      <title>And so it ends</title>
-      <link>https://www.timlrx.com/2017/05/18/and-so-it-ends/</link>
-      <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
-      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/05/18/and-so-it-ends/</guid>
-      <description>And so it ends with ivregress 2sls y (x=z),
-the last line of my do file reads.
-Competition promotes efficiency, maximises welfare,
-the official doctrine proclaims.
-So took the chance I did.
-Hyperplanes, Hamiltonians and more contrived jargon,
-the beauty of the abstractness.
-Yet the triviality of it all.
-He who roll the dice should be prepared to pay its price,
-the lesson from the probability gods.
-But at least it is unbiased?</description>
     </item>
     
   </channel>
