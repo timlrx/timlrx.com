@@ -171,12 +171,11 @@ P(X_{i,t=2}=H_{nt} \vert Y_{i,t=2}>4) &= P(X_{i,t=2}=H_{nt} \vert Y_{i,t=2}>4, i
 &=\frac{P(X_{i,t=2}=H_{nt}, Y_{i,t=2}>4)}{P(Y_{i,t=2} >4)}*0.8 + 0.841*0.2 \\
 &= \frac{0.841*0.5*0.7}{0.159*0.5 + 0.841 *0.5*0.7 + + 0.841 *0.5*0.3} *0.8 + 0.841*0.2\\
 &= 0.639 \\
-\newline
+\\
 ATT_{t=2} &= 0.639*0.3  \\
 &= 0.192
 \end{aligned}
 $$
-
 The calculations make intuitive sense. With a smaller pool of customers who would respond positively to the treatment, the ATT in the second period is lower than the first.
 
 ### Targeting rule with top-up
