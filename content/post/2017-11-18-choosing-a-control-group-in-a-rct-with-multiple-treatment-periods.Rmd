@@ -164,8 +164,7 @@ Unsurprisingly, the empirical results tally with our mathematical derivation.
 
 ### 2nd period ATT
 
-Now, we are ready to evaluate the various proposed control groups. To keep things simple, the 2nd marketing promotion will be the same as the first and target individuals who spend above 4. However, this time to evaluate the results we need to consider 3 groups - low type, high type takers and high type non-takers - where takers and non-takers refer to whether they responded positively to the treatment in the first period. Repeating the above calculations and focusing on the share of non-takers in the sub-population:  
-
+Now, we are ready to evaluate the various proposed control groups. To keep things simple, the 2nd marketing promotion will be the same as the first and target individuals who spend above 4. However, this time to evaluate the results we need to consider 3 groups - low type, high type takers and high type non-takers - where takers and non-takers refer to whether they responded positively to the treatment in the first period. Repeating the above calculations and focusing on the share of non-takers in the sub-population:
 $$
 \begin{aligned}
 P(X_{i,t=2}=H_{nt} \vert Y_{i,t=2}>4) &= P(X_{i,t=2}=H_{nt} \vert Y_{i,t=2}>4, i \in treated_{t=1}) + P(X_{i,t=2}=H_{nt} \vert Y_{i,t=2}>4, i \in control_{t=1})\\
