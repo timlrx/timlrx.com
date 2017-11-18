@@ -142,7 +142,7 @@ sector.bar
 
 Wondering what the actual percentage change is? We can convert the graph into a more interactive one using a simple line of code. And since it is locally generated, it can be hosted on github as well.
 
-```{r sector_bar_plotly}
+```{r sector_bar_plotly, include=FALSE}
 library(plotly)
 ggplotly(sector.bar)
 ```

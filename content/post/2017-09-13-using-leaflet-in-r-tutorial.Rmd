@@ -9,7 +9,7 @@ subtitle: ''
 ---
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=FALSE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=TRUE)
 ```
 
 Here's a tutorial on using Leaflet in R. While the leaflet package supports many options, the documentation is not the clearest and I had to do a bit of googling to customise the plot to my liking. This walkthrough documents the key features of the package which I find useful in generating choropleth overlays. Compared to the simple `tmap` approach documented in the previous post, creating a visualisation using leaflet gives more control over the final outcome. I will be covering two different kinds of display options (highlight on mouse over and on-click) as well as the use of layers. The post is an aggregation of materials from the official [Leaflet for R](https://rstudio.github.io/leaflet/) documentation page as well as a few other blogs.
@@ -23,8 +23,8 @@ library(dplyr)
 library(raster)
 library(reshape2)
 
-GIS_path <- "C:/Users/Timothy Lin/Documents/Repo/sg-mapping/data/GIS"
-data_path <- "C:/Users/Timothy Lin/Documents/Repo/website-hugo/datasets/SG_region_data_clean.rds"
+GIS_path <- "C:/Users/Timot/Documents/Repo/sg-mapping/data/GIS"
+data_path <- "C:/Users/Timot/Documents/Repo/website-hugo/datasets/SG_region_data_clean.rds"
 
 sg_shape <- readOGR(dsn=GIS_path, layer="SingaporeMap_Polygon", verbose=FALSE)
 sg_plan_2015 <- readOGR(dsn=GIS_path, layer="MP14_PLNG_AREA_WEB_PL", verbose=FALSE)
@@ -56,12 +56,12 @@ SelectData <- function(df, name, variable){
   
   if(length(unique(data$Level_2))==1){
     data_wide <- data %>%
-      dplyr::select(Level_1, Level_3, get(variable), Year) %>%
+      dplyr::select_('Level_1', 'Level_3', variable, 'Year') %>%
       dcast(Level_3 ~ Level_1 + Year, value.var=variable)
     vec_names <- unique(data$Level_1)
     } else{
     data_wide <- data %>%
-      dplyr::select(Level_1, Level_2, Level_3, get(variable), Year) %>%
+      dplyr::select_('Level_1', 'Level_2', 'Level_3', variable, 'Year') %>%
       dcast(Level_3 ~ Level_1 + Level_2 + Year, value.var=variable)
     vec_names <- as.vector(outer(unique(data$Level_1), unique(data$Level_2), paste, sep="_"))
     }

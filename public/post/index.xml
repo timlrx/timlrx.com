@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Sun, 05 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Choosing a Control Group in a RCT with Multiple Treatment Periods</title>
+      <link>https://www.timlrx.com/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</link>
+      <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</guid>
+      <description>Came across a fun little problem over the past few weeks that is related to the topic of policy impact evaluation - a long time interest of mine! Here’s the setting: we have a large population of individuals and a number of treatments that we want to gauge the effectiveness of. The treatments are not necessarily the same but are targeted towards certain sub-segments in the population. Examples of such situations include online ad targeting or marketing campaigns.</description>
+    </item>
     
     <item>
       <title>November Reflections</title>

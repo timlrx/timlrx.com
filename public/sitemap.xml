@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.timlrx.com/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</loc>
+    <lastmod>2017-11-18T00:00:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>https://www.timlrx.com/2017/11/05/november-reflections/</loc>
@@ -142,6 +148,12 @@
   </url>
   
   <url>
+    <loc>https://www.timlrx.com/tags/metrics/</loc>
+    <lastmod>2017-11-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.timlrx.com/tags/musings/</loc>
     <lastmod>2017-11-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -149,7 +161,7 @@
   
   <url>
     <loc>https://www.timlrx.com/tags/notes/</loc>
-    <lastmod>2017-10-21T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -173,19 +185,19 @@
   
   <url>
     <loc>https://www.timlrx.com/post/</loc>
-    <lastmod>2017-11-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.timlrx.com/</loc>
-    <lastmod>2017-11-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.timlrx.com/tags/r/</loc>
-    <lastmod>2017-10-11T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -208,6 +220,12 @@
   <url>
     <loc>https://www.timlrx.com/tags/sg-social/</loc>
     <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.timlrx.com/tags/simulation/</loc>
+    <lastmod>2017-11-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
