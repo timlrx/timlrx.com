@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Sat, 18 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dashboard 2.0</title>
+      <link>https://www.timlrx.com/2017/11/23/dashboard-2-0/</link>
+      <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2017/11/23/dashboard-2-0/</guid>
+      <description>(SG Dashboard 2.0)[/dashboard/sg-dashboard/] is now released and updated with Q3’s economic results. Built on R’s flexdashboard with interactive graphs on Plotly. My take on bringing statistical releases to the digital age.</description>
+    </item>
     
     <item>
       <title>Choosing a Control Group in a RCT with Multiple Treatment Periods</title>
@@ -276,15 +285,6 @@ But at least it is unbiased?</description>
       <guid>https://www.timlrx.com/about/</guid>
       <description>Welcome to Quasilinear Musings! I am Timothy, currently working as a data scientist at Lynx Analytics. For more information check out my Linkedin profile.
 This blog serves as a playground for me to share some of my works in a more accessible manner and explore the use of data to communicate ideas. Check out my analysis on migration and food consumption which I have written up as part of my masters thesis (slides available here) or preview the Singapore economy dashboard.</description>
-    </item>
-    
-    <item>
-      <title>SG-Dashboard</title>
-      <link>https://www.timlrx.com/dashboard/sg-dashboard/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/dashboard/sg-dashboard/</guid>
-      <description>Date: 18 November, 2017Trend in Overall GDPIndustry growthNumber of consecutive -ve / +ve quarters of YoY growthIndustry-ve+veOverall Economy031Manufacturing04Construction30Utilities021Wholesale &amp;amp; Retail Trade030Transportation &amp;amp; Storage030Accommodation &amp;amp; Food Services20Information &amp;amp; Communications05Finance &amp;amp; Insurance031Business Services01Top 3 data revisions from last quarter (2017-Q1)IndustryUpdated YoY growth (%)Revision (% pt)Business Services-1.</description>
     </item>
     
   </channel>
