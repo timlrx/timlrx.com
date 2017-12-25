@@ -9,11 +9,11 @@ tags: ["graph theory", "notes"]
 
 
 
-<p>Here is the first series of a collection of notes which I jotted down over the past 2 months as I tried to make sense of algebraic graph theory. This one focuses on the basic definitions and some properties of matrices related to graphs. Having all the symbols and main properties in a single page is a useful reference as I delve deeper into the applications of the theories. Also, it saves me time form googling and reading up the relationship between these objects.</p>
+<p>Here is the first series of a collection of notes which I jotted down over the past 2 months as I tried to make sense of algebraic graph theory. This one focuses on the basic definitions and some properties of matrices related to graphs. Having all the symbols and main properties in a single page is a useful reference as I delve deeper into the applications of the theories. Also, it saves me time from googling and checking the relationship between these objects.</p>
 <div id="adjacency-matrix" class="section level2">
 <h2>Adjacency Matrix</h2>
 <p>Let <span class="math inline">\(n\)</span> be the number of vertices and <span class="math inline">\(m\)</span> the number of edges. Then the adjacency matrix <span class="math inline">\(A\)</span> of dimension <span class="math inline">\(n \times n\)</span> is a matrix where <span class="math inline">\(a_{ij}=1\)</span> where there is an edge from vertex i to vertex j and zero otherwise. For a weighted adjacency matrix, <span class="math inline">\(W\)</span>, we replace 1 with the weights, <span class="math inline">\(w_{ij}\)</span>.</p>
-<p>Here we consider the case of undirected graphs. This means that the adjacency matrix is symmetric which implies it has a complete set of real eigenvalues (not necessary positive) and an othogonal eigenvector basis. The set of eigenvalues (<span class="math inline">\(\alpha_{1} \geq \alpha_{2} \geq ... \geq \alpha_{n}\)</span>) is known as the spectrum of a graph.</p>
+<p>Here we consider the case of undirected graphs. This means that the adjacency matrix is symmetric which implies it has a complete set of real eigenvalues (not necessary positive) and an orthogonal eigenvector basis. The set of eigenvalues (<span class="math inline">\(\alpha_{1} \geq \alpha_{2} \geq ... \geq \alpha_{n}\)</span>) is known as the spectrum of a graph.</p>
 <div id="properties" class="section level3">
 <h3>Properties</h3>
 <ul>
@@ -30,7 +30,7 @@ tags: ["graph theory", "notes"]
 </div>
 <div id="laplacian-matrix" class="section level2">
 <h2>Laplacian Matrix</h2>
-<p>Laplacian matrix is defined as <span class="math inline">\(L = D - A = \tilde{D}\tilde{D}&#39;\)</span>, or the degree matrix <span class="math inline">\(D\)</span> minus the adjacency matric <span class="math inline">\(A\)</span>. Hence, the diagonals are the degree while <span class="math inline">\(L_{ij}=-1\)</span> if <span class="math inline">\(v_{i}\)</span> and <span class="math inline">\(v_{j}\)</span> are connected, else 0.</p>
+<p>Laplacian matrix is defined as <span class="math inline">\(L = D - A = \tilde{D}\tilde{D}&#39;\)</span>, or the degree matrix <span class="math inline">\(D\)</span> minus the adjacency matrix <span class="math inline">\(A\)</span>. Hence, the diagonals are the degree while <span class="math inline">\(L_{ij}=-1\)</span> if <span class="math inline">\(v_{i}\)</span> and <span class="math inline">\(v_{j}\)</span> are connected, else 0.</p>
 <p><strong>Note:</strong></p>
 <ul>
 <li><span class="math inline">\(\tilde{D}\)</span> is the unoriented incidence matrix.<br />

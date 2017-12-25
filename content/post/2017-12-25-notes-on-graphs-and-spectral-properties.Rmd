@@ -7,12 +7,12 @@ categories: []
 tags: ["graph theory", "notes"]
 ---
 
-Here is the first series of a collection of notes which I jotted down over the past 2 months as I tried to make sense of algebraic graph theory. This one focuses on the basic definitions and some properties of matrices related to graphs. Having all the symbols and main properties in a single page is a useful reference as I delve deeper into the applications of the theories. Also, it saves me time form googling and reading up the relationship between these objects.
+Here is the first series of a collection of notes which I jotted down over the past 2 months as I tried to make sense of algebraic graph theory. This one focuses on the basic definitions and some properties of matrices related to graphs. Having all the symbols and main properties in a single page is a useful reference as I delve deeper into the applications of the theories. Also, it saves me time from googling and checking the relationship between these objects.
 
 ## Adjacency Matrix
 Let $n$ be the number of vertices and $m$ the number of edges. Then the adjacency matrix $A$ of dimension $n \times n$ is a matrix where $a_{ij}=1$ where there is an edge from vertex i to vertex j and zero otherwise. For a weighted adjacency matrix, $W$, we replace 1 with the weights, $w_{ij}$. 
 
-Here we consider the case of undirected graphs. This means that the adjacency matrix is symmetric which implies it has a complete set of real eigenvalues (not necessary positive) and an othogonal eigenvector basis. The set of eigenvalues ($\alpha_{1} \geq \alpha_{2} \geq ... \geq \alpha_{n}$) is known as the spectrum of a graph.
+Here we consider the case of undirected graphs. This means that the adjacency matrix is symmetric which implies it has a complete set of real eigenvalues (not necessary positive) and an orthogonal eigenvector basis. The set of eigenvalues ($\alpha_{1} \geq \alpha_{2} \geq ... \geq \alpha_{n}$) is known as the spectrum of a graph.
 
 ### Properties
 - The greatest eigenvalue, $\alpha_{1}$ is bounded by the maximum degree.  
@@ -24,7 +24,7 @@ An incidence matrix $\tilde{D}$ is of dimension $n \times m$ with $D_{ij}=1$ if 
 For an undirected graph, there are two kinds of incidence matrix: oriented and unoriented. In the unoriented graph, we just put 1 for any vertex that is connected to an edge. The unoriented graph is similar to that of a directed graph (1 and -1) and is unique up to the negation of the columns.
 
 ## Laplacian Matrix
-Laplacian matrix is defined as $L = D - A = \tilde{D}\tilde{D}'$, or the degree matrix $D$ minus the adjacency matric $A$. Hence, the diagonals are the degree while $L_{ij}=-1$ if $v_{i}$ and $v_{j}$ are connected, else 0.
+Laplacian matrix is defined as $L = D - A = \tilde{D}\tilde{D}'$, or the degree matrix $D$ minus the adjacency matrix $A$. Hence, the diagonals are the degree while $L_{ij}=-1$ if $v_{i}$ and $v_{j}$ are connected, else 0.
 
 __Note:__  
 

@@ -3,7 +3,7 @@ title: "SG-Dashboard"
 output:
   flexdashboard::flex_dashboard:
     orientation: rows
-    vertical_layout: scrol
+    vertical_layout: scroll
 ---
 
 ```{r setup, include=FALSE}
@@ -29,8 +29,10 @@ recent_date2 <- date_list[order(format(as.Date(date_list),"%m%d"))[length(date_l
 
 load(paste(file_path,recent_date,"-gdp.RData", sep=""))
 gdp <- va.sector.comb
+gdp <- filter(gdp, year >= 2000)
 load(paste(file_path,recent_date2,"-gdp.RData", sep=""))
 gdp2 <- va.sector.comb
+gdp2 <- filter(gdp2, year >= 2000)
 
 #### Load Emp data
 file_path <- "C:/Users/Timot/Documents/Repo/sg-econ-api/data/employment/"
