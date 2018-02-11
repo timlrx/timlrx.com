@@ -10,7 +10,7 @@ subtitle: ''
 
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=TRUE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=FALSE)
 ```
 
 In a [previous post](/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/), I took a look at the distribution of religious beliefs in Singapore. Having compiled additional characteristics across 3 time periods (2000, 2010, 2015), I decided to write a follow-up post to examine the changes across time. 

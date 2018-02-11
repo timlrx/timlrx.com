@@ -94,7 +94,7 @@ df$spend2 = df$delta + df$spend
 ### Average treatment effect on treated
 df_subset = df[df$target==1,]
 mean(df[df$treat==1,]$spend2) - mean(df[df$control==1,]$spend2)</code></pre>
-<pre><code>## [1] 0.2522621</code></pre>
+<pre><code>## [1] 0.2534045</code></pre>
 <pre class="r"><code>lm(spend2 ~ treat, data=df_subset)</code></pre>
 <pre><code>## 
 ## Call:
@@ -102,7 +102,7 @@ mean(df[df$treat==1,]$spend2) - mean(df[df$control==1,]$spend2)</code></pre>
 ## 
 ## Coefficients:
 ## (Intercept)        treat  
-##      5.1682       0.2523</code></pre>
+##      5.1672       0.2534</code></pre>
 <p>More generally, a better approach to check our result would be to loop over many random samples and find the central tendency of the parameter estimate:</p>
 <pre class="r"><code>att &lt;- function(n=1e5, p=0.3, d=1){
   df = data.frame(ind = seq(1, n),
@@ -135,7 +135,7 @@ for(b in 1:B){
 hist(unlist(coef_list))</code></pre>
 <p><img src="/post/2017-11-18-choosing-a-control-group-in-a-rct-with-multiple-treatment-periods_files/figure-html/attrepeat-1.png" width="672" /></p>
 <pre class="r"><code>mean(unlist(coef_list))</code></pre>
-<pre><code>## [1] 0.2512682</code></pre>
+<pre><code>## [1] 0.2526948</code></pre>
 <p>Unsurprisingly, the empirical results tally with our mathematical derivation.</p>
 </div>
 <div id="nd-period-att" class="section level3">
@@ -171,11 +171,11 @@ df_subset2 = df[df$target2==1,]
 lm(spend3 ~ treat2, data=df_subset2)</code></pre>
 <p>I show the results from 500 runs of the above code extracting the coefficient of the supposed treatment effect as well as the proportion of high non-treated individuals from the treatment and control group.</p>
 <pre class="r"><code>mean(unlist(coef_list))</code></pre>
-<pre><code>## [1] 0.4286825</code></pre>
+<pre><code>## [1] 0.4276794</code></pre>
 <pre class="r"><code>mean(unlist(prop_control_list))</code></pre>
-<pre><code>## [1] 0.8406825</code></pre>
+<pre><code>## [1] 0.8404415</code></pre>
 <pre class="r"><code>mean(unlist(prop_treat_list))</code></pre>
-<pre><code>## [1] 0.5889522</code></pre>
+<pre><code>## [1] 0.5890693</code></pre>
 <p>Notice that the proportion of high non-treated individuals are no longer the same across the groups and the estimated effect is much larger than the calculated value. Almost no one has been treated in the control group. This leads to an upwards bias in the estimated treatment effect since the coefficient estimate is combining the effect of both the first and second treatment together.</p>
 <p>More generally, the extent and direction of bias cannot be so easily quantified. If one allows the spending amounts to have a component that evolves randomly across time, it is possible for the estimate to be smaller than its actual value.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
 </div>

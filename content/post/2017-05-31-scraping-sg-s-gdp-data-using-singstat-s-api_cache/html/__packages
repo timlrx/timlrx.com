@@ -1,8 +1,0 @@
-base
-httr
-reshape2
-dplyr
-ggplot2
-bindrcpp
-plotly
-ggrepel

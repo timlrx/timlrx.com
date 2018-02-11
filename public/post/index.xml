@@ -8,10 +8,20 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Mon, 25 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>February Thoughts</title>
+      <link>https://www.timlrx.com/2018/02/11/february-thoughts/</link>
+      <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2018/02/11/february-thoughts/</guid>
+      <description>Sorry about the lack of post over the past few month. Hope to regain some work life balance and update the blog more regularly. To start of the first blog post of 2018 I thought it would be nice to do share some interesting things that I have been reading over the past few weeks and create a to-do list to function as my commitment device.
+Fun FactsDid you know that the skin color of a cat is heavily determined by a gene located on the X chromosome?</description>
+    </item>
     
     <item>
       <title>Notes on Graphs and Spectral Properties</title>

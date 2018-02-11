@@ -200,10 +200,10 @@ data.sector &lt;- data.sector %&gt;% group_by(industry) %&gt;%
 <pre class="r"><code>ggplot(data[(nrow(data)-16+1):nrow(data),], aes(period, qoqsaa, group=1)) +
   geom_point() + geom_line() + ylab(&quot;QoQ SA (%)&quot;) + xlab(&quot;Period&quot;) + theme_classic() +
   theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))</code></pre>
-<div class="figure">
+<div class="figure"><span id="fig:qoqsaplot"></span>
 <img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/qoqsaplot-1.png" alt="QoQ GDP Trend" width="672" />
 <p class="caption">
-QoQ GDP Trend
+Figure 1: QoQ GDP Trend
 </p>
 </div>
 <p>And here’s a plot comparing qoq and yoy growth for all the industries:</p>
@@ -217,13 +217,13 @@ other.goods.plot&lt;-ggplot(other.goods.data, aes(period, value, group=variable,
 <div class="figure"><span id="fig:fi"></span>
 <img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-1.png" alt="yoy plot" width="672" />
 <p class="caption">
-Figure 1: yoy plot
+Figure 2: yoy plot
 </p>
 </div>
 <div class="figure"><span id="fig:fi"></span>
 <img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-2.png" alt="qoq plot" width="672" />
 <p class="caption">
-Figure 1: qoq plot
+Figure 2: qoq plot
 </p>
 </div>
 <p>Interestingly, from the yoy data it appears that the contribution of finance and insurance to Singapore’s GDP growth is plateauing off. The qoq data is even more suprising showing a strong cyclical pattern since 2014. This is of particular concern as the F&amp;I figures are not seasonally-adjusted. DOS believes that the sector does not exhibit seasonality, but looking at the recent data, a case could be made that the fundamentals of the sector has changed substantially over the past 3 years and one should definitely treat the qoq figures extremely cautiously.</p>
@@ -299,7 +299,7 @@ Figure 1: qoq plot
         <p class="credits copyright text-muted">
           Timothy Lin
           &nbsp;&bull;&nbsp;
-          2017
+          2018
 
           
             &nbsp;&bull;&nbsp;
