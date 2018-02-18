@@ -1,0 +1,10 @@
+base
+flexdashboard
+dplyr
+reshape2
+ggplot2
+gridExtra
+knitr
+kableExtra
+plotly
+bindrcpp
