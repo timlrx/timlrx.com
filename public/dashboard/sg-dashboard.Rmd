@@ -8,7 +8,7 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=TRUE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=FALSE)
 ```
 
 ```{r prelim, include=FALSE}
@@ -24,8 +24,8 @@ library(plotly)
 file_path <- "C:/Users/Timot/Documents/Repo/sg-econ-api/data/gdp/"
 files <- list.files(file_path)
 date_list <- gsub("(.+)(-gdp.RData)","\\1",files)
-recent_date <- date_list[order(format(as.Date(date_list),"%m%d"))[length(date_list)]]
-recent_date2 <- date_list[order(format(as.Date(date_list),"%m%d"))[length(date_list)-1]]
+recent_date <- date_list[order(format(as.Date(date_list),"%Y-%m-%d"))[length(date_list)]]
+recent_date2 <- date_list[order(format(as.Date(date_list),"%Y-%m-%d"))[length(date_list)-1]]
 
 load(paste(file_path,recent_date,"-gdp.RData", sep=""))
 gdp <- va.sector.comb
@@ -38,7 +38,7 @@ gdp2 <- filter(gdp2, year >= 2000)
 file_path <- "C:/Users/Timot/Documents/Repo/sg-econ-api/data/employment/"
 files <- list.files(file_path)
 date_list <- gsub("(.+)(-emp.RData)","\\1",files)
-recent_date <- date_list[order(format(as.Date(date_list),"%m%d"))[length(date_list)]]
+recent_date <- date_list[order(format(as.Date(date_list),"%Y-%m-%d"))[length(date_list)]]
 load(paste(file_path,recent_date,"-emp.RData", sep=""))
 ```
 

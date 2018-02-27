@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Notes on Regression - Approximation of the Conditional Expectation Function</title>
+  <meta property="og:title" content="Notes on Regression - Approximation of the Conditional Expectation Function" />
+  <meta name="twitter:title" content="Notes on Regression - Approximation of the Conditional Expectation …" />
+  <meta name="description" content="The final installment in my ‘Notes on Regression’ series! For a review on ways to derive the Ordinary Least Square formula as well as various algebraic and geometric interpretations, check out the previous 5 posts:
+Part 1 - OLS by way of minimising the sum of square errors
+Part 2 - Projection and Orthogonality
+Part 3 - Method of Moments
+Part 4 - Maximum Likelihood
+Part 5 - Singular Vector Decomposition">
+  <meta property="og:description" content="The final installment in my ‘Notes on Regression’ series! For a review on ways to derive the Ordinary Least Square formula as well as various algebraic and geometric interpretations, check out the previous 5 posts:
+Part 1 - OLS by way of minimising the sum of square errors
+Part 2 - Projection and Orthogonality
+Part 3 - Method of Moments
+Part 4 - Maximum Likelihood
+Part 5 - Singular Vector Decomposition">
+  <meta name="twitter:description" content="The final installment in my ‘Notes on Regression’ series! For a review on ways to derive the Ordinary Least Square formula as well as various algebraic and geometric interpretations, check out the …">
+  <meta name="author" content="Timothy Lin"/>
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Quasilinear Musings" />
+
+  <meta name="generator" content="Hugo 0.30.2" />
+  <link rel="canonical" href="https://www.timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/" />
+  <link rel="alternate" href="https://www.timlrx.com/index.xml" type="application/rss+xml" title="Quasilinear Musings">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.timlrx.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://www.timlrx.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://www.timlrx.com/css/highlight.min.css" />
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-100201704-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.timlrx.com/">Quasilinear Musings</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="../../../../post/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="../../../../about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="../../../../categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="../../../../tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Notes on Regression - Approximation of the Conditional Expectation Function</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on February 26, 2018
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>The final installment in my ‘Notes on Regression’ series! For a review on ways to derive the Ordinary Least Square formula as well as various algebraic and geometric interpretations, check out the previous 5 posts:</p>
+<ul>
+<li><p><a href="../../../../2017/08/16/notes-on-regression-ols/">Part 1 - OLS by way of minimising the sum of square errors</a></p></li>
+<li><p><a href="../../../../2017/08/23/notes-on-regression-projection/">Part 2 - Projection and Orthogonality</a></p></li>
+<li><p><a href="../../../../2017/08/31/notes-on-regression-method-of-moments/">Part 3 - Method of Moments</a></p></li>
+<li><p><a href="../../../../2017/09/21/notes-on-regression-maximum-likelihood/">Part 4 - Maximum Likelihood</a></p></li>
+<li><p><a href="../../../../2017/10/21/notes-on-regression-singular-vector-decomposition/">Part 5 - Singular Vector Decomposition</a></p></li>
+</ul>
+<p>A common argument against the regression approach is that it is too simple. Real world phenomenons follow non-normal distributions, power laws are everywhere and multivariate relationships possibly more complex. The assumption of linearity in the OLS regression seems way out place of reality. However, if we take into consideration that the main aim of a statistical model is not to replicate the real world but to yield useful insights, the simplicity of regression may well turn out to be its biggest strength.</p>
+<p>In this set of notes I shall discuss the OLS regression as a way of approximating the conditional expectation function (CEF). To be more precise, regression yields the best linear approximation of the CEF. This mathematical property makes regression a favourite tool among social scientist as it places the emphasis on interpretation of an approximation of reality rather than complicated curve fitting. I came across this method from Angrist and Pischke’s <a href="https://press.princeton.edu/titles/8769.html">nearly harmless econometrics</a>.</p>
+<div id="what-is-a-conditional-expectation-function" class="section level2">
+<h2>What is a Conditional Expectation Function?</h2>
+<p>Expectation as in the statistics terminology normally refers to the population average of a particular random variable. The conditional expectation as its name suggest is the population average conditional holding certain variables fixed. In the context of regression, the CEF is simply <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span>. Since <span class="math inline">\(X_{i}\)</span> is random, the CEF is random.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<div class="figure">
+<img src="../../../../img/CEF.png" alt="CEF" />
+<p class="caption">CEF</p>
+</div>
+<p>The picture above is an illustrated example of the CEF plotted on a given dataset. Looking at the relationship of the number of stars obtained by a recipe and the log number of reviews, one can calculate the average star rating for a given number of reviews (indicated by the red dots). The CEF function joins all these red dots together (indicated by the blue line).</p>
+<div id="nice-properties-of-the-cef" class="section level3">
+<h3>Nice Properties of the CEF</h3>
+<p>What could we infer about the relationship between the dependent variable, <span class="math inline">\(Y_{i}\)</span> and the CEF? Let’s split the dependent variable into two components: <span class="math display">\[
+Y_{i} = E[Y_{i} \vert X_{i}] + \epsilon_{i}
+\]</span> Using the law of iterated expectation, we can show that <span class="math inline">\(E[\epsilon_{i} \vert X_{i}]=0\)</span> i.e. mean independence and <span class="math inline">\(\epsilon_{i}\)</span> is uncorrelated with any function of <span class="math inline">\(X_{i}\)</span>. In other words, we can break the dependent variable into a component that is explained by <span class="math inline">\(X_{i}\)</span> and another component that is orthogonal to it. Sounds familiar?</p>
+<p>Also, if we were to try to find a function of <span class="math inline">\(X\)</span>, <span class="math inline">\(m(X)\)</span> that minimises the squared mean error i.e. <span class="math inline">\(min~ E[(Y_{i} - m(X_{i}))^{2}]\)</span>, we would find that the optimum choice of <span class="math inline">\(m(X)\)</span> is exactly the CEF! To see that expand the squared error term: <span class="math display">\[
+\begin{aligned}
+(Y_{i} - m(X_{i}))^{2}  &amp;= ((Y_{i} - E[Y_{i} \vert X_{i}]) + (E[Y_{i} \vert X_{i}] - m(X_{i})))^{2} \\
+&amp;= (Y_{i} - E[Y_{i} \vert X_{i}])^{2} + 2(Y_{i} - E[Y_{i} \vert X_{i}])(E[Y_{i} \vert X_{i}] - m(X_{i})) 
++ (E[Y_{i} \vert X_{i}] - m(X_{i}))^{2}
+\end{aligned}
+\]</span></p>
+<p>The first term on the right does not factor in the arg min problem. <span class="math inline">\((Y_{i} - E[Y_{i} \vert X_{i}])\)</span> in the second term is simply <span class="math inline">\(\epsilon_{i}\)</span> and a function of <span class="math inline">\(X\)</span> multiplied with <span class="math inline">\(\epsilon_{i}\)</span> would still give an expectation of zero. Hence, the problem can be simplified to minimising the last term which is only minimised when <span class="math inline">\(m(X_{i})\)</span> = CEF.</p>
+</div>
+</div>
+<div id="regression-and-the-cef" class="section level2">
+<h2>Regression and the CEF</h2>
+<p>Now let’s link the regression back to the discussion on the CEF. Recall the example of the number of stars a recipe has and the number of reviews submitted. Log reviews is a continuous variable and there are lots of points to take into consideration. Regression offers a way of approximating the CEF linearly i.e. <span class="math display">\[
+\beta = \arg \min_{b}E[ E[Y_{i}\vert X_{i}] - X_{i}&#39;b]
+\]</span></p>
+<p>To get this result, one can show that minimising <span class="math inline">\((Y_{i} -X&#39;_{i}b)^{2}\)</span> is equivalent to minimising the above equation.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> Thus, even if the CEF is non-linear as in the recipe and star rating example, the regression line would provide the best linear approximation to it (drawn in green below).</p>
+<div class="figure">
+<img src="../../../../img/CEF_regression.png" alt="Regression as the best linear approximation to the CEF" />
+<p class="caption">Regression as the best linear approximation to the CEF</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>In practice, one obtains a sample of the population data and uses the sample to make an approximation of the population CEF.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>just add and subtract <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span> and manipulate the terms in a similar way to the previous proof using <span class="math inline">\(m(X)\)</span>.<a href="#fnref2">↩</a></p></li>
+</ol>
+</div>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://www.timlrx.com/2018/02/11/february-thoughts/" data-toggle="tooltip" data-placement="top" title="February Thoughts">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:timothy.lin@alumni.ubc.ca" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/timlrx" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/timothy-lin-0600ba141" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://www.timlrx.com/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Timothy Lin
+          &nbsp;&bull;&nbsp;
+          2018
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.timlrx.com/">Quasilinear Musings</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.30.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://www.timlrx.com/js/main.js"></script>
+<script src="https://www.timlrx.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+  </body>
+</html>
+

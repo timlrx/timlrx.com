@@ -8,10 +8,24 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Sun, 11 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Regression - Approximation of the Conditional Expectation Function</title>
+      <link>https://www.timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</link>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</guid>
+      <description>The final installment in my ‘Notes on Regression’ series! For a review on ways to derive the Ordinary Least Square formula as well as various algebraic and geometric interpretations, check out the previous 5 posts:
+Part 1 - OLS by way of minimising the sum of square errors
+Part 2 - Projection and Orthogonality
+Part 3 - Method of Moments
+Part 4 - Maximum Likelihood
+Part 5 - Singular Vector Decomposition</description>
+    </item>
     
     <item>
       <title>February Thoughts</title>
@@ -287,13 +301,13 @@ But at least it is unbiased?</description>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/page/vancouver/</guid>
       <description>Playing around with shortcode - Does this work?
-  S v d dimension
+  C e f
+      C e f regression
+      S v d dimension
       T t foreign born stock
       T t maps 2012 india china
       T t maps fb1970 2012
-      About me pic
-      Pic 1
-      Pic 2</description>
+      About me pic</description>
     </item>
     
     <item>
