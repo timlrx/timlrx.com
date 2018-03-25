@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Mon, 26 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Uploading Jupyter Notebook Files to Blogdown</title>
+      <link>https://www.timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</guid>
+      <description>I have been working quite a bit with Python recently, using the popular Jupyter Notebook interface. Have been thinking about uploading some of my machine learning experiments and notes on the blog but integrating python with a blog built on blogdown seems problematic as I could not google a solution. Turns out it is actually quite simple (maybe that&amp;rsquo;s why nobody posted a tutorial on it, or maybe people who blog in R do not really use Python).</description>
+    </item>
     
     <item>
       <title>Notes on Regression - Approximation of the Conditional Expectation Function</title>

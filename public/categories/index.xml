@@ -8,9 +8,28 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
+    <lastBuildDate>Sun, 25 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blogdown</title>
+      <link>https://www.timlrx.com/categories/blogdown/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/categories/blogdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://www.timlrx.com/categories/python/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/categories/python/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
