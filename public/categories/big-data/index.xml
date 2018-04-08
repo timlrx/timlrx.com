@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Quasilinear Musings</title>
-    <link>https://www.timlrx.com/categories/python/</link>
-    <description>Recent content in Python on Quasilinear Musings</description>
+    <title>Big Data on Quasilinear Musings</title>
+    <link>https://www.timlrx.com/categories/big-data/</link>
+    <description>Recent content in Big Data on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sun, 08 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.timlrx.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.timlrx.com/categories/big-data/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,15 +20,6 @@
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark/</guid>
       <description>Introduction Lately, I have been using PySpark in my data processing and modeling pipeline. While Spark is great for most data processing needs, the machine learning component is slightly lacking. Coming from R and Python&amp;rsquo;s scikit-learn where there are so many machine learning packages available, this limitation is frustrating. Having said that, there are ongoing efforts to improve the machine learning library so hopefully there would be more functionalities in the future.</description>
-    </item>
-    
-    <item>
-      <title>Uploading Jupyter Notebook Files to Blogdown</title>
-      <link>https://www.timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</link>
-      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
-      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</guid>
-      <description>I have been working quite a bit with Python recently, using the popular Jupyter Notebook interface. Have been thinking about uploading some of my machine learning experiments and notes on the blog but integrating python with a blog built on blogdown seems problematic as I could not google a solution. Turns out it is actually quite simple (maybe that&amp;rsquo;s why nobody posted a tutorial on it, or maybe people who blog in R do not really use Python).</description>
     </item>
     
   </channel>
