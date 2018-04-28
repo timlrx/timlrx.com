@@ -8,10 +8,20 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Sun, 11 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/tags/personal/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Statistical Musings</title>
+      <link>https://www.timlrx.com/2018/04/28/statistical-musings/</link>
+      <pubDate>Sat, 28 Apr 2018 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2018/04/28/statistical-musings/</guid>
+      <description>No technical details in this post. Just a few scattered thoughts and some stories that have kept me semi-entertained over the last month. Some are inspired by work and others are just my take on the world, exaggerated to some degree.
+Rademacher CoinsAs we move towards a cashless society, maybe it would make sense to do away with coins and decimal values. Decimal points make billed amount and account balances unnecessarily messy and untidy.</description>
+    </item>
     
     <item>
       <title>February Thoughts</title>
