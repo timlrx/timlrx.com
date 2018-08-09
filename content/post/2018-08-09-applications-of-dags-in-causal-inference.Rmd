@@ -219,7 +219,8 @@ dagify(X ~ C + Q + K,
 
 Yet, Gelbach is still not being precise enough when he hypothesise that house characteristics could be 'correlated' with the other control variables. There are many possible causal models that could create a correlation between these variables, but the main takeaway and interpretation would differ depending on which causal model is true. Hence, it is necessary to come up with a causal story even before one can properly interpret the coefficients.
 
-From the variable names and descriptions, it could be possible that Gelbach has the following causal model in mind: An unobserved factor of housing quality, $U$, is a direct cause of the other variables ($C$, $Q$, $K$) and each of these variables serve as a proxy for the same underlying cause:
+From the variable names and descriptions, it could be possible that Gelbach has the following causal model in mind: An unobserved factor of housing quality, $U$, is a direct cause of the other variables ($C$, $Q$, $K$) and each of these variables serve as a proxy for the same underlying cause:  
+
 ```{r levittsyverson2, echo=FALSE}
 coords <- list(
   x = c(X = 0, Y = 2, Q = 1, K = -1, C = 3, U=-2),
