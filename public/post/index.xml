@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Visualising Networks in ASOIAF</title>
+      <link>https://www.timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</guid>
+      <description>While waiting for the winds of winter to arrive, there is plenty of time to revisit the 5 books. One of my favourite aspects of the series is the character and world building. As the song of ice and fire universe is so big, many characters are mentioned in passing while the major characters meet each other only occasionally. I thought it would be interesting to see how various characters are connected and how that progresses through the series.</description>
+    </item>
     
     <item>
       <title>Applications of DAGs in Causal Inference</title>
