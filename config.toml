@@ -24,8 +24,8 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     url = "dashboard/sg-dashboard/"
     weight = 3
 [[menu.main]]
-    name = "Categories"
-    url = "categories"
+    name = "Resources"
+    url = "/resources/"
     weight = 4
 [[menu.main]]
     name = "Tags"

@@ -372,7 +372,21 @@ But at least it is unbiased?</description>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/about/</guid>
       <description>Welcome to Quasilinear Musings! I am Timothy, currently working as a data scientist at Lynx Analytics. For more information check out my Linkedin profile.
-This blog serves as a playground for me to share some of my works in a more accessible manner and explore the use of data to communicate ideas. Check out my analysis on migration and food consumption which I have written up as part of my masters thesis (slides available here) or preview the Singapore economy dashboard.</description>
+This blog serves as a playground for me to share some of my works in a more accessible manner and explore the use of data to communicate ideas. I code predominantly in R or Python.
+Check out my analysis on migration and food consumption which I have written up as part of my masters thesis (slides available here) or preview the Singapore economy dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>https://www.timlrx.com/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/resources/</guid>
+      <description>A collection of useful links and websites.
+R Tidyverse - Best place to start your R journey
+Ggplot2 - The best plotting package
+Regular expressions in R - From UBC Stat 545. The website also contains great materials to learn R. Advanced R - When you want to dive deeper into R programming
+Tidy Eval - Simple examples on creating your own programming code for functions that rely on non-standard evaluation</description>
     </item>
     
   </channel>
