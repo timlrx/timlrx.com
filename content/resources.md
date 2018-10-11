@@ -3,17 +3,17 @@ title: Resources
 comments: false
 ---
 
-A collection of useful links and websites.
+A collection of useful links and websites:
 
 ## R
 [Tidyverse](https://www.tidyverse.org/) - Best place to start your R journey   
 [Ggplot2](https://ggplot2.tidyverse.org/) - The best plotting package  
-[Regular expressions in R](http://stat545.com/block022_regular-expression.html) - From UBC Stat 545. The website also contains great materials to learn R.
+[Regular expressions in R](http://stat545.com/block022_regular-expression.html) - From UBC Stat 545. The website also contains great materials to learn R  
 [Advanced R](https://adv-r.hadley.nz/) - When you want to dive deeper into R programming    
 [Tidy Eval](https://edwinth.github.io/blog/dplyr-recipes/) - Simple examples on creating your own programming code for functions that rely on non-standard evaluation  
 [Cheatsheets!](https://www.rstudio.com/resources/cheatsheets/)  
 [Shiny guide](http://shiny.rstudio.com/tutorial/) - Most comprehensive and useful guide from the official source  
-[Sparklyr](http://spark.rstudio.com/) - Dplyr on spark and another reason why the R ecosystem is so great
+[Sparklyr](http://spark.rstudio.com/) - Dplyr on spark and another reason why the R ecosystem is so great  
 [R-bloggers](https://www.r-bloggers.com) - For the dose of R-inspiration  
 
 ## Python
@@ -30,8 +30,8 @@ A collection of useful links and websites.
 [The Riddler](https://fivethirtyeight.com/tag/the-riddler/) - If you have some time to spare  
 [Gelman's blog](https://andrewgelman.com/)  - If you want to go to the dark side  
 [Uber enginerring blog](https://eng.uber.com/)  - Good read on how Uber tackles their engineering / data science problems  
-[Facebook research blog](https://research.fb.com/blog/) - Another good applied blog
-[Journal of Economic Perspectives](https://www.aeaweb.org/journals/jep) - Nice economic articles that are relatively non-technical
+[Facebook research blog](https://research.fb.com/blog/) - Another good applied blog  
+[Journal of Economic Perspectives](https://www.aeaweb.org/journals/jep) - Nice economic articles that are relatively non-technical  
 [NBER digest](https://www.nber.org/digest/) - Concise write-ups from the economics field
 
 

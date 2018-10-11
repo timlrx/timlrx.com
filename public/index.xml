@@ -382,10 +382,11 @@ Check out my analysis on migration and food consumption which I have written up 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/resources/</guid>
-      <description>A collection of useful links and websites.
+      <description>A collection of useful links and websites:
 R Tidyverse - Best place to start your R journey
 Ggplot2 - The best plotting package
-Regular expressions in R - From UBC Stat 545. The website also contains great materials to learn R. Advanced R - When you want to dive deeper into R programming
+Regular expressions in R - From UBC Stat 545. The website also contains great materials to learn R
+Advanced R - When you want to dive deeper into R programming
 Tidy Eval - Simple examples on creating your own programming code for functions that rely on non-standard evaluation</description>
     </item>
     
