@@ -14,7 +14,7 @@ categories: []
 ---
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=FALSE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=TRUE)
 ```
 
 I have been trying to catch-up on the latest release of Singapore's economic results. Unfortunately, the official press release or media reports are not very useful. They either contain too much irrelevant information or not enough details for my liking. Maybe I just like looking at the numbers and letting the figures speak for themselves. Hence, I decided to obtain the data from the official SingStat's Table Builder website. Turns out that they have an API available that provides data for selected data series including the [GDP figures](http://www.tablebuilder.singstat.gov.sg/publicfacing/initApiList.action).  
