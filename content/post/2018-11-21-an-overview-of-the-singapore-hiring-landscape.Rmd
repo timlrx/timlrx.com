@@ -11,13 +11,13 @@ subtitle: ''
 
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=FALSE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=TRUE)
 path = "C:/Users/timot/Documents/Repo/website-hugo"
 ```
 
 The idea of having a 360 degree view of the entire job seeking and matching landscape has always been a dream of any labour economist. Just imagine, a dataset of CVs and job seekers matched with job advertisements and openings! The potential of such a dataset to answer existing questions on the labour market is incredible. One could investigate market power between worker and firms, information asymmetry within the matching process, or find out new growth clusters and skills needed to support these areas. So it was slightly unfortunate that I was not able to get my hands on such a dataset during my time in the government (I believe only Linkedin could capture something close to what I described).
 
-A few months ago, I decided to make some steps towards creating that dream dataset. While getting information on the candidate side is near impossible, data on job openings are readily available through job portals. Over a few weekends, I wrote a scrapy bot to crawl and save job postings from one major Singapore based job portal.^[There is a lot of cross post across job portals so collecting postings from one site would mostly suffice.] Having collected a full month of data for October, I thought it was a good opportunity for an exploratory analysis of the dataset. This post features some of that exploratory analysis and other tidbits of the Singapore hiring landscape. If anyone is interested in studying this dataset in more detail, feel free to drop me an email!
+A few months ago, I decided to make some steps towards creating that dream dataset. While getting information on the candidate side is near impossible, data on job openings are readily available through job portals. Over a few weekends, I wrote a scrapy bot to crawl and save job postings from one major Singapore based job portal.^[There is a lot of cross post across job portals so collecting postings from one site would mostly suffice.] Having collected a full month of data for October, I thought it was a good opportunity to carry out an exploratory analysis of the dataset. This post features that analysis along with some tidbits of the Singapore hiring landscape. If anyone is interested in studying this dataset in more detail, feel free to drop me an email!
 
 ## Dataset
 
@@ -66,13 +66,7 @@ q <- tbl(con, "sg_jobs_tbl") %>%
   arrange(desc(n))
 ```
 
-A nice aspect of writing sql statements in `dplyr` syntax is that it is lazily evaluated i.e. the code will only be run when it is explicitly required, such as a print statement. Given a `tbl` object with a `DBI` connection, `dplyr` will use `dbplyr` to generate the sql translation which we can preview by calling the `show_query()` function.
-
-```{r showquery}
-show_query(q)
-```
-
-Even when we ask it to print the results of the query, it only returns the first 10 observations. To return the entire query as a data frame we have to use the `collect()` function. We can take advantage of this feature by just printing the query and getting the top 10 observations:
+A nice aspect of writing sql statements in `dplyr` syntax is that it is lazily evaluated i.e. the code will only be run when it is explicitly required, such as a print statement. Given a `tbl` object with a `DBI` connection, `dplyr` will use `dbplyr` to generate the sql translation which we can preview by calling the `show_query()` function. Even when we ask it to print the results of the query, it only returns the first 10 observations. To return the entire query as a data frame we have to use the `collect()` function. We can take advantage of this feature by just printing the query and getting the top 10 observations:
 
 ```{r printresults}
 q
@@ -98,7 +92,8 @@ view <- tbl(con, "sg_jobs_tbl") %>%
   select(title, posted_dt, company, post_type, tag, jd, experience, address,
          company_industry, company_snapshot, company_overview) %>%
   distinct() %>%
-  filter(!is.na(company), !is.na(title), title!="")
+  filter(!is.na(company), !is.na(title), title!="") %>%
+  rename(occupation = tag)
 
 q <- view %>%
   group_by(company, title) %>%
@@ -122,7 +117,7 @@ q <- view %>%
   arrange(desc(n))
 
 top_hiring_companies <- collect(q)
-head(top_hiring_companies, 15)
+head(top_hiring_companies, 15) %>% knitr::kable()
 ```
 
 Not surprisingly, we have the government linked companies high in the list with NUS, ST Electronics and UOB in the top 3. The list also gives a preview on which industries have a shortage of workers and the skills that are in demand, namely, healthcare, engineering and IT.
@@ -155,7 +150,7 @@ top_hiring_industries %>%
        title = 'Number of Job Postings by Industry')
 ```
 
-Let's examine the difference between the job posting statistics and the official employment numbers as published by the Department of Statistics quarterly statistics (You can take a look at my [SG economy dashboard](/dashboard/sg-dashboard#employment)). Certain industries some as transportation, banking, education and healthcare are in line with the national employment trend. Interestingly, there is still quite a strong demand from the construction and manufacturing industry despite the negative outlook within those sectors. The discrepancy could be a result of structural mismatch between the workers that are laid off and the type of workers which those firms are looking to hire.   
+Let's examine the difference between the job posting statistics and the official employment numbers as published by the Department of Statistics quarterly statistics (You can take a look at my [SG economy dashboard](/dashboard/sg-dashboard#employment)). Certain industries such as transportation, banking, education and healthcare are in line with the national employment trend. Interestingly, there is still quite a strong demand from the construction and manufacturing industry despite the negative outlook within those sectors. The discrepancy could be a result of structural mismatch between the workers that are laid off and the type of workers which those firms are looking to hire.   
 
 #### How does firm size correlate with hiring?
 
@@ -191,8 +186,8 @@ We can use the number of post as a proxy for the size of the firm (larger firms 
 ```{r positions}
 q <- view %>%
   filter(!(company_snapshot %like% '%RECRUITMENT FIRM SNAPSHOT%'),
-         !is.na(tag)) %>%
-  group_by(tag) %>%
+         !is.na(occupation)) %>%
+  group_by(occupation) %>%
   count() %>%
   arrange(desc(n))
 
@@ -208,41 +203,41 @@ Most of the positions are generic titles or business support positions that cut 
 ```{r recruit}
 q <- view %>%
   mutate(recruiter = ifelse(company_snapshot %like% '%RECRUITMENT FIRM SNAPSHOT%', 1, 0)) %>%
-  group_by(tag, recruiter)  %>%
+  group_by(occupation, recruiter)  %>%
   count()
 
 jobs_source_count <- collect(q)
 
 q <- view %>%
-  group_by(tag) %>%
+  group_by(occupation) %>%
   summarise(count_total = n()) %>%
   filter(count_total >= 5)
 
 jobs_count <- collect(q)
 
 direct_jobs <- jobs_count %>%
-  inner_join(jobs_source_count, by = 'tag') %>%
+  inner_join(jobs_source_count, by = 'occupation') %>%
   mutate(frac = n / count_total) %>%
   filter(recruiter == 0) %>%
   arrange(desc(frac), desc(count_total))
 
 indirect_jobs <- jobs_count %>%
-  inner_join(jobs_source_count, by = 'tag') %>%
+  inner_join(jobs_source_count, by = 'occupation') %>%
   mutate(frac = n / count_total) %>%
   filter(recruiter == 1) %>%
   arrange(desc(frac), desc(count_total))
 
 compare_jobs <- jobs_count %>%
-  inner_join(jobs_source_count, by = 'tag') %>%
+  inner_join(jobs_source_count, by = 'occupation') %>%
   mutate(frac = n / count_total) %>%
   filter(recruiter == 1, frac > 0.1, frac < 0.9, count_total > 50) %>%
   arrange(desc(frac)) %>%
-  select(tag, count_total, frac)
+  select(occupation, count_total, frac)
 
-head(compare_jobs, 10)
-tail(compare_jobs, 10)
+head(compare_jobs, 10) %>% knitr::kable()
+tail(compare_jobs, 10) %>% knitr::kable()
 ```
 
 The fractions in the table above refers to the fraction of jobs that are posted by recruitment firms. From the first table, we see that a lot of admin and IT related positions are typically filled with the help of recruitment firms. Companies prefer to source for more senior positions directly and they tend to use more generic titles when creating job openings.
 
-This post is a first look at a dataset of job openings. Besides the fields discussed in the exploratory analysis, there remains two other free text fields, job description and company description, which could be analysed in greater detail. I have many other ideas to explore with this dataset so do check back or subscribe to the RSS feed for future updates.
+This post is a first look at a dataset of job openings. Besides the fields discussed in the exploratory analysis, there remains two other free text fields, job description and company description, which could be analysed in greater detail. I have many other ideas to explore with this dataset so do check back or subscribe to the [RSS feed](/index.xml) for future updates.
