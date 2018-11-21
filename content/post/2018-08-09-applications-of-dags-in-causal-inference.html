@@ -33,13 +33,15 @@ tags: ['r','DAGs','notes','musings','causal-inference']
 <h4>Pearl’s Causal Model</h4>
 <p>Pearl describes the idea of a structural causal model as a set of variables and relations that describe how nature assigns particular values to certain variables of interest i.e. structural equations. Formally, this could be written as a set of two kinds of variables <span class="math inline">\((U,V)\)</span>, where <span class="math inline">\(U\)</span> denotes a vector of exogenous variables determined outside the model and <span class="math inline">\(V\)</span> denotes a vector of endogenous variables. The model is completed by a set of functions, <span class="math inline">\(F\)</span>, that assigns each endogenous variable a value based on the other variables in the model with a constraint that the mapping is acyclic.</p>
 <p>The structural causal model can then be translated to a DAG where the nodes represent the variables <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> and the edges between the nodes represent the set of functions, <span class="math inline">\(F\)</span>.</p>
-<p>For example, the causal model defined by: <span class="math display">\[
+<p>For example, the causal model defined by:
+<span class="math display">\[
 \begin{aligned}
 U = \{W, Z\}&amp;, ~~V=\{X,Y\}, ~~F=\{f_{X}, f_{Y}\} \\
 f_{X} &amp;: X = 2W - Z  \\
 f_{Y} &amp;: Y = -2X - 3Z
 \end{aligned}
-\]</span> can be translated to the following DAG:</p>
+\]</span>
+can be translated to the following DAG:</p>
 <p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/connectedGraph-1.png" width="60%" height="50%" /></p>
 <p>Intervening (or randomising) on a particular variable (e.g. <span class="math inline">\(X\)</span>) is translated to removing the arrows then goes into that variable. Doing this graph surgery on the above example we get the modified graph:</p>
 <p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/modGraph-1.png" width="60%" height="50%" /></p>
@@ -98,13 +100,13 @@ Chains are defined by three nodes and two edges, with one edge directed into the
 <div id="specification-testing" class="section level4">
 <h4>Specification testing</h4>
 <p>Specification testing refers to the procedure where variables are incrementally added to a model and the coefficient of interest is interpreted across these different specifications and used to draw a conclusion about the variable of interest. Let us examine one such example which Gelbach (2014) discusses. It is adapted from Levitt and Syverson (2008) where the authors were trying to determine the causal effect of agent home ownership (whether the property agent owns the home or not) on sale prices in order to show an empirically interesting example of the principal-agent problem. The authors argue that agents have an incentive to sell a house quickly and at a lower price since they only receive a small commission from the sales but bear most of the expense related to the sales. However, when agents are selling their own houses, they would have the incentive to maximise the sales price. Hence, it would be expected that agent ownership of a house would lead to a higher final sales price. Here are the results of the specification tests which Levitt and Syverson conducted:</p>
-<div class="figure">
-<img src="/img/tbl2_levitt_syverson.png" />
-
-</div>
+<p><img src="/img/tbl2_levitt_syverson.png" /></p>
 <p>The main difference appears to be when basic house characteristics is added into the model. Levitt and Syverson conclude that the other controls have a small impact on agent ownership. Gelbach points out that this conclusion is mistaken:</p>
 <blockquote>
-<p>However, it is possible that the scale and basic-amenity variables are correlated with detailed indicators of house quality, description keywords, and block dummies. Thus, it is possible that the coefficient on the agent dummy would move just as much when any of these other sets of covariates is added before adding the basic scale and amenity characteristics.</p>
+<p>However, it is possible that the scale and basic-amenity variables are correlated with detailed
+indicators of house quality, description keywords, and block dummies. Thus, it is possible that
+the coefficient on the agent dummy would move just as much when any of these other sets of
+covariates is added before adding the basic scale and amenity characteristics.</p>
 </blockquote>
 <p>Denote agent ownership with <span class="math inline">\(X\)</span>, sales price with <span class="math inline">\(Y\)</span>, house characteristics with <span class="math inline">\(C\)</span>, quality with <span class="math inline">\(Q\)</span>, and keywords with <span class="math inline">\(K\)</span> (I omit block effects for the sake of brevity). The only situation in which one could come to the conclusion of Levitt and Syverson is if house quality, keywords and block effects all act as independent confounders:</p>
 <p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/levittsyverson1-1.png" width="60%" height="50%" /></p>
@@ -141,7 +143,7 @@ Chains are defined by three nodes and two edges, with one edge directed into the
 </div>
 <div id="front-door-criterion" class="section level3">
 <h3>3) Front-door criterion</h3>
-<p>My third insight from the book was a possibly new method of teasing out causal effects which Pearl et al. called the front-door criterion. In the first section of the post, I touched on the backdoor criterion where the variables which satisfy this criterion blocks all backdoor path from the variable of interest to the outcome. The front-door criterion considers all variables that are descendants of the variable of interest and mediates between the variable of interest and the outcome. More concretely, a set of variables, <span class="math inline">\(Z\)</span>, satisfy the front-door criterion if</p>
+<p>My third insight from the book was a possibly new method of teasing out causal effects which Pearl et al. called the front-door criterion. In the first section of the post, I touched on the backdoor criterion where the variables which satisfy this criterion blocks all backdoor path from the variable of interest to the outcome. The front-door criterion considers all variables that are descendants of the variable of interest and mediates between the variable of interest and the outcome. More concretely, a set of variables, <span class="math inline">\(Z\)</span>, satisfy the front-door criterion if</p>
 <ul>
 <li><span class="math inline">\(Z\)</span> intercepts all paths between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span><br />
 </li>

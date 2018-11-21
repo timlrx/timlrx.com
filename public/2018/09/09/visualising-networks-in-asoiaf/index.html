@@ -322,7 +322,8 @@ return(df3)
 all_graphs &lt;- lapply(1:5, function(x) process_graph(node_df, edge_df, book_num=x, q=0.75))</code></pre>
 <p>There are two additional complications in extending this analysis to all the five books:</p>
 <ol style="list-style-type: decimal">
-<li><p>How do we find out the important nodes across all 5 books and determine the relevant communities?</p></li>
+<li><p>How do we find out the important nodes across all 5 books and
+determine the relevant communities?</p></li>
 <li><p>How do we build a consistent layout to visualise across datasets.</p></li>
 </ol>
 <p>Let us address the first complication. To do so, we need to aggregate information across the 5 books. We can use the <code>graph_join</code> function which works in a similar manner as the <code>dplyr</code> <code>*_join</code> commands.</p>
@@ -353,7 +354,7 @@ full_graph &lt;- full_graph %&gt;%
 <p>There is one final issue to settle. The <code>geom_node_text</code> function has a repel argument that uses the <code>ggrepel</code> package to decide on the placement of the text. Normally the default options works very well for a scatterplot but in this case we have a circular plot and we do not want the text in the interior of the plot. Additionally, since we have many nodes, there is a tendency for ggrepel to repel the labels far away from the node position. One possible solution is to fix the position of the labels to the outside of the circle and angle the text such that they point towards the center of the circle. I adapted the following <a href="https://gist.github.com/ajhmohr/5337a5c99b504e4a243fad96203fa74f">solution</a> and used the <code>hjust</code> alignment argument to coerce the labels to form an outer circle.</p>
 <pre class="r"><code>full_layout &lt;- create_layout(graph = full_graph, layout = &quot;linear&quot;, circular = T)
 max(as.numeric(full_layout$community))</code></pre>
-<pre><code>## [1] 14</code></pre>
+<pre><code>## [1] 11</code></pre>
 <pre class="r"><code>xmin &lt;- min(full_layout$x)
 xmax &lt;- max(full_layout$x)
 ymin &lt;- min(full_layout$y)

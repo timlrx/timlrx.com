@@ -13,8 +13,8 @@ subtitle: ''
 <p>Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the final copy of my paper I had fun toying around with the various mapping packages. In this post, I decided to apply what I have learnt and take a look at the spatial distribution of Singapore’s population. This is also slightly related to another idea that I have been pondering on for a while - finding an equivalent of U.S. counties to run a fixed effect model.</p>
 <div id="data-sources" class="section level3">
 <h3>Data sources</h3>
-<p>Shape files for Singapore can be found on data.gov.sg portal. The most recent map polygon can be downloaded from <a href="https://data.gov.sg/dataset/national-map-polygon" class="uri">https://data.gov.sg/dataset/national-map-polygon</a>. <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> A secondary mapping source subdividing Singapore into 55 regions is released under the URA 2014 Master Plan: <a href="https://data.gov.sg/dataset/master-plan-2014-planning-area-boundary-web" class="uri">https://data.gov.sg/dataset/master-plan-2014-planning-area-boundary-web</a>.</p>
-<p>Next, we need some data by geographical distribution. There are a variety of aggregate survey data from the 2000 / 2010 Census of Population and 2015 General Household Survey (GHS) subdivided by geographical regions that one could play around with. They can be found using <a href="http://www.tablebuilder.singstat.gov.sg/">Singstat’s Table Builder</a> under the population, geographical distribution subfield. For this analysis, I decided to take a look at the distribution of religious beliefs and downloaded Table 141 from the 2015 GHS, “Resident Population Aged 15 Years and Over by Planning Area and Religion.” A convenient feature is that the survey was conducted based on the planning areas demarcated in URA’s master plan 2014 so that makes mapping the statistics to regions straightforward.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>Shape files for Singapore can be found on data.gov.sg portal. The most recent map polygon can be downloaded from <a href="https://data.gov.sg/dataset/national-map-polygon" class="uri">https://data.gov.sg/dataset/national-map-polygon</a>. <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> A secondary mapping source subdividing Singapore into 55 regions is released under the URA 2014 Master Plan: <a href="https://data.gov.sg/dataset/master-plan-2014-planning-area-boundary-web" class="uri">https://data.gov.sg/dataset/master-plan-2014-planning-area-boundary-web</a>.</p>
+<p>Next, we need some data by geographical distribution. There are a variety of aggregate survey data from the 2000 / 2010 Census of Population and 2015 General Household Survey (GHS) subdivided by geographical regions that one could play around with. They can be found using <a href="http://www.tablebuilder.singstat.gov.sg/">Singstat’s Table Builder</a> under the population, geographical distribution subfield. For this analysis, I decided to take a look at the distribution of religious beliefs and downloaded Table 141 from the 2015 GHS, “Resident Population Aged 15 Years and Over by Planning Area and Religion.” A convenient feature is that the survey was conducted based on the planning areas demarcated in URA’s master plan 2014 so that makes mapping the statistics to regions straightforward.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </div>
 <div id="analysis" class="section level3">
 <h3>Analysis</h3>
@@ -56,7 +56,7 @@ Figure 1: Outline of Singapore
 Figure 2: Comparison of the current map and URA’s plans
 </p>
 </div>
-<p>The main differences are the extra land reclamation at Tuas South, Pulau Tekong and the northern boundaries.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> To transfer the region boundaries to the current map, we will need to employ a few tricks. This involves intersecting each region of URA’s planning boundaries with the current map before taking the union of all these regions and appending the data back to the shapefile. The <code>buffer</code> function is used to bypass a ‘self-intersecting polygon’ problem and the <code>unionSpatialPolygons</code> function is needed to combine small isolated polygons.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+<p>The main differences are the extra land reclamation at Tuas South, Pulau Tekong and the northern boundaries.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> To transfer the region boundaries to the current map, we will need to employ a few tricks. This involves intersecting each region of URA’s planning boundaries with the current map before taking the union of all these regions and appending the data back to the shapefile. The <code>buffer</code> function is used to bypass a ‘self-intersecting polygon’ problem and the <code>unionSpatialPolygons</code> function is needed to combine small isolated polygons.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <pre class="r"><code>### Combine region mapping with actual Singapore map
 sg &lt;- raster::intersect(buffer(sg_plan, dissolve=FALSE), as(sg_shape_main, &#39;SpatialPolygons&#39;))
 sg &lt;- unionSpatialPolygons(sg, IDs=as.factor(sg$PLN_AREA_N))
@@ -183,7 +183,7 @@ Other Religions
 </tr>
 </tbody>
 </table>
-<p>Next, we can visualise the distribution of religious beliefs. The <code>append_data</code> function is used to append the data to the shapefile. For the following plot, I show the distribution of the top 4 religious beliefs in Singapore.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<p>Next, we can visualise the distribution of religious beliefs. The <code>append_data</code> function is used to append the data to the shapefile. For the following plot, I show the distribution of the top 4 religious beliefs in Singapore.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <pre class="r"><code>ghs2015_religion_prop &lt;- ghs2015_religion %&gt;%
                          filter(Level_1!=&quot;Christianity- Catholic&quot;) %&gt;%
                          dplyr::select(rel, Level_3, prop) %&gt;%
@@ -233,10 +233,10 @@ Figure 4: Distribution of Religious Beliefs (Relative to National Average)
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Unlike what is indicated on the description, it does not contain road and contour data. That information is contained in another file entitled “National Map Line”.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>I used the “Level_1” and “Level_2” files downloaded from Table Builder in the tidy data format which makes it even easier to manipulate the data (no need for a reshape!). Glad to know someone from DOS is reading Hadley Wickham and hopefully they extend it to all past and future data releases.<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>Marina Bay is a strange case since it is reflected on the actual map but not in the planned map. However, other water features are contained under a separate layer.<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>One could also use the functions from the <code>rgeos</code> package such as <code>gIntersection</code> but the functions in <code>raster</code> make it slightly easier since they keep the file as a <code>SpatialPolygonsDataFrame</code>.<a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>Christianity combines both Catholics and other Christians.<a href="#fnref5">↩</a></p></li>
+<li id="fn1"><p>Unlike what is indicated on the description, it does not contain road and contour data. That information is contained in another file entitled “National Map Line”.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>I used the “Level_1” and “Level_2” files downloaded from Table Builder in the tidy data format which makes it even easier to manipulate the data (no need for a reshape!). Glad to know someone from DOS is reading Hadley Wickham and hopefully they extend it to all past and future data releases.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>Marina Bay is a strange case since it is reflected on the actual map but not in the planned map. However, other water features are contained under a separate layer.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>One could also use the functions from the <code>rgeos</code> package such as <code>gIntersection</code> but the functions in <code>raster</code> make it slightly easier since they keep the file as a <code>SpatialPolygonsDataFrame</code>.<a href="#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>Christianity combines both Catholics and other Christians.<a href="#fnref5" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

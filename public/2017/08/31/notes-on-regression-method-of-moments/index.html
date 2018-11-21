@@ -155,13 +155,15 @@ ga('send', 'pageview');
 </div>
 <div id="example-2" class="section level3">
 <h3>Example 2</h3>
-<p>Let <span class="math inline">\(X_{1}, X_{2}, ..., X_{n}\)</span> be drawn from a normal distribution i.e. <span class="math inline">\(X_{i} \sim N(\mu,\sigma^{2})\)</span> The goal is to find an estimator for the two parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>. The first and second moment of a normal distribution is given by:</p>
+<p>Let <span class="math inline">\(X_{1}, X_{2}, ..., X_{n}\)</span> be drawn from a normal distribution i.e. <span class="math inline">\(X_{i} \sim N(\mu,\sigma^{2})\)</span>
+The goal is to find an estimator for the two parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>. The first and second moment of a normal distribution is given by:</p>
 <p><span class="math display">\[
 \begin{aligned}
 E[X] &amp;= \mu \\
 E[X^{2}] &amp;= \mu_{2} = \mu^{2} + \sigma^{2}
 \end{aligned}
-\]</span> An estimator for <span class="math inline">\(\mu\)</span> is easy and is simply <span class="math inline">\(\hat{\mu} = \frac{1}{n}\sum_{i=1}^{n} X_{i} = \bar{X}\)</span>.</p>
+\]</span>
+An estimator for <span class="math inline">\(\mu\)</span> is easy and is simply <span class="math inline">\(\hat{\mu} = \frac{1}{n}\sum_{i=1}^{n} X_{i} = \bar{X}\)</span>.</p>
 <p>Replace the moment condition with the sample analogue and substitute in the estimator for <span class="math inline">\(\mu\)</span> to find an estimator for <span class="math inline">\(\sigma^2\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -179,7 +181,8 @@ E[X^{2}] &amp;= \mu_{2} = \mu^{2} + \sigma^{2}
 \hat{\lambda}_{1} &amp;= \bar{X} \\
 \hat{\lambda}_{2} &amp;= \frac{1}{n}\sum_{i=1}^{n}(X_{i}-\bar{X})^2
 \end{aligned}
-\]</span> Since there is only one parameter to be estimated but two moment conditions, one would need some way of ‘combining’ the two conditions. Using only one condition would be not making full use of the information at hand.</p>
+\]</span>
+Since there is only one parameter to be estimated but two moment conditions, one would need some way of ‘combining’ the two conditions. Using only one condition would be not making full use of the information at hand.</p>
 </div>
 <div id="regression---method-of-moments" class="section level3">
 <h3>Regression - Method of Moments</h3>
@@ -197,25 +200,26 @@ E[X^{2}] &amp;= \mu_{2} = \mu^{2} + \sigma^{2}
 </div>
 <div id="extension---generalised-method-of-moments-gmm" class="section level3">
 <h3>Extension - Generalised Method of Moments (GMM)</h3>
-<p>While it is not possible to identify <span class="math inline">\(\beta\)</span> if there are too few restrictions, one could still identify <span class="math inline">\(\beta\)</span> if there are <span class="math inline">\(l &gt; k\)</span> restrictions (overidentified), as seen in the poisson example.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> One might then wonder what is the best way to combine these restrictions. The GMM approach, introduced by Hansen in 1982, finds an estimate of <span class="math inline">\(\beta\)</span> that brings the sample moments as close to zero as possible. Note that the moment conditions for all the restrictions are still equal to zero, but the sample approximation, being drawn from a finite sample, may not be equal to zero. In other words, the GMM estimator is defined as the value of <span class="math inline">\(\beta\)</span> that minimizes the weighted distance of <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}g(X_{i},\beta)\)</span>:</p>
+<p>While it is not possible to identify <span class="math inline">\(\beta\)</span> if there are too few restrictions, one could still identify <span class="math inline">\(\beta\)</span> if there are <span class="math inline">\(l &gt; k\)</span> restrictions (overidentified), as seen in the poisson example.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> One might then wonder what is the best way to combine these restrictions. The GMM approach, introduced by Hansen in 1982, finds an estimate of <span class="math inline">\(\beta\)</span> that brings the sample moments as close to zero as possible. Note that the moment conditions for all the restrictions are still equal to zero, but the sample approximation, being drawn from a finite sample, may not be equal to zero. In other words, the GMM estimator is defined as the value of <span class="math inline">\(\beta\)</span> that minimizes the weighted distance of <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}g(X_{i},\beta)\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \hat{\beta}^{GMM} &amp;= \arg \min_{\beta \in B} \Big\lVert \frac{1}{n}\sum_{i=1}^{n}g(X_{i},\beta)  \Big\rVert^{2}_{W}  \\
 &amp;= \arg \min_{\beta \in B} \Big( \frac{1}{n}\sum_{i=1}^{n}g(X_{i},\beta) \Big)&#39;\mathbf{W} 
 \Big( \frac{1}{n}\sum_{i=1}^{n}g(X_{i},\beta) \Big)
 \end{aligned}
-\]</span> where <span class="math inline">\(\mathbf{W}\)</span> is the <span class="math inline">\(l \times l\)</span> matrix of weights which is used to select the ideal linear combination of instruments. In the case of the regression model where <span class="math inline">\(g(X_{i},\beta)\)</span> is linear in <span class="math inline">\(\beta\)</span> but is overidentified, the general GMM formula can be found by minimising the above condition and is given by:</p>
+\]</span>
+where <span class="math inline">\(\mathbf{W}\)</span> is the <span class="math inline">\(l \times l\)</span> matrix of weights which is used to select the ideal linear combination of instruments. In the case of the regression model where <span class="math inline">\(g(X_{i},\beta)\)</span> is linear in <span class="math inline">\(\beta\)</span> but is overidentified, the general GMM formula can be found by minimising the above condition and is given by:</p>
 <p><span class="math display">\[
 \hat{\beta}^{GMM} = \Big((\mathbf{X}&#39;\mathbf{Z})\mathbf{W}(\mathbf{Z}&#39;\mathbf{X}) \Big)^{-1}
 (\mathbf{X}&#39;\mathbf{Z})\mathbf{W}(\mathbf{Z}&#39;\mathbf{y})
 \]</span></p>
-<p>Note that when <span class="math inline">\(\mathbf{W}=(\mathbf{Z}&#39;\mathbf{Z})^{-1}\)</span>, <span class="math inline">\(\hat{\beta}^{GMM}=\hat{\beta}^{IV}\)</span>.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> Please google efficient GMM, for more information on the optimal choice of the weighting matrix.</p>
+<p>Note that when <span class="math inline">\(\mathbf{W}=(\mathbf{Z}&#39;\mathbf{Z})^{-1}\)</span>, <span class="math inline">\(\hat{\beta}^{GMM}=\hat{\beta}^{IV}\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Please google efficient GMM, for more information on the optimal choice of the weighting matrix.</p>
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>In the case of regressions, this happens when there are more instruments than endogenous regressors.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>This also shows that the 2SLS estimator is a GMM estimator for the linear model. <span class="math inline">\(\mathbf{W}=(\mathbf{Z}&#39;\mathbf{Z})^{-1}\)</span> is also the most efficient estimator if the errors are homoskedastic. In general, there may be other more efficient choices of the weighting matrix.<a href="#fnref2">↩</a></p></li>
+<li id="fn1"><p>In the case of regressions, this happens when there are more instruments than endogenous regressors.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>This also shows that the 2SLS estimator is a GMM estimator for the linear model. <span class="math inline">\(\mathbf{W}=(\mathbf{Z}&#39;\mathbf{Z})^{-1}\)</span> is also the most efficient estimator if the errors are homoskedastic. In general, there may be other more efficient choices of the weighting matrix.<a href="#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 

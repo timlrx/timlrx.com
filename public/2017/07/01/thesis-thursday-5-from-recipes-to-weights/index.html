@@ -10,10 +10,10 @@
   <meta name="twitter:title" content="Thesis Thursday 5 - From recipes to weights" />
   <meta name="description" content="In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
 TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
-\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}&#43;1}\] where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.">
+\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}&#43;1}\]where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.">
   <meta property="og:description" content="In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
 TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
-\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}&#43;1}\] where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.">
+\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}&#43;1}\]where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.">
   <meta name="twitter:description" content="In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
 TF-IDFTo obtain …">
   <meta name="author" content="Timothy Lin"/>
@@ -157,10 +157,11 @@ ga('send', 'pageview');
 <p>To obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:</p>
 <p><span class="math display">\[
 TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}+1}
-\]</span> where <span class="math inline">\(f_{t,d}\)</span> is the frequency in which a term, <span class="math inline">\(t\)</span>, appears in document <span class="math inline">\(d\)</span>, <span class="math inline">\(N\)</span> is the total number of documents in the corpus and <span class="math inline">\(n_{t}\)</span> is the total number of documents where term <span class="math inline">\(t\)</span> is found.</p>
+\]</span>
+where <span class="math inline">\(f_{t,d}\)</span> is the frequency in which a term, <span class="math inline">\(t\)</span>, appears in document <span class="math inline">\(d\)</span>, <span class="math inline">\(N\)</span> is the total number of documents in the corpus and <span class="math inline">\(n_{t}\)</span> is the total number of documents where term <span class="math inline">\(t\)</span> is found.</p>
 <p>The first term takes the number of times a particular word appears in a document and normalise it against the document length. This is also known as the term frequency (TF). The second term takes the logarithm of the ratio of the total number of documents divided by the frequency which the term is found across all documents in the corpus and is known as the inverse document frequency (IDF).</p>
-<p>A term associated with a particular document has a high TF-IDF score if it frequently recurs in the document and is rarely found in other documents.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> As applied in my context, ingredients take the place of terms and geographical regions, documents. One could imagine that a word like kimchi would rank very highly as it is frequently featured in Korean recipes and are rarely found (or non-existent) in other cuisines. On the other hand, common ingredients such as salt and pepper would have a TF-IDF score of 0.</p>
-<p>The <code>tidytext</code> package in R makes constructing the TF-IDF score a breeze.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> All it needs is a vector of words, associated with each particular document and the frequency which it is found in the document. The <code>bind_tf_idf</code> function does the rest.</p>
+<p>A term associated with a particular document has a high TF-IDF score if it frequently recurs in the document and is rarely found in other documents.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> As applied in my context, ingredients take the place of terms and geographical regions, documents. One could imagine that a word like kimchi would rank very highly as it is frequently featured in Korean recipes and are rarely found (or non-existent) in other cuisines. On the other hand, common ingredients such as salt and pepper would have a TF-IDF score of 0.</p>
+<p>The <code>tidytext</code> package in R makes constructing the TF-IDF score a breeze.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> All it needs is a vector of words, associated with each particular document and the frequency which it is found in the document. The <code>bind_tf_idf</code> function does the rest.</p>
 <pre class="r"><code>geog_words &lt;- tidy_recipe %&gt;%
   count(geog, word, sort = TRUE) %&gt;%
   ungroup() %&gt;%
@@ -204,7 +205,7 @@ Figure 1: Top 20 TF-IDF scores
 Figure 2: Top 10 TF-IDF scores for selected regions
 </p>
 </div>
-<p>Subsequently, I match the TF-IDF scores for each word to the product description given by the Nielsen dataset. The scores are then normalised such that they sum up to one. This gives the metric a probabilistic interpretation, where the weight for a particular product can be thought of as the naive bayes estimate.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+<p>Subsequently, I match the TF-IDF scores for each word to the product description given by the Nielsen dataset. The scores are then normalised such that they sum up to one. This gives the metric a probabilistic interpretation, where the weight for a particular product can be thought of as the naive bayes estimate.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>Using the dataset of household purchases, I am then able to calculate each household geographical region weighted expenditure share, which is the dependent variable in my regression analysis.</p>
 </div>
 <div id="other-updates" class="section level3">
@@ -215,9 +216,9 @@ Figure 2: Top 10 TF-IDF scores for selected regions
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>If it is found it every document <span class="math inline">\(n_{t}=N\)</span> and <span class="math inline">\(log 1 = 0\)</span><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>The <code>tm</code> package is another popular choice for text analysis.<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>Interestingly, while the TF-IDF approach seems relatively intuitive and sensible, the theoretical groundings for it are far less established. Nonetheless, it has be shown to be far better than traditional naive bayes for text categorisation purposes. See <a href="http://www.cs.waikato.ac.nz/~eibe/pubs/kibriya_et_al_cr.pdf">Kibriya et.al. (2004)</a> for a comparison.<a href="#fnref3">↩</a></p></li>
+<li id="fn1"><p>If it is found it every document <span class="math inline">\(n_{t}=N\)</span> and <span class="math inline">\(log 1 = 0\)</span><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>The <code>tm</code> package is another popular choice for text analysis.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>Interestingly, while the TF-IDF approach seems relatively intuitive and sensible, the theoretical groundings for it are far less established. Nonetheless, it has be shown to be far better than traditional naive bayes for text categorisation purposes. See <a href="http://www.cs.waikato.ac.nz/~eibe/pubs/kibriya_et_al_cr.pdf">Kibriya et.al. (2004)</a> for a comparison. <a href="#fnref3" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 

@@ -146,6 +146,39 @@ ga('send', 'pageview');
           
           
             <article class="post-preview">
+              <a href="https://www.timlrx.com/2017/08/31/notes-on-regression-method-of-moments/">
+                <h2 class="post-title">Notes on Regression - Method of Moments</h2>
+                
+              </a>
+
+              <span class="post-meta">
+  Posted on August 31, 2017
+  
+</span>
+
+
+              <div class="post-entry">
+                
+                  Another way of establishing the OLS formula is through the method of moments approach. This method supposedly goes way back to Pearson in 1894. It could be thought of as replacing a population moment with a sample analogue and using it to solve for the parameter of interest.
+Example 1To find an estimator for the sample mean, \(\mu=E[X]\), one replaces the expected value with a sample analogue, \(\hat{\mu}=\frac{1}{n}\sum_{i=1}^{n} X_{i} = \bar{X}\)
+                  <a href="https://www.timlrx.com/2017/08/31/notes-on-regression-method-of-moments/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                
+                  #<a href="../../tags/regression">regression</a>&nbsp;
+                
+                  #<a href="../../tags/ols">ols</a>&nbsp;
+                
+                  #<a href="../../tags/notes">notes</a>&nbsp;
+                
+                </span>
+              
+            </article>
+          
+            <article class="post-preview">
               <a href="https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/">
                 <h2 class="post-title">Mapping the Distribution of Religious Beliefs in Singapore</h2>
                 
@@ -229,7 +262,8 @@ This set of notes is largely inspired by a section in Gilbert Strang’s course 
               <div class="post-entry">
                 
                   Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
-On R and StataI decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.
+###On R and Stata
+I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.
                   <a href="https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -358,7 +392,7 @@ A recap of the key results - I find a positive correlation between the foreign-b
                 
                   In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
 TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
-\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}+1}\] where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.
+\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&#39;\in d}f_{t&#39;,d}} \cdot log \frac{N}{n_{t}+1}\]where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.
                   <a href="https://www.timlrx.com/2017/07/01/thesis-thursday-5-from-recipes-to-weights/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -430,36 +464,6 @@ The recipe datasetThis recipe dataset was created by scraping recipes from allr
                 <span class="post-meta">
                 
                   #<a href="../../tags/thesis-thursday">Thesis Thursday</a>&nbsp;
-                
-                </span>
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://www.timlrx.com/2017/06/11/binscatter-for-r/">
-                <h2 class="post-title">Binscatter for R</h2>
-                
-              </a>
-
-              <span class="post-meta">
-  Posted on June 11, 2017
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  I was trying to find an R package that provides features similar to Stata’s binscatter user written program but there does not appear to be any good substitutes around. Hence, I decided to write a function that replicates it in R. Turns out it actually took longer than I thought and there are still many bugs to fix but the developmental version is worth sharing. It can be downloaded from my Github page.
-                  <a href="https://www.timlrx.com/2017/06/11/binscatter-for-r/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-                <span class="post-meta">
-                
-                  #<a href="../../tags/binscatter">binscatter</a>&nbsp;
-                
-                  #<a href="../../tags/r">R</a>&nbsp;
                 
                 </span>
               

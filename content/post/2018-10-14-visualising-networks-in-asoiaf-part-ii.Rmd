@@ -9,7 +9,7 @@ tags: ['r', 'notes','visualisation','graph-theory', 'networks']
 
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=FALSE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=TRUE)
 node_df <- readRDS("C:/Users/timot/Documents/Repo/website-hugo/datasets/asoiaf_node_df.rds")
 edge_df <- readRDS("C:/Users/timot/Documents/Repo/website-hugo/datasets/asoiaf_edge_df.rds")
 ```

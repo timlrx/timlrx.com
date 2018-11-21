@@ -38,6 +38,7 @@ sg <- SpatialPolygonsDataFrame(sg, sg_plan_2015@data, match.ID ="PLN_AREA_N")
 sg <- rmapshaper::ms_simplify(sg, keep=0.05, keep_shapes=TRUE)
 ## sg <- gSimplify(sg, 20, topologyPreserve=TRUE)
 ### Append the data back
+row.names(sg_plan_2015@data) <- seq(1, 55, 1)
 sg_data <- SpatialPolygonsDataFrame(sg, sg_plan_2015@data)
 df <- readRDS(data_path)
 

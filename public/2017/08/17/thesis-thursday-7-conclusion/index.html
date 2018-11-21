@@ -9,9 +9,11 @@
   <meta property="og:title" content="Thesis Thursday 7 - Conclusion" />
   <meta name="twitter:title" content="Thesis Thursday 7 - Conclusion" />
   <meta name="description" content="Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
-On R and StataI decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.">
+###On R and Stata
+I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.">
   <meta property="og:description" content="Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
-On R and StataI decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.">
+###On R and Stata
+I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.">
   <meta name="twitter:description" content="Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some …">
   <meta name="author" content="Timothy Lin"/>
   <meta name="twitter:card" content="summary" />
@@ -149,8 +151,7 @@ ga('send', 'pageview');
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed <a href="../../../../files/mig_cons_paper.pdf">research paper</a> and <a href="../../../../mig_cons_slides/">accompanying slides</a> can be downloaded from my website.</p>
-<div id="on-r-and-stata" class="section level3">
-<h3>On R and Stata</h3>
+<p>###On R and Stata</p>
 <p>I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</p>
 <p>Features that I like:</p>
 <ul>
@@ -168,19 +169,18 @@ ga('send', 'pageview');
 <li><p>Speed. Stata is much faster at reading and processing large datasets on memory.</p></li>
 <li><p>Econometric tools. This is a major selling point of Stata and is where it still holds a comparative advantage. Recently developed tools in applied econometrics are introduced in Stata over R (e.g. ivreg2). By default, Stata commands normally come with the option of weights and different standard errors. To implement these features in R normally require an additional package and some clunky syntax.</p></li>
 </ul>
-</div>
-<div id="misc-thoughts" class="section level3">
-<h3>Misc thoughts</h3>
+<p>###Misc thoughts</p>
 <ul>
-<li><p>More data is not necessary better.</p></li>
+<li><p>More data is not necessary better.</p>
+<ul>
 <li><p>When working with shapefiles, try to find the simplest one that gives you the necessary detail. Any more is just a waste of memory and a waste of time to compress it down.</p></li>
 <li><p>There isn’t much point using micro level data when working at the broader aggregate level. Just take the mean and use the number of observation as weights. The regression results will be the same but much faster to compute.</p></li>
+</ul></li>
 <li><p>On a similar note, work with a small sample before running the code on the entire dataset.</p></li>
 <li><p>For complex text manipulation, use regex. Most helpful guide which I constantly refer to comes from a <a href="http://stat545.com/block022_regular-expression.html">UBC stat’s class.</a></p></li>
 <li><p>While ggcounty and choroplethr make mapping of U.S. states and counties a relatively simple task, it is worth learning to work with shapefiles. Doing it manually also made me realise how much of an art mapping is and the arbitrariness from the different projection systems.</p></li>
 <li><p>More RAM is better. It’s hard to go back to 4GB once you are used to 64GB.</p></li>
 </ul>
-</div>
 
       </article>
 

@@ -149,14 +149,15 @@ ga('send', 'pageview');
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>This is one of my favourite ways of establishing the traditional OLS formula. I remember being totally amazed when I first found out how to derive the OLS formula in a class on linear algebra. Understanding regression through the perspective of projections also shows the connection between the least squares method and linear algebra. It also gives a nice way of visualising the geometry of the OLS technique.</p>
-<p>This set of notes is largely inspired by a section in <a href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/index.htm">Gilbert Strang’s course on linear algebra</a>.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> I will use the same terminology as in the <a href="../../../../2017/08/16/notes-on-regression-ols/">previous post</a>.</p>
+<p>This set of notes is largely inspired by a section in <a href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/index.htm">Gilbert Strang’s course on linear algebra</a>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> I will use the same terminology as in the <a href="../../../../2017/08/16/notes-on-regression-ols/">previous post</a>.</p>
 <p>Recall the standard regression model and observe the similarities with the commonly used expression in linear algebra written below:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbf{y} &amp;= \mathbf{X}\mathbf{\beta} \\
 b &amp;= Ax
 \end{aligned}
-\]</span> Thus, the OLS regression can be motivated as a means of finding the projection of <span class="math inline">\(\mathbf{y}\)</span> on the space span by <span class="math inline">\(\mathbf{X}\)</span>.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> Or to put it another way, we want to find the vector <span class="math inline">\(\beta\)</span> that would be the closest to <span class="math inline">\(\mathbf{y}\)</span>.</p>
+\]</span>
+Thus, the OLS regression can be motivated as a means of finding the projection of <span class="math inline">\(\mathbf{y}\)</span> on the space span by <span class="math inline">\(\mathbf{X}\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Or to put it another way, we want to find the vector <span class="math inline">\(\beta\)</span> that would be the closest to <span class="math inline">\(\mathbf{y}\)</span>.</p>
 <div class="figure">
 <img src="../../../../img/projection_reg.png" alt="projection" />
 <p class="caption">projection</p>
@@ -194,8 +195,8 @@ b &amp;= Ax
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>My two favourite sources covering the basics of linear algebra are <a href="http://joshua.smcvt.edu/linearalgebra/">Hefferon’s linear algebra</a>, a free textbook, and Gilbert Strang’s course mentioned above. Hefferon provides a very clear treatment on the more theoretical aspects of the subject, while the latter highlights the many possibilities and applications that one can do with it.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>The span of the vectors in <span class="math inline">\(\mathbf{X}\)</span> (column space) is the set of all vectors in <span class="math inline">\(R^{n}\)</span> that can be written as linear combinations of the columns of <span class="math inline">\(\mathbf{X}\)</span><a href="#fnref2">↩</a></p></li>
+<li id="fn1"><p>My two favourite sources covering the basics of linear algebra are <a href="http://joshua.smcvt.edu/linearalgebra/">Hefferon’s linear algebra</a>, a free textbook, and Gilbert Strang’s course mentioned above. Hefferon provides a very clear treatment on the more theoretical aspects of the subject, while the latter highlights the many possibilities and applications that one can do with it.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>The span of the vectors in <span class="math inline">\(\mathbf{X}\)</span> (column space) is the set of all vectors in <span class="math inline">\(R^{n}\)</span> that can be written as linear combinations of the columns of <span class="math inline">\(\mathbf{X}\)</span><a href="#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 

@@ -17,7 +17,7 @@ subtitle: ''
 3. Ability to partial out fixed effects<br />
 4. Correct handling of standard errors</p>
 <p>I find a plot of the underlying data very useful to visualise the dispersion and for most intermediate sized datasets, I believe the additional clutter is worth the information trade off.</p>
-<p>Partialling out the effect of other control variables is done following the FWL-theorem so the resulting graph is a plot of residuals of the dependent variable on the residuals of the variable of interest.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>Partialling out the effect of other control variables is done following the FWL-theorem so the resulting graph is a plot of residuals of the dependent variable on the residuals of the variable of interest.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>The treatment of standard errors by ggplot using the geom_smooth function disappointed me. It makes a plot assuming homoskedastic errors and there are no good ways to modify that. Turns out actually getting robust or clustered standard errors was a little more complicated than I thought.</p>
 <p>This function uses felm from the lfe R-package to run the necessary regressions and produce the correct standard errors. While felm is much faster on large datasets, it lacks a predict function to calculate the confidence interval and I had to manually hard-code it.</p>
 <p>Here’s a short walk-through on using the function. First copy the <code>binscatter.R</code> file to the working directory and load it using <code>source(&quot;binscatter.R&quot;)</code></p>
@@ -43,6 +43,6 @@ binscatter(formula=&quot;ln_violent ~ ln_prisoners&quot;, key_var = &quot;ln_pri
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>For categorical variables this is equivalent to the effect of demeaning both the dependent variable and the variable of interest within each category.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>For categorical variables this is equivalent to the effect of demeaning both the dependent variable and the variable of interest within each category.<a href="#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

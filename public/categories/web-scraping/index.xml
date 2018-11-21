@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Scraping on Quasilinear Musings</title>
+    <link>https://www.timlrx.com/categories/web-scraping/</link>
+    <description>Recent content in Web Scraping on Quasilinear Musings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
+    <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
+    <lastBuildDate>Tue, 20 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.timlrx.com/categories/web-scraping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Overview on the Singapore Hiring Landscape</title>
+      <link>https://www.timlrx.com/2018/11/20/an-overview-on-the-singapore-hiring-landscape/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2018/11/20/an-overview-on-the-singapore-hiring-landscape/</guid>
+      <description>The idea of having a 360 degree view of the entire job seeking and matching landscape has always been a dream of any labour economist. Just imagine, a dataset of CVs and job seekers matched with job advertisements and openings! The potential of such a dataset to answer existing questions on the labour market is incredible. One could investigate market power between worker and firms, information asymmetry within the matching process, or find out new growth clusters and skills needed to support these areas.</description>
+    </item>
+    
+  </channel>
+</rss>

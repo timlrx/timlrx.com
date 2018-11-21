@@ -220,7 +220,7 @@ Figure 1: Density plot of number of stars a recipe is rated
 Figure 2: Density plot of log recipe reviews
 </p>
 </div>
-<p>Do recipes with more reviews score better? Apparently so.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>Do recipes with more reviews score better? Apparently so.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <pre class="r"><code>ggplot(recipe_df, aes(y=recipe_stars, x=ln_recipe_reviews)) + geom_point() + theme_classic()</code></pre>
 <div class="figure"><span id="fig:reviewsstar"></span>
 <img src="/post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/reviewsstar-1.png" alt="Plot of recipe rating on log reviews" width="672" />
@@ -231,7 +231,7 @@ Figure 3: Plot of recipe rating on log reviews
 </div>
 <div id="text-analysis" class="section level3">
 <h3>Text analysis</h3>
-<p>Now for the fun part - an analysis on the ingredients used. I will skip over the slightly tedious data cleaning procedures used to transform the recipe dataset to a coherent list of words associated with each geographical region / country.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>Now for the fun part - an analysis on the ingredients used. I will skip over the slightly tedious data cleaning procedures used to transform the recipe dataset to a coherent list of words associated with each geographical region / country.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p>Let us take a look at the most common ingredient related words used across all recipes.</p>
 <pre class="r"><code>tidy_recipe %&gt;%
   count(word, sort = TRUE) %&gt;%
@@ -248,7 +248,7 @@ Figure 3: Plot of recipe rating on log reviews
 Figure 4: List of common words
 </p>
 </div>
-<p>Salt and pepper comes up on top. White and black ranks highly too. These words are normally used to describe certain ingredients (e.g. white pepper, white flour).<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> Next, we can compare the frequency of words used in recipes from two different countries.</p>
+<p>Salt and pepper comes up on top. White and black ranks highly too. These words are normally used to describe certain ingredients (e.g. white pepper, white flour).<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Next, we can compare the frequency of words used in recipes from two different countries.</p>
 <pre class="r"><code>frequency &lt;- tidy_recipe %&gt;%
              count(geog, word) %&gt;%
              group_by(geog) %&gt;%
@@ -418,8 +418,8 @@ Japan
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Of course one cannot conclude the direction of causality. It could be the case that truly better recipes are rated more highly and also receive more reviews. One could also argue that more highly rated recipes receive more reviews or even recipes with more reviews tend to appear better attracting higher scores.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Basically, this involves cleaning up the text field and removing words not related to ingredients such as cooking procedures and measurement terms. Subsequently, I tokenise the entire list of ingredients such that each word is an observation by itself.<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>In my research I consider both single words and bi-grams (two words) to get better accuracy on matching.<a href="#fnref3">↩</a></p></li>
+<li id="fn1"><p>Of course one cannot conclude the direction of causality. It could be the case that truly better recipes are rated more highly and also receive more reviews. One could also argue that more highly rated recipes receive more reviews or even recipes with more reviews tend to appear better attracting higher scores.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Basically, this involves cleaning up the text field and removing words not related to ingredients such as cooking procedures and measurement terms. Subsequently, I tokenise the entire list of ingredients such that each word is an observation by itself.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>In my research I consider both single words and bi-grams (two words) to get better accuracy on matching.<a href="#fnref3" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

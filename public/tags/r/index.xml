@@ -102,7 +102,8 @@ The dataset that I will be using is aggregated from the 2000 and 2010 Census as 
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</guid>
       <description>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
-On R and StataI decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</description>
+###On R and Stata
+I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</description>
     </item>
     
     <item>
@@ -122,7 +123,7 @@ On R and StataI decided to code the entire project in R this time round and I h
       <guid>https://www.timlrx.com/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</guid>
       <description>In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
 TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
-\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&amp;#39;\in d}f_{t&amp;#39;,d}} \cdot log \frac{N}{n_{t}+1}\] where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.</description>
+\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&amp;#39;\in d}f_{t&amp;#39;,d}} \cdot log \frac{N}{n_{t}+1}\]where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.</description>
     </item>
     
     <item>

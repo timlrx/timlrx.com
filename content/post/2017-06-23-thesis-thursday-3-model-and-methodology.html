@@ -26,7 +26,7 @@ subtitle: ''
 CS_{ij} = \beta FB_{ij} + \gamma_{i} + \theta_{j}
 \]</span></p>
 <p>where <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\theta\)</span> control for unobserved variation at the county or migrant-country level that might be correlated with both the level of foreign born and consumption share. <span class="math inline">\(\beta\)</span>, the coefficient of interest gives us the effect of an increase in foreign born share on consumption share. Under the reasoning outlined in the model section, <span class="math inline">\(\beta\)</span> should be positive.</p>
-<p>Given that I am working on a dataset which provides cross-county variation in consumption share in a particular year, one might wonder what the relevant choice of foreign-born share would be. If preference spillovers take some time to materialise, using contemporaneous foreign-born share might not be the best choice. One would still expect it to be correlated since the current share of foreign-born is dependent on the past-share. Using a lag share might provide a better signal but the choice of lag is debatable. Including multiple foreign-born share terms would also not be insightful given that each foreign-born term is a function of another and the true effect is a combination of foreign share and time.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>Given that I am working on a dataset which provides cross-county variation in consumption share in a particular year, one might wonder what the relevant choice of foreign-born share would be. If preference spillovers take some time to materialise, using contemporaneous foreign-born share might not be the best choice. One would still expect it to be correlated since the current share of foreign-born is dependent on the past-share. Using a lag share might provide a better signal but the choice of lag is debatable. Including multiple foreign-born share terms would also not be insightful given that each foreign-born term is a function of another and the true effect is a combination of foreign share and time.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 </div>
 <div id="endogeneity-concerns" class="section level3">
 <h3>Endogeneity concerns</h3>
@@ -39,6 +39,6 @@ CS_{ij} = \beta FB_{ij} + \gamma_{i} + \theta_{j}
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>This issue seems impossible to resolve without fully specifying a model of how migrant flows affect local preferences across time.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>This issue seems impossible to resolve without fully specifying a model of how migrant flows affect local preferences across time.<a href="#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

@@ -196,7 +196,7 @@ plot_graph &lt;- function(graph) {
 </div>
 <div id="a-network-animation" class="section level3">
 <h3>A network animation</h3>
-<p>Separate plots for each book is nice but this makes it quite difficult to compare the network structure across books. One possible solution is to combine them all into an animation. <a href="https://github.com/thomasp85/gganimate">gganimate</a> is an extension to ggplot that allows animations to be created relatively easily.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>Separate plots for each book is nice but this makes it quite difficult to compare the network structure across books. One possible solution is to combine them all into an animation. <a href="https://github.com/thomasp85/gganimate">gganimate</a> is an extension to ggplot that allows animations to be created relatively easily.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>With <code>gganimate</code> doing a simple transition can be done by appending <code>transition_manual</code> to the existing ggplot object and calling <code>animate</code> on it. Basically, anything that works with a <code>facet_wrap</code> can be converted to a simple animation. In the example below, I included <code>transition_manual(book)</code> to generate an animation that shows each book every 2 seconds. <code>animate</code> by default renders an animated gif which we can simply embed on the website.</p>
 <pre class="r"><code>library(gganimate)
 plot_graph &lt;- function(graph) {
@@ -285,7 +285,7 @@ animate(p2, 100, 10, width = 900, height = 600)</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Note: There has been a major re-write of the API since Thomas Pederson took over from David Robinson so many of the existing tutorials out there are no longer compatible with the new one. I use the new API in the code below. There seems to be some issues with the integration of <code>ggraph</code> and <code>gganimate</code> as well. At the time of this post, I can only get <code>geom_edge_link0</code> to work while <code>geom_edge_link</code> and <code>geom_edge_arc</code> gives an error message. I filed a <a href="https://github.com/thomasp85/gganimate/issues/196">github issue</a> so hopefully these teething issues get resolve soon.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Note: There has been a major re-write of the API since Thomas Pederson took over from David Robinson so many of the existing tutorials out there are no longer compatible with the new one. I use the new API in the code below. There seems to be some issues with the integration of <code>ggraph</code> and <code>gganimate</code> as well. At the time of this post, I can only get <code>geom_edge_link0</code> to work while <code>geom_edge_link</code> and <code>geom_edge_arc</code> gives an error message. I filed a <a href="https://github.com/thomasp85/gganimate/issues/196">github issue</a> so hopefully these teething issues get resolve soon.<a href="#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 
@@ -297,6 +297,10 @@ animate(p2, 100, 10, width = 900, height = 600)</code></pre>
             <a href="https://www.timlrx.com/2018/09/09/visualising-networks-in-asoiaf/" data-toggle="tooltip" data-placement="top" title="Visualising Networks in ASOIAF">&larr; Previous Post</a>
           </li>
         
+        
+          <li class="next">
+            <a href="https://www.timlrx.com/2018/11/20/an-overview-on-the-singapore-hiring-landscape/" data-toggle="tooltip" data-placement="top" title="An Overview on the Singapore Hiring Landscape">Next Post &rarr;</a>
+          </li>
         
       </ul>
 

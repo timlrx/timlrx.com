@@ -18,27 +18,35 @@ tags: ['R','notes', 'simulation', 'metrics']
 <div id="framework" class="section level3">
 <h3>Framework</h3>
 <p>Would these methods give equivalent results? I will use the Neyman-Rubin causal framework to formalise the intended goal and outcomes. Let <span class="math inline">\(Y_{i}\)</span> denote the outcome of an individual (e.g. total spending). The fundamental problem of inference is that one would never be able to observe the spending of an individual if he was administered the treatment <span class="math inline">\(Y_{1i}\)</span> or if he was not <span class="math inline">\(Y_{0i}\)</span>. Here, <span class="math inline">\(Y_{1i}\)</span> and <span class="math inline">\(Y_{0i}\)</span> are referred to as potential outcomes as only one outcome can be observed but not the other.</p>
-<p>The average effect of a treatment on an individual is given by: <span class="math display">\[
+<p>The average effect of a treatment on an individual is given by:
+<span class="math display">\[
 E[Y_{1i} - Y_{0i}]
 \]</span></p>
-<p>Let <span class="math inline">\(D_{i}=1\)</span> denote being treated and <span class="math inline">\(D_{i}=0\)</span> being not treated. We can look at the difference in average outcomes based on treatment status: <span class="math display">\[
+<p>Let <span class="math inline">\(D_{i}=1\)</span> denote being treated and <span class="math inline">\(D_{i}=0\)</span> being not treated. We can look at the difference in average outcomes based on treatment status:
+<span class="math display">\[
 E[Y_{i} \vert D_{i}=1] - E[Y_{i} \vert D_{i}=0] = E[Y_{1i} \vert D_{i}=1] - E[Y_{0i} \vert D_{i}=0]
 \]</span></p>
-<p>If the treatment is not randomly assigned (e.g. people can choose to take-up the treatment), the above expression can be written as: <span class="math display">\[
+<p>If the treatment is not randomly assigned (e.g. people can choose to take-up the treatment), the above expression can be written as:
+<span class="math display">\[
 \begin{aligned}
 E[Y_{i} \vert D_{i}=1] - E[Y_{i} \vert D_{i}=0] &amp;= E[Y_{1i} \vert D_{i}=1] - E[Y_{0i} \vert D_{i}=1]   \\
 &amp;+ E[Y_{0i} \vert D_{i}=1] - E[Y_{0i} \vert D_{i}=0]
 \end{aligned}
-\]</span> The first term on the right is the average treatment effect on treated while the second is the selection bias. For example, if the advertisement has a positive impact on spending then we would expect the second term to be positive leading to an upward bias in its estimated effect.</p>
-<p>And that’s precisely why to evaluate the effectiveness of a treatment, we have to randomise people into treatment and control groups. Under randomisation, the potential outcomes are independent of the treatment<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, <span class="math display">\[
+\]</span>
+The first term on the right is the average treatment effect on treated while the second is the selection bias. For example, if the advertisement has a positive impact on spending then we would expect the second term to be positive leading to an upward bias in its estimated effect.</p>
+<p>And that’s precisely why to evaluate the effectiveness of a treatment, we have to randomise people into treatment and control groups. Under randomisation, the potential outcomes are independent of the treatment<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>,
+<span class="math display">\[
 \{Y_{1i}, Y_{0i}\} \perp D_{i} 
-\]</span> and</p>
+\]</span>
+and</p>
 <p><span class="math display">\[
 E[Y_{1i} \vert D_{i}=1] - E[Y_{0i} \vert D_{i}=0] = E[Y_{1i} - Y_{0i}]
-\]</span> This implies that taking the difference between the average across the treated and control group will give us the <em>Average Treatment Effect (ATE)</em>. In many situations, we relax the assumption by only allowing the mean of non-treated individuals to be independent of treatment status:</p>
+\]</span>
+This implies that taking the difference between the average across the treated and control group will give us the <em>Average Treatment Effect (ATE)</em>. In many situations, we relax the assumption by only allowing the mean of non-treated individuals to be independent of treatment status:</p>
 <p><span class="math display">\[
 E[Y_{1i} \vert D_{i}=1] - E[Y_{0i} \vert D_{i}=0] = E[Y_{1i} - Y_{0i} \vert D_{i}=1]
-\]</span> This gives the <em>Average Treatment on Treated (ATT)</em>.</p>
+\]</span>
+This gives the <em>Average Treatment on Treated (ATT)</em>.</p>
 </div>
 <div id="thought-experiment" class="section level3">
 <h3>Thought Experiment</h3>
@@ -46,7 +54,8 @@ E[Y_{1i} \vert D_{i}=1] - E[Y_{0i} \vert D_{i}=0] = E[Y_{1i} - Y_{0i} \vert D_{i
 </div>
 <div id="simulation-setup" class="section level3">
 <h3>Simulation Setup</h3>
-<p>To check on the effectiveness of the 3 methods of selecting a control group, let’s do a little simulation with the following parameters: <span class="math display">\[
+<p>To check on the effectiveness of the 3 methods of selecting a control group, let’s do a little simulation with the following parameters:
+<span class="math display">\[
 \begin{aligned}
 \alpha &amp;= 3, \\
 \beta &amp;=2,   \\
@@ -86,7 +95,8 @@ P(X_{i}=H \vert Y_{i}&gt;4) &amp;= \frac{P(X_{i}=H, Y_{i}&gt;4)}{P(Y_{i} &gt;4)}
 &amp;= \frac{0.841*0.5}{0.159*0.5 + 0.841 *0.5} \\
 &amp;= 0.841
 \end{aligned}
-\]</span> Since only 0.841 of the sub-population would be affected by the treatment, we would expect that the average treatment effect would be <span class="math inline">\(0.841*0.3 = 0.25\%\)</span></p>
+\]</span>
+Since only 0.841 of the sub-population would be affected by the treatment, we would expect that the average treatment effect would be <span class="math inline">\(0.841*0.3 = 0.25\%\)</span></p>
 <pre class="r"><code>### Add in treatment effect to treated
 df$delta = ifelse(df$treat==1 &amp; df$type==1 &amp; runif(n, 0, 1)&lt;=p, d, 0)
 df$spend2 = df$delta + df$spend
@@ -140,7 +150,8 @@ hist(unlist(coef_list))</code></pre>
 </div>
 <div id="nd-period-att" class="section level3">
 <h3>2nd period ATT</h3>
-<p>Now, we are ready to evaluate the various proposed control groups. To keep things simple, the 2nd marketing promotion will be the same as the first and target individuals who spend above 4. However, this time to evaluate the results we need to consider 3 groups - low type, high type takers and high type non-takers - where takers and non-takers refer to whether they responded positively to the treatment in the first period. Repeating the above calculations and focusing on the share of non-takers in the sub-population: <span class="math display">\[
+<p>Now, we are ready to evaluate the various proposed control groups. To keep things simple, the 2nd marketing promotion will be the same as the first and target individuals who spend above 4. However, this time to evaluate the results we need to consider 3 groups - low type, high type takers and high type non-takers - where takers and non-takers refer to whether they responded positively to the treatment in the first period. Repeating the above calculations and focusing on the share of non-takers in the sub-population:
+<span class="math display">\[
 \begin{aligned}
 P(X_{i,t=2}=H_{nt} \vert Y_{i,t=2}&gt;4) &amp;= P(X_{i,t=2}=H_{nt} \vert Y_{i,t=2}&gt;4, i \in treated_{t=1}) + P(X_{i,t=2}=H_{nt} \vert Y_{i,t=2}&gt;4, i \in control_{t=1})\\
 &amp;=\frac{P(X_{i,t=2}=H_{nt}, Y_{i,t=2}&gt;4)}{P(Y_{i,t=2} &gt;4)}*0.8 + 0.841*0.2 \\
@@ -150,7 +161,8 @@ P(X_{i,t=2}=H_{nt} \vert Y_{i,t=2}&gt;4) &amp;= P(X_{i,t=2}=H_{nt} \vert Y_{i,t=
 ATT_{t=2} &amp;= 0.639*0.3  \\
 &amp;= 0.192
 \end{aligned}
-\]</span> The calculations make intuitive sense. With a smaller pool of customers who would respond positively to the treatment, the ATT in the second period is lower than the first.</p>
+\]</span>
+The calculations make intuitive sense. With a smaller pool of customers who would respond positively to the treatment, the ATT in the second period is lower than the first.</p>
 </div>
 <div id="targeting-rule-with-top-up" class="section level3">
 <h3>Targeting rule with top-up</h3>
@@ -177,7 +189,7 @@ lm(spend3 ~ treat2, data=df_subset2)</code></pre>
 <pre class="r"><code>mean(unlist(prop_treat_list))</code></pre>
 <pre><code>## [1] 0.5890693</code></pre>
 <p>Notice that the proportion of high non-treated individuals are no longer the same across the groups and the estimated effect is much larger than the calculated value. Almost no one has been treated in the control group. This leads to an upwards bias in the estimated treatment effect since the coefficient estimate is combining the effect of both the first and second treatment together.</p>
-<p>More generally, the extent and direction of bias cannot be so easily quantified. If one allows the spending amounts to have a component that evolves randomly across time, it is possible for the estimate to be smaller than its actual value.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>More generally, the extent and direction of bias cannot be so easily quantified. If one allows the spending amounts to have a component that evolves randomly across time, it is possible for the estimate to be smaller than its actual value.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </div>
 <div id="additional-thoughts" class="section level3">
 <h3>Additional Thoughts</h3>
@@ -191,7 +203,7 @@ lm(spend3 ~ treat2, data=df_subset2)</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>More accurately only mean independence is required.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Keeping only members that were present in the control group of the previous time period introduces a selection bias.<a href="#fnref2">↩</a></p></li>
+<li id="fn1"><p>More accurately only mean independence is required.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Keeping only members that were present in the control group of the previous time period introduces a selection bias.<a href="#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

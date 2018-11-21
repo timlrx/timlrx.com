@@ -168,7 +168,7 @@ ga('send', 'pageview');
 <p>In this set of notes I shall discuss the OLS regression as a way of approximating the conditional expectation function (CEF). To be more precise, regression yields the best linear approximation of the CEF. This mathematical property makes regression a favourite tool among social scientist as it places the emphasis on interpretation of an approximation of reality rather than complicated curve fitting. I came across this method from Angrist and Pischke’s <a href="https://press.princeton.edu/titles/8769.html">nearly harmless econometrics</a>.</p>
 <div id="what-is-a-conditional-expectation-function" class="section level2">
 <h2>What is a Conditional Expectation Function?</h2>
-<p>Expectation as in the statistics terminology normally refers to the population average of a particular random variable. The conditional expectation as its name suggest is the population average conditional holding certain variables fixed. In the context of regression, the CEF is simply <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span>. Since <span class="math inline">\(X_{i}\)</span> is random, the CEF is random.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>Expectation as in the statistics terminology normally refers to the population average of a particular random variable. The conditional expectation as its name suggest is the population average conditional holding certain variables fixed. In the context of regression, the CEF is simply <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span>. Since <span class="math inline">\(X_{i}\)</span> is random, the CEF is random.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <div class="figure">
 <img src="../../../../img/CEF.png" alt="CEF" />
 <p class="caption">CEF</p>
@@ -176,10 +176,13 @@ ga('send', 'pageview');
 <p>The picture above is an illustrated example of the CEF plotted on a given dataset. Looking at the relationship of the number of stars obtained by a recipe and the log number of reviews, one can calculate the average star rating for a given number of reviews (indicated by the red dots). The CEF function joins all these red dots together (indicated by the blue line).</p>
 <div id="nice-properties-of-the-cef" class="section level3">
 <h3>Nice Properties of the CEF</h3>
-<p>What could we infer about the relationship between the dependent variable, <span class="math inline">\(Y_{i}\)</span> and the CEF? Let’s split the dependent variable into two components: <span class="math display">\[
+<p>What could we infer about the relationship between the dependent variable, <span class="math inline">\(Y_{i}\)</span> and the CEF? Let’s split the dependent variable into two components:
+<span class="math display">\[
 Y_{i} = E[Y_{i} \vert X_{i}] + \epsilon_{i}
-\]</span> Using the law of iterated expectation, we can show that <span class="math inline">\(E[\epsilon_{i} \vert X_{i}]=0\)</span> i.e. mean independence and <span class="math inline">\(\epsilon_{i}\)</span> is uncorrelated with any function of <span class="math inline">\(X_{i}\)</span>. In other words, we can break the dependent variable into a component that is explained by <span class="math inline">\(X_{i}\)</span> and another component that is orthogonal to it. Sounds familiar?</p>
-<p>Also, if we were to try to find a function of <span class="math inline">\(X\)</span>, <span class="math inline">\(m(X)\)</span> that minimises the squared mean error i.e. <span class="math inline">\(min~ E[(Y_{i} - m(X_{i}))^{2}]\)</span>, we would find that the optimum choice of <span class="math inline">\(m(X)\)</span> is exactly the CEF! To see that expand the squared error term: <span class="math display">\[
+\]</span>
+Using the law of iterated expectation, we can show that <span class="math inline">\(E[\epsilon_{i} \vert X_{i}]=0\)</span> i.e. mean independence and <span class="math inline">\(\epsilon_{i}\)</span> is uncorrelated with any function of <span class="math inline">\(X_{i}\)</span>. In other words, we can break the dependent variable into a component that is explained by <span class="math inline">\(X_{i}\)</span> and another component that is orthogonal to it. Sounds familiar?</p>
+<p>Also, if we were to try to find a function of <span class="math inline">\(X\)</span>, <span class="math inline">\(m(X)\)</span> that minimises the squared mean error i.e. <span class="math inline">\(min~ E[(Y_{i} - m(X_{i}))^{2}]\)</span>, we would find that the optimum choice of <span class="math inline">\(m(X)\)</span> is exactly the CEF! To see that expand the squared error term:
+<span class="math display">\[
 \begin{aligned}
 (Y_{i} - m(X_{i}))^{2}  &amp;= ((Y_{i} - E[Y_{i} \vert X_{i}]) + (E[Y_{i} \vert X_{i}] - m(X_{i})))^{2} \\
 &amp;= (Y_{i} - E[Y_{i} \vert X_{i}])^{2} + 2(Y_{i} - E[Y_{i} \vert X_{i}])(E[Y_{i} \vert X_{i}] - m(X_{i})) 
@@ -191,10 +194,11 @@ Y_{i} = E[Y_{i} \vert X_{i}] + \epsilon_{i}
 </div>
 <div id="regression-and-the-cef" class="section level2">
 <h2>Regression and the CEF</h2>
-<p>Now let’s link the regression back to the discussion on the CEF. Recall the example of the number of stars a recipe has and the number of reviews submitted. Log reviews is a continuous variable and there are lots of points to take into consideration. Regression offers a way of approximating the CEF linearly i.e. <span class="math display">\[
+<p>Now let’s link the regression back to the discussion on the CEF. Recall the example of the number of stars a recipe has and the number of reviews submitted. Log reviews is a continuous variable and there are lots of points to take into consideration. Regression offers a way of approximating the CEF linearly i.e.
+<span class="math display">\[
 \beta = \arg \min_{b}E[ E[Y_{i}\vert X_{i}] - X_{i}&#39;b]
 \]</span></p>
-<p>To get this result, one can show that minimising <span class="math inline">\((Y_{i} -X&#39;_{i}b)^{2}\)</span> is equivalent to minimising the above equation.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> Thus, even if the CEF is non-linear as in the recipe and star rating example, the regression line would provide the best linear approximation to it (drawn in green below).</p>
+<p>To get this result, one can show that minimising <span class="math inline">\((Y_{i} -X&#39;_{i}b)^{2}\)</span> is equivalent to minimising the above equation.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Thus, even if the CEF is non-linear as in the recipe and star rating example, the regression line would provide the best linear approximation to it (drawn in green below).</p>
 <div class="figure">
 <img src="../../../../img/CEF_regression.png" alt="Regression as the best linear approximation to the CEF" />
 <p class="caption">Regression as the best linear approximation to the CEF</p>
@@ -203,8 +207,8 @@ Y_{i} = E[Y_{i} \vert X_{i}] + \epsilon_{i}
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>In practice, one obtains a sample of the population data and uses the sample to make an approximation of the population CEF.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>just add and subtract <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span> and manipulate the terms in a similar way to the previous proof using <span class="math inline">\(m(X)\)</span>.<a href="#fnref2">↩</a></p></li>
+<li id="fn1"><p>In practice, one obtains a sample of the population data and uses the sample to make an approximation of the population CEF.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>just add and subtract <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span> and manipulate the terms in a similar way to the previous proof using <span class="math inline">\(m(X)\)</span>.<a href="#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 

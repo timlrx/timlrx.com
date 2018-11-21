@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>timothy.lin@alumni.ubc.ca (Timothy Lin)</managingEditor>
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
-    <lastBuildDate>Sun, 14 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.timlrx.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An Overview on the Singapore Hiring Landscape</title>
+      <link>https://www.timlrx.com/2018/11/20/an-overview-on-the-singapore-hiring-landscape/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>https://www.timlrx.com/2018/11/20/an-overview-on-the-singapore-hiring-landscape/</guid>
+      <description>The idea of having a 360 degree view of the entire job seeking and matching landscape has always been a dream of any labour economist. Just imagine, a dataset of CVs and job seekers matched with job advertisements and openings! The potential of such a dataset to answer existing questions on the labour market is incredible. One could investigate market power between worker and firms, information asymmetry within the matching process, or find out new growth clusters and skills needed to support these areas.</description>
+    </item>
     
     <item>
       <title>Visualising Networks in ASOIAF - Part II</title>
@@ -146,7 +155,7 @@ The most popular post…is the SG dashboard. This was a little surprisingly. I t
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</guid>
       <description>Here’s a fun take on the OLS that I picked up from The Elements of Statistical Learning. It applies the Singular Value Decomposition, also known as the method used in principal component analysis, to the regression framework.
-Singular Vector Decomposition (SVD)First, a little background on the SVD. The SVD could be thought of as a generalisation of the eigendecomposition. An eigenvector v of matrix \(\mathbf{A}\) is a vector that is mapped to a scaled version of itself: \[\mathbf{A}v = \lambda v\] where \(\lambda\) is known as the eigenvalue.</description>
+Singular Vector Decomposition (SVD)First, a little background on the SVD. The SVD could be thought of as a generalisation of the eigendecomposition. An eigenvector v of matrix \(\mathbf{A}\) is a vector that is mapped to a scaled version of itself:\[\mathbf{A}v = \lambda v\]where \(\lambda\) is known as the eigenvalue.</description>
     </item>
     
     <item>
@@ -232,7 +241,8 @@ This set of notes is largely inspired by a section in Gilbert Strang’s course 
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
       <guid>https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</guid>
       <description>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
-On R and StataI decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</description>
+###On R and Stata
+I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</description>
     </item>
     
     <item>
@@ -271,7 +281,7 @@ A recap of the key results - I find a positive correlation between the foreign-b
       <guid>https://www.timlrx.com/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</guid>
       <description>In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
 TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
-\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&amp;#39;\in d}f_{t&amp;#39;,d}} \cdot log \frac{N}{n_{t}+1}\] where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.</description>
+\[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&amp;#39;\in d}f_{t&amp;#39;,d}} \cdot log \frac{N}{n_{t}+1}\]where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.</description>
     </item>
     
     <item>

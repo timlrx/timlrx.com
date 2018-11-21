@@ -209,7 +209,7 @@ Figure 1: QoQ GDP Trend
 <p>And here’s a plot comparing qoq and yoy growth for all the industries:</p>
 <p><img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/reshapeplot-1.png" width="672" /></p>
 <p>Wondering what the actual percentage change is? We can convert the graph into a more interactive one using a simple line of code. And since it is locally generated, it can be hosted on github as well.</p>
-<p>While the precision of our calculated data is satisfying, the scale of the graph is being skewed by one particular sector. The other goods sector (Agriculture and Fishing, Mining and Quarrying) contracted 16.38% yoy (yikes!).<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> The other goods sector is normally not given any coverage as it is a very small component of GDP (just 30m). Could the decline be mostly due to noisy fluctuations?</p>
+<p>While the precision of our calculated data is satisfying, the scale of the graph is being skewed by one particular sector. The other goods sector (Agriculture and Fishing, Mining and Quarrying) contracted 16.38% yoy (yikes!).<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> The other goods sector is normally not given any coverage as it is a very small component of GDP (just 30m). Could the decline be mostly due to noisy fluctuations?</p>
 <pre class="r"><code>other.goods.data &lt;- va.sector.comb %&gt;% filter(year&gt;=2012 &amp; industry==&quot;Other Goods Industries&quot;)                     %&gt;% select(period, yoy, qoqsaa) %&gt;% melt(measure.vars=c(&quot;yoy&quot;,&quot;qoqsaa&quot;))
 
 other.goods.plot&lt;-ggplot(other.goods.data, aes(period, value, group=variable, color=variable)) + geom_point() + geom_line() + ylab(&quot;QoQ SA (%)&quot;) + xlab(&quot;Period&quot;) + theme_classic() +        theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))</code></pre>
@@ -230,7 +230,7 @@ Figure 2: qoq plot
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>I manually verified the figures with the official ones due to this huge number.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>I manually verified the figures with the official ones due to this huge number.<a href="#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 
