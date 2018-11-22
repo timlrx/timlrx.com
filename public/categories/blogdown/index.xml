@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogdown on Quasilinear Musings</title>
-    <link>https://timlrx.com/categories/blogdown/</link>
+    <link>/categories/blogdown/</link>
     <description>Recent content in Blogdown on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sun, 25 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.com/categories/blogdown/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/blogdown/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Uploading Jupyter Notebook Files to Blogdown</title>
-      <link>https://timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</link>
+      <link>/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</link>
       <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</guid>
+      <guid>/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</guid>
       <description>I have been working quite a bit with Python recently, using the popular Jupyter Notebook interface. Have been thinking about uploading some of my machine learning experiments and notes on the blog but integrating python with a blog built on blogdown seems problematic as I could not google a solution. Turns out it is actually quite simple (maybe that&amp;rsquo;s why nobody posted a tutorial on it, or maybe people who blog in R do not really use Python).</description>
     </item>
     

@@ -13,21 +13,21 @@
   <meta name="twitter:description" content="While waiting for the winds of winter to arrive, there is plenty of time to revisit the 5 books. One of my favourite aspects of the series is the character and world building. As the song of ice and …">
   <meta name="author" content="Timothy Lin"/>
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="https://timlrx.com/2018/09/09/visualising-networks-in-asoiaf/" />
+  <meta property="og:url" content="/2018/09/09/visualising-networks-in-asoiaf/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Quasilinear Musings" />
 
   <meta name="generator" content="Hugo 0.30.2" />
-  <link rel="canonical" href="https://timlrx.com/2018/09/09/visualising-networks-in-asoiaf/" />
-  <link rel="alternate" href="https://timlrx.com/index.xml" type="application/rss+xml" title="Quasilinear Musings">
+  <link rel="canonical" href="/2018/09/09/visualising-networks-in-asoiaf/" />
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Quasilinear Musings">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://timlrx.com/css/main.css" />
+  <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-  <link rel="stylesheet" href="https://timlrx.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://timlrx.com/css/highlight.min.css" />
+  <link rel="stylesheet" href="/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="/css/highlight.min.css" />
 
 
 
@@ -50,7 +50,7 @@ ga('send', 'pageview');
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://timlrx.com/">Quasilinear Musings</a>
+      <a class="navbar-brand" href="/">Quasilinear Musings</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="../../../../post/">Blog</a>
+              <a title="Blog" href="/post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="../../../../about/">About</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="../../../../resources/">Resources</a>
+              <a title="Resources" href="/resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="../../../../tags">Tags</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
@@ -226,7 +226,7 @@ book1 %&gt;%
   geom_bar() +
   xlim(0,100) +
   theme_bw()</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/weightPlot-1.png" width="672" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/weightPlot-1.png" width="672" /></p>
 <p>Typical of network graphs, the plot shows a power law like distribution, with most character pairs connected by a few joint mentions and a few central characters being mentioned repeatedly in the same context. I truncated the x-axis to remove certain outliers, but if you are keen on finding out which characters were most commonly mentioned next to each other…</p>
 <pre class="r"><code>book1 %&gt;% arrange(desc(weight))</code></pre>
 <pre><code>## # A tibble: 684 x 4
@@ -265,7 +265,7 @@ book1 %&gt;%
   geom_node_point() +
   geom_node_text(aes(label = Label_short), repel = TRUE) +
   theme_graph()</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/ggraphVis-1.png" width="672" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/ggraphVis-1.png" width="672" /></p>
 <p>Let us try to encode more information by finding the communities within graph.</p>
 <pre class="r"><code>df3 &lt;- df2 %&gt;%
   mutate(component = group_components(),
@@ -281,7 +281,7 @@ book1 %&gt;%
   geom_node_point(aes(color = community, size = pagerank)) +
   geom_node_text(aes(label = Label_short), repel = TRUE, size = 3.5) +
   theme_graph()</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/circular-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/circular-1.png" width="1152" /></p>
 <p>The communities discovered by the algorithm match fairly well to the locations where the characters spend most of their time in. We have a king’s landing community with Eddard Stark, Robert Baratheon and Varys; as well as a Winterfell community with Catelyn, Bran and Robb. We can also easily pick up the influential players in the graph. Daenerys, is the only link between Essos and the rest of Westeros. Tyrion and the Stark family (except Rickon) also rank highly in pagerank score and facilitate the connections between the other major characters in the first book.</p>
 <div id="asoiaf-network" class="section level3">
 <h3>ASOIAF Network</h3>
@@ -381,15 +381,15 @@ plot_graph &lt;- function(graph) {
 }</code></pre>
 <p>And here is how each book looks:</p>
 <pre class="r"><code>plot_graph(all_graphs[[1]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book1-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book1-1.png" width="1152" /></p>
 <pre class="r"><code>plot_graph(all_graphs[[2]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book2-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book2-1.png" width="1152" /></p>
 <pre class="r"><code>plot_graph(all_graphs[[3]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book3-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book3-1.png" width="1152" /></p>
 <pre class="r"><code>plot_graph(all_graphs[[4]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book4-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book4-1.png" width="1152" /></p>
 <pre class="r"><code>plot_graph(all_graphs[[5]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book5-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book5-1.png" width="1152" /></p>
 </div>
 </div>
 
@@ -398,12 +398,12 @@ plot_graph &lt;- function(graph) {
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="https://timlrx.com/2018/08/09/applications-of-dags-in-causal-inference/" data-toggle="tooltip" data-placement="top" title="Applications of DAGs in Causal Inference">&larr; Previous Post</a>
+            <a href="/2018/08/09/applications-of-dags-in-causal-inference/" data-toggle="tooltip" data-placement="top" title="Applications of DAGs in Causal Inference">&larr; Previous Post</a>
           </li>
         
         
           <li class="next">
-            <a href="https://timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/" data-toggle="tooltip" data-placement="top" title="Visualising Networks in ASOIAF - Part II">Next Post &rarr;</a>
+            <a href="/2018/10/14/visualising-networks-in-asoiaf-part-ii/" data-toggle="tooltip" data-placement="top" title="Visualising Networks in ASOIAF - Part II">Next Post &rarr;</a>
           </li>
         
       </ul>
@@ -446,7 +446,7 @@ plot_graph &lt;- function(graph) {
               </li>
           
           <li>
-            <a href="https://timlrx.com/index.xml" title="RSS">
+            <a href="/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -462,7 +462,7 @@ plot_graph &lt;- function(graph) {
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://timlrx.com/">Quasilinear Musings</a>
+            <a href="/">Quasilinear Musings</a>
           
         </p>
         
@@ -479,8 +479,8 @@ plot_graph &lt;- function(graph) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://timlrx.com/js/main.js"></script>
-<script src="https://timlrx.com/js/highlight.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/highlight.min.js"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
 <script> renderMathInElement(document.body); </script>
 

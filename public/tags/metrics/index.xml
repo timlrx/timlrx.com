@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Metrics on Quasilinear Musings</title>
-    <link>https://timlrx.com/tags/metrics/</link>
+    <link>/tags/metrics/</link>
     <description>Recent content in Metrics on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sat, 18 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.com/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Choosing a Control Group in a RCT with Multiple Treatment Periods</title>
-      <link>https://timlrx.com/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</link>
+      <link>/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</link>
       <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</guid>
+      <guid>/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</guid>
       <description>Came across a fun little problem over the past few weeks that is related to the topic of policy impact evaluation - a long time interest of mine! Here’s the setting: we have a large population of individuals and a number of treatments that we want to gauge the effectiveness of. The treatments are not necessarily the same but are targeted towards certain sub-segments in the population. Examples of such situations include online ad targeting or marketing campaigns.</description>
     </item>
     

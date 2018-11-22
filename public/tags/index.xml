@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Quasilinear Musings</title>
-    <link>https://timlrx.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,204 +10,258 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sun, 11 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Binscatter</title>
-      <link>https://timlrx.com/tags/binscatter/</link>
+      <link>/tags/binscatter/</link>
       <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/binscatter/</guid>
+      <guid>/tags/binscatter/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Causal Inference</title>
-      <link>https://timlrx.com/tags/causal-inference/</link>
+      <link>/tags/causal-inference/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/causal-inference/</guid>
+      <guid>/tags/causal-inference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Code</title>
+      <link>/tags/code/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>/tags/code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dags</title>
-      <link>https://timlrx.com/tags/dags/</link>
+      <link>/tags/dags/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/dags/</guid>
+      <guid>/tags/dags/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dashboard</title>
-      <link>https://timlrx.com/tags/dashboard/</link>
+      <link>/tags/dashboard/</link>
       <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/dashboard/</guid>
+      <guid>/tags/dashboard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Example</title>
+      <link>/tags/example/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>/tags/example/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Graph Theory</title>
-      <link>https://timlrx.com/tags/graph-theory/</link>
+      <link>/tags/graph-theory/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/graph-theory/</guid>
+      <guid>/tags/graph-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>/tags/markdown/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Math</title>
+      <link>/tags/math/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>/tags/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Metrics</title>
-      <link>https://timlrx.com/tags/metrics/</link>
+      <link>/tags/metrics/</link>
       <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/metrics/</guid>
+      <guid>/tags/metrics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Musings</title>
-      <link>https://timlrx.com/tags/musings/</link>
+      <link>/tags/musings/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/musings/</guid>
+      <guid>/tags/musings/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Networks</title>
-      <link>https://timlrx.com/tags/networks/</link>
+      <link>/tags/networks/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/networks/</guid>
+      <guid>/tags/networks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Notes</title>
-      <link>https://timlrx.com/tags/notes/</link>
+      <link>/tags/notes/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/notes/</guid>
+      <guid>/tags/notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ols</title>
-      <link>https://timlrx.com/tags/ols/</link>
+      <link>/tags/ols/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/ols/</guid>
+      <guid>/tags/ols/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Personal</title>
-      <link>https://timlrx.com/tags/personal/</link>
+      <link>/tags/personal/</link>
       <pubDate>Sat, 28 Apr 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/personal/</guid>
+      <guid>/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plot</title>
+      <link>/tags/plot/</link>
+      <pubDate>Thu, 11 May 2017 21:13:14 -0500</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>/tags/plot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://timlrx.com/tags/r/</link>
+      <link>/tags/r/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/r/</guid>
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>/tags/r-markdown/</link>
+      <pubDate>Thu, 11 May 2017 21:13:14 -0500</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>/tags/r-markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Regression</title>
-      <link>https://timlrx.com/tags/regression/</link>
+      <link>/tags/regression/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/regression/</guid>
+      <guid>/tags/regression/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sg Economy</title>
-      <link>https://timlrx.com/tags/sg-economy/</link>
+      <link>/tags/sg-economy/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/sg-economy/</guid>
+      <guid>/tags/sg-economy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sg Social</title>
-      <link>https://timlrx.com/tags/sg-social/</link>
+      <link>/tags/sg-social/</link>
       <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/sg-social/</guid>
+      <guid>/tags/sg-social/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Simulation</title>
-      <link>https://timlrx.com/tags/simulation/</link>
+      <link>/tags/simulation/</link>
       <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/simulation/</guid>
+      <guid>/tags/simulation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Singapore</title>
-      <link>https://timlrx.com/tags/singapore/</link>
+      <link>/tags/singapore/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/singapore/</guid>
+      <guid>/tags/singapore/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spatial</title>
-      <link>https://timlrx.com/tags/spatial/</link>
+      <link>/tags/spatial/</link>
       <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/spatial/</guid>
+      <guid>/tags/spatial/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Stata</title>
-      <link>https://timlrx.com/tags/stata/</link>
+      <link>/tags/stata/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/stata/</guid>
+      <guid>/tags/stata/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Thesis Thursday</title>
-      <link>https://timlrx.com/tags/thesis-thursday/</link>
+      <link>/tags/thesis-thursday/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/thesis-thursday/</guid>
+      <guid>/tags/thesis-thursday/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualisation</title>
-      <link>https://timlrx.com/tags/visualisation/</link>
+      <link>/tags/visualisation/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/visualisation/</guid>
+      <guid>/tags/visualisation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web Scraping</title>
-      <link>https://timlrx.com/tags/web-scraping/</link>
+      <link>/tags/web-scraping/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/tags/web-scraping/</guid>
+      <guid>/tags/web-scraping/</guid>
       <description></description>
     </item>
     

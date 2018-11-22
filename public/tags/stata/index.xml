@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stata on Quasilinear Musings</title>
-    <link>https://timlrx.com/tags/stata/</link>
+    <link>/tags/stata/</link>
     <description>Recent content in Stata on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Thu, 17 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.com/tags/stata/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/stata/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Thesis Thursday 7 - Conclusion</title>
-      <link>https://timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</link>
+      <link>/2017/08/17/thesis-thursday-7-conclusion/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</guid>
+      <guid>/2017/08/17/thesis-thursday-7-conclusion/</guid>
       <description>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
 ###On R and Stata
 I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</description>

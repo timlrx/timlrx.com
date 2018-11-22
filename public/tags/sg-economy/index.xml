@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sg Economy on Quasilinear Musings</title>
-    <link>https://timlrx.com/tags/sg-economy/</link>
+    <link>/tags/sg-economy/</link>
     <description>Recent content in Sg Economy on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,42 +10,42 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Wed, 21 Nov 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.com/tags/sg-economy/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/sg-economy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>An Overview of the Singapore Hiring Landscape</title>
-      <link>https://timlrx.com/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</link>
+      <link>/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</guid>
+      <guid>/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</guid>
       <description>The idea of having a 360 degree view of the entire job seeking and matching landscape has always been a dream of any labour economist. Just imagine, a dataset of CVs and job seekers matched with job advertisements and openings! The potential of such a dataset to answer existing questions on the labour market is incredible. One could investigate market power between worker and firms, information asymmetry within the matching process, or find out new growth clusters and skills needed to support these areas.</description>
     </item>
     
     <item>
       <title>Dashboard 2.0</title>
-      <link>https://timlrx.com/2017/11/23/dashboard-2-0/</link>
+      <link>/2017/11/23/dashboard-2-0/</link>
       <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/11/23/dashboard-2-0/</guid>
+      <guid>/2017/11/23/dashboard-2-0/</guid>
       <description>SG Dashboard 2.0 is now released and updated with Q3’s economic results. Built on R’s flexdashboard with interactive graphs on Plotly. My take on bringing statistical releases to the digital age.</description>
     </item>
     
     <item>
       <title>Update on the SG Economic Dashboard</title>
-      <link>https://timlrx.com/2017/08/15/update-on-the-sg-economic-dashboard/</link>
+      <link>/2017/08/15/update-on-the-sg-economic-dashboard/</link>
       <pubDate>Tue, 15 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/08/15/update-on-the-sg-economic-dashboard/</guid>
+      <guid>/2017/08/15/update-on-the-sg-economic-dashboard/</guid>
       <description>I have updated the SG-Dashboard with 2Q 2017 numbers. I also took the opportunity to add in a few new tables and charts. There is a new table that keeps track of value-added (VA) revisions of last quarter’s result. VA for certain industries such as construction are approximated based on early indicators and the actual numbers take a quarter or more to stream in. It is also interesting to see the actual economic performance and whether it matches up to the narrative of last quarter’s release.</description>
     </item>
     
     <item>
       <title>Scraping SG&#39;s GDP data using SingStat&#39;s API</title>
-      <link>https://timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</link>
+      <link>/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</link>
       <pubDate>Wed, 31 May 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</guid>
+      <guid>/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</guid>
       <description>I have been trying to catch-up on the latest release of Singapore’s economic results. Unfortunately, the official press release or media reports are not very useful. They either contain too much irrelevant information or not enough details for my liking. Maybe I just like looking at the numbers and letting the figures speak for themselves. Hence, I decided to obtain the data from the official SingStat’s Table Builder website.</description>
     </item>
     

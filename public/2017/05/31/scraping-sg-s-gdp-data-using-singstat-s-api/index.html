@@ -13,21 +13,21 @@
   <meta name="twitter:description" content="I have been trying to catch-up on the latest release of Singapore’s economic results. Unfortunately, the official press release or media reports are not very useful. They either contain too much …">
   <meta name="author" content="Timothy Lin"/>
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="https://timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/" />
+  <meta property="og:url" content="/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Quasilinear Musings" />
 
   <meta name="generator" content="Hugo 0.30.2" />
-  <link rel="canonical" href="https://timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/" />
-  <link rel="alternate" href="https://timlrx.com/index.xml" type="application/rss+xml" title="Quasilinear Musings">
+  <link rel="canonical" href="/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/" />
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Quasilinear Musings">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://timlrx.com/css/main.css" />
+  <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-  <link rel="stylesheet" href="https://timlrx.com/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://timlrx.com/css/highlight.min.css" />
+  <link rel="stylesheet" href="/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="/css/highlight.min.css" />
 
 
 
@@ -50,7 +50,7 @@ ga('send', 'pageview');
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://timlrx.com/">Quasilinear Musings</a>
+      <a class="navbar-brand" href="/">Quasilinear Musings</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="../../../../post/">Blog</a>
+              <a title="Blog" href="/post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="../../../../about/">About</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="../../../../resources/">Resources</a>
+              <a title="Resources" href="/resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="../../../../tags">Tags</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
@@ -146,14 +146,14 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <script src="../../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="../../../../rmarkdown-libs/plotly-binding/plotly.js"></script>
-<script src="../../../../rmarkdown-libs/typedarray/typedarray.min.js"></script>
-<script src="../../../../rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="../../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
-<link href="../../../../rmarkdown-libs/plotlyjs/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/plotlyjs/plotly-latest.min.js"></script>
+        <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotlyjs/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotlyjs/plotly-latest.min.js"></script>
 
 
 <p>I have been trying to catch-up on the latest release of Singapore’s economic results. Unfortunately, the official press release or media reports are not very useful. They either contain too much irrelevant information or not enough details for my liking. Maybe I just like looking at the numbers and letting the figures speak for themselves. Hence, I decided to obtain the data from the official SingStat’s Table Builder website. Turns out that they have an API available that provides data for selected data series including the <a href="http://www.tablebuilder.singstat.gov.sg/publicfacing/initApiList.action">GDP figures</a>.</p>
@@ -201,13 +201,13 @@ data.sector &lt;- data.sector %&gt;% group_by(industry) %&gt;%
   geom_point() + geom_line() + ylab(&quot;QoQ SA (%)&quot;) + xlab(&quot;Period&quot;) + theme_classic() +
   theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))</code></pre>
 <div class="figure"><span id="fig:qoqsaplot"></span>
-<img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/qoqsaplot-1.png" alt="QoQ GDP Trend" width="672" />
+<img src="/post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/qoqsaplot-1.png" alt="QoQ GDP Trend" width="672" />
 <p class="caption">
 Figure 1: QoQ GDP Trend
 </p>
 </div>
 <p>And here’s a plot comparing qoq and yoy growth for all the industries:</p>
-<p><img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/reshapeplot-1.png" width="672" /></p>
+<p><img src="/post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/reshapeplot-1.png" width="672" /></p>
 <p>Wondering what the actual percentage change is? We can convert the graph into a more interactive one using a simple line of code. And since it is locally generated, it can be hosted on github as well.</p>
 <p>While the precision of our calculated data is satisfying, the scale of the graph is being skewed by one particular sector. The other goods sector (Agriculture and Fishing, Mining and Quarrying) contracted 16.38% yoy (yikes!).<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> The other goods sector is normally not given any coverage as it is a very small component of GDP (just 30m). Could the decline be mostly due to noisy fluctuations?</p>
 <pre class="r"><code>other.goods.data &lt;- va.sector.comb %&gt;% filter(year&gt;=2012 &amp; industry==&quot;Other Goods Industries&quot;)                     %&gt;% select(period, yoy, qoqsaa) %&gt;% melt(measure.vars=c(&quot;yoy&quot;,&quot;qoqsaa&quot;))
@@ -215,13 +215,13 @@ Figure 1: QoQ GDP Trend
 other.goods.plot&lt;-ggplot(other.goods.data, aes(period, value, group=variable, color=variable)) + geom_point() + geom_line() + ylab(&quot;QoQ SA (%)&quot;) + xlab(&quot;Period&quot;) + theme_classic() +        theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))</code></pre>
 <p>Not suprisingly there is a downward trend in the sector, but the recent quarter’s dip is the sharpest in all 4 years that I have plotted. The drastic decline in quarter-on-quarter VA figures for the finance and insurance industry is of potentially greater concern. Let’s take a closer look by plotting an extended time series.</p>
 <div class="figure"><span id="fig:fi"></span>
-<img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-1.png" alt="yoy plot" width="672" />
+<img src="/post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-1.png" alt="yoy plot" width="672" />
 <p class="caption">
 Figure 2: yoy plot
 </p>
 </div>
 <div class="figure"><span id="fig:fi"></span>
-<img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-2.png" alt="qoq plot" width="672" />
+<img src="/post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-2.png" alt="qoq plot" width="672" />
 <p class="caption">
 Figure 2: qoq plot
 </p>
@@ -239,12 +239,12 @@ Figure 2: qoq plot
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="https://timlrx.com/2017/05/18/and-so-it-ends/" data-toggle="tooltip" data-placement="top" title="And so it ends">&larr; Previous Post</a>
+            <a href="/2017/05/18/and-so-it-ends/" data-toggle="tooltip" data-placement="top" title="And so it ends">&larr; Previous Post</a>
           </li>
         
         
           <li class="next">
-            <a href="https://timlrx.com/2017/06/02/thesis-thursday-introduction/" data-toggle="tooltip" data-placement="top" title="Thesis Thursday - Introduction">Next Post &rarr;</a>
+            <a href="/2017/06/02/thesis-thursday-introduction/" data-toggle="tooltip" data-placement="top" title="Thesis Thursday - Introduction">Next Post &rarr;</a>
           </li>
         
       </ul>
@@ -287,7 +287,7 @@ Figure 2: qoq plot
               </li>
           
           <li>
-            <a href="https://timlrx.com/index.xml" title="RSS">
+            <a href="/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -303,7 +303,7 @@ Figure 2: qoq plot
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://timlrx.com/">Quasilinear Musings</a>
+            <a href="/">Quasilinear Musings</a>
           
         </p>
         
@@ -320,8 +320,8 @@ Figure 2: qoq plot
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://timlrx.com/js/main.js"></script>
-<script src="https://timlrx.com/js/highlight.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/highlight.min.js"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
 <script> renderMathInElement(document.body); </script>
 

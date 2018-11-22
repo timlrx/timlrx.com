@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Personal on Quasilinear Musings</title>
-    <link>https://timlrx.com/tags/personal/</link>
+    <link>/tags/personal/</link>
     <description>Recent content in Personal on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,35 +10,35 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sat, 28 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.com/tags/personal/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/personal/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Statistical Musings</title>
-      <link>https://timlrx.com/2018/04/28/statistical-musings/</link>
+      <link>/2018/04/28/statistical-musings/</link>
       <pubDate>Sat, 28 Apr 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2018/04/28/statistical-musings/</guid>
+      <guid>/2018/04/28/statistical-musings/</guid>
       <description>No technical details in this post. Just a few scattered thoughts and some stories that have kept me semi-entertained over the last month. Some are inspired by work and others are just my take on the world, exaggerated to some degree.
 Rademacher CoinsAs we move towards a cashless society, maybe it would make sense to do away with coins and decimal values. Decimal points make billed amount and account balances unnecessarily messy and untidy.</description>
     </item>
     
     <item>
       <title>February Thoughts</title>
-      <link>https://timlrx.com/2018/02/11/february-thoughts/</link>
+      <link>/2018/02/11/february-thoughts/</link>
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2018/02/11/february-thoughts/</guid>
+      <guid>/2018/02/11/february-thoughts/</guid>
       <description>Sorry about the lack of post over the past few month. Hope to regain some work life balance and update the blog more regularly. To start of the first blog post of 2018 I thought it would be nice to do share some interesting things that I have been reading over the past few weeks and create a to-do list to function as my commitment device.
 Fun FactsDid you know that the skin color of a cat is heavily determined by a gene located on the X chromosome?</description>
     </item>
     
     <item>
       <title>November Reflections</title>
-      <link>https://timlrx.com/2017/11/05/november-reflections/</link>
+      <link>/2017/11/05/november-reflections/</link>
       <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/11/05/november-reflections/</guid>
+      <guid>/2017/11/05/november-reflections/</guid>
       <description>A collection of thoughts to start the month off.
 On the blog - Had a look at the google analytics data. There are about 750 views in total since the blog’s inception with a few users clocking in 5-10 minutes per post - so thank you for bumping up the stats if you are a regular reader!
 The most popular post…is the SG dashboard. This was a little surprisingly. I thought my thesis or any of the mathy stuff is more interesting but who knows?</description>
@@ -46,10 +46,10 @@ The most popular post…is the SG dashboard. This was a little surprisingly. I t
     
     <item>
       <title>And so it ends</title>
-      <link>https://timlrx.com/2017/05/18/and-so-it-ends/</link>
+      <link>/2017/05/18/and-so-it-ends/</link>
       <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/05/18/and-so-it-ends/</guid>
+      <guid>/2017/05/18/and-so-it-ends/</guid>
       <description>And so it ends with ivregress 2sls y (x=z),
 the last line of my do file reads.
 Competition promotes efficiency, maximises welfare,

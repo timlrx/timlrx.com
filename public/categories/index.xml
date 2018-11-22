@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Quasilinear Musings</title>
-    <link>https://timlrx.com/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,42 +10,51 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Tue, 19 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Big Data</title>
-      <link>https://timlrx.com/categories/big-data/</link>
+      <link>/categories/big-data/</link>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/categories/big-data/</guid>
+      <guid>/categories/big-data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Blogdown</title>
-      <link>https://timlrx.com/categories/blogdown/</link>
+      <link>/categories/blogdown/</link>
       <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/categories/blogdown/</guid>
+      <guid>/categories/blogdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://timlrx.com/categories/python/</link>
+      <link>/categories/python/</link>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/categories/python/</guid>
+      <guid>/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Thu, 11 May 2017 21:13:14 -0500</pubDate>
+      <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spark</title>
-      <link>https://timlrx.com/categories/spark/</link>
+      <link>/categories/spark/</link>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/categories/spark/</guid>
+      <guid>/categories/spark/</guid>
       <description></description>
     </item>
     

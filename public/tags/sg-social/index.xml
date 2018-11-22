@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sg Social on Quasilinear Musings</title>
-    <link>https://timlrx.com/tags/sg-social/</link>
+    <link>/tags/sg-social/</link>
     <description>Recent content in Sg Social on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,25 +10,25 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sun, 10 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.com/tags/sg-social/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/sg-social/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Examining the Changes in Religious Beliefs - Part 2</title>
-      <link>https://timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</link>
+      <link>/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</link>
       <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</guid>
+      <guid>/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</guid>
       <description>In a previous post, I took a look at the distribution of religious beliefs in Singapore. Having compiled additional characteristics across 3 time periods (2000, 2010, 2015), I decided to write a follow-up post to examine the changes across time.
 The dataset that I will be using is aggregated from the 2000 and 2010 Census as well as the 2015 General Household Survey.</description>
     </item>
     
     <item>
       <title>Mapping the Distribution of Religious Beliefs in Singapore</title>
-      <link>https://timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</link>
+      <link>/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</link>
       <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</guid>
+      <guid>/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</guid>
       <description>Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the final copy of my paper I had fun toying around with the various mapping packages. In this post, I decided to apply what I have learnt and take a look at the spatial distribution of Singapore’s population.</description>
     </item>
     

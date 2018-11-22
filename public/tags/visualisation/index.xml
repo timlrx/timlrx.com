@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Visualisation on Quasilinear Musings</title>
-    <link>https://timlrx.com/tags/visualisation/</link>
+    <link>/tags/visualisation/</link>
     <description>Recent content in Visualisation on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,70 +10,70 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Wed, 21 Nov 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://timlrx.com/tags/visualisation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/visualisation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>An Overview of the Singapore Hiring Landscape</title>
-      <link>https://timlrx.com/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</link>
+      <link>/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</guid>
+      <guid>/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</guid>
       <description>The idea of having a 360 degree view of the entire job seeking and matching landscape has always been a dream of any labour economist. Just imagine, a dataset of CVs and job seekers matched with job advertisements and openings! The potential of such a dataset to answer existing questions on the labour market is incredible. One could investigate market power between worker and firms, information asymmetry within the matching process, or find out new growth clusters and skills needed to support these areas.</description>
     </item>
     
     <item>
       <title>Visualising Networks in ASOIAF - Part II</title>
-      <link>https://timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</link>
+      <link>/2018/10/14/visualising-networks-in-asoiaf-part-ii/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</guid>
+      <guid>/2018/10/14/visualising-networks-in-asoiaf-part-ii/</guid>
       <description>This is the second post of a character network analysis of George R. R. Martin’s A Song Of Ice and Fire (ASOIAF) series as well as my first submission to the R Bloggers community. A warm welcome to all readers out there! In my first post, I touched on the Tidygraph package to manipulate dataframes and ggraph for network visualisation as well as some tricks to fix the position of nodes when ploting multiple graphs containing the same node set and labeling based on polar coordinates.</description>
     </item>
     
     <item>
       <title>Visualising Networks in ASOIAF</title>
-      <link>https://timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</link>
+      <link>/2018/09/09/visualising-networks-in-asoiaf/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</guid>
+      <guid>/2018/09/09/visualising-networks-in-asoiaf/</guid>
       <description>While waiting for the winds of winter to arrive, there is plenty of time to revisit the 5 books. One of my favourite aspects of the series is the character and world building. As the song of ice and fire universe is so big, many characters are mentioned in passing while the major characters meet each other only occasionally. I thought it would be interesting to see how various characters are connected and how that progresses through the series.</description>
     </item>
     
     <item>
       <title>Mapping SG - Shiny App</title>
-      <link>https://timlrx.com/2017/10/11/mapping-sg-shiny-app/</link>
+      <link>/2017/10/11/mapping-sg-shiny-app/</link>
       <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/10/11/mapping-sg-shiny-app/</guid>
+      <guid>/2017/10/11/mapping-sg-shiny-app/</guid>
       <description>While my previous posts on the Singapore census data focused mainly on the distribution of religious beliefs, there are many interesting trends that could be observed on other characteristics. I decided to pool the data which I have cleaned and processed into a Shiny app. Took a little longer than I expected but it is done. Have fun with it and hope you learn a little bit more about Singapore!</description>
     </item>
     
     <item>
       <title>Using Leaflet in R - Tutorial</title>
-      <link>https://timlrx.com/2017/09/13/using-leaflet-in-r-tutorial/</link>
+      <link>/2017/09/13/using-leaflet-in-r-tutorial/</link>
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/09/13/using-leaflet-in-r-tutorial/</guid>
+      <guid>/2017/09/13/using-leaflet-in-r-tutorial/</guid>
       <description>Here’s a tutorial on using Leaflet in R. While the leaflet package supports many options, the documentation is not the clearest and I had to do a bit of googling to customise the plot to my liking. This walkthrough documents the key features of the package which I find useful in generating choropleth overlays. Compared to the simple tmap approach documented in the previous post, creating a visualisation using leaflet gives more control over the final outcome.</description>
     </item>
     
     <item>
       <title>Examining the Changes in Religious Beliefs - Part 2</title>
-      <link>https://timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</link>
+      <link>/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</link>
       <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</guid>
+      <guid>/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</guid>
       <description>In a previous post, I took a look at the distribution of religious beliefs in Singapore. Having compiled additional characteristics across 3 time periods (2000, 2010, 2015), I decided to write a follow-up post to examine the changes across time.
 The dataset that I will be using is aggregated from the 2000 and 2010 Census as well as the 2015 General Household Survey.</description>
     </item>
     
     <item>
       <title>Mapping the Distribution of Religious Beliefs in Singapore</title>
-      <link>https://timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</link>
+      <link>/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</link>
       <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</guid>
+      <guid>/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</guid>
       <description>Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the final copy of my paper I had fun toying around with the various mapping packages. In this post, I decided to apply what I have learnt and take a look at the spatial distribution of Singapore’s population.</description>
     </item>
     

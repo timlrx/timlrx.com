@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 .my.cnf
-datasets
+datasets/
+public/
