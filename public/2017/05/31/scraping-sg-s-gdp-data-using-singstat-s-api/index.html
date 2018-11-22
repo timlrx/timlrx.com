@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="../../../../post/">Blog</a>
+              <a title="Blog" href="/post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="../../../../about/">About</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="../../../../resources/">Resources</a>
+              <a title="Resources" href="/resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="../../../../tags">Tags</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
@@ -146,14 +146,14 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <script src="../../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="../../../../rmarkdown-libs/plotly-binding/plotly.js"></script>
-<script src="../../../../rmarkdown-libs/typedarray/typedarray.min.js"></script>
-<script src="../../../../rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="../../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
-<link href="../../../../rmarkdown-libs/plotlyjs/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="../../../../rmarkdown-libs/plotlyjs/plotly-latest.min.js"></script>
+        <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotlyjs/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotlyjs/plotly-latest.min.js"></script>
 
 
 <p>I have been trying to catch-up on the latest release of Singapore’s economic results. Unfortunately, the official press release or media reports are not very useful. They either contain too much irrelevant information or not enough details for my liking. Maybe I just like looking at the numbers and letting the figures speak for themselves. Hence, I decided to obtain the data from the official SingStat’s Table Builder website. Turns out that they have an API available that provides data for selected data series including the <a href="http://www.tablebuilder.singstat.gov.sg/publicfacing/initApiList.action">GDP figures</a>.</p>
@@ -201,13 +201,13 @@ data.sector &lt;- data.sector %&gt;% group_by(industry) %&gt;%
   geom_point() + geom_line() + ylab(&quot;QoQ SA (%)&quot;) + xlab(&quot;Period&quot;) + theme_classic() +
   theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))</code></pre>
 <div class="figure"><span id="fig:qoqsaplot"></span>
-<img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/qoqsaplot-1.png" alt="QoQ GDP Trend" width="672" />
+<img src="/post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/qoqsaplot-1.png" alt="QoQ GDP Trend" width="672" />
 <p class="caption">
 Figure 1: QoQ GDP Trend
 </p>
 </div>
 <p>And here’s a plot comparing qoq and yoy growth for all the industries:</p>
-<p><img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/reshapeplot-1.png" width="672" /></p>
+<p><img src="/post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/reshapeplot-1.png" width="672" /></p>
 <p>Wondering what the actual percentage change is? We can convert the graph into a more interactive one using a simple line of code. And since it is locally generated, it can be hosted on github as well.</p>
 <p>While the precision of our calculated data is satisfying, the scale of the graph is being skewed by one particular sector. The other goods sector (Agriculture and Fishing, Mining and Quarrying) contracted 16.38% yoy (yikes!).<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> The other goods sector is normally not given any coverage as it is a very small component of GDP (just 30m). Could the decline be mostly due to noisy fluctuations?</p>
 <pre class="r"><code>other.goods.data &lt;- va.sector.comb %&gt;% filter(year&gt;=2012 &amp; industry==&quot;Other Goods Industries&quot;)                     %&gt;% select(period, yoy, qoqsaa) %&gt;% melt(measure.vars=c(&quot;yoy&quot;,&quot;qoqsaa&quot;))
@@ -215,13 +215,13 @@ Figure 1: QoQ GDP Trend
 other.goods.plot&lt;-ggplot(other.goods.data, aes(period, value, group=variable, color=variable)) + geom_point() + geom_line() + ylab(&quot;QoQ SA (%)&quot;) + xlab(&quot;Period&quot;) + theme_classic() +        theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))</code></pre>
 <p>Not suprisingly there is a downward trend in the sector, but the recent quarter’s dip is the sharpest in all 4 years that I have plotted. The drastic decline in quarter-on-quarter VA figures for the finance and insurance industry is of potentially greater concern. Let’s take a closer look by plotting an extended time series.</p>
 <div class="figure"><span id="fig:fi"></span>
-<img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-1.png" alt="yoy plot" width="672" />
+<img src="/post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-1.png" alt="yoy plot" width="672" />
 <p class="caption">
 Figure 2: yoy plot
 </p>
 </div>
 <div class="figure"><span id="fig:fi"></span>
-<img src="../../../../post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-2.png" alt="qoq plot" width="672" />
+<img src="/post/2017-05-31-scraping-sg-s-gdp-data-using-singstat-s-api_files/figure-html/fi-2.png" alt="qoq plot" width="672" />
 <p class="caption">
 Figure 2: qoq plot
 </p>

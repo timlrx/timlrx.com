@@ -1,12 +1,12 @@
 baseurl = "https://www.timlrx.com/"
 publishDir = "./public"
-relativeurls = true
+relativeurls = false
 languageCode = "en-us"
 title = "Quasilinear Musings"
 theme = "beautifulhugo"
 googleAnalytics = "UA-100201704-1"
 disqusShortname = ""
-ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rkmd$", "\\.Rmarkdown$",  "_files$", "_cache$"]
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"

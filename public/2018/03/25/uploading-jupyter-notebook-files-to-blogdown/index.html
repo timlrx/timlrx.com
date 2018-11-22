@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="../../../../post/">Blog</a>
+              <a title="Blog" href="/post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="../../../../about/">About</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="../../../../resources/">Resources</a>
+              <a title="Resources" href="/resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="../../../../tags">Tags</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
@@ -186,7 +186,7 @@ import matplotlib.pyplot as plt
 <pre><code>[&lt;matplotlib.lines.Line2D at 0x22850dc7780&gt;]
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_1_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_1_1.png" alt="png" /></p>
 
 <h2 id="using-pandas-plotting-functions">Using pandas plotting functions</h2>
 
@@ -199,7 +199,7 @@ normals.plot()
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x22850eef940&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_3_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_3_1.png" alt="png" /></p>
 
 <pre><code class="language-python">normals.cumsum().plot(grid=True)
 </code></pre>
@@ -207,7 +207,7 @@ normals.plot()
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x22850ca6c88&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_4_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_4_1.png" alt="png" /></p>
 
 <pre><code class="language-python">variables = pd.DataFrame({'normal': np.random.normal(size=100), 
                        'gamma': np.random.gamma(1, size=100), 
@@ -218,7 +218,7 @@ variables.cumsum().plot()
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x228511b5940&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_5_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_5_1.png" alt="png" /></p>
 
 <pre><code class="language-python">variables.cumsum().plot(subplots=True)
 </code></pre>
@@ -228,7 +228,7 @@ variables.cumsum().plot()
        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000228511E9208&gt;], dtype=object)
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_6_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_6_1.png" alt="png" /></p>
 
 <pre><code class="language-python">### More control over subplots
 fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(12, 4))
@@ -240,7 +240,7 @@ axes[0].set_ylabel('cumulative sum')
 <pre><code>&lt;matplotlib.text.Text at 0x22851427160&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_7_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_7_1.png" alt="png" /></p>
 
 <h3 id="bar-graphs">Bar Graphs</h3>
 
@@ -257,7 +257,7 @@ segments['long_sog'] = (segments.avg_sog &gt; segments.avg_sog.mean())
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2285271bd68&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_10_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_10_1.png" alt="png" /></p>
 
 <pre><code class="language-python">segments.groupby(['year','long_seg']).seg_length.count().plot(kind='bar')
 </code></pre>
@@ -265,7 +265,7 @@ segments['long_sog'] = (segments.avg_sog &gt; segments.avg_sog.mean())
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x21c6332e6a0&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_11_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_11_1.png" alt="png" /></p>
 
 <pre><code class="language-python">### Stacked Bars
 temp = pd.crosstab([segments.year, segments.long_seg], segments.long_sog)
@@ -275,7 +275,7 @@ temp.plot(kind='bar', stacked=True)
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x21c6bda5908&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_12_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_12_1.png" alt="png" /></p>
 
 <h3 id="histograms">Histograms</h3>
 
@@ -288,7 +288,7 @@ variables.normal.hist(bins=30, grid=False)
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x21c4ae920f0&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_14_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_14_1.png" alt="png" /></p>
 
 <pre><code class="language-python">variables.poisson.plot(kind='kde', xlim=(-4,6))
 </code></pre>
@@ -296,7 +296,7 @@ variables.normal.hist(bins=30, grid=False)
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x21c0a84fb00&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_15_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_15_1.png" alt="png" /></p>
 
 <pre><code class="language-python">variables.gamma.hist(bins=20, normed=True)
 variables.gamma.plot(kind='kde', style='r--')
@@ -305,7 +305,7 @@ variables.gamma.plot(kind='kde', style='r--')
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x21c0dacae80&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_16_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_16_1.png" alt="png" /></p>
 
 <h3 id="scatterplot">Scatterplot</h3>
 
@@ -315,7 +315,7 @@ variables.gamma.plot(kind='kde', style='r--')
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x241ae3c65f8&gt;
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_18_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_18_1.png" alt="png" /></p>
 
 <pre><code class="language-python">segments_subset = segments.loc[1:10000,['seg_length', 'avg_sog', 'min_sog', 'max_sog']]
 pd.plotting.scatter_matrix (segments_subset, figsize=(12,8), diagonal='kde')
@@ -339,7 +339,7 @@ pd.plotting.scatter_matrix (segments_subset, figsize=(12,8), diagonal='kde')
         &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000241B0CA8BA8&gt;]], dtype=object)
 </code></pre>
 
-<p><img src="../../../../img/python_img/Panda_Plotting_19_1.png" alt="png" /></p>
+<p><img src="/img/python_img/Panda_Plotting_19_1.png" alt="png" /></p>
 
       </article>
 

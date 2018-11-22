@@ -60,31 +60,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="../../../../post/">Blog</a>
+              <a title="Blog" href="/post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="../../../../about/">About</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="../../../../resources/">Resources</a>
+              <a title="Resources" href="/resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="../../../../tags">Tags</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
@@ -345,7 +345,7 @@ St. Dev.
 <p>Next, let us take a look at the distribution of ratings across the dataset.</p>
 <pre class="r"><code>ggplot(recipe_df, aes(x = recipe_stars)) + geom_density() + theme_classic()</code></pre>
 <div class="figure"><span id="fig:stardensity"></span>
-<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/stardensity-1.png" alt="Density plot of number of stars a recipe is rated" width="672" />
+<img src="/post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/stardensity-1.png" alt="Density plot of number of stars a recipe is rated" width="672" />
 <p class="caption">
 Figure 1: Density plot of number of stars a recipe is rated
 </p>
@@ -353,7 +353,7 @@ Figure 1: Density plot of number of stars a recipe is rated
 <p>Not surprisingly, people who leave a rating tend to be on the generous side. The median recipe score is 4.4. There are also quite a significant fraction of recipes without any reviews. The distribution of reviews is closer to a pareto distribution or log-normal.</p>
 <pre class="r"><code>ggplot(recipe_df, aes(x=ln_recipe_reviews)) + geom_density() + theme_classic()</code></pre>
 <div class="figure"><span id="fig:reviewsdensity"></span>
-<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/reviewsdensity-1.png" alt="Density plot of log recipe reviews" width="672" />
+<img src="/post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/reviewsdensity-1.png" alt="Density plot of log recipe reviews" width="672" />
 <p class="caption">
 Figure 2: Density plot of log recipe reviews
 </p>
@@ -361,7 +361,7 @@ Figure 2: Density plot of log recipe reviews
 <p>Do recipes with more reviews score better? Apparently so.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <pre class="r"><code>ggplot(recipe_df, aes(y=recipe_stars, x=ln_recipe_reviews)) + geom_point() + theme_classic()</code></pre>
 <div class="figure"><span id="fig:reviewsstar"></span>
-<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/reviewsstar-1.png" alt="Plot of recipe rating on log reviews" width="672" />
+<img src="/post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/reviewsstar-1.png" alt="Plot of recipe rating on log reviews" width="672" />
 <p class="caption">
 Figure 3: Plot of recipe rating on log reviews
 </p>
@@ -381,7 +381,7 @@ Figure 3: Plot of recipe rating on log reviews
   coord_flip() +
   theme_classic()</code></pre>
 <div class="figure"><span id="fig:commonwords"></span>
-<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/commonwords-1.png" alt="List of common words" width="672" />
+<img src="/post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/commonwords-1.png" alt="List of common words" width="672" />
 <p class="caption">
 Figure 4: List of common words
 </p>
@@ -403,7 +403,7 @@ ggplot(frequency, aes(x = France, y = China)) +
   theme_classic() +
   theme(legend.position=&quot;none&quot;)</code></pre>
 <div class="figure"><span id="fig:freq"></span>
-<img src="../../../../post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/freq-1.png" alt="Comparison of words used in recipes tagged with France and China" width="672" />
+<img src="/post/2017-06-24-thesis-thursday-4-analysing-recipes_files/figure-html/freq-1.png" alt="Comparison of words used in recipes tagged with France and China" width="672" />
 <p class="caption">
 Figure 5: Comparison of words used in recipes tagged with France and China
 </p>
