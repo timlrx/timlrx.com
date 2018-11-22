@@ -1,6 +1,6 @@
 baseurl = "https://timlrx.com/"
-#publishDir = "./public"
-relativeurls = false
+publishDir = "./public"
+relativeurls = true
 languageCode = "en-us"
 title = "Quasilinear Musings"
 theme = "beautifulhugo"
