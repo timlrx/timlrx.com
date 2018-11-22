@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dags on Quasilinear Musings</title>
-    <link>https://www.timlrx.com/tags/dags/</link>
+    <link>https://timlrx.com/tags/dags/</link>
     <description>Recent content in Dags on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.timlrx.com/tags/dags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://timlrx.com/tags/dags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Applications of DAGs in Causal Inference</title>
-      <link>https://www.timlrx.com/2018/08/09/applications-of-dags-in-causal-inference/</link>
+      <link>https://timlrx.com/2018/08/09/applications-of-dags-in-causal-inference/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/08/09/applications-of-dags-in-causal-inference/</guid>
+      <guid>https://timlrx.com/2018/08/09/applications-of-dags-in-causal-inference/</guid>
       <description>IntroductionTwo years ago I came across Pearl’s work on using directed cyclical graphs (DAGs) to model the problem of causal inference and have read the debate between academics on Pearl’s framework vs Rubin’s potential outcomes framework. Then I found it quite intriguing from a scientific methods and history perspective how two different formal frameworks could be developed to solve a common goal. I read a few papers on the DAG approach but without fully understanding how it could be useful to my work filed it away in the back of my mind (and computer folder).</description>
     </item>
     

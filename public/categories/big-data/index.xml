@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Big Data on Quasilinear Musings</title>
-    <link>https://www.timlrx.com/categories/big-data/</link>
+    <link>https://timlrx.com/categories/big-data/</link>
     <description>Recent content in Big Data on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,24 +10,24 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Tue, 19 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.timlrx.com/categories/big-data/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://timlrx.com/categories/big-data/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Feature Selection Using Feature Importance Score - Creating a PySpark Estimator</title>
-      <link>https://www.timlrx.com/2018/06/19/feature-selection-using-feature-importance-score-creating-a-pyspark-estimator/</link>
+      <link>https://timlrx.com/2018/06/19/feature-selection-using-feature-importance-score-creating-a-pyspark-estimator/</link>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/06/19/feature-selection-using-feature-importance-score-creating-a-pyspark-estimator/</guid>
+      <guid>https://timlrx.com/2018/06/19/feature-selection-using-feature-importance-score-creating-a-pyspark-estimator/</guid>
       <description>In this post I discuss how to create a new pyspark estimator to integrate in an existing machine learning pipeline. This is an extension of my previous post where I discussed how to create a custom cross validation function. Recently, I have been looking at integrating existing code in the pyspark ML pipeline framework. A pipeline is a fantastic concept of abstraction since it allows the analyst to focus on the main tasks that needs to be carried out and allows the entire piece of work to be reusable.</description>
     </item>
     
     <item>
       <title>Creating a Custom Cross-Validation Function in PySpark</title>
-      <link>https://www.timlrx.com/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark/</link>
+      <link>https://timlrx.com/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark/</link>
       <pubDate>Sun, 08 Apr 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark/</guid>
+      <guid>https://timlrx.com/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark/</guid>
       <description>Introduction Lately, I have been using PySpark in my data processing and modeling pipeline. While Spark is great for most data processing needs, the machine learning component is slightly lacking. Coming from R and Python&amp;rsquo;s scikit-learn where there are so many machine learning packages available, this limitation is frustrating. Having said that, there are ongoing efforts to improve the machine learning library so hopefully there would be more functionalities in the future.</description>
     </item>
     

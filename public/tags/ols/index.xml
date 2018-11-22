@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ols on Quasilinear Musings</title>
-    <link>https://www.timlrx.com/tags/ols/</link>
+    <link>https://timlrx.com/tags/ols/</link>
     <description>Recent content in Ols on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Mon, 26 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.timlrx.com/tags/ols/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://timlrx.com/tags/ols/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes on Regression - Approximation of the Conditional Expectation Function</title>
-      <link>https://www.timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</link>
+      <link>https://timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</guid>
+      <guid>https://timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</guid>
       <description>The final installment in my ‘Notes on Regression’ series! For a review on ways to derive the Ordinary Least Square formula as well as various algebraic and geometric interpretations, check out the previous 5 posts:
 Part 1 - OLS by way of minimising the sum of square errors
 Part 2 - Projection and Orthogonality
@@ -29,50 +29,50 @@
     
     <item>
       <title>Notes on Regression - Singular Vector Decomposition</title>
-      <link>https://www.timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</link>
+      <link>https://timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</link>
       <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</guid>
+      <guid>https://timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</guid>
       <description>Here’s a fun take on the OLS that I picked up from The Elements of Statistical Learning. It applies the Singular Value Decomposition, also known as the method used in principal component analysis, to the regression framework.
 Singular Vector Decomposition (SVD)First, a little background on the SVD. The SVD could be thought of as a generalisation of the eigendecomposition. An eigenvector v of matrix \(\mathbf{A}\) is a vector that is mapped to a scaled version of itself:\[\mathbf{A}v = \lambda v\]where \(\lambda\) is known as the eigenvalue.</description>
     </item>
     
     <item>
       <title>Notes on Regression - Maximum Likelihood</title>
-      <link>https://www.timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</link>
+      <link>https://timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</link>
       <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</guid>
+      <guid>https://timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</guid>
       <description>Part 4 in the series of notes on regression analysis derives the OLS formula through the maximum likelihood approach. Maximum likelihood involves finding the value of the parameters that maximise the probability of the observed data by assuming a particular functional form distribution.
 Bernoulli exampleTake for example a dataset consisting of results from a series of coin flips. The coin may be biased and we want to find an estimator for the probability of the coin landing heads.</description>
     </item>
     
     <item>
       <title>Notes on Regression - Method of Moments</title>
-      <link>https://www.timlrx.com/2017/08/31/notes-on-regression-method-of-moments/</link>
+      <link>https://timlrx.com/2017/08/31/notes-on-regression-method-of-moments/</link>
       <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/08/31/notes-on-regression-method-of-moments/</guid>
+      <guid>https://timlrx.com/2017/08/31/notes-on-regression-method-of-moments/</guid>
       <description>Another way of establishing the OLS formula is through the method of moments approach. This method supposedly goes way back to Pearson in 1894. It could be thought of as replacing a population moment with a sample analogue and using it to solve for the parameter of interest.
 Example 1To find an estimator for the sample mean, \(\mu=E[X]\), one replaces the expected value with a sample analogue, \(\hat{\mu}=\frac{1}{n}\sum_{i=1}^{n} X_{i} = \bar{X}\)</description>
     </item>
     
     <item>
       <title>Notes on Regression - Projection</title>
-      <link>https://www.timlrx.com/2017/08/23/notes-on-regression-projection/</link>
+      <link>https://timlrx.com/2017/08/23/notes-on-regression-projection/</link>
       <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/08/23/notes-on-regression-projection/</guid>
+      <guid>https://timlrx.com/2017/08/23/notes-on-regression-projection/</guid>
       <description>This is one of my favourite ways of establishing the traditional OLS formula. I remember being totally amazed when I first found out how to derive the OLS formula in a class on linear algebra. Understanding regression through the perspective of projections also shows the connection between the least squares method and linear algebra. It also gives a nice way of visualising the geometry of the OLS technique.
 This set of notes is largely inspired by a section in Gilbert Strang’s course on linear algebra.</description>
     </item>
     
     <item>
       <title>Notes on Regression - OLS</title>
-      <link>https://www.timlrx.com/2017/08/16/notes-on-regression-ols/</link>
+      <link>https://timlrx.com/2017/08/16/notes-on-regression-ols/</link>
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/08/16/notes-on-regression-ols/</guid>
+      <guid>https://timlrx.com/2017/08/16/notes-on-regression-ols/</guid>
       <description>This post is the first in a series of my study notes on regression techniques. I first learnt about regression as a way of fitting a line through a series of points. Invoke some assumptions and one obtains the relationship between two variables. Simple…or so I thought. Through the course of my study, I developed a deeper appreciation of its nuances which I hope to elucidate in these set of notes.</description>
     </item>
     

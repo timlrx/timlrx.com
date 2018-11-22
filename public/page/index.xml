@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Quasilinear Musings</title>
-    <link>https://www.timlrx.com/page/</link>
+    <link>https://timlrx.com/page/</link>
     <description>Recent content in Pages on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,15 +10,15 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sun, 07 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.timlrx.com/page/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://timlrx.com/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Vancouver</title>
-      <link>https://www.timlrx.com/page/vancouver/</link>
+      <link>https://timlrx.com/page/vancouver/</link>
       <pubDate>Sun, 07 May 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/page/vancouver/</guid>
+      <guid>https://timlrx.com/page/vancouver/</guid>
       <description>Playing around with shortcode - Does this work?
   C e f
       C e f regression

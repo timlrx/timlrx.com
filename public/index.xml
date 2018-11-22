@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quasilinear Musings</title>
-    <link>https://www.timlrx.com/</link>
+    <link>https://timlrx.com/</link>
     <description>Recent content on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,88 +10,88 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Wed, 21 Nov 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.timlrx.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://timlrx.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>An Overview of the Singapore Hiring Landscape</title>
-      <link>https://www.timlrx.com/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</link>
+      <link>https://timlrx.com/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</guid>
+      <guid>https://timlrx.com/2018/11/21/an-overview-of-the-singapore-hiring-landscape/</guid>
       <description>The idea of having a 360 degree view of the entire job seeking and matching landscape has always been a dream of any labour economist. Just imagine, a dataset of CVs and job seekers matched with job advertisements and openings! The potential of such a dataset to answer existing questions on the labour market is incredible. One could investigate market power between worker and firms, information asymmetry within the matching process, or find out new growth clusters and skills needed to support these areas.</description>
     </item>
     
     <item>
       <title>Visualising Networks in ASOIAF - Part II</title>
-      <link>https://www.timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</link>
+      <link>https://timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</guid>
+      <guid>https://timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</guid>
       <description>This is the second post of a character network analysis of George R. R. Martin’s A Song Of Ice and Fire (ASOIAF) series as well as my first submission to the R Bloggers community. A warm welcome to all readers out there! In my first post, I touched on the Tidygraph package to manipulate dataframes and ggraph for network visualisation as well as some tricks to fix the position of nodes when ploting multiple graphs containing the same node set and labeling based on polar coordinates.</description>
     </item>
     
     <item>
       <title>Visualising Networks in ASOIAF</title>
-      <link>https://www.timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</link>
+      <link>https://timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</guid>
+      <guid>https://timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</guid>
       <description>While waiting for the winds of winter to arrive, there is plenty of time to revisit the 5 books. One of my favourite aspects of the series is the character and world building. As the song of ice and fire universe is so big, many characters are mentioned in passing while the major characters meet each other only occasionally. I thought it would be interesting to see how various characters are connected and how that progresses through the series.</description>
     </item>
     
     <item>
       <title>Applications of DAGs in Causal Inference</title>
-      <link>https://www.timlrx.com/2018/08/09/applications-of-dags-in-causal-inference/</link>
+      <link>https://timlrx.com/2018/08/09/applications-of-dags-in-causal-inference/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/08/09/applications-of-dags-in-causal-inference/</guid>
+      <guid>https://timlrx.com/2018/08/09/applications-of-dags-in-causal-inference/</guid>
       <description>IntroductionTwo years ago I came across Pearl’s work on using directed cyclical graphs (DAGs) to model the problem of causal inference and have read the debate between academics on Pearl’s framework vs Rubin’s potential outcomes framework. Then I found it quite intriguing from a scientific methods and history perspective how two different formal frameworks could be developed to solve a common goal. I read a few papers on the DAG approach but without fully understanding how it could be useful to my work filed it away in the back of my mind (and computer folder).</description>
     </item>
     
     <item>
       <title>Feature Selection Using Feature Importance Score - Creating a PySpark Estimator</title>
-      <link>https://www.timlrx.com/2018/06/19/feature-selection-using-feature-importance-score-creating-a-pyspark-estimator/</link>
+      <link>https://timlrx.com/2018/06/19/feature-selection-using-feature-importance-score-creating-a-pyspark-estimator/</link>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/06/19/feature-selection-using-feature-importance-score-creating-a-pyspark-estimator/</guid>
+      <guid>https://timlrx.com/2018/06/19/feature-selection-using-feature-importance-score-creating-a-pyspark-estimator/</guid>
       <description>In this post I discuss how to create a new pyspark estimator to integrate in an existing machine learning pipeline. This is an extension of my previous post where I discussed how to create a custom cross validation function. Recently, I have been looking at integrating existing code in the pyspark ML pipeline framework. A pipeline is a fantastic concept of abstraction since it allows the analyst to focus on the main tasks that needs to be carried out and allows the entire piece of work to be reusable.</description>
     </item>
     
     <item>
       <title>Statistical Musings</title>
-      <link>https://www.timlrx.com/2018/04/28/statistical-musings/</link>
+      <link>https://timlrx.com/2018/04/28/statistical-musings/</link>
       <pubDate>Sat, 28 Apr 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/04/28/statistical-musings/</guid>
+      <guid>https://timlrx.com/2018/04/28/statistical-musings/</guid>
       <description>No technical details in this post. Just a few scattered thoughts and some stories that have kept me semi-entertained over the last month. Some are inspired by work and others are just my take on the world, exaggerated to some degree.
 Rademacher CoinsAs we move towards a cashless society, maybe it would make sense to do away with coins and decimal values. Decimal points make billed amount and account balances unnecessarily messy and untidy.</description>
     </item>
     
     <item>
       <title>Creating a Custom Cross-Validation Function in PySpark</title>
-      <link>https://www.timlrx.com/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark/</link>
+      <link>https://timlrx.com/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark/</link>
       <pubDate>Sun, 08 Apr 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark/</guid>
+      <guid>https://timlrx.com/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark/</guid>
       <description>Introduction Lately, I have been using PySpark in my data processing and modeling pipeline. While Spark is great for most data processing needs, the machine learning component is slightly lacking. Coming from R and Python&amp;rsquo;s scikit-learn where there are so many machine learning packages available, this limitation is frustrating. Having said that, there are ongoing efforts to improve the machine learning library so hopefully there would be more functionalities in the future.</description>
     </item>
     
     <item>
       <title>Uploading Jupyter Notebook Files to Blogdown</title>
-      <link>https://www.timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</link>
+      <link>https://timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</link>
       <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</guid>
+      <guid>https://timlrx.com/2018/03/25/uploading-jupyter-notebook-files-to-blogdown/</guid>
       <description>I have been working quite a bit with Python recently, using the popular Jupyter Notebook interface. Have been thinking about uploading some of my machine learning experiments and notes on the blog but integrating python with a blog built on blogdown seems problematic as I could not google a solution. Turns out it is actually quite simple (maybe that&amp;rsquo;s why nobody posted a tutorial on it, or maybe people who blog in R do not really use Python).</description>
     </item>
     
     <item>
       <title>Notes on Regression - Approximation of the Conditional Expectation Function</title>
-      <link>https://www.timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</link>
+      <link>https://timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</guid>
+      <guid>https://timlrx.com/2018/02/26/notes-on-regression-approximation-of-the-conditional-expectation-function/</guid>
       <description>The final installment in my ‘Notes on Regression’ series! For a review on ways to derive the Ordinary Least Square formula as well as various algebraic and geometric interpretations, check out the previous 5 posts:
 Part 1 - OLS by way of minimising the sum of square errors
 Part 2 - Projection and Orthogonality
@@ -102,47 +102,47 @@ Rademacher CoinsAs we move towards a cashless society, maybe it would make sens
     
     <item>
       <title>February Thoughts</title>
-      <link>https://www.timlrx.com/2018/02/11/february-thoughts/</link>
+      <link>https://timlrx.com/2018/02/11/february-thoughts/</link>
       <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/02/11/february-thoughts/</guid>
+      <guid>https://timlrx.com/2018/02/11/february-thoughts/</guid>
       <description>Sorry about the lack of post over the past few month. Hope to regain some work life balance and update the blog more regularly. To start of the first blog post of 2018 I thought it would be nice to do share some interesting things that I have been reading over the past few weeks and create a to-do list to function as my commitment device.
 Fun FactsDid you know that the skin color of a cat is heavily determined by a gene located on the X chromosome?</description>
     </item>
     
     <item>
       <title>Notes on Graphs and Spectral Properties</title>
-      <link>https://www.timlrx.com/2017/12/25/notes-on-graphs-and-spectral-properties/</link>
+      <link>https://timlrx.com/2017/12/25/notes-on-graphs-and-spectral-properties/</link>
       <pubDate>Mon, 25 Dec 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/12/25/notes-on-graphs-and-spectral-properties/</guid>
+      <guid>https://timlrx.com/2017/12/25/notes-on-graphs-and-spectral-properties/</guid>
       <description>Here is the first series of a collection of notes which I jotted down over the past 2 months as I tried to make sense of algebraic graph theory. This one focuses on the basic definitions and some properties of matrices related to graphs. Having all the symbols and main properties in a single page is a useful reference as I delve deeper into the applications of the theories. Also, it saves me time from googling and checking the relationship between these objects.</description>
     </item>
     
     <item>
       <title>Dashboard 2.0</title>
-      <link>https://www.timlrx.com/2017/11/23/dashboard-2-0/</link>
+      <link>https://timlrx.com/2017/11/23/dashboard-2-0/</link>
       <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/11/23/dashboard-2-0/</guid>
+      <guid>https://timlrx.com/2017/11/23/dashboard-2-0/</guid>
       <description>SG Dashboard 2.0 is now released and updated with Q3’s economic results. Built on R’s flexdashboard with interactive graphs on Plotly. My take on bringing statistical releases to the digital age.</description>
     </item>
     
     <item>
       <title>Choosing a Control Group in a RCT with Multiple Treatment Periods</title>
-      <link>https://www.timlrx.com/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</link>
+      <link>https://timlrx.com/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</link>
       <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</guid>
+      <guid>https://timlrx.com/2017/11/18/choosing-a-control-group-in-a-rct-with-multiple-treatment-periods/</guid>
       <description>Came across a fun little problem over the past few weeks that is related to the topic of policy impact evaluation - a long time interest of mine! Here’s the setting: we have a large population of individuals and a number of treatments that we want to gauge the effectiveness of. The treatments are not necessarily the same but are targeted towards certain sub-segments in the population. Examples of such situations include online ad targeting or marketing campaigns.</description>
     </item>
     
     <item>
       <title>November Reflections</title>
-      <link>https://www.timlrx.com/2017/11/05/november-reflections/</link>
+      <link>https://timlrx.com/2017/11/05/november-reflections/</link>
       <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/11/05/november-reflections/</guid>
+      <guid>https://timlrx.com/2017/11/05/november-reflections/</guid>
       <description>A collection of thoughts to start the month off.
 On the blog - Had a look at the google analytics data. There are about 750 views in total since the blog’s inception with a few users clocking in 5-10 minutes per post - so thank you for bumping up the stats if you are a regular reader!
 The most popular post…is the SG dashboard. This was a little surprisingly. I thought my thesis or any of the mathy stuff is more interesting but who knows?</description>
@@ -150,96 +150,96 @@ The most popular post…is the SG dashboard. This was a little surprisingly. I t
     
     <item>
       <title>Notes on Regression - Singular Vector Decomposition</title>
-      <link>https://www.timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</link>
+      <link>https://timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</link>
       <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</guid>
+      <guid>https://timlrx.com/2017/10/21/notes-on-regression-singular-vector-decomposition/</guid>
       <description>Here’s a fun take on the OLS that I picked up from The Elements of Statistical Learning. It applies the Singular Value Decomposition, also known as the method used in principal component analysis, to the regression framework.
 Singular Vector Decomposition (SVD)First, a little background on the SVD. The SVD could be thought of as a generalisation of the eigendecomposition. An eigenvector v of matrix \(\mathbf{A}\) is a vector that is mapped to a scaled version of itself:\[\mathbf{A}v = \lambda v\]where \(\lambda\) is known as the eigenvalue.</description>
     </item>
     
     <item>
       <title>Mapping SG - Shiny App</title>
-      <link>https://www.timlrx.com/2017/10/11/mapping-sg-shiny-app/</link>
+      <link>https://timlrx.com/2017/10/11/mapping-sg-shiny-app/</link>
       <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/10/11/mapping-sg-shiny-app/</guid>
+      <guid>https://timlrx.com/2017/10/11/mapping-sg-shiny-app/</guid>
       <description>While my previous posts on the Singapore census data focused mainly on the distribution of religious beliefs, there are many interesting trends that could be observed on other characteristics. I decided to pool the data which I have cleaned and processed into a Shiny app. Took a little longer than I expected but it is done. Have fun with it and hope you learn a little bit more about Singapore!</description>
     </item>
     
     <item>
       <title>Comparing the Population and Group Level Regression</title>
-      <link>https://www.timlrx.com/2017/10/01/comparing-the-population-and-group-level-regression/</link>
+      <link>https://timlrx.com/2017/10/01/comparing-the-population-and-group-level-regression/</link>
       <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/10/01/comparing-the-population-and-group-level-regression/</guid>
+      <guid>https://timlrx.com/2017/10/01/comparing-the-population-and-group-level-regression/</guid>
       <description>I was planning to write a post that uses region level data to infer the underlying relationship at the population level. However, after thinking through the issue over the past few days and working out the math (below), I realise that the question I wanted to answer could not be solved using the aggregate data at hand. Nonetheless, here is a formal description of the problem outlining the assumptions needed to infer population level trends from more aggregated data.</description>
     </item>
     
     <item>
       <title>Notes on Regression - Maximum Likelihood</title>
-      <link>https://www.timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</link>
+      <link>https://timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</link>
       <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</guid>
+      <guid>https://timlrx.com/2017/09/21/notes-on-regression-maximum-likelihood/</guid>
       <description>Part 4 in the series of notes on regression analysis derives the OLS formula through the maximum likelihood approach. Maximum likelihood involves finding the value of the parameters that maximise the probability of the observed data by assuming a particular functional form distribution.
 Bernoulli exampleTake for example a dataset consisting of results from a series of coin flips. The coin may be biased and we want to find an estimator for the probability of the coin landing heads.</description>
     </item>
     
     <item>
       <title>Using Leaflet in R - Tutorial</title>
-      <link>https://www.timlrx.com/2017/09/13/using-leaflet-in-r-tutorial/</link>
+      <link>https://timlrx.com/2017/09/13/using-leaflet-in-r-tutorial/</link>
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/09/13/using-leaflet-in-r-tutorial/</guid>
+      <guid>https://timlrx.com/2017/09/13/using-leaflet-in-r-tutorial/</guid>
       <description>Here’s a tutorial on using Leaflet in R. While the leaflet package supports many options, the documentation is not the clearest and I had to do a bit of googling to customise the plot to my liking. This walkthrough documents the key features of the package which I find useful in generating choropleth overlays. Compared to the simple tmap approach documented in the previous post, creating a visualisation using leaflet gives more control over the final outcome.</description>
     </item>
     
     <item>
       <title>Examining the Changes in Religious Beliefs - Part 2</title>
-      <link>https://www.timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</link>
+      <link>https://timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</link>
       <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</guid>
+      <guid>https://timlrx.com/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/</guid>
       <description>In a previous post, I took a look at the distribution of religious beliefs in Singapore. Having compiled additional characteristics across 3 time periods (2000, 2010, 2015), I decided to write a follow-up post to examine the changes across time.
 The dataset that I will be using is aggregated from the 2000 and 2010 Census as well as the 2015 General Household Survey.</description>
     </item>
     
     <item>
       <title>Notes on Regression - Method of Moments</title>
-      <link>https://www.timlrx.com/2017/08/31/notes-on-regression-method-of-moments/</link>
+      <link>https://timlrx.com/2017/08/31/notes-on-regression-method-of-moments/</link>
       <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/08/31/notes-on-regression-method-of-moments/</guid>
+      <guid>https://timlrx.com/2017/08/31/notes-on-regression-method-of-moments/</guid>
       <description>Another way of establishing the OLS formula is through the method of moments approach. This method supposedly goes way back to Pearson in 1894. It could be thought of as replacing a population moment with a sample analogue and using it to solve for the parameter of interest.
 Example 1To find an estimator for the sample mean, \(\mu=E[X]\), one replaces the expected value with a sample analogue, \(\hat{\mu}=\frac{1}{n}\sum_{i=1}^{n} X_{i} = \bar{X}\)</description>
     </item>
     
     <item>
       <title>Mapping the Distribution of Religious Beliefs in Singapore</title>
-      <link>https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</link>
+      <link>https://timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</link>
       <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</guid>
+      <guid>https://timlrx.com/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/</guid>
       <description>Inspired by my thesis, I have been playing around with mapping tools over the past few days. While the maps showing the distribution of migrant groups across the United States did not make it to the final copy of my paper I had fun toying around with the various mapping packages. In this post, I decided to apply what I have learnt and take a look at the spatial distribution of Singapore’s population.</description>
     </item>
     
     <item>
       <title>Notes on Regression - Projection</title>
-      <link>https://www.timlrx.com/2017/08/23/notes-on-regression-projection/</link>
+      <link>https://timlrx.com/2017/08/23/notes-on-regression-projection/</link>
       <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/08/23/notes-on-regression-projection/</guid>
+      <guid>https://timlrx.com/2017/08/23/notes-on-regression-projection/</guid>
       <description>This is one of my favourite ways of establishing the traditional OLS formula. I remember being totally amazed when I first found out how to derive the OLS formula in a class on linear algebra. Understanding regression through the perspective of projections also shows the connection between the least squares method and linear algebra. It also gives a nice way of visualising the geometry of the OLS technique.
 This set of notes is largely inspired by a section in Gilbert Strang’s course on linear algebra.</description>
     </item>
     
     <item>
       <title>Thesis Thursday 7 - Conclusion</title>
-      <link>https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</link>
+      <link>https://timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</guid>
+      <guid>https://timlrx.com/2017/08/17/thesis-thursday-7-conclusion/</guid>
       <description>Finally, the last installment of the Thesis Thursday series! Rather than going through what I have done since the previous post (basically more refinements and robustness checks), I decide share some miscellaneous thoughts and lessons learnt over the past few months. The completed research paper and accompanying slides can be downloaded from my website.
 ###On R and Stata
 I decided to code the entire project in R this time round and I have to say that I am quite won over by the capabilities of the various packages.</description>
@@ -247,38 +247,38 @@ I decided to code the entire project in R this time round and I have to say that
     
     <item>
       <title>Notes on Regression - OLS</title>
-      <link>https://www.timlrx.com/2017/08/16/notes-on-regression-ols/</link>
+      <link>https://timlrx.com/2017/08/16/notes-on-regression-ols/</link>
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/08/16/notes-on-regression-ols/</guid>
+      <guid>https://timlrx.com/2017/08/16/notes-on-regression-ols/</guid>
       <description>This post is the first in a series of my study notes on regression techniques. I first learnt about regression as a way of fitting a line through a series of points. Invoke some assumptions and one obtains the relationship between two variables. Simple…or so I thought. Through the course of my study, I developed a deeper appreciation of its nuances which I hope to elucidate in these set of notes.</description>
     </item>
     
     <item>
       <title>Update on the SG Economic Dashboard</title>
-      <link>https://www.timlrx.com/2017/08/15/update-on-the-sg-economic-dashboard/</link>
+      <link>https://timlrx.com/2017/08/15/update-on-the-sg-economic-dashboard/</link>
       <pubDate>Tue, 15 Aug 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/08/15/update-on-the-sg-economic-dashboard/</guid>
+      <guid>https://timlrx.com/2017/08/15/update-on-the-sg-economic-dashboard/</guid>
       <description>I have updated the SG-Dashboard with 2Q 2017 numbers. I also took the opportunity to add in a few new tables and charts. There is a new table that keeps track of value-added (VA) revisions of last quarter’s result. VA for certain industries such as construction are approximated based on early indicators and the actual numbers take a quarter or more to stream in. It is also interesting to see the actual economic performance and whether it matches up to the narrative of last quarter’s release.</description>
     </item>
     
     <item>
       <title>Thesis Thursday 6 - The Final Stretch</title>
-      <link>https://www.timlrx.com/2017/07/20/thesis-thursday-6-the-final-stretch/</link>
+      <link>https://timlrx.com/2017/07/20/thesis-thursday-6-the-final-stretch/</link>
       <pubDate>Thu, 20 Jul 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/07/20/thesis-thursday-6-the-final-stretch/</guid>
+      <guid>https://timlrx.com/2017/07/20/thesis-thursday-6-the-final-stretch/</guid>
       <description>Since my presentation about two weeks ago, I have been working on incorporating some of the suggestions and performing additional robustness tests. The updated version of the slides can be found here.
 A recap of the key results - I find a positive correlation between the foreign-born and consumption shares within U.S. counties but this result does not hold across Asian countries. In fact, an increase in foreign-born share led to a decline in consumption of Asian-related consumer packaged goods.</description>
     </item>
     
     <item>
       <title>Thesis Thursday 5 - From recipes to weights</title>
-      <link>https://www.timlrx.com/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</link>
+      <link>https://timlrx.com/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</guid>
+      <guid>https://timlrx.com/2017/07/01/thesis-thursday-5-from-recipes-to-weights/</guid>
       <description>In the previous post, I provided an exploratory analysis of the allrecipe dataset. This post is a continuation and details the construction of product weights from the recipe corpus.
 TF-IDFTo obtain a measure of how unique a particular word is to given recipe category, I calculate each word-region score using the TF-IDF approach which is given by the following formula:
 \[TF\text{-}IDF_{t,d} =\frac{f_{t,d}}{\sum_{t&amp;#39;\in d}f_{t&amp;#39;,d}} \cdot log \frac{N}{n_{t}+1}\]where \(f_{t,d}\) is the frequency in which a term, \(t\), appears in document \(d\), \(N\) is the total number of documents in the corpus and \(n_{t}\) is the total number of documents where term \(t\) is found.</description>
@@ -286,66 +286,66 @@ TF-IDFTo obtain a measure of how unique a particular word is to given recipe ca
     
     <item>
       <title>Thesis Thursday 4 - Analysing Recipes</title>
-      <link>https://www.timlrx.com/2017/06/24/thesis-thursday-4-analysing-recipes/</link>
+      <link>https://timlrx.com/2017/06/24/thesis-thursday-4-analysing-recipes/</link>
       <pubDate>Sat, 24 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/06/24/thesis-thursday-4-analysing-recipes/</guid>
+      <guid>https://timlrx.com/2017/06/24/thesis-thursday-4-analysing-recipes/</guid>
       <description>One of the main component of my thesis is a mapping from consumers’ purchases to country related expenditure shares. This requires a method to associate each available product to a particular country. I have briefly discussed the issue in the introductory post but have made significant progress on this front that I think is worth sharing.
 The recipe datasetThis recipe dataset was created by scraping recipes from allrecipes.com that are tagged to particular region or country.</description>
     </item>
     
     <item>
       <title>Thesis Thursday 3 - Model and Methodology</title>
-      <link>https://www.timlrx.com/2017/06/23/thesis-thursday-3-model-and-methodology/</link>
+      <link>https://timlrx.com/2017/06/23/thesis-thursday-3-model-and-methodology/</link>
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/06/23/thesis-thursday-3-model-and-methodology/</guid>
+      <guid>https://timlrx.com/2017/06/23/thesis-thursday-3-model-and-methodology/</guid>
       <description>This week’s Thesis Thursday will be a two part special, partly to make up for last week’s missing post. I also want to take the opportunity to document some thoughts and progress. This post is arguably the more technical of the two and focuses on issues relating to the model and methodology of my paper. In the subsequent post I plan to document some analysis on the recipe dataset which I think is very interesting (maybe even more so then the actual thesis itself).</description>
     </item>
     
     <item>
       <title>Binscatter for R</title>
-      <link>https://www.timlrx.com/2017/06/11/binscatter-for-r/</link>
+      <link>https://timlrx.com/2017/06/11/binscatter-for-r/</link>
       <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/06/11/binscatter-for-r/</guid>
+      <guid>https://timlrx.com/2017/06/11/binscatter-for-r/</guid>
       <description>I was trying to find an R package that provides features similar to Stata’s binscatter user written program but there does not appear to be any good substitutes around. Hence, I decided to write a function that replicates it in R. Turns out it actually took longer than I thought and there are still many bugs to fix but the developmental version is worth sharing. It can be downloaded from my Github page.</description>
     </item>
     
     <item>
       <title>Thesis Thursday #2</title>
-      <link>https://www.timlrx.com/2017/06/09/thesis-thursday-2/</link>
+      <link>https://timlrx.com/2017/06/09/thesis-thursday-2/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/06/09/thesis-thursday-2/</guid>
+      <guid>https://timlrx.com/2017/06/09/thesis-thursday-2/</guid>
       <description>Over the past week I made a few detours and explored other options that yielded little. On the positive side, I managed to merge and clean most of the datasets and started generating some descriptive statistics to get a better understanding of the data.
 Migration to the U.S. Let us take a look at U.S. migration patterns from 1970 to 2012.1 I use the share of foreign born as surveyed in the decennial census and American Community Survey as a proxy for migration trends.</description>
     </item>
     
     <item>
       <title>Thesis Thursday - Introduction</title>
-      <link>https://www.timlrx.com/2017/06/02/thesis-thursday-introduction/</link>
+      <link>https://timlrx.com/2017/06/02/thesis-thursday-introduction/</link>
       <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/06/02/thesis-thursday-introduction/</guid>
+      <guid>https://timlrx.com/2017/06/02/thesis-thursday-introduction/</guid>
       <description>I decided to document my progress on my masters thesis as a weekly Thursday special. Hopefully I would have enough materials or progress to continue the weekly post but this should also give me some motivation to work on it. I find the process of writing also useful to think through some ideas more carefully. This week I will be introducing the idea of my research project, the data I will be using and some issues I am trying to solve.</description>
     </item>
     
     <item>
       <title>Scraping SG&#39;s GDP data using SingStat&#39;s API</title>
-      <link>https://www.timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</link>
+      <link>https://timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</link>
       <pubDate>Wed, 31 May 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</guid>
+      <guid>https://timlrx.com/2017/05/31/scraping-sg-s-gdp-data-using-singstat-s-api/</guid>
       <description>I have been trying to catch-up on the latest release of Singapore’s economic results. Unfortunately, the official press release or media reports are not very useful. They either contain too much irrelevant information or not enough details for my liking. Maybe I just like looking at the numbers and letting the figures speak for themselves. Hence, I decided to obtain the data from the official SingStat’s Table Builder website.</description>
     </item>
     
     <item>
       <title>And so it ends</title>
-      <link>https://www.timlrx.com/2017/05/18/and-so-it-ends/</link>
+      <link>https://timlrx.com/2017/05/18/and-so-it-ends/</link>
       <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/05/18/and-so-it-ends/</guid>
+      <guid>https://timlrx.com/2017/05/18/and-so-it-ends/</guid>
       <description>And so it ends with ivregress 2sls y (x=z),
 the last line of my do file reads.
 Competition promotes efficiency, maximises welfare,
@@ -361,19 +361,19 @@ But at least it is unbiased?</description>
     
     <item>
       <title>Hello World</title>
-      <link>https://www.timlrx.com/2017/05/15/hello-world/</link>
+      <link>https://timlrx.com/2017/05/15/hello-world/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/05/15/hello-world/</guid>
+      <guid>https://timlrx.com/2017/05/15/hello-world/</guid>
       <description>I have been toying with the idea of starting up a new blog for quite a while but school has kept me occupied and the plans were constantly pushed back. Last year, I explored the possibility of using a wordpress system but it just seems too much of a trouble to incorporate all the features I wanted. The recently introduced blogdown R package, which this website is built on, seems like a perfect solution.</description>
     </item>
     
     <item>
       <title>Vancouver</title>
-      <link>https://www.timlrx.com/page/vancouver/</link>
+      <link>https://timlrx.com/page/vancouver/</link>
       <pubDate>Sun, 07 May 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/page/vancouver/</guid>
+      <guid>https://timlrx.com/page/vancouver/</guid>
       <description>Playing around with shortcode - Does this work?
   C e f
       C e f regression
@@ -386,10 +386,10 @@ But at least it is unbiased?</description>
     
     <item>
       <title>About</title>
-      <link>https://www.timlrx.com/about/</link>
+      <link>https://timlrx.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/about/</guid>
+      <guid>https://timlrx.com/about/</guid>
       <description>Welcome to Quasilinear Musings! I am Timothy, currently working as a data scientist at Lynx Analytics. For more information check out my Linkedin profile.
 This blog serves as a playground for me to share some of my works in a more accessible manner and explore the use of data to communicate ideas. I code predominantly in R or Python.
 Check out my analysis on migration and food consumption which I have written up as part of my masters thesis (slides available here) or preview the Singapore economy dashboard.</description>
@@ -397,10 +397,10 @@ Check out my analysis on migration and food consumption which I have written up 
     
     <item>
       <title>Resources</title>
-      <link>https://www.timlrx.com/resources/</link>
+      <link>https://timlrx.com/resources/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/resources/</guid>
+      <guid>https://timlrx.com/resources/</guid>
       <description>A collection of useful links and websites:
 R Tidyverse - Best place to start your R journey
 Ggplot2 - The best plotting package

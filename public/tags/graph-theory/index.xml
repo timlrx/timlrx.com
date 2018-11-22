@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Graph Theory on Quasilinear Musings</title>
-    <link>https://www.timlrx.com/tags/graph-theory/</link>
+    <link>https://timlrx.com/tags/graph-theory/</link>
     <description>Recent content in Graph Theory on Quasilinear Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,33 +10,33 @@
     <webMaster>timothy.lin@alumni.ubc.ca (Timothy Lin)</webMaster>
     <lastBuildDate>Sun, 14 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.timlrx.com/tags/graph-theory/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://timlrx.com/tags/graph-theory/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Visualising Networks in ASOIAF - Part II</title>
-      <link>https://www.timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</link>
+      <link>https://timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</guid>
+      <guid>https://timlrx.com/2018/10/14/visualising-networks-in-asoiaf-part-ii/</guid>
       <description>This is the second post of a character network analysis of George R. R. Martin’s A Song Of Ice and Fire (ASOIAF) series as well as my first submission to the R Bloggers community. A warm welcome to all readers out there! In my first post, I touched on the Tidygraph package to manipulate dataframes and ggraph for network visualisation as well as some tricks to fix the position of nodes when ploting multiple graphs containing the same node set and labeling based on polar coordinates.</description>
     </item>
     
     <item>
       <title>Visualising Networks in ASOIAF</title>
-      <link>https://www.timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</link>
+      <link>https://timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</guid>
+      <guid>https://timlrx.com/2018/09/09/visualising-networks-in-asoiaf/</guid>
       <description>While waiting for the winds of winter to arrive, there is plenty of time to revisit the 5 books. One of my favourite aspects of the series is the character and world building. As the song of ice and fire universe is so big, many characters are mentioned in passing while the major characters meet each other only occasionally. I thought it would be interesting to see how various characters are connected and how that progresses through the series.</description>
     </item>
     
     <item>
       <title>Notes on Graphs and Spectral Properties</title>
-      <link>https://www.timlrx.com/2017/12/25/notes-on-graphs-and-spectral-properties/</link>
+      <link>https://timlrx.com/2017/12/25/notes-on-graphs-and-spectral-properties/</link>
       <pubDate>Mon, 25 Dec 2017 00:00:00 +0000</pubDate>
       <author>timothy.lin@alumni.ubc.ca (Timothy Lin)</author>
-      <guid>https://www.timlrx.com/2017/12/25/notes-on-graphs-and-spectral-properties/</guid>
+      <guid>https://timlrx.com/2017/12/25/notes-on-graphs-and-spectral-properties/</guid>
       <description>Here is the first series of a collection of notes which I jotted down over the past 2 months as I tried to make sense of algebraic graph theory. This one focuses on the basic definitions and some properties of matrices related to graphs. Having all the symbols and main properties in a single page is a useful reference as I delve deeper into the applications of the theories. Also, it saves me time from googling and checking the relationship between these objects.</description>
     </item>
     
