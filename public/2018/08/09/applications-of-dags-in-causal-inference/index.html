@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="/post/">Blog</a>
+              <a title="Blog" href="../../../../post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="About" href="../../../../about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="/resources/">Resources</a>
+              <a title="Resources" href="../../../../resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="../../../../tags">Tags</a>
             </li>
           
         
@@ -155,7 +155,7 @@ ga('send', 'pageview');
 </blockquote>
 <p>Normally this does the trick and people eventually get the idea. However, if someone asks for a more technical explanation it gets a little tricky. One has to write down the conditional independence / ignorability assumption (<span class="math inline">\(Y_{i1}, Y_{i0} \perp T_{i}\)</span>) and start explain the idea of potential outcomes and different worlds.</p>
 <p>This time round, I tried something different. I drew a directed acyclic graph (DAG), with health, <span class="math inline">\(Z\)</span>, as a common cause affecting both hospitalisation, <span class="math inline">\(X\)</span>, and mortality, <span class="math inline">\(Y\)</span>.</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/confoudner-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/confoudner-1.png" width="60%" height="50%" /></p>
 <p>I think the idea got through more clearly and the resulting concept of controlling for health (as a modified DAG without the edge from health to hospitalisation) was also simple to convey. Modelling causal effects as DAGs also seem quite natural and this is also the way instrument variables are taught.</p>
 <p>As it turns out, Pearl has a full framework for modelling causality using a graphical framework. This rekindled my interest in the subject and I spent the last month going through Pearl, Glymour and P.Jewell’s Causal Inference in Statistics: A Primer (2016) and came away with a deeper appreciation of the benefits of causal analysis using DAGs. In this post I detail my three biggest takeaways from the book and how DAGs can contribute to better causal inference.</p>
 </div>
@@ -179,9 +179,9 @@ f_{Y} &amp;: Y = -2X - 3Z
 \end{aligned}
 \]</span>
 can be translated to the following DAG:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/connectedGraph-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/connectedGraph-1.png" width="60%" height="50%" /></p>
 <p>Intervening (or randomising) on a particular variable (e.g. <span class="math inline">\(X\)</span>) is translated to removing the arrows then goes into that variable. Doing this graph surgery on the above example we get the modified graph:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/modGraph-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/modGraph-1.png" width="60%" height="50%" /></p>
 <p>In Pearl’s notation, we are interested in finding out the effect of <span class="math inline">\(P(Y=y \vert do(X=x))\)</span> where we intervene to fix <span class="math inline">\(X\)</span> at a particular value, e.g. <span class="math inline">\(x\)</span>. Establishing whether a causal effect of a certain variable of interest can be determined from a particular causal model can then be translated to examining the structure of the graph for certain properties which allow for such an effect to be determined. If so, the causal effect could theoretically be calculated from the conditional probabilities produced by the relationships given in the graph. Pearl introduces a set of methods (do-calculus) to translate the do operator into conditional probabilities that could be calculated with observational data. He also establishes the potential outcomes model as a special case of the graphical approach.</p>
 <p>Converting a structural equation to a graphical model has its pros and cons. One downside is that it does not encode information about the functional relationships between variables beyond the direction of causation. This makes it hard to model identification strategies which depend on certain functional relationship between variables in this framework. For example, it does not capture the nuances of a regression discontinuity design (RDD) where a discontinuity in a certain variable of interest is used to infer its causal effect on an outcome variable, which one expects to otherwise vary linearly. The difference in difference approach is also hard to represent using DAGs since it involves certain assumptions of how variables change in a linear fashion over time.</p>
 <p>Despite these limitations, I think there are areas in which adopting a DAG approach to modelling brings substantial benefits and clarity. In the following section, I discuss my three biggest takeaways on how an understanding of DAGs can contribute to better modelling of causal effects. First, DAGs make explicit what should be controlled for and what should not. Second, DAGs are useful as a heuristic tool to make assumptions and relationships between variables clear. Third, I introduce a novel identification strategy which Pearl calls the front-door criterion.</p>
@@ -200,15 +200,15 @@ can be translated to the following DAG:</p>
 3) Colliders</p>
 <p><strong>Chains</strong><br />
 Chains are defined by three nodes and two edges, with one edge directed into the middle variable and one edge directed out of it:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/chains-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/chains-1.png" width="60%" height="50%" /></p>
 <p>Without controlling for anything, any two variables in a chain are correlated. However, two variables at the edge of the chain <span class="math inline">\((Z\)</span> and <span class="math inline">\(X)\)</span> are independent given any variable in the middle of the chain <span class="math inline">\((Y)\)</span>.</p>
 <p><strong>Forks</strong></p>
 <p>Two edges originating from a central variable makes up a fork:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/fork-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/fork-1.png" width="60%" height="50%" /></p>
 <p>Since the variables share a common cause, they are correlated with each other. However, conditional on the common cause <span class="math inline">\((X)\)</span> the other two variables <span class="math inline">\((Z\)</span> and <span class="math inline">\(Y)\)</span> are independent.</p>
 <p><strong>Colliders</strong></p>
 <p>As the name suggests, a collider is a struture formed when two nodes have edges directed into one common node:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/collider-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/collider-1.png" width="60%" height="50%" /></p>
 <p>In this case, the two variables, <span class="math inline">\(Z\)</span> and <span class="math inline">\(X\)</span>, are independent. However, conditioning on the collision node, <span class="math inline">\(Y\)</span>, creates a dependency between the two.</p>
 <p><strong>Graphs, paths and d-seperation</strong></p>
 <p>Let’s move from these small components to a larger graph. In a larger graph, two variables / nodes are independent if every path between them are blocked. Otherwise, they are likely dependent. Or in Pearl’s terminology d-separated vs d-connected. Without conditioning on any of the variables, only colliders can block a path. However, if a set of variables, <span class="math inline">\(Z\)</span>, is conditioned on, the following kinds of formation can block a path:</p>
@@ -218,7 +218,7 @@ Chains are defined by three nodes and two edges, with one edge directed into the
 <li>A collider that is <em>not</em> in <span class="math inline">\(Z\)</span> and whose descendants are also not in <span class="math inline">\(Z\)</span>.</li>
 </ul>
 <p>The discussion on forks show the importance of controlling for common causes in order to infer the causal effect but is this sufficient for inferring the causal effect? Consider the following scenario where <span class="math inline">\(X\)</span> is the variable of interest and <span class="math inline">\(Y\)</span> is the outcome variable:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/mgraph-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/mgraph-1.png" width="60%" height="50%" /></p>
 <p>Controlling for the common cause, <span class="math inline">\(Z\)</span>, eliminates <span class="math inline">\(Z\)</span> as a cause of bias but it induces a dependency between <span class="math inline">\(E\)</span> and <span class="math inline">\(A\)</span> which means that a causal effect cannot be estimated. It turns out that one has to condition on one of the following variable sets: <span class="math inline">\(\{E, Z\}\)</span>, <span class="math inline">\(\{A, Z\}\)</span> or <span class="math inline">\(\{E, A, Z\}\)</span> for the true effect to be estimated. Hence, controlling for a common causes is not sufficient to estimate the causal effect.</p>
 <p><strong>Backdoor criterion</strong></p>
 <p>The above set of variables fulfill what Pearl calls the backdoor criterion. These are sets of variables that satisfy two important rules:</p>
@@ -228,7 +228,7 @@ Chains are defined by three nodes and two edges, with one edge directed into the
 </ul>
 <p>The backdoor criterion can be useful when particular parent variables are not observed but we can condition on other child nodes to block the path between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 <p>The DAG approach also shows what variables that should not be adjusted for. Consider the following modified graph:<br />
-<img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/mgraph2-1.png" width="60%" height="50%" /></p>
+<img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/mgraph2-1.png" width="60%" height="50%" /></p>
 <p>Here, controlling for <span class="math inline">\(Z\)</span>, a collider node, introduces a bias when we could simply get away with comparing the bivariate relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In this case, controlling for more variables is not necessarily better and the DAG provides a systemic method on what variables to control and what not to.</p>
 </div>
 <div id="dag-as-a-heuristic-tool" class="section level3">
@@ -237,7 +237,7 @@ Chains are defined by three nodes and two edges, with one edge directed into the
 <div id="specification-testing" class="section level4">
 <h4>Specification testing</h4>
 <p>Specification testing refers to the procedure where variables are incrementally added to a model and the coefficient of interest is interpreted across these different specifications and used to draw a conclusion about the variable of interest. Let us examine one such example which Gelbach (2014) discusses. It is adapted from Levitt and Syverson (2008) where the authors were trying to determine the causal effect of agent home ownership (whether the property agent owns the home or not) on sale prices in order to show an empirically interesting example of the principal-agent problem. The authors argue that agents have an incentive to sell a house quickly and at a lower price since they only receive a small commission from the sales but bear most of the expense related to the sales. However, when agents are selling their own houses, they would have the incentive to maximise the sales price. Hence, it would be expected that agent ownership of a house would lead to a higher final sales price. Here are the results of the specification tests which Levitt and Syverson conducted:</p>
-<p><img src="/img/tbl2_levitt_syverson.png" /></p>
+<p><img src="../../../../img/tbl2_levitt_syverson.png" /></p>
 <p>The main difference appears to be when basic house characteristics is added into the model. Levitt and Syverson conclude that the other controls have a small impact on agent ownership. Gelbach points out that this conclusion is mistaken:</p>
 <blockquote>
 <p>However, it is possible that the scale and basic-amenity variables are correlated with detailed
@@ -246,17 +246,17 @@ the coefficient on the agent dummy would move just as much when any of these oth
 covariates is added before adding the basic scale and amenity characteristics.</p>
 </blockquote>
 <p>Denote agent ownership with <span class="math inline">\(X\)</span>, sales price with <span class="math inline">\(Y\)</span>, house characteristics with <span class="math inline">\(C\)</span>, quality with <span class="math inline">\(Q\)</span>, and keywords with <span class="math inline">\(K\)</span> (I omit block effects for the sake of brevity). The only situation in which one could come to the conclusion of Levitt and Syverson is if house quality, keywords and block effects all act as independent confounders:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/levittsyverson1-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/levittsyverson1-1.png" width="60%" height="50%" /></p>
 <p>Yet, Gelbach is still not being precise enough when he hypothesise that house characteristics could be ‘correlated’ with the other control variables. There are many possible causal models that could create a correlation between these variables, but the main takeaway and interpretation would differ depending on which causal model is true. Hence, it is necessary to come up with a causal story even before one can properly interpret the coefficients.</p>
 <p>From the variable names and descriptions, it could be possible that Gelbach has the following causal model in mind: An unobserved factor of housing quality, <span class="math inline">\(U\)</span>, is a direct cause of the other variables (<span class="math inline">\(C\)</span>, <span class="math inline">\(Q\)</span>, <span class="math inline">\(K\)</span>) and each of these variables serve as a proxy for the same underlying cause:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/levittsyverson2-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/levittsyverson2-1.png" width="60%" height="50%" /></p>
 <p>Under such a hypothetical pathway, controlling for <span class="math inline">\(C\)</span> would serve two purposes: it would block the path from <span class="math inline">\(C\)</span> to <span class="math inline">\(Y\)</span> and also act as a proxy for <span class="math inline">\(U\)</span>. If the proxy effect dominates then one could come to the conclusion of Gelbach that the coefficient on the agent dummy would move just as much if any of the other control variables were added first. However, if one were to believe such a model, the only meaningful specification would be to include all the controls (i.e. block all confounding backdoor paths between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>) and an additive interpretation, as well as all other earlier specifications, would make no sense.</p>
 <p>Of course, one could also propose another causal model in which an agent’s experience or network affects the selling price as well as housing quality, but not home ownership. In this case, conditioning on housing quality induces a bias (as a result of conditioning on a collider node) and it would make sense to present both specifications to show that the agent effect is positive in both of the scenarios. In short, the different specifications presented should come from theories or hypothesised relationships between variables rather than a page-filling statistical exercise.</p>
 </div>
 <div id="instrumental-variables-iv" class="section level4">
 <h4>Instrumental variables (IV)</h4>
 <p>The IV approach could be summarised by the following DAG:<br />
-<img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/iv-1.png" width="60%" height="50%" /></p>
+<img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/iv-1.png" width="60%" height="50%" /></p>
 <p><span class="math inline">\(Z\)</span> is the instrumental variable and it affects <span class="math inline">\(Y\)</span> only through <span class="math inline">\(X\)</span>. The economics literature emphasise the importance of an instrument fulfilling two conditions:</p>
 <ul>
 <li>Instrument relevance, where the instrument is strongly correlated with the endogenous variable of interest<br />
@@ -273,7 +273,7 @@ covariates is added before adding the basic scale and amenity characteristics.</
 <p>Side-note: I remember first being introduced to the concept of IVs by a developmental economist and marveled at the brilliance of rainfall as an instrument. It cannot be affected by any variable (i.e. exogenous) and can be used to determine the effect of growth on civil conflict, democratic institutions and remittances in Africa, riots on housing prices in the U.S. and the effect of poverty (rye price) on violent crime in 19th-century Germany. Maybe too much of a good thing should have raised some red flags?</p>
 <p>Examining the pathway between rainfall and growth, it is clear that growth cannot affect rainfall (at least in the short and medium term). The author also describes a plausible channel which rainfall affects growth and backs this up with the first stage regression estimates.</p>
 <p>Next, we have to consider the pathways between rainfall and conflict. Again, I think it is fair to rule out any other channels which causes rainfall (i.e. any arrows pointing towards rainfall) but this still leaves all sorts of possible influences of rainfall on conflict, i.e., it is hard to justify the exclusion restriction. The restriction only holds if the set of controls, <span class="math inline">\(C\)</span>, blocks all possible causal channels between rainfall, <span class="math inline">\(Z\)</span>, and civil conflict, <span class="math inline">\(Y\)</span>:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/rainfall-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/rainfall-1.png" width="60%" height="50%" /></p>
 <p>The authors try to address the potential violations of the exclusion restriction by examining other channels such as tax revenue, road networks and heatwaves and argue that these factors do not affect their estimates and ‘other effects are likely to be minor’. However, I believe there are other obvious intermediate channels where rainfall could affect civil conflicts directly. One example, pointed out in the appendix of the paper, is that of mass migration due to droughts. Another possibility is rainfall (either too little or too much) directly preventing riots from forming (it was used an as instrument on riots in a study in a U.S. based study).</p>
 <p>The main benefits of DAGs here is to keep track of the assumptions made and the validity of the arguments. It also helps the reader from getting side tracked by the controls that the author included and promotes better thinking of potential pathways in which an identification strategy could be compromised.</p>
 </div>
@@ -290,7 +290,7 @@ covariates is added before adding the basic scale and amenity characteristics.</
 </ul>
 <p>In a way the front-door criterion is quite similar to the instrumental variable method but instead of affecting the outcome only through the variable of interest, it is the only channel which the variable of interest can affect the outcome. As Alex Chino notes in his <a href="http://www.alexchinco.com/example-front-door-criterion/">blog post</a>, ‘rather than focusing on exogenous variation in treatment selection, this approach exploits exogenous variation in the strength of the treatment.’</p>
 <p>Pearl gives an example of trying to ascertain the effect of smoking, <span class="math inline">\(X\)</span>, on lung cancer, <span class="math inline">\(Y\)</span>. Genotype, <span class="math inline">\(U\)</span>, is an unobserved confounding variable but we know that smoking only causes lung cancer through the amount of tar deposits, <span class="math inline">\(Z\)</span>. This can be modeled by the following DAG:</p>
-<p><img src="/post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/frontdoor-1.png" width="60%" height="50%" /></p>
+<p><img src="../../../../post/2018-08-09-applications-of-dags-in-causal-inference_files/figure-html/frontdoor-1.png" width="60%" height="50%" /></p>
 <p>In this example, we cannot block the back-door path since genotype is unobserved and hence, cannot directly estimate the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. Instead, identification comes from our knowledge of the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Z\)</span>, which we can directly estimate, and the effect of <span class="math inline">\(Z\)</span> on <span class="math inline">\(Y\)</span> which we can estimate by controlling for <span class="math inline">\(X\)</span> as this blocks the backdoor path between <span class="math inline">\(Z\)</span> and <span class="math inline">\(Y\)</span>. The overall effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> can then be derived by chaining the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Z\)</span> and <span class="math inline">\(Z\)</span> on <span class="math inline">\(Y\)</span>. Interested readers can read the book for a more complete mathematical treatment.</p>
 <p>The blog linked above gives some examples where it is used in the economics literature. One of the more interesting and convincing application is that by Cohen and Malloy (2010) who examined the link between social ties and congressional voting. Social ties is inferred by the colleges which the congressmen attended and there could be many factors driving both college and voting decisions. Instead of looking for an instrument, the authors exploit the channel through which social ties affect votes (namely the seating arrangement in the senate chamber). Since seating for rookie senators are randomised they were able to estimate the effect of social ties on voting outcomes based on exogenous variation in the mediating channel.</p>
 <p>The number of assumptions needed to make the front-door criterion believable is quite high but at least it has not been used (and misused) to death like the instrumental variable method. The main difficulty of this method is that it requires one to make a causal claim on the pathway between the variable of interest, the mediating variable and the outcome. This is a large claim to make but in a way it is similar to arguing over the exogeneity of an instrument or whether it fulfills the exclusion restriction.</p>

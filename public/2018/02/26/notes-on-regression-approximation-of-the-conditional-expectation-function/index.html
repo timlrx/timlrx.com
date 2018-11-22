@@ -68,31 +68,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="/post/">Blog</a>
+              <a title="Blog" href="../../../../post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="About" href="../../../../about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="/resources/">Resources</a>
+              <a title="Resources" href="../../../../resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="../../../../tags">Tags</a>
             </li>
           
         
@@ -158,11 +158,11 @@ ga('send', 'pageview');
       <article role="main" class="blog-post">
         <p>The final installment in my ‘Notes on Regression’ series! For a review on ways to derive the Ordinary Least Square formula as well as various algebraic and geometric interpretations, check out the previous 5 posts:</p>
 <ul>
-<li><p><a href="/2017/08/16/notes-on-regression-ols/">Part 1 - OLS by way of minimising the sum of square errors</a></p></li>
-<li><p><a href="/2017/08/23/notes-on-regression-projection/">Part 2 - Projection and Orthogonality</a></p></li>
-<li><p><a href="/2017/08/31/notes-on-regression-method-of-moments/">Part 3 - Method of Moments</a></p></li>
-<li><p><a href="/2017/09/21/notes-on-regression-maximum-likelihood/">Part 4 - Maximum Likelihood</a></p></li>
-<li><p><a href="/2017/10/21/notes-on-regression-singular-vector-decomposition/">Part 5 - Singular Vector Decomposition</a></p></li>
+<li><p><a href="../../../../2017/08/16/notes-on-regression-ols/">Part 1 - OLS by way of minimising the sum of square errors</a></p></li>
+<li><p><a href="../../../../2017/08/23/notes-on-regression-projection/">Part 2 - Projection and Orthogonality</a></p></li>
+<li><p><a href="../../../../2017/08/31/notes-on-regression-method-of-moments/">Part 3 - Method of Moments</a></p></li>
+<li><p><a href="../../../../2017/09/21/notes-on-regression-maximum-likelihood/">Part 4 - Maximum Likelihood</a></p></li>
+<li><p><a href="../../../../2017/10/21/notes-on-regression-singular-vector-decomposition/">Part 5 - Singular Vector Decomposition</a></p></li>
 </ul>
 <p>A common argument against the regression approach is that it is too simple. Real world phenomenons follow non-normal distributions, power laws are everywhere and multivariate relationships possibly more complex. The assumption of linearity in the OLS regression seems way out place of reality. However, if we take into consideration that the main aim of a statistical model is not to replicate the real world but to yield useful insights, the simplicity of regression may well turn out to be its biggest strength.</p>
 <p>In this set of notes I shall discuss the OLS regression as a way of approximating the conditional expectation function (CEF). To be more precise, regression yields the best linear approximation of the CEF. This mathematical property makes regression a favourite tool among social scientist as it places the emphasis on interpretation of an approximation of reality rather than complicated curve fitting. I came across this method from Angrist and Pischke’s <a href="https://press.princeton.edu/titles/8769.html">nearly harmless econometrics</a>.</p>
@@ -170,7 +170,7 @@ ga('send', 'pageview');
 <h2>What is a Conditional Expectation Function?</h2>
 <p>Expectation as in the statistics terminology normally refers to the population average of a particular random variable. The conditional expectation as its name suggest is the population average conditional holding certain variables fixed. In the context of regression, the CEF is simply <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span>. Since <span class="math inline">\(X_{i}\)</span> is random, the CEF is random.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <div class="figure">
-<img src="/img/CEF.png" alt="CEF" />
+<img src="../../../../img/CEF.png" alt="CEF" />
 <p class="caption">CEF</p>
 </div>
 <p>The picture above is an illustrated example of the CEF plotted on a given dataset. Looking at the relationship of the number of stars obtained by a recipe and the log number of reviews, one can calculate the average star rating for a given number of reviews (indicated by the red dots). The CEF function joins all these red dots together (indicated by the blue line).</p>
@@ -200,7 +200,7 @@ Using the law of iterated expectation, we can show that <span class="math inline
 \]</span></p>
 <p>To get this result, one can show that minimising <span class="math inline">\((Y_{i} -X&#39;_{i}b)^{2}\)</span> is equivalent to minimising the above equation.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Thus, even if the CEF is non-linear as in the recipe and star rating example, the regression line would provide the best linear approximation to it (drawn in green below).</p>
 <div class="figure">
-<img src="/img/CEF_regression.png" alt="Regression as the best linear approximation to the CEF" />
+<img src="../../../../img/CEF_regression.png" alt="Regression as the best linear approximation to the CEF" />
 <p class="caption">Regression as the best linear approximation to the CEF</p>
 </div>
 </div>

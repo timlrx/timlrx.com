@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="/post/">Blog</a>
+              <a title="Blog" href="../../../../post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="About" href="../../../../about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="/resources/">Resources</a>
+              <a title="Resources" href="../../../../resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="../../../../tags">Tags</a>
             </li>
           
         
@@ -367,8 +367,8 @@ top_hiring_industries %&gt;%
   scale_x_discrete(limits = top_hiring_industries[[&#39;industry&#39;]][10:1]) +
   labs(y = &#39;Number of Job Postings&#39;, x = &#39;Industry&#39;,
        title = &#39;Number of Job Postings by Industry&#39;)</code></pre>
-<p><img src="/post/2018-11-21-an-overview-of-the-singapore-hiring-landscape_files/figure-html/ind-1.png" width="672" /></p>
-<p>Let’s examine the difference between the job posting statistics and the official employment numbers as published by the Department of Statistics quarterly statistics (You can take a look at my <a href="/dashboard/sg-dashboard#employment">SG economy dashboard</a>). Certain industries such as transportation, banking, education and healthcare are in line with the national employment trend. Interestingly, there is still quite a strong demand from the construction and manufacturing industry despite the negative outlook within those sectors. The discrepancy could be a result of structural mismatch between the workers that are laid off and the type of workers which those firms are looking to hire.</p>
+<p><img src="../../../../post/2018-11-21-an-overview-of-the-singapore-hiring-landscape_files/figure-html/ind-1.png" width="672" /></p>
+<p>Let’s examine the difference between the job posting statistics and the official employment numbers as published by the Department of Statistics quarterly statistics (You can take a look at my <a href="../../../../dashboard/sg-dashboard#employment">SG economy dashboard</a>). Certain industries such as transportation, banking, education and healthcare are in line with the national employment trend. Interestingly, there is still quite a strong demand from the construction and manufacturing industry despite the negative outlook within those sectors. The discrepancy could be a result of structural mismatch between the workers that are laid off and the type of workers which those firms are looking to hire.</p>
 </div>
 <div id="how-does-firm-size-correlate-with-hiring" class="section level4">
 <h4>How does firm size correlate with hiring?</h4>
@@ -394,7 +394,7 @@ top_hiring_industries %&gt;%
                               &#39;50 - 100&#39;, &#39;100 - 200&#39;, &#39;&gt;= 200&#39;)) +
   labs(y = &#39;Sum of posts (thousands)&#39;, x = &#39;Firm Size (using posts as proxy)&#39;,
        title = &#39;Job Postings by Firm Size&#39;)</code></pre>
-<p><img src="/post/2018-11-21-an-overview-of-the-singapore-hiring-landscape_files/figure-html/sizehiring-1.png" width="672" /></p>
+<p><img src="../../../../post/2018-11-21-an-overview-of-the-singapore-hiring-landscape_files/figure-html/sizehiring-1.png" width="672" /></p>
 <p>We can use the number of post as a proxy for the size of the firm (larger firms have more open positions). Firms which are aiming to hire less than or equal to 10 people, contribute to more than 50% of the total potential hiring. There are about 5000+ firms looking to fill only a single vacancy.</p>
 </div>
 <div id="which-job-positions-are-most-in-demand" class="section level4">
@@ -642,7 +642,7 @@ head(compare_jobs, 10) %&gt;% knitr::kable()</code></pre>
 </tbody>
 </table>
 <p>The fractions in the table above refers to the fraction of jobs that are posted by recruitment firms. From the first table, we see that a lot of admin and IT related positions are typically filled with the help of recruitment firms. Companies prefer to source for more senior positions directly and they tend to use more generic titles when creating job openings.</p>
-<p>This post is a first look at a dataset of job openings. Besides the fields discussed in the exploratory analysis, there remains two other free text fields, job description and company description, which could be analysed in greater detail. I have many other ideas to explore with this dataset so do check back or subscribe to the <a href="/index.xml">RSS feed</a> for future updates.</p>
+<p>This post is a first look at a dataset of job openings. Besides the fields discussed in the exploratory analysis, there remains two other free text fields, job description and company description, which could be analysed in greater detail. I have many other ideas to explore with this dataset so do check back or subscribe to the <a href="../../../../index.xml">RSS feed</a> for future updates.</p>
 </div>
 </div>
 <div class="footnotes">

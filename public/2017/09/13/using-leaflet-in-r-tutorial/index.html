@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="/post/">Blog</a>
+              <a title="Blog" href="../../../../post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="About" href="../../../../about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="/resources/">Resources</a>
+              <a title="Resources" href="../../../../resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="../../../../tags">Tags</a>
             </li>
           
         
@@ -146,23 +146,23 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
-<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
-<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
-<script src="/rmarkdown-libs/leaflet-providers/leaflet-providers.js"></script>
-<script src="/rmarkdown-libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
+        <script src="../../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../../rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="../../../../rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
+<script src="../../../../rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="../../../../rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/leaflet-binding/leaflet.js"></script>
+<script src="../../../../rmarkdown-libs/leaflet-providers/leaflet-providers.js"></script>
+<script src="../../../../rmarkdown-libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
 
 
 <p>Here’s a tutorial on using Leaflet in R. While the leaflet package supports many options, the documentation is not the clearest and I had to do a bit of googling to customise the plot to my liking. This walkthrough documents the key features of the package which I find useful in generating choropleth overlays. Compared to the simple <code>tmap</code> approach documented in the previous post, creating a visualisation using leaflet gives more control over the final outcome. I will be covering two different kinds of display options (highlight on mouse over and on-click) as well as the use of layers. The post is an aggregation of materials from the official <a href="https://rstudio.github.io/leaflet/">Leaflet for R</a> documentation page as well as a few other blogs.</p>
 <div id="initialising" class="section level3">
 <h3>Initialising</h3>
-<p>I will be using a Singapore dataset consisting of the change in religious beliefs from 2000 to 2015, documented in the <a href="/2017/09/10/examining-the-changes-in-religious-beliefs-part-2/">previous post</a>. The file <code>religion_map</code> belongs to the <code>SpatialPolygonsDataFrame</code> class (though leaflet is also compatible with other classes of data). I have also used the <code>ms_simplify</code> function from the <code>rmapshaper</code> package to simplify the shapefile for web-plotting purposes.</p>
+<p>I will be using a Singapore dataset consisting of the change in religious beliefs from 2000 to 2015, documented in the <a href="../../../../2017/09/10/examining-the-changes-in-religious-beliefs-part-2/">previous post</a>. The file <code>religion_map</code> belongs to the <code>SpatialPolygonsDataFrame</code> class (though leaflet is also compatible with other classes of data). I have also used the <code>ms_simplify</code> function from the <code>rmapshaper</code> package to simplify the shapefile for web-plotting purposes.</p>
 <p>First, we will need to change the projection of the shape file so that it uses a latitude/longitude system.</p>
 <pre class="r"><code>proj4string(religion_map)</code></pre>
 <pre><code>## [1] &quot;+proj=tmerc +lat_0=1.366666666666667 +lon_0=103.8333333333333 +k=1 +x_0=28001.642 +y_0=38744.572 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0&quot;</code></pre>

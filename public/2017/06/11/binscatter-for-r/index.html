@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="/post/">Blog</a>
+              <a title="Blog" href="../../../../post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="About" href="../../../../about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="/resources/">Resources</a>
+              <a title="Resources" href="../../../../resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="../../../../tags">Tags</a>
             </li>
           
         
@@ -165,17 +165,17 @@ Guns$ln_prisoners &lt;- log(Guns$prisoners)
 
 binscatter(formula=&quot;ln_violent ~ ln_prisoners&quot;, key_var = &quot;ln_prisoners&quot;,
            data=Guns, bins=10, partial=FALSE)</code></pre>
-<p><img src="/post/2017-06-11-binscatter-for-r_files/figure-html/binscatter_1-1.png" width="672" /></p>
+<p><img src="../../../../post/2017-06-11-binscatter-for-r_files/figure-html/binscatter_1-1.png" width="672" /></p>
 <p>The number of prisoners is positively correlated with violent crimes but that might be due to differences across year or states. Let’s try to partial out year fixed effects.</p>
 <pre class="r"><code>binscatter(formula=&quot;ln_violent ~ ln_prisoners + year&quot; , key_var = &quot;ln_prisoners&quot;,
            data=Guns, bins=10, partial=TRUE)</code></pre>
-<p><img src="/post/2017-06-11-binscatter-for-r_files/figure-html/binscatter_2-1.png" width="672" /></p>
+<p><img src="../../../../post/2017-06-11-binscatter-for-r_files/figure-html/binscatter_2-1.png" width="672" /></p>
 <p>Currently the function needs at least one other control variable in the first segment of the regression for it to work. The key variable or variable of interest should also not be the rightmost due to some substring quirks. Now we partial out state fixed effects as well.</p>
 <pre class="r"><code>binscatter(formula=&quot;ln_violent ~ ln_prisoners + year | state&quot; , key_var = &quot;ln_prisoners&quot;, data=Guns, bins=10, partial=TRUE)</code></pre>
-<p><img src="/post/2017-06-11-binscatter-for-r_files/figure-html/binscatter_3-1.png" width="672" /></p>
+<p><img src="../../../../post/2017-06-11-binscatter-for-r_files/figure-html/binscatter_3-1.png" width="672" /></p>
 <p>Finally, let us cluster standard errors by state and increase the size of the bins.</p>
 <pre class="r"><code>binscatter(formula=&quot;ln_violent ~ ln_prisoners + year | state | 0 | state &quot; , key_var = &quot;ln_prisoners&quot;,data=Guns, bins=20, partial=TRUE)</code></pre>
-<p><img src="/post/2017-06-11-binscatter-for-r_files/figure-html/binscatter_4-1.png" width="672" /></p>
+<p><img src="../../../../post/2017-06-11-binscatter-for-r_files/figure-html/binscatter_4-1.png" width="672" /></p>
 <div class="footnotes">
 <hr />
 <ol>
