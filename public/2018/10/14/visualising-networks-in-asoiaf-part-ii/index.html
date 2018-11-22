@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="/post/">Blog</a>
+              <a title="Blog" href="../../../../post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="About" href="../../../../about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="/resources/">Resources</a>
+              <a title="Resources" href="../../../../resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="../../../../tags">Tags</a>
             </li>
           
         
@@ -146,7 +146,7 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>This is the second post of a character network analysis of George R. R. Martin’s A Song Of Ice and Fire (ASOIAF) series as well as my first submission to the <a href="https://www.r-bloggers.com/">R Bloggers community</a>. A warm welcome to all readers out there! In my <a href="/2018/09/09/visualising-networks-in-asoiaf/">first post</a>, I touched on the <a href="https://github.com/thomasp85/tidygraph">Tidygraph</a> package to manipulate dataframes and <a href="https://github.com/thomasp85/ggraph">ggraph</a> for network visualisation as well as some tricks to fix the position of nodes when ploting multiple graphs containing the same node set and labeling based on polar coordinates. In this post, we combine the plots together and use <a href="https://github.com/thomasp85/gganimate">gganimate</a> to visualise all 5 books.</p>
+        <p>This is the second post of a character network analysis of George R. R. Martin’s A Song Of Ice and Fire (ASOIAF) series as well as my first submission to the <a href="https://www.r-bloggers.com/">R Bloggers community</a>. A warm welcome to all readers out there! In my <a href="../../../../2018/09/09/visualising-networks-in-asoiaf/">first post</a>, I touched on the <a href="https://github.com/thomasp85/tidygraph">Tidygraph</a> package to manipulate dataframes and <a href="https://github.com/thomasp85/ggraph">ggraph</a> for network visualisation as well as some tricks to fix the position of nodes when ploting multiple graphs containing the same node set and labeling based on polar coordinates. In this post, we combine the plots together and use <a href="https://github.com/thomasp85/gganimate">gganimate</a> to visualise all 5 books.</p>
 <div id="the-asoiaf-network" class="section level3">
 <h3>The ASOIAF Network</h3>
 <p>I carry on from the end of the previous post and will skip through the pre-processing and cleaning steps.</p>
@@ -185,13 +185,13 @@ plot_graph &lt;- function(graph) {
                               &quot;Bran&#39;s companions&quot;, &quot;House Bolton&quot;,
                               &quot;House Martell&quot;, &quot;Young Griff&quot;, &quot;Dragonstone&quot;,
                               &quot;Brienne&#39;s party&quot;, &quot;Gregor and Oberyn&quot;))</code></pre>
-<p><img src="/post/2018-10-14-visualising-networks-in-asoiaf-part-ii_files/figure-html/fullplot-1.png" width="1152" /></p>
+<p><img src="../../../../post/2018-10-14-visualising-networks-in-asoiaf-part-ii_files/figure-html/fullplot-1.png" width="1152" /></p>
 <p>I made two main changes to the above plot compared to the previous post. First, I use a cut-off threshold of 0.8 instead of 0.75 to filter out the less relevant characters. To make it easier to infer the communities, I also mapped each community to a custom colour palette. This is generated using the <code>colorRampPalette</code> function but I rearranged the palette to maximise the perceptual difference between each community and make them easily distinguishable.</p>
 <p>The characters fall into 11 relatively distinct communities. The biggest group is the King’s Landing community coloured in blue. Visually, this is also the most dense area of the plot and many of the cross-community interaction is fostered by characters within the King’s Landing group. This also explains the high page-rank score of the characters within this group.</p>
 <p>Next, we have the Night’s Watch and wildlings which I termed as ‘The Wall’. Unsurprisingly, Jon Snow is the key character within this community having ties with almost every one of them and links to the broader ASOIAF universe.</p>
 <p>The names of the other communities can be seen in the above plot. We can see the role of the Stark family in the story with each character being a key member of a different community. The network plot also illustrates the narrative technique employed by George R. R. Martin within the series. Many of the characters interact within their small communities and but are weaved into the broader narrative by their connections to certain key players. This allows him to build detailed character profiles while still creating an illusion of an extremely large universe. The clearest examples of this is Daenerys’s Khalasar and Arya’s network which exists in very isolated communities but are connected to the broader story mainly through Daenerys and Arya only.</p>
 <p>Another interesting question that one might ask is how the current network structure differ between a cut-off threshold of 0.8 compared to 0.75 used in the previous post. The plot based on a threshold of 0.75 is shown below:</p>
-<p><img src="/post/2018-10-14-visualising-networks-in-asoiaf-part-ii_files/figure-html/preprocess2-1.png" width="1152" /></p>
+<p><img src="../../../../post/2018-10-14-visualising-networks-in-asoiaf-part-ii_files/figure-html/preprocess2-1.png" width="1152" /></p>
 <p>There are 4 other meaningful segments compared to the previous graph and they roughly correspond to the Riverlands group, house Greyjoy, Harrenhal guards (Gregor and Oberyn are in that group) and the Citadel. Here is an interesting observation: Arya’s kill list creates numerous co-occurrence of Gregor, Sandor, Polliver and the Tickler which is picked up by the network plot as a distinct community.</p>
 </div>
 <div id="a-network-animation" class="section level3">
@@ -237,7 +237,7 @@ p &lt;- p +
   transition_manual(book)
 
 animate(p, 100, 10, width = 1050, height = 700)</code></pre>
-<p><img src="/post/2018-10-14-visualising-networks-in-asoiaf-part-ii_files/figure-html/animate-1.gif" /><!-- --></p>
+<p><img src="../../../../post/2018-10-14-visualising-networks-in-asoiaf-part-ii_files/figure-html/animate-1.gif" /><!-- --></p>
 <p>The above animation looks quite nice, but the transition between plots seem a little sudden. To smoothen the transition, we can transform the discrete events into continuous ones and use <code>transition_events</code> to control the rate of transition. The solution below is adapted from this <a href="https://gist.github.com/thomasp85/e6280e554c08f00c9e46f8efca2a5929">gist</a>. I experimented with various methods of converting the discrete book intervals to continuous events. Eventually, it seems that creating a time event out of the edge weights seem to work quite well. The weights are scaled to range from 0 to 60 and are used as minutes while the book number takes the place of the hour of the day. <code>enter_length</code> and <code>exit_length</code> is set to 60 minutes to create some overlap across books so that characters which remain connected across books do not appear to fade in and out unnecessarily. Here is the final code and output.</p>
 <pre class="r"><code>p &lt;- plot_graph(
   full_graph %&gt;%
@@ -274,7 +274,7 @@ p2 &lt;- p +
   exit_manual(fade_edge)
 
 animate(p2, 100, 10, width = 900, height = 600)</code></pre>
-<p><img src="/post/2018-10-14-visualising-networks-in-asoiaf-part-ii_files/figure-html/animate2-1.gif" /><!-- --></p>
+<p><img src="../../../../post/2018-10-14-visualising-networks-in-asoiaf-part-ii_files/figure-html/animate2-1.gif" /><!-- --></p>
 <p>The animated plot shows quite clearly how the narrative of ASOIAF has evolved through the books. In A Game of Thrones, the first book, the plot mainly revolves around the characters in King’s Landing but as the series progresses, we see a lot more cross-community relationships being formed. It should also be noted that the mortality rate of characters in that community is especially high and there are much fewer of them at the end of book 5 then at the start of the series.</p>
 </div>
 <div id="conclusion" class="section level3">

@@ -60,31 +60,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="/post/">Blog</a>
+              <a title="Blog" href="../../../../post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="About" href="../../../../about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="/resources/">Resources</a>
+              <a title="Resources" href="../../../../resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="../../../../tags">Tags</a>
             </li>
           
         
@@ -148,20 +148,20 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
-<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
-<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
-<script src="/rmarkdown-libs/leaflet-providers/leaflet-providers.js"></script>
-<script src="/rmarkdown-libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
+        <script src="../../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../../rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="../../../../rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
+<script src="../../../../rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="../../../../rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/leaflet-binding/leaflet.js"></script>
+<script src="../../../../rmarkdown-libs/leaflet-providers/leaflet-providers.js"></script>
+<script src="../../../../rmarkdown-libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
 
 
-<p>In a <a href="/2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/">previous post</a>, I took a look at the distribution of religious beliefs in Singapore. Having compiled additional characteristics across 3 time periods (2000, 2010, 2015), I decided to write a follow-up post to examine the changes across time.</p>
+<p>In a <a href="../../../../2017/08/29/mapping-the-distribution-of-religious-beliefs-in-singapore/">previous post</a>, I took a look at the distribution of religious beliefs in Singapore. Having compiled additional characteristics across 3 time periods (2000, 2010, 2015), I decided to write a follow-up post to examine the changes across time.</p>
 <p>The dataset that I will be using is aggregated from the 2000 and 2010 Census as well as the 2015 General Household Survey. It covers most of the interesting social-economic variables with geographical variation that is released on Singstat’s Table Builder. I compiled the various csv files and transform it into a format that can be easily used for analysis. The full dataset and cleaning files can be downloaded from my <a href="https://github.com/timlrx/sg-mapping">Github folder</a> should you wish to have a go at it. The shapefiles used for mapping can be downloaded from <a href="https://data.gov.sg/" class="uri">https://data.gov.sg/</a>. I used Master Plan 1998, 2008 and 2014 planning area boundaries which correspond to the geographical divisions used for the 3 surveys.</p>
 <p>The following edits were made to the raw tables before appending them together:</p>
 <ul>
@@ -192,7 +192,7 @@ tm_shape(sg_plan_2015c) +
 tm_shape(sg_plan_2000c) +
   tm_polygons(col=&quot;green&quot;, alpha=0.5) +
   tm_facets(&quot;PLN_AREA_N&quot;, free.coords=TRUE)</code></pre>
-<p><img src="/post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/region-compare-1.png" width="672" /></p>
+<p><img src="../../../../post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/region-compare-1.png" width="672" /></p>
 <p>The light green regions are areas present in the 2000 Master Plan but not in the 2015 Master Plan while the opposite holds for the red regions. The dark green regions show the intersection of the two plans. It appears that most of the planning regions are very similar across 15 year period (unlike electoral boundaries). This justifies the comparison of values across the surveys.</p>
 <p>Next, let us take a look at the variables present in the dataset:</p>
 <pre class="r"><code>names(df)</code></pre>
@@ -261,7 +261,7 @@ religion_map &lt;- append_data(sg, religion_data, key.shp=&quot;PLN_AREA_N&quot;
   tm_facets(free.scales = FALSE, nrow=1) +
   tm_layout(panel.labels=c(&quot;Christianity&quot;,&quot;No Religion&quot;))</code></pre>
 <div class="figure"><span id="fig:christianity-no-rel"></span>
-<img src="/post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/christianity-no-rel-1.png" alt="Change in Christianity / No Religion Share (2000-2015)" width="175%" />
+<img src="../../../../post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/christianity-no-rel-1.png" alt="Change in Christianity / No Religion Share (2000-2015)" width="175%" />
 <p class="caption">
 Figure 1: Change in Christianity / No Religion Share (2000-2015)
 </p>
@@ -272,7 +272,7 @@ Figure 1: Change in Christianity / No Religion Share (2000-2015)
   tm_facets(free.scales = FALSE, nrow=1) +
   tm_layout(panel.labels=c(&quot;Catholic&quot;,&quot;Other Christians&quot;))</code></pre>
 <div class="figure"><span id="fig:cat-chr"></span>
-<img src="/post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/cat-chr-1.png" alt="Change in Catholic / Other Christians Share (2000-2015)" width="175%" />
+<img src="../../../../post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/cat-chr-1.png" alt="Change in Catholic / Other Christians Share (2000-2015)" width="175%" />
 <p class="caption">
 Figure 2: Change in Catholic / Other Christians Share (2000-2015)
 </p>
@@ -283,7 +283,7 @@ Figure 2: Change in Catholic / Other Christians Share (2000-2015)
   tm_facets(free.scales = FALSE, nrow=1) +
   tm_layout(panel.labels=c(&quot;Buddhism&quot;,&quot;Taoism&quot;))</code></pre>
 <div class="figure"><span id="fig:buddhism-taoism"></span>
-<img src="/post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/buddhism-taoism-1.png" alt="Change in Buddhism / Taoism Share (2000-2015)" width="175%" />
+<img src="../../../../post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/buddhism-taoism-1.png" alt="Change in Buddhism / Taoism Share (2000-2015)" width="175%" />
 <p class="caption">
 Figure 3: Change in Buddhism / Taoism Share (2000-2015)
 </p>
@@ -294,7 +294,7 @@ Figure 3: Change in Buddhism / Taoism Share (2000-2015)
   tm_facets(free.scales = FALSE, nrow=1) +
   tm_layout(panel.labels=c(&quot;Islam&quot;,&quot;Hinduism&quot;))</code></pre>
 <div class="figure"><span id="fig:islam-hind"></span>
-<img src="/post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/islam-hind-1.png" alt="Change in Islam / Hinduism Share (2000-2015)" width="175%" />
+<img src="../../../../post/2017-09-10-examining-the-changes-in-religious-beliefs-part-2_files/figure-html/islam-hind-1.png" alt="Change in Islam / Hinduism Share (2000-2015)" width="175%" />
 <p class="caption">
 Figure 4: Change in Islam / Hinduism Share (2000-2015)
 </p>
