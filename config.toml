@@ -1,4 +1,4 @@
-baseurl = "https://timlrx.com/"
+baseurl = "https://www.timlrx.com/"
 publishDir = "./public"
 relativeurls = false
 languageCode = "en-us"
