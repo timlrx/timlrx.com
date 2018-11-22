@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="../../../../post/">Blog</a>
+              <a title="Blog" href="/post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="../../../../about/">About</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="../../../../resources/">Resources</a>
+              <a title="Resources" href="/resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="../../../../tags">Tags</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
@@ -226,7 +226,7 @@ book1 %&gt;%
   geom_bar() +
   xlim(0,100) +
   theme_bw()</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/weightPlot-1.png" width="672" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/weightPlot-1.png" width="672" /></p>
 <p>Typical of network graphs, the plot shows a power law like distribution, with most character pairs connected by a few joint mentions and a few central characters being mentioned repeatedly in the same context. I truncated the x-axis to remove certain outliers, but if you are keen on finding out which characters were most commonly mentioned next to each other…</p>
 <pre class="r"><code>book1 %&gt;% arrange(desc(weight))</code></pre>
 <pre><code>## # A tibble: 684 x 4
@@ -265,7 +265,7 @@ book1 %&gt;%
   geom_node_point() +
   geom_node_text(aes(label = Label_short), repel = TRUE) +
   theme_graph()</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/ggraphVis-1.png" width="672" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/ggraphVis-1.png" width="672" /></p>
 <p>Let us try to encode more information by finding the communities within graph.</p>
 <pre class="r"><code>df3 &lt;- df2 %&gt;%
   mutate(component = group_components(),
@@ -281,7 +281,7 @@ book1 %&gt;%
   geom_node_point(aes(color = community, size = pagerank)) +
   geom_node_text(aes(label = Label_short), repel = TRUE, size = 3.5) +
   theme_graph()</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/circular-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/circular-1.png" width="1152" /></p>
 <p>The communities discovered by the algorithm match fairly well to the locations where the characters spend most of their time in. We have a king’s landing community with Eddard Stark, Robert Baratheon and Varys; as well as a Winterfell community with Catelyn, Bran and Robb. We can also easily pick up the influential players in the graph. Daenerys, is the only link between Essos and the rest of Westeros. Tyrion and the Stark family (except Rickon) also rank highly in pagerank score and facilitate the connections between the other major characters in the first book.</p>
 <div id="asoiaf-network" class="section level3">
 <h3>ASOIAF Network</h3>
@@ -381,15 +381,15 @@ plot_graph &lt;- function(graph) {
 }</code></pre>
 <p>And here is how each book looks:</p>
 <pre class="r"><code>plot_graph(all_graphs[[1]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book1-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book1-1.png" width="1152" /></p>
 <pre class="r"><code>plot_graph(all_graphs[[2]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book2-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book2-1.png" width="1152" /></p>
 <pre class="r"><code>plot_graph(all_graphs[[3]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book3-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book3-1.png" width="1152" /></p>
 <pre class="r"><code>plot_graph(all_graphs[[4]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book4-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book4-1.png" width="1152" /></p>
 <pre class="r"><code>plot_graph(all_graphs[[5]])</code></pre>
-<p><img src="../../../../post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book5-1.png" width="1152" /></p>
+<p><img src="/post/2018-09-09-visualising-networks-in-asoiaf_files/figure-html/book5-1.png" width="1152" /></p>
 </div>
 </div>
 

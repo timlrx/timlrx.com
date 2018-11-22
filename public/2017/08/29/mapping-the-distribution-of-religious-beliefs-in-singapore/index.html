@@ -58,31 +58,31 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="../../../../post/">Blog</a>
+              <a title="Blog" href="/post/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="../../../../about/">About</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="SG-Dashboard" href="../../../../dashboard/sg-dashboard/">SG-Dashboard</a>
+              <a title="SG-Dashboard" href="/dashboard/sg-dashboard/">SG-Dashboard</a>
             </li>
           
         
           
             <li>
-              <a title="Resources" href="../../../../resources/">Resources</a>
+              <a title="Resources" href="/resources/">Resources</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="../../../../tags">Tags</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
@@ -175,7 +175,7 @@ proj4string(sg_shape)</code></pre>
 sg_shape_main &lt;- sg_shape[(sg_shape$FOLDERPATH %in% c(&quot;Layers/Coastal_Outline&quot;)) &amp;     !grepl(paste(exclude,collapse=&quot;|&quot;), sg_shape$NAME),]
 plot(sg_shape_main)</code></pre>
 <div class="figure"><span id="fig:plot-outline"></span>
-<img src="../../../../post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-outline-1.png" alt="Outline of Singapore" width="672" />
+<img src="/post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-outline-1.png" alt="Outline of Singapore" width="672" />
 <p class="caption">
 Figure 1: Outline of Singapore
 </p>
@@ -187,7 +187,7 @@ Figure 1: Outline of Singapore
   tm_polygons(col=&quot;blue&quot;, alpha=0.5) +
   tm_layout(frame=FALSE)</code></pre>
 <div class="figure"><span id="fig:plot-comparison"></span>
-<img src="../../../../post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-comparison-1.png" alt="Comparison of the current map and URA's plans" width="672" />
+<img src="/post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-comparison-1.png" alt="Comparison of the current map and URA's plans" width="672" />
 <p class="caption">
 Figure 2: Comparison of the current map and URA’s plans
 </p>
@@ -334,7 +334,7 @@ tm_shape(sg_religion_map) +
   tm_facets(free.scales = FALSE) +
   tm_layout(panel.labels=c(&quot;Buddhism&quot;,&quot;Christianity&quot;,&quot;Islam&quot;,&quot;No Religion&quot;))</code></pre>
 <div class="figure"><span id="fig:plot-religion"></span>
-<img src="../../../../post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-religion-1.png" alt="Distribution of Religious Beliefs" width="175%" />
+<img src="/post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-religion-1.png" alt="Distribution of Religious Beliefs" width="175%" />
 <p class="caption">
 Figure 3: Distribution of Religious Beliefs
 </p>
@@ -358,7 +358,7 @@ tm_shape(sg_religion_map2) +
   tm_facets(free.scales = FALSE) +
   tm_layout(panel.labels=c(&quot;Buddhism&quot;,&quot;Christianity&quot;,&quot;Islam&quot;,&quot;No Religion&quot;))</code></pre>
 <div class="figure"><span id="fig:plot-religion2"></span>
-<img src="../../../../post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-religion2-1.png" alt="Distribution of Religious Beliefs (Relative to National Average)" width="175%" />
+<img src="/post/2017-08-29-mapping-the-distribution-of-religious-beliefs-in-singapore_files/figure-html/plot-religion2-1.png" alt="Distribution of Religious Beliefs (Relative to National Average)" width="175%" />
 <p class="caption">
 Figure 4: Distribution of Religious Beliefs (Relative to National Average)
 </p>
