@@ -1,8 +1,8 @@
 ---
-title: Binance hackathon - 2nd prize
+title: Binance hackathon - 2nd place solution
 author: Timothy Lin
 date: '2019-02-11'
-slug: binance-hackathon-2nd-prize
+slug: binance-hackathon-2nd-place
 categories: ['javascript', 'react', 'visualisation', 'networks', 'notes', 'crypto']
 tags: []
 subtitle: 'Technical overview of the solution and my hackathon experience'
@@ -10,7 +10,7 @@ subtitle: 'Technical overview of the solution and my hackathon experience'
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-It has been about a month since my team and I won the 2nd prize in a [hackathon organised by Binance](https://www.binancefair.com/safu-hackathon/). Since it was my first time officially doing front-end development, I thought it would be fun to blog about my experience in the hackathon and document the technical solution which I coded up in react.js. 
+It has been about a month since my team and I placed 2nd in a [hackathon organised by Binance](https://www.binancefair.com/safu-hackathon/). Since it was my first time officially doing front-end development, I thought it would be fun to blog about my experience in the hackathon and document the technical solution which I coded up in react.js. 
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">A massive congratulations to the three winning teams of the <a href="https://twitter.com/hashtag/Binance?src=hash&amp;ref_src=twsrc%5Etfw">#Binance</a> <a href="https://twitter.com/hashtag/SAFU?src=hash&amp;ref_src=twsrc%5Etfw">#SAFU</a> Hackathon who shared a prize of $100,000 USD worth of <a href="https://twitter.com/search?q=%24BNB&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$BNB</a>! Teams Perlin, Crypto Lynx &amp; the overall winners Merkle Blox we salute you! <a href="https://twitter.com/hashtag/BUIDL?src=hash&amp;ref_src=twsrc%5Etfw">#BUIDL</a> <a href="https://twitter.com/hashtag/BinanceBlockchainWeek?src=hash&amp;ref_src=twsrc%5Etfw">#BinanceBlockchainWeek</a> <a href="https://t.co/ywixYx43S7">pic.twitter.com/ywixYx43S7</a></p>&mdash; Binance (@binance) <a href="https://twitter.com/binance/status/1087288650608472064?ref_src=twsrc%5Etfw">January 21, 2019</a></blockquote>
 
