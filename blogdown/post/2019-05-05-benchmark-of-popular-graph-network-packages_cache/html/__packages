@@ -1,0 +1,10 @@
+base
+ggplot2
+dplyr
+reshape2
+scales
+cowplot
+DT
+bindrcpp
+knitr
+kableExtra

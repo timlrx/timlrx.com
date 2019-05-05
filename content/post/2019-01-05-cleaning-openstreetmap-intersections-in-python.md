@@ -3,8 +3,8 @@ title: Cleaning openstreetmap intersections in python
 author: Timothy Lin
 date: '2019-01-05'
 slug: cleaning-openstreetmap-intersections-in-python
-categories: ['python', 'spatial', 'visualisation', 'notes']
-tags: []
+categories: []
+tags: ['python', 'spatial', 'visualisation', 'notes']
 subtitle: ''
 ---
 
