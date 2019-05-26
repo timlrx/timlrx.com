@@ -82,7 +82,9 @@ overall_qoq <- ggplot(overall_gdp, aes(period, qoqsaa, group=1)) +
   theme_classic() +
   theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))
 
-ggplotly(overall_qoq, tooltip=c("y","x")) %>% layout(margin = list(b = 80))
+ggplotly(overall_qoq, tooltip=c("y","x")) %>%
+  layout(margin = list(b = 80)) %>%
+  partial_bundle()
 ```
 
 
@@ -98,7 +100,9 @@ overall_yoy <- ggplot(overall_gdp, aes(period, yoy, group=1)) +
   theme_classic() +
   theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))
 
-ggplotly(overall_yoy, tooltip=c("y","x")) %>% layout(margin = list(b = 80))
+ggplotly(overall_yoy, tooltip=c("y","x")) %>%
+  layout(margin = list(b = 80)) %>%
+  partial_bundle()
 ```
 
 Row
@@ -125,7 +129,9 @@ sector.bar <- ggplot(ind_growth, aes(industry.short, growth)) +
   theme_classic() + 
   coord_flip()
 
-plotly_build(sector.bar) %>% layout(margin = list(l = 150))
+plotly_build(sector.bar) %>%
+  layout(margin = list(l = 150)) %>%
+  partial_bundle()
 
 ```
 
@@ -221,7 +227,9 @@ overall_emp <- ggplot(overall_change_emp, aes(period, pct_change_emp, group=indu
   theme_classic() +
   theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))
 
-ggplotly(overall_emp, tooltip=c("y","x")) %>% layout(margin = list(b = 80))
+ggplotly(overall_emp, tooltip=c("y","x")) %>%
+  layout(margin = list(b = 80)) %>%
+  partial_bundle()
 ```
 
 Row
@@ -242,7 +250,10 @@ pct_change_emp <- emp %>%
            theme_classic() +
            theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))
 
-ggplotly(pct_change_emp, tooltip=c("period","pct_change_emp", "industry")) %>% layout(margin = list(b = 80), legend = list(orientation = 'h',xanchor = "center", yanchor="bottom", y=-0.5))
+ggplotly(pct_change_emp, tooltip=c("period","pct_change_emp", "industry")) %>%
+  layout(margin = list(b = 80),
+         legend = list(orientation = 'h',xanchor = "center", yanchor="bottom", y=-0.5)) %>%
+  partial_bundle()
 ```
 
 Row
@@ -270,5 +281,7 @@ change_emp_year_plot <- change_emp_year %>%
   scale_y_continuous(breaks=c(-40,-20,0,20,40,60,80,100)) +
   theme_classic() 
 
-ggplotly(change_emp_year_plot) %>% layout(margin = list(l = 150))
+ggplotly(change_emp_year_plot) %>%
+  layout(margin = list(l = 150)) %>%
+  partial_bundle()
 ```
