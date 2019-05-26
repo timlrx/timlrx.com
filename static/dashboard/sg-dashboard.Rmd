@@ -4,11 +4,28 @@ output:
   flexdashboard::flex_dashboard:
     orientation: rows
     vertical_layout: scroll
+    mathjax: NULL
+    self_contained: FALSE
 ---
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=FALSE)
+plotly_mod_dep = function(p){
+  deps <- p$dependencies
+  deps_urls <- purrr::map(
+  deps,
+  ~if(.x$name == "plotly-basic") {
+    .x$src = list(file=getwd())
+    .x$script = "plotly-redirect-cdn-1.39.2.js"
+    .x
+  } else {
+    .x
+  }
+)
+p$dependencies <- deps_urls
+p
+}
 ```
 
 ```{r prelim, include=FALSE}
@@ -84,7 +101,8 @@ overall_qoq <- ggplot(overall_gdp, aes(period, qoqsaa, group=1)) +
 
 ggplotly(overall_qoq, tooltip=c("y","x")) %>%
   layout(margin = list(b = 80)) %>%
-  partial_bundle()
+  partial_bundle(local = FALSE) %>%
+  plotly_mod_dep()
 ```
 
 
@@ -102,7 +120,8 @@ overall_yoy <- ggplot(overall_gdp, aes(period, yoy, group=1)) +
 
 ggplotly(overall_yoy, tooltip=c("y","x")) %>%
   layout(margin = list(b = 80)) %>%
-  partial_bundle()
+  partial_bundle(local = FALSE) %>%
+  plotly_mod_dep()
 ```
 
 Row
@@ -131,7 +150,8 @@ sector.bar <- ggplot(ind_growth, aes(industry.short, growth)) +
 
 plotly_build(sector.bar) %>%
   layout(margin = list(l = 150)) %>%
-  partial_bundle()
+  partial_bundle(local = FALSE) %>%
+  plotly_mod_dep()
 
 ```
 
@@ -229,7 +249,8 @@ overall_emp <- ggplot(overall_change_emp, aes(period, pct_change_emp, group=indu
 
 ggplotly(overall_emp, tooltip=c("y","x")) %>%
   layout(margin = list(b = 80)) %>%
-  partial_bundle()
+  partial_bundle(local = FALSE) %>%
+  plotly_mod_dep()
 ```
 
 Row
@@ -253,7 +274,8 @@ pct_change_emp <- emp %>%
 ggplotly(pct_change_emp, tooltip=c("period","pct_change_emp", "industry")) %>%
   layout(margin = list(b = 80),
          legend = list(orientation = 'h',xanchor = "center", yanchor="bottom", y=-0.5)) %>%
-  partial_bundle()
+  partial_bundle(local = FALSE) %>%
+  plotly_mod_dep()
 ```
 
 Row
@@ -283,5 +305,6 @@ change_emp_year_plot <- change_emp_year %>%
 
 ggplotly(change_emp_year_plot) %>%
   layout(margin = list(l = 150)) %>%
-  partial_bundle()
+  partial_bundle(local = FALSE) %>%
+  plotly_mod_dep()
 ```
