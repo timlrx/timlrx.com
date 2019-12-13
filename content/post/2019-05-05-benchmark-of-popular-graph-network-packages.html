@@ -36,7 +36,8 @@ subtitle: ''
 <li>k-core decomposition</li>
 <li>strongly connected components</li>
 </ul>
-<p>Loading is more of an I/O task while the other 4 are common graph algorithms.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>Loading is more of an I/O task while the other 4 are common graph algorithms. Disclaimer: I try as much as possible to specify the same parameters for each algorithm but differences in API across the packages could translate to actual differences in how the algorithm is run and the final output.</p>
+<p><span style="color:blue">13/12/2019 Edit: Some of the observed differences in performance might be a result of different stopping criteria used - see algorithms for more information.</span></p>
 <p>3 datasets from the <a href="https://snap.stanford.edu/data/index.html">Stanford Large Network Dataset Collection</a> were used in the exercise:</p>
 <ul>
 <li><a href="https://snap.stanford.edu/data/amazon0302.html">amazon</a>, 262k nodes, 1.2m edges</li>
@@ -58,7 +59,7 @@ subtitle: ''
 <div id="results" class="section level2">
 <h2>Results</h2>
 <p>All timings reported are normalised to reflect the run time for a single run of the task.</p>
-<p>Networkx is much slower than any of the other libraries. Across all computation tasks and for all datasets it is around 10 times slower than the <em>slowest</em> library.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> For example, it took 67s to run the single source shortest path problem on the Pokec dataset compared to 6.8s for networkit (the next slowest). Page rank took more than 10 minutes to run compared to 1 minute for igraph. Hence, I left it out of the comparison plots.</p>
+<p>Networkx is much slower than any of the other libraries. Across all computation tasks and for all datasets it is around 10 times slower than the <em>slowest</em> library.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> For example, it took 67s to run the single source shortest path problem on the Pokec dataset compared to 6.8s for networkit (the next slowest). Page rank took more than 10 minutes to run compared to 1 minute for igraph. Hence, I left it out of the comparison plots.</p>
 <p>Here are the run times of the remaining four packages:</p>
 <p><img src="/post/2019-05-05-benchmark-of-popular-graph-network-packages_files/figure-html/plot_all-1.png" width="672" /></p>
 <p>Full results can be seen from the table below:</p>
@@ -438,12 +439,13 @@ shortest path
 </table>
 <div id="io" class="section level3">
 <h3>I/O</h3>
-<p>Looking at the plots above, graph-tool and networkit loads data much more slowly than the other two libraries. I was reading the datasets as a tab delimited file and graph-tool basically uses a Python code to parse the input. The other 3 packages should be using C libraries to read the files which result in better performance.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>Looking at the plots above, graph-tool and networkit loads data much more slowly than the other two libraries. I was reading the datasets as a tab delimited file and graph-tool basically uses a Python code to parse the input. The other 3 packages should be using C libraries to read the files which result in better performance.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 </div>
 <div id="algorithms" class="section level3">
 <h3>Algorithms</h3>
 <p>Networkit and graph-tool takes the top spot in most of the tests with graph-tool having the shortest run time for the single source shortest path and connected components problems and networkit winning the race for k-core and page rank.</p>
-<p>When networkit is fast, it is extremely fast. On the pokec dataset it takes just 0.2s to run the page rank algorithm (graph-tool: 1.7s, igraph: 59.6s, snap: 19.5s). For the k-core decomposition it is also 10 times faster than all other competitors or 2000 times networkx. That is consistent with the findings of their research paper where they claim that using some of the latest state of the art algorithms led to their processing speed being faster by an order of magnitude. However, for the shortest path problem (not analysed in their paper) it lags behind all other packages.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+<p>When networkit is fast, it is extremely fast. On the pokec dataset it takes just 0.2s to run the page rank algorithm (graph-tool: 1.7s, igraph: 59.6s, snap: 19.5s). For the k-core decomposition it is also 10 times faster than all other competitors or 2000 times networkx. That is consistent with the findings of their research paper where they claim that using some of the latest state of the art algorithms led to their processing speed being faster by an order of magnitude. However, for the shortest path problem (not analysed in their paper) it lags behind all other packages.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p><span style="color:blue">13/12/2019 Edit: An astute reader pointed out that for the pagerank algorithm, networkit uses L2 as norm as a stopping criteria while other packages use the L1 norm. This means that it is doing fewer iterations than the other products and the speed is somewhat artificial</span></p>
 <p>graph-tool is the most steady performer and achieves very impressive performance across all four tasks. With openMP support it betters igraph and snap across all tasks. It is 3 to 10+ times faster than those two packages.</p>
 <p>igraph and snap achieves mostly similar performance across all tasks with a slight edge towards snap. This is also consistent with snap’s research findings.</p>
 </div>
@@ -465,7 +467,7 @@ Moving away from native Python or R means that the syntax for the packages can s
 <p>snap:</p>
 <pre class="python"><code>NIdToDistH = snap.TIntH()
 snap.GetShortPath(g, node_index, NIdToDistH, True)</code></pre>
-<p>Of all, I find snap’s the most cumbersome since one has to define an additional variable (with the correct variable type) to store the results before running it. Running more advanced functions on graph-tool and networkit also requires a user to pre-define variables with the correct type to store results.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+<p>Of all, I find snap’s the most cumbersome since one has to define an additional variable (with the correct variable type) to store the results before running it. Running more advanced functions on graph-tool and networkit also requires a user to pre-define variables with the correct type to store results.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <p><strong>Support and Documentation</strong><br />
 User support and documentation is really important when one wants to use the project in an actual project setting. Networkx is by far the winner in this category with more than 4k github stars and lots of issues documented in github and stackoverflow. Igraph fairs decently as well with more than a thousand stars across its different modules.</p>
 <p>graph-tool and networkit has much smaller followings though the creators seem relatively responsive to user issues and the packages are in active development.</p>
@@ -481,10 +483,9 @@ User support and documentation is really important when one wants to use the pro
 <hr />
 <ol>
 <li id="fn1"><p>A 240 GB machine with 64 vCPUs currently cost about $1.5k USD / month on Google Cloud Compute. While relatively expensive, one can spin up the machine just for very heavy computation tasks and shut it down once the task is complete. Such intensive computation once reserved for enterprises and research institutions can now be replicated by almost anyone.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>Disclaimer: I try as much as possible to specify the same parameters for each algorithm but differences in API across the packages could translate to actual differences in how the algorithm is run and the final output<a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>After trying it out for 1 test run, I run the profiling tests only 10 times fewer when using the networkx library.<a href="#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p>Graph-tool should read from other file types such as graphml or dot much faster though I did not actually try it out.<a href="#fnref4" class="footnote-back">↩</a></p></li>
-<li id="fn5"><p>I used the BFS search to proxy for the single source shortest path problem as there does not seem to be a direct API call for it.<a href="#fnref5" class="footnote-back">↩</a></p></li>
-<li id="fn6"><p>I guess this is required of statically typed languages like C and C++.<a href="#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>After trying it out for 1 test run, I run the profiling tests only 10 times fewer when using the networkx library.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>Graph-tool should read from other file types such as graphml or dot much faster though I did not actually try it out.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>I used the BFS search to proxy for the single source shortest path problem as there does not seem to be a direct API call for it.<a href="#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>I guess this is required of statically typed languages like C and C++.<a href="#fnref5" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

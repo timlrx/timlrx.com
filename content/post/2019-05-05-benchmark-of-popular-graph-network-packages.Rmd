@@ -63,7 +63,9 @@ Selecting what tasks to compare on is not really a trivial task with each packag
 - k-core decomposition
 - strongly connected components
 
-Loading is more of an I/O task while the other 4 are common graph algorithms.^[Disclaimer: I try as much as possible to specify the same parameters for each algorithm but differences in API across the packages could translate to actual differences in how the algorithm is run and the final output]
+Loading is more of an I/O task while the other 4 are common graph algorithms. Disclaimer: I try as much as possible to specify the same parameters for each algorithm but differences in API across the packages could translate to actual differences in how the algorithm is run and the final output.
+
+<span style="color:blue">13/12/2019 Edit: Some of the observed differences in performance might be a result of different stopping criteria used - see algorithms for more information.</span>
 
 3 datasets from the [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/index.html) were used in the exercise:
 
@@ -125,6 +127,8 @@ Looking at the plots above, graph-tool and networkit loads data much more slowly
 Networkit and graph-tool takes the top spot in most of the tests with graph-tool having the shortest run time for the single source shortest path and connected components problems and networkit winning the race for k-core and page rank. 
 
 When networkit is fast, it is extremely fast. On the pokec dataset it takes just 0.2s to run the page rank algorithm (graph-tool: 1.7s, igraph: 59.6s, snap: 19.5s). For the k-core decomposition it is also 10 times faster than all other competitors or 2000 times networkx. That is consistent with the findings of their research paper where they claim that using some of the latest state of the art algorithms led to their processing speed being faster by an order of magnitude. However, for the shortest path problem (not analysed in their paper) it lags behind all other packages.^[I used the BFS search to proxy for the single source shortest path problem as there does not seem to be a direct API call for it.]
+
+<span style="color:blue">13/12/2019 Edit: An astute reader pointed out that for the pagerank algorithm, networkit uses L2 as norm as a stopping criteria while other packages use the L1 norm. This means that it is doing fewer iterations than the other products and the speed is somewhat artificial</span>
 
 graph-tool is the most steady performer and achieves very impressive performance across all four tasks. With openMP support it betters igraph and snap across all tasks. It is 3 to 10+ times faster than those two packages.
 
