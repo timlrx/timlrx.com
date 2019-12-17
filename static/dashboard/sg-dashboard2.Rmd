@@ -1,0 +1,50 @@
+---
+title: "SG-Dashboard"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+    mathjax: NULL
+    self_contained: FALSE
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache=FALSE)
+```
+
+```{r prelim, include=FALSE}
+library(dplyr)
+library(reshape2)
+library(gridExtra)
+library(knitr)
+library(kableExtra)
+
+### Find most recent file
+file_path <- "C:/Users/Timot/Documents/Repo/sg-econ-api/data/gdp/"
+files <- list.files(file_path)
+date_list <- gsub("(.+)(-gdp.RData)","\\1",files)
+recent_date <- date_list[order(format(as.Date(date_list),"%Y-%m-%d"))[length(date_list)]]
+recent_date2 <- date_list[order(format(as.Date(date_list),"%Y-%m-%d"))[length(date_list)-1]]
+
+load(paste(file_path,recent_date,"-gdp.RData", sep=""))
+gdp <- va.sector.comb
+gdp <- filter(gdp, year >= 2000)
+load(paste(file_path,recent_date2,"-gdp.RData", sep=""))
+gdp2 <- va.sector.comb
+gdp2 <- filter(gdp2, year >= 2000)
+
+#### Load Emp data
+file_path <- "C:/Users/Timot/Documents/Repo/sg-econ-api/data/employment/"
+files <- list.files(file_path)
+date_list <- gsub("(.+)(-emp.RData)","\\1",files)
+recent_date <- date_list[order(format(as.Date(date_list),"%Y-%m-%d"))[length(date_list)]]
+load(paste(file_path,recent_date,"-emp.RData", sep=""))
+```
+
+GDP
+=====================================  
+
+Row
+-----------------------------------------------------------------------
+### Trend in Overall GDP (QOQ)
