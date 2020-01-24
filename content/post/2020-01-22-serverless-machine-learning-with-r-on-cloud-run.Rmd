@@ -174,4 +174,4 @@ https://twitter-r-cvdvxo3vga-uc.a.run.app/html/sentiment?n=500&users=narendramod
 
 ## Conclusion
 
-That's it for this serverless + R tutorial. Hope you managed to learn something useful or at the very least find the twitter analysis interesting `r emo::ji("smiley")`. The nice part about having this application running is that you can analyze the real-time twitter frequency or sentiment plots with whatever account you choose (even your own).^[I will keep it up and running as long as I can as long as the usage does not suddenly spike up and exceed the free tier limit]
+That's it for this serverless + R tutorial. Hope you managed to learn something useful or at the very least find the twitter analysis interesting `r emo::ji("smiley")`. The nice part about having this application running is that you can analyze real-time twitter frequency or sentiment plots with whatever account you choose (even your own), so feel free to try it out.^[I will keep it up and running as long as I can as long as the usage does not suddenly spike up and exceed the free tier limit]
