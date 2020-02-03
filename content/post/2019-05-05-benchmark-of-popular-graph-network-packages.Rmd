@@ -35,6 +35,8 @@ df <- df %>%
   mutate(Algorithm = replace(Algorithm, Algorithm=='connected components', 'CC')) %>%
   mutate(Algorithm = factor(Algorithm, levels = c('loading', 'shortest path', 'page rank', 'k-core', 'CC')))
 ```
+__Check the [Github repository](https://github.com/timlrx/graph-benchmarks) for the latest updates__
+
 In this post I benchmark the performance of 5 popular graph/network packages. This was inspired by two questions I had:
 
 1) Recently, I have been working with large networks (millions of vertices and edges) and often wonder what is the best currently available package/tool that would scale well and handle large scale network analysis tasks. Having tried out a few (networkx in Python and igraph in R) but on different problems, I thought it would be nice to have a head to head comparison.
