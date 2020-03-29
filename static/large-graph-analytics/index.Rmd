@@ -17,7 +17,7 @@ particles(target_id = "cover")
 <section class="present">
 <h1 class="title"> Large Scale Graph Analytics </h1>
 <h2 class="author"> Timothy Lin </h2>
-<h3 class="date">28 Feb 2020 </h3>
+<h3 class="date">4 March 2020 </h3>
 <div id="cover"/>
 </section>
 
