@@ -3,7 +3,7 @@ title: Benchmark of popular graph/network packages v2
 author: Timothy Lin
 date: '2020-05-10'
 slug: benchmark-of-popular-graph-network-packages-v2
-bibliography: [benchmark-of-popular-graph-network-packages.bib] 
+bibliography: [network-packages.bib] 
 link-citations: true
 categories: []
 tags: ['benchmarks', 'networks', 'notes', 'python', 'r', 'julia']
@@ -108,7 +108,7 @@ While it is the easiest to rank the packages based on the run-time of the algori
 
 Here's a list of other comparative benchmarks for the interested viewer to check out:
 
-- Graph-tool performance comparison [@graphtool2], compares graph-tool with igraph and networkx on the single-source shortest path, page rank, k-core, minimum spanning tree and betweeness algorithms.
+- Graph-tool performance comparison [@peixoto], compares graph-tool with igraph and networkx on the single-source shortest path, page rank, k-core, minimum spanning tree and betweeness algorithms.
 
 - @leskovec2016snap, compares snap with igraph and networkx on Erdos-Renyi graph generation and loading, page rank, clustering coefficient, weakly connected components, extracting 3-core of a network, and testing edge existence.
 
