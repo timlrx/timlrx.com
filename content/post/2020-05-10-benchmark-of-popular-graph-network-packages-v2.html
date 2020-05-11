@@ -28,7 +28,7 @@ subtitle: ''
 <li><p>Python packages are now benchmark using <code>timeit</code> instead of <code>cprofile</code> for more accurate run time and to allow for better comparison across packages<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p></li>
 <li><p>Results are compared using the median run time instead of the mean.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p></li>
 <li><p>For all packages, the dataset is read as a directed graph and the benchmark time covers both the analytical run time as well as memory allocation.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p></li>
-<li><p>Lightgraphs v2.0 is included in the benchmark exercise.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> It is the first Julia library to be added to the study - read on to find out how it fares with the rest.</p></li>
+<li><p>Lightgraphs v2.0-dev is included in the benchmark exercise.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> It is the first Julia library to be added to the study - read on to find out how it fares with the rest.</p></li>
 <li><p>igraph, the incumbent in the space with popular R, Mathematica and Python bindings has been updated to v0.8. The last major release was way back in 2014! For a full list of new features and improvements, check out <a href="https://github.com/igraph/igraph/releases">igraph’s github release page</a></p></li>
 <li><p>SNAP, another stalwart in the space releases <a href="http://snap.stanford.edu/snappy/index.html">v5.0</a>, which finally supports Python 3 and pip install.</p></li>
 <li><p><a href="https://networkit.github.io/news.html">Networkit releases v6.0</a>.</p></li>
@@ -58,7 +58,13 @@ subtitle: ''
 <li>k-core decomposition</li>
 <li>strongly connected components</li>
 </ul>
-<p>Loading is more of an I/O task while the other 4 are common graph algorithms. <strong>Disclaimer</strong>: As much as possible, I try to specify the same parameters for each algorithm but differences in API across the packages could translate to actual differences in how the algorithm is run and the final output. For example, some of the observed differences in performance might be a result of different stopping criteria used or different algorithm implementations etc.</p>
+<p>Loading is more of an I/O task while the other 4 are common graph algorithms.</p>
+<p><strong>Disclaimer</strong>:</p>
+<ul>
+<li><p>As far as possible, I try to specify the same parameters for each algorithm but differences in API across the packages could translate to actual differences in how the algorithm is run and the final output. For example, some of the observed differences in performance might be a result of different stopping criteria used or different algorithm implementations etc.</p></li>
+<li><p>For lightgraphs, the data is represented using the SimpleGraphs structure. Better performance could be achieved by using the StaticGraphs structure at the expense of mutability.</p></li>
+<li><p>The performance benchmark captures run time differences across packages on basic graph algorithms on directed graphs. Other important metrics such as memory consumption are out of scope of this study. Differences in implementation between directed and undirected graphs or weighted and non-weighted algorithms limit the generalisability across the other functions.</p></li>
+</ul>
 </div>
 <div id="dataset" class="section level2">
 <h2>Dataset</h2>
@@ -141,14 +147,14 @@ Moving away from native Python or R means that the syntax for the packages can s
 <p>graph-tool:</p>
 <pre class="python"><code>shortest_distance(g, g.vertex(node_index)).a</code></pre>
 <p>networkit:</p>
-<pre class="python"><code>distance.BFS(g, node_index).run().getDistances(False)</code></pre>
+<pre class="python"><code>distance.BFS(g, node_index, storePaths=False).run().getDistances(False)</code></pre>
 <p>snap:</p>
 <pre class="python"><code>NIdToDistH = snap.TIntH()
 snap.GetShortPath(g, node_index, NIdToDistH, True)
 [(item, NIdToDistH[item]) for item in NIdToDistH]</code></pre>
 <p>lightgraphs:</p>
-<pre class="julia"><code>shortest_paths(g, 1, BFS(RadixSort)) # Non-threaded
-shortest_paths(g, 1, ThreadedBFS())  # Threaded</code></pre>
+<pre class="julia"><code>distances(g, node_index, BreadthFirst(sort_alg=RadixSort)) # Non-threaded
+distances(g, node_index, ThreadedBreadthFirst()) # Threaded</code></pre>
 <p>While this might be a matter of taste, I find SNAP’s API the most cumbersome since one has to define an additional variable (with the correct variable type) to store the results before running it. Running more advanced functions on graph-tool and networkit also requires a user to pre-define variables with the correct type to store results. This is the trade-off one pays for more performant packages.</p>
 <p>Lightgraphs offers non-threaded and threaded implementations of particular algorithms and it is up to the user to specify the algorithm to run.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> On the other hand, networkit and graph-tool ‘automatically’ uses threaded implementation via openmp though this applies only to selected algorithms and it is not immediately clear without digging into the source code or trying it out (like this benchmark).</p>
 <p><strong>Source code</strong><br />
@@ -207,7 +213,7 @@ User support and documentation is really important when one wants to use the pro
 <li id="fn1"><p>There is additional overhead from profiling code compared to just timing it.<a href="#fnref1" class="footnote-back">↩</a></p></li>
 <li id="fn2"><p>Median is more robust to outliers. Full results - min, median, mean, max are all available in the respective output files for each profiling run for a dataset.<a href="#fnref2" class="footnote-back">↩</a></p></li>
 <li id="fn3"><p>This makes comparisons between packages more comparable compared to the previous run.<a href="#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p>Initial results were committed to the repository in the beginning of the year, but this revised benchmark uses v2.0 release of lightgraphs.<a href="#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>Initial results based on v1.3 were committed to the repository in the beginning of the year. This revised benchmark uses v2.0-dev which can be pulled from the master branch.<a href="#fnref4" class="footnote-back">↩</a></p></li>
 <li id="fn5"><p>A pure construction based benchmark exercise is probably required to separate the two factors.<a href="#fnref5" class="footnote-back">↩</a></p></li>
 <li id="fn6"><p>Graph-tool should read from other file types such as graphml or dot much faster though I did not actually try it out.<a href="#fnref6" class="footnote-back">↩</a></p></li>
 <li id="fn7"><p>Note: this might be due to differences in stopping criteria. Matthew Galati from SAS pointed out that for the page rank algorithm, networkit (as of version 6.0) uses L2 norm as a stopping criteria while other packages use the L1 norm. This means that it is doing fewer iterations and the speed is somewhat artificial<a href="#fnref7" class="footnote-back">↩</a></p></li>
@@ -215,6 +221,6 @@ User support and documentation is really important when one wants to use the pro
 <li id="fn9"><p>Graph-tool and networkit rely on openmp and one can set the number of threads using the <code>openmp_set_num_threads</code> function or <code>setNumberOfThreads</code> functions repectively. For lightgraphs, <code>JULIA_NUM_THREADS</code> environment variable has to be configured before running the multi-threaded functions.<a href="#fnref9" class="footnote-back">↩</a></p></li>
 <li id="fn10"><p>lightgraphs offer an explicit threaded or non-threaded version of the algorithm. Single thread results for lightgraphs are reported using the non-threaded algorithm run on a single core.<a href="#fnref10" class="footnote-back">↩</a></p></li>
 <li id="fn11"><p>The ‘non-threaded’ version is using BLAS which is inherently multi-threaded.<a href="#fnref11" class="footnote-back">↩</a></p></li>
-<li id="fn12"><p>This is based on the development version of Lightgraphs v2.0. Users of existing 1.x versions might find it slightly different.<a href="#fnref12" class="footnote-back">↩</a></p></li>
+<li id="fn12"><p>This is based on the development version of Lightgraphs v2.0-dev. Users of existing 1.x versions might find it slightly different.<a href="#fnref12" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

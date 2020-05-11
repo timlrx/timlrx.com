@@ -55,7 +55,7 @@ Here is a list of major developments since my previous post in April 2019:
 
 - For all packages, the dataset is read as a directed graph and the benchmark time covers both the analytical run time as well as memory allocation.^[This makes comparisons between packages more comparable compared to the previous run.]
 
-- Lightgraphs v2.0 is included in the benchmark exercise.^[Initial results were committed to the repository in the beginning of the year, but this revised benchmark uses v2.0 release of lightgraphs.] It is the first Julia library to be added to the study - read on to find out how it fares with the rest.
+- Lightgraphs v2.0-dev is included in the benchmark exercise.^[Initial results based on v1.3 were committed to the repository in the beginning of the year. This revised benchmark uses v2.0-dev which can be pulled from the master branch.] It is the first Julia library to be added to the study - read on to find out how it fares with the rest.
 
 - igraph, the incumbent in the space with popular R, Mathematica and Python bindings has been updated to v0.8. The last major release was way back in 2014! For a full list of new features and improvements, check out [igraph's github release page](https://github.com/igraph/igraph/releases)
 
@@ -92,7 +92,15 @@ Selecting what tasks to compare on is not really a trivial decision with each pa
 - k-core decomposition
 - strongly connected components
 
-Loading is more of an I/O task while the other 4 are common graph algorithms. __Disclaimer__: As much as possible, I try to specify the same parameters for each algorithm but differences in API across the packages could translate to actual differences in how the algorithm is run and the final output. For example, some of the observed differences in performance might be a result of different stopping criteria used or different algorithm implementations etc.
+Loading is more of an I/O task while the other 4 are common graph algorithms. 
+
+__Disclaimer__:  
+
+- As far as possible, I try to specify the same parameters for each algorithm but differences in API across the packages could translate to actual differences in how the algorithm is run and the final output. For example, some of the observed differences in performance might be a result of different stopping criteria used or different algorithm implementations etc.
+
+- For lightgraphs, the data is represented using the SimpleGraphs structure. Better performance could be achieved by using the StaticGraphs structure at the expense of mutability.
+
+- The performance benchmark captures run time differences across packages on basic graph algorithms on directed graphs. Other important metrics such as memory consumption are out of scope of this study. Differences in implementation between directed and undirected graphs or weighted and non-weighted algorithms limit the generalisability across the other functions.
 
 ## Dataset
 
@@ -327,7 +335,7 @@ shortest_distance(g, g.vertex(node_index)).a
 
 networkit:
 ```python
-distance.BFS(g, node_index).run().getDistances(False)
+distance.BFS(g, node_index, storePaths=False).run().getDistances(False)
 ```
 
 snap:
@@ -339,13 +347,13 @@ snap.GetShortPath(g, node_index, NIdToDistH, True)
 
 lightgraphs:
 ```julia
-shortest_paths(g, 1, BFS(RadixSort)) # Non-threaded
-shortest_paths(g, 1, ThreadedBFS())  # Threaded
+distances(g, node_index, BreadthFirst(sort_alg=RadixSort)) # Non-threaded
+distances(g, node_index, ThreadedBreadthFirst()) # Threaded
 ```
 
 While this might be a matter of taste, I find SNAP's API the most cumbersome since one has to define an additional variable (with the correct variable type) to store the results before running it. Running more advanced functions on graph-tool and networkit also requires a user to pre-define variables with the correct type to store results. This is the trade-off one pays for more performant packages. 
 
-Lightgraphs offers non-threaded and threaded implementations of particular algorithms and it is up to the user to specify the algorithm to run.^[This is based on the development version of Lightgraphs v2.0. Users of existing 1.x versions might find it slightly different.] On the other hand, networkit and graph-tool 'automatically' uses threaded implementation via openmp though this applies only to selected algorithms and it is not immediately clear without digging into the source code or trying it out (like this benchmark).
+Lightgraphs offers non-threaded and threaded implementations of particular algorithms and it is up to the user to specify the algorithm to run.^[This is based on the development version of Lightgraphs v2.0-dev. Users of existing 1.x versions might find it slightly different.] On the other hand, networkit and graph-tool 'automatically' uses threaded implementation via openmp though this applies only to selected algorithms and it is not immediately clear without digging into the source code or trying it out (like this benchmark).
 
 __Source code__  
 Besides networkx, the other python based packages have underlying source code in C / C++ and rely on other libraries such as the boost library and template metaprogramming. This makes diving into the source code more difficult unless you are well versed in C / C++. The simplicity of networkx and the fact that it is written in Python, makes it easy to understand the logic of network algorithms and a good teaching tool. Lightgraphs being completely written in Julia is also relatively readable but requires learning another language to really master it.
