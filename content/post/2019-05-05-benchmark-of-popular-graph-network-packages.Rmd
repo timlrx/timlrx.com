@@ -35,7 +35,7 @@ df <- df %>%
   mutate(Algorithm = replace(Algorithm, Algorithm=='connected components', 'CC')) %>%
   mutate(Algorithm = factor(Algorithm, levels = c('loading', 'shortest path', 'page rank', 'k-core', 'CC')))
 ```
-__Check the [Github repository](https://github.com/timlrx/graph-benchmarks) for the latest updates__
+__This post is superseded by an [updated benchmark](https://www.timlrx.com/2020/05/10/benchmark-of-popular-graph-network-packages-v2/)__
 
 In this post I benchmark the performance of 5 popular graph/network packages. This was inspired by two questions I had:
 
