@@ -8,6 +8,7 @@ googleAnalytics = "UA-100201704-1"
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rkmd$", "\\.Rmarkdown$",  "_files$", "_cache$"]
 
+
 [permalinks]
     post = "/:year/:month/:day/:slug/"
 
@@ -35,6 +36,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rkmd$", "\\.Rmarkdown$",  "_files$", "_cache$"]
 [params]
   subtitle = "Thoughts from a wandering mind"
   rss = true
+  useHLJS = true
 
 [Author]
   name = "Timothy Lin"

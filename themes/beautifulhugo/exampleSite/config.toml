@@ -4,19 +4,32 @@ DefaultContentLanguage = "en"
 title = "Beautiful Hugo"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
+pygmentsStyle = "trac"
 pygmentsUseClasses = true
-pygmentCodeFences = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+#pygmentsUseClassic = true
+#pygmentOptions = "linenos=inline"
 #disqusShortname = "XXX"
 #googleAnalytics = "XXX"
 
 [Params]
+#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
   subtitle = "Build a beautiful and simple website in minutes"
-  logo = "img/avatar-icon.png"
+  mainSections = ["post","posts"]
+  logo = "img/avatar-icon.png" # Expecting square dimensions
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
   commit = false
   rss = true
   comments = true
+  readingTime = true
+  wordCount = true
+  useHLJS = true
+  socialShare = true
+  delayDisqus = true
+  showRelatedPosts = true
+#  hideAuthor = true
 #  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
 #[[Params.bigimg]]
@@ -25,16 +38,20 @@ pygmentCodeFences = true
 #[[Params.bigimg]]
 #  src = "img/sphere.jpg"
 #  desc = "Sphere"
+#  # position: see values of CSS background-position.
+#  position = "center top"
 #[[Params.bigimg]]
 #  src = "img/hexagon.jpg"
 #  desc = "Hexagon"
 
 [Author]
   name = "Some Person"
+  website = "yourwebsite.com"
   email = "youremail@domain.com"
   facebook = "username"
-  googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
   github = "username"
+  gitlab = "username"
+  bitbucket = "username"
   twitter = "username"
   reddit = "username"
   linkedin = "username"
@@ -47,6 +64,15 @@ pygmentCodeFences = true
   spotify = "username"
   bandcamp = "username"
   itchio = "username"
+  vk = "username"
+  paypal = "username"
+  telegram = "username"
+  500px = "username"
+  codepen = "username"
+  mastodon = "url"
+  kaggle = "username"
+  weibo = "username"
+  slack = "username"
 
 [[menu.main]]
     name = "Blog"
@@ -85,4 +111,3 @@ pygmentCodeFences = true
     name = "Tags"
     url = "tags"
     weight = 3
-

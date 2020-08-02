@@ -12,7 +12,6 @@ Beautiful Hugo adds a few custom shortcodes created by [Li-Wen Yip](https://www.
   {{< figure thumb="-thumb" link="/img/sphere.jpg" caption="Sphere" >}}
   {{< figure thumb="-thumb" link="/img/triangle.jpg" caption="Triangle" alt="This is a long comment about a triangle" >}}
 {{< /gallery >}}
-{{< load-photoswipe >}}
 
 <!--more-->
 ## Example
@@ -23,7 +22,6 @@ The above gallery was created using the following shortcodes:
   {{</* figure thumb="-thumb" link="/img/sphere.jpg" caption="Sphere" */>}}
   {{</* figure thumb="-thumb" link="/img/triangle.jpg" caption="Triangle" alt="This is a long comment about a triangle" */>}}
 {{</* /gallery */>}}
-{{</* load-photoswipe */>}}
 ```
 
 ## Usage
@@ -36,4 +34,4 @@ For full details please see the [hugo-easy-gallery GitHub](https://github.com/li
 - All the [features/parameters](https://gohugo.io/extras/shortcodes) of Hugo's built-in `figure` shortcode work as normal, i.e. src, link, title, caption, class, attr (attribution), attrlink, alt
 - `{{</* gallery caption-effect="fade" */>}}` will fade in captions for all figures in this gallery instead of the default slide-up behavior
 - Many gallery styles for captions and hover effects exist; view the [hugo-easy-gallery GitHub](https://github.com/liwenyip/hugo-easy-gallery/) for all options
-- Call `{{</* load-photoswipe */>}}` **once** anywhere you want on each page where you want to use PhotoSwipe
+- Note that this theme will load the photoswipe gallery theme and scripts by default, no need to load photoswipe on your individual pages
