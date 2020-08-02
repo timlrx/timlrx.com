@@ -1,8 +1,9 @@
 /* --- General --- */
 
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
+  margin-top: 20px;
   color: #404040;
   position: relative;
   background: #FFF;
@@ -36,6 +37,7 @@ p a {
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
+  margin-top: 20px;
 }
 a {
   color: #008AFF;
