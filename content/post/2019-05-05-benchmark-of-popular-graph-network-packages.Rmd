@@ -4,7 +4,7 @@ author: Timothy Lin
 date: '2019-05-05'
 slug: benchmark-of-popular-graph-network-packages
 categories: []
-tags: ['benchmarks', 'networks', 'notes', 'python', 'r']
+tags: ['benchmarks', 'networks', 'notes', 'python', 'r', 'julia']
 subtitle: ''
 ---
 
