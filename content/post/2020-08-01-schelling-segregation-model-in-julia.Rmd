@@ -190,7 +190,7 @@ nh = init_neighborhood(population_dict, 4, 0.5)
 
 Neighborhood(Any[Agent(1, "Stars", 3, 4, 0.5), Agent(2, "Stars", 4, 4, 0.5), Agent(3, "Circle", 1, 4, 0.5), Agent(4, "Circle", 2, 4, 0.5)], Dict{Any,Any}(4 => Agent(2, "Stars", 4, 4, 0.5),2 => Agent(4, "Circle", 2, 4, 0.5),3 => Agent(1, "Stars", 3, 4, 0.5),1 => Agent(3, "Circle", 1, 4, 0.5)), 4)
 
-Instead of writing `Dict("Stars"=>2, "Circle"=>2)` we could have written `Dict("⭐"=>2,"◯"=>2)` Julia supports the use of unicode symbolswhich makes it nice to write math like operations.
+Instead of writing `Dict("Stars"=>2, "Circle"=>2)` we could have written `Dict("⭐"=>2,"◯"=>2)` Julia supports the use of unicode symbols which makes it nice to write math like operations.
 
 We can suppress the final output by inserting a semicolon at the end of the statement. As in the original paper, let's create a neighborhood with 35 stars and 35 circles.^[Fun fact: In the original paper Schelling justifies the choice of 70 agents by claiming that it fits nicely within the margins of a typewriter and it is a large enough sample if both classes are in equal proportion. Thanks to modern day technology we can exceed the limit, but in the spirit of the paper we will still keep to 35 stars and circles!] Each person considers his neighbors living up to 4 doors away when evaluating his/her happiness.
 
@@ -270,7 +270,7 @@ plot_nh(nh)
 
 ### Update Logic
 
-Let's round up the main part of the program by writing out the update logic. To model an agent moving to the nearest location which meets his satisfaction criteria, we can just enumerate through the list of possible options in an alternating series (+1, -1, +2, -2 ... +75, -75). At each location, we attempt to move the agent there and shift the affected neighbours down / up. If the agent is not satisfied, we reverse the movement. Since this changes the neighborhood arrangement that is passed into the function, we append the exclamation symbol to the back of it. 
+Let's round up the main part of the program by writing out the update logic. To model an agent moving to the nearest location which meets his satisfaction criteria, we can just enumerate through the list of possible options in an alternating series (+1, -1, +2, -2 ... +70, -70). At each location, we attempt to move the agent there and shift the affected neighbours down / up. If the agent is not satisfied, we reverse the movement. Since this changes the neighborhood arrangement that is passed into the function, we append the exclamation symbol to the back of it. 
 
 As a side note, to reference the end of a vector, we use the `end` keyword e.g. `options[end]`.
 

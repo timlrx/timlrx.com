@@ -149,7 +149,7 @@ end</code></pre>
 <pre class="julia"><code>population_dict = Dict(&quot;Stars&quot;=&gt;2, &quot;Circle&quot;=&gt;2)
 nh = init_neighborhood(population_dict, 4, 0.5)</code></pre>
 <p>Neighborhood(Any[Agent(1, “Stars”, 3, 4, 0.5), Agent(2, “Stars”, 4, 4, 0.5), Agent(3, “Circle”, 1, 4, 0.5), Agent(4, “Circle”, 2, 4, 0.5)], Dict{Any,Any}(4 =&gt; Agent(2, “Stars”, 4, 4, 0.5),2 =&gt; Agent(4, “Circle”, 2, 4, 0.5),3 =&gt; Agent(1, “Stars”, 3, 4, 0.5),1 =&gt; Agent(3, “Circle”, 1, 4, 0.5)), 4)</p>
-<p>Instead of writing <code>Dict("Stars"=&gt;2, "Circle"=&gt;2)</code> we could have written <code>Dict("⭐"=&gt;2,"◯"=&gt;2)</code> Julia supports the use of unicode symbolswhich makes it nice to write math like operations.</p>
+<p>Instead of writing <code>Dict("Stars"=&gt;2, "Circle"=&gt;2)</code> we could have written <code>Dict("⭐"=&gt;2,"◯"=&gt;2)</code> Julia supports the use of unicode symbols which makes it nice to write math like operations.</p>
 <p>We can suppress the final output by inserting a semicolon at the end of the statement. As in the original paper, let’s create a neighborhood with 35 stars and 35 circles.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Each person considers his neighbors living up to 4 doors away when evaluating his/her happiness.</p>
 <pre class="julia"><code># Suppress output with the semicolon;
 nh = init_neighborhood(Dict(&quot;Stars&quot;=&gt;35, &quot;Circle&quot;=&gt;35), 4, 0.5);</code></pre>
@@ -211,7 +211,7 @@ plot_nh(nh)</code></pre>
 </div>
 <div id="update-logic" class="section level3">
 <h3>Update Logic</h3>
-<p>Let’s round up the main part of the program by writing out the update logic. To model an agent moving to the nearest location which meets his satisfaction criteria, we can just enumerate through the list of possible options in an alternating series (+1, -1, +2, -2 … +75, -75). At each location, we attempt to move the agent there and shift the affected neighbours down / up. If the agent is not satisfied, we reverse the movement. Since this changes the neighborhood arrangement that is passed into the function, we append the exclamation symbol to the back of it.</p>
+<p>Let’s round up the main part of the program by writing out the update logic. To model an agent moving to the nearest location which meets his satisfaction criteria, we can just enumerate through the list of possible options in an alternating series (+1, -1, +2, -2 … +70, -70). At each location, we attempt to move the agent there and shift the affected neighbours down / up. If the agent is not satisfied, we reverse the movement. Since this changes the neighborhood arrangement that is passed into the function, we append the exclamation symbol to the back of it.</p>
 <p>As a side note, to reference the end of a vector, we use the <code>end</code> keyword e.g. <code>options[end]</code>.</p>
 <pre class="julia"><code># Follow the use of exclamation mark since we are modifying nh
 
