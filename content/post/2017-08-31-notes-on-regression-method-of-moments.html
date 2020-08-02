@@ -17,7 +17,7 @@ subtitle: ''
 </div>
 <div id="example-2" class="section level3">
 <h3>Example 2</h3>
-<p>Let <span class="math inline">\(X_{1}, X_{2}, ..., X_{n}\)</span> be drawn from a normal distribution i.e. <span class="math inline">\(X_{i} \sim N(\mu,\sigma^{2})\)</span>
+<p>Let <span class="math inline">\(X_{1}, X_{2}, ..., X_{n}\)</span> be drawn from a normal distribution i.e. <span class="math inline">\(X_{i} \sim N(\mu,\sigma^{2})\)</span>
 The goal is to find an estimator for the two parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>. The first and second moment of a normal distribution is given by:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -37,7 +37,7 @@ An estimator for <span class="math inline">\(\mu\)</span> is easy and is simply 
 </div>
 <div id="example-3" class="section level3">
 <h3>Example 3</h3>
-<p>Let <span class="math inline">\(X_{1}, X_{2}, ..., X_{n}\)</span> be drawn from a poisson distribution i.e. <span class="math inline">\(X_{i} \sim Poisson(\lambda)\)</span>. The poisson distribution is characterised by the following equality: <span class="math inline">\(E[X]=var(X)=\lambda\)</span>. This gives rise to two possible estimators for <span class="math inline">\(\lambda\)</span>:</p>
+<p>Let <span class="math inline">\(X_{1}, X_{2}, ..., X_{n}\)</span> be drawn from a poisson distribution i.e. <span class="math inline">\(X_{i} \sim Poisson(\lambda)\)</span>. The poisson distribution is characterised by the following equality: <span class="math inline">\(E[X]=var(X)=\lambda\)</span>. This gives rise to two possible estimators for <span class="math inline">\(\lambda\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \hat{\lambda}_{1} &amp;= \bar{X} \\
@@ -48,9 +48,9 @@ Since there is only one parameter to be estimated but two moment conditions, one
 </div>
 <div id="regression---method-of-moments" class="section level3">
 <h3>Regression - Method of Moments</h3>
-<p>More generally, one can write the moment conditions as a vector of functions <span class="math inline">\(g(X_{i},\beta)\)</span>, where <span class="math inline">\(\mathbf{X}_{i}\)</span> is the observed data, including all variables <span class="math inline">\((y_{i}, X_{i})\)</span> and instruments <span class="math inline">\((\mathbf{Z}_{i})\)</span> in the regression model, while <span class="math inline">\(\beta\)</span> is the vector of parameters of length <span class="math inline">\(k\)</span>. The model is identified if the solution is unique, i.e. <span class="math inline">\(Eg(X_{i},\beta)=0\)</span> and <span class="math inline">\(Eg(X_{i},\hat{\beta})=0\)</span> imply that <span class="math inline">\(\beta=\hat{\beta}\)</span>. This requires that we have at least <span class="math inline">\(k\)</span> restrictions for <span class="math inline">\(k\)</span> parameters.</p>
+<p>More generally, one can write the moment conditions as a vector of functions <span class="math inline">\(g(X_{i},\beta)\)</span>, where <span class="math inline">\(\mathbf{X}_{i}\)</span> is the observed data, including all variables <span class="math inline">\((y_{i}, X_{i})\)</span> and instruments <span class="math inline">\((\mathbf{Z}_{i})\)</span> in the regression model, while <span class="math inline">\(\beta\)</span> is the vector of parameters of length <span class="math inline">\(k\)</span>. The model is identified if the solution is unique, i.e. <span class="math inline">\(Eg(X_{i},\beta)=0\)</span> and <span class="math inline">\(Eg(X_{i},\hat{\beta})=0\)</span> imply that <span class="math inline">\(\beta=\hat{\beta}\)</span>. This requires that we have at least <span class="math inline">\(k\)</span> restrictions for <span class="math inline">\(k\)</span> parameters.</p>
 <p>For the OLS regression, one can use the moment condition <span class="math inline">\(E(\mathbf{X}_{i}U_{i})=0\)</span> or <span class="math inline">\(E(\mathbf{X_{i}}(y_{i}-\mathbf{X}_{i}&#39;\beta))=0\)</span> to solve for the usual OLS estimator.</p>
-<p>The idea can be carried over to other more complicated regression models. For example, in the case where <span class="math inline">\(g(X_{i},\beta)\)</span> is linear in <span class="math inline">\(\beta\)</span> i.e. <span class="math inline">\(g(X_{i},\beta) = \mathbf{Z}_{i}(y_{i} - \mathbf{X}_{i}&#39;\beta)\)</span> or <span class="math inline">\(E(\mathbf{Z}_{i}U_{i})=0\)</span>, and the model is perfectly identified <span class="math inline">\((l=k)\)</span>, solving the moment condition yields the formula for the IV regression:</p>
+<p>The idea can be carried over to other more complicated regression models. For example, in the case where <span class="math inline">\(g(X_{i},\beta)\)</span> is linear in <span class="math inline">\(\beta\)</span> i.e. <span class="math inline">\(g(X_{i},\beta) = \mathbf{Z}_{i}(y_{i} - \mathbf{X}_{i}&#39;\beta)\)</span> or <span class="math inline">\(E(\mathbf{Z}_{i}U_{i})=0\)</span>, and the model is perfectly identified <span class="math inline">\((l=k)\)</span>, solving the moment condition yields the formula for the IV regression:</p>
 <p><span class="math display">\[
 \begin{aligned}
 0 &amp;= \sum_{i=1}^{n}\mathbf{Z}_{i}(y_{i} - \mathbf{X}_{i}&#39;\hat{\beta}^{IV})  \\

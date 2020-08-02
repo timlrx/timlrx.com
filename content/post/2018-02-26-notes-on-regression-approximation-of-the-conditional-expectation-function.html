@@ -34,7 +34,7 @@ tags: ["regression", "ols", "notes"]
 Y_{i} = E[Y_{i} \vert X_{i}] + \epsilon_{i}
 \]</span>
 Using the law of iterated expectation, we can show that <span class="math inline">\(E[\epsilon_{i} \vert X_{i}]=0\)</span> i.e. mean independence and <span class="math inline">\(\epsilon_{i}\)</span> is uncorrelated with any function of <span class="math inline">\(X_{i}\)</span>. In other words, we can break the dependent variable into a component that is explained by <span class="math inline">\(X_{i}\)</span> and another component that is orthogonal to it. Sounds familiar?</p>
-<p>Also, if we were to try to find a function of <span class="math inline">\(X\)</span>, <span class="math inline">\(m(X)\)</span> that minimises the squared mean error i.e. <span class="math inline">\(min~ E[(Y_{i} - m(X_{i}))^{2}]\)</span>, we would find that the optimum choice of <span class="math inline">\(m(X)\)</span> is exactly the CEF! To see that expand the squared error term:
+<p>Also, if we were to try to find a function of <span class="math inline">\(X\)</span>, <span class="math inline">\(m(X)\)</span> that minimises the squared mean error i.e. <span class="math inline">\(min~ E[(Y_{i} - m(X_{i}))^{2}]\)</span>, we would find that the optimum choice of <span class="math inline">\(m(X)\)</span> is exactly the CEF! To see that expand the squared error term:
 <span class="math display">\[
 \begin{aligned}
 (Y_{i} - m(X_{i}))^{2}  &amp;= ((Y_{i} - E[Y_{i} \vert X_{i}]) + (E[Y_{i} \vert X_{i}] - m(X_{i})))^{2} \\
