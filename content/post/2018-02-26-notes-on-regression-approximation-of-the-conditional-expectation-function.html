@@ -23,7 +23,7 @@ tags: ["regression", "ols", "notes"]
 <h2>What is a Conditional Expectation Function?</h2>
 <p>Expectation as in the statistics terminology normally refers to the population average of a particular random variable. The conditional expectation as its name suggest is the population average conditional holding certain variables fixed. In the context of regression, the CEF is simply <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span>. Since <span class="math inline">\(X_{i}\)</span> is random, the CEF is random.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <div class="figure">
-<img src="/img/CEF.png" alt="CEF" />
+<img src="/img/CEF.png" alt="" />
 <p class="caption">CEF</p>
 </div>
 <p>The picture above is an illustrated example of the CEF plotted on a given dataset. Looking at the relationship of the number of stars obtained by a recipe and the log number of reviews, one can calculate the average star rating for a given number of reviews (indicated by the red dots). The CEF function joins all these red dots together (indicated by the blue line).</p>
@@ -53,14 +53,14 @@ Using the law of iterated expectation, we can show that <span class="math inline
 \]</span></p>
 <p>To get this result, one can show that minimising <span class="math inline">\((Y_{i} -X&#39;_{i}b)^{2}\)</span> is equivalent to minimising the above equation.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Thus, even if the CEF is non-linear as in the recipe and star rating example, the regression line would provide the best linear approximation to it (drawn in green below).</p>
 <div class="figure">
-<img src="/img/CEF_regression.png" alt="Regression as the best linear approximation to the CEF" />
+<img src="/img/CEF_regression.png" alt="" />
 <p class="caption">Regression as the best linear approximation to the CEF</p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>In practice, one obtains a sample of the population data and uses the sample to make an approximation of the population CEF.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>just add and subtract <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span> and manipulate the terms in a similar way to the previous proof using <span class="math inline">\(m(X)\)</span>.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>In practice, one obtains a sample of the population data and uses the sample to make an approximation of the population CEF.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>just add and subtract <span class="math inline">\(E[Y_{i}\vert X_{i}]\)</span> and manipulate the terms in a similar way to the previous proof using <span class="math inline">\(m(X)\)</span>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
