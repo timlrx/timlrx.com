@@ -1,5 +1,6 @@
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
+import Link from '@/components/Link'
 import { PageSeo } from '@/components/SEO'
 
 export default function About() {
@@ -22,8 +23,13 @@ export default function About() {
             <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">
               {siteMetadata.author}
             </h3>
-            <div className="text-gray-500 dark:text-gray-400">Data Scientist</div>
-            <div className="text-gray-500 dark:text-gray-400">Cylynx</div>
+            <div className="text-gray-500 dark:text-gray-400">
+              Data Scientist, Developer, Economist
+            </div>
+
+            <div className="text-gray-500 dark:text-gray-400">
+              <Link href="https://www.cylynx.io">Co-founder at Cylynx</Link>
+            </div>
             <div className="flex pt-6 space-x-3">
               <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} />
               <SocialIcon kind="github" href={siteMetadata.github} />
@@ -33,33 +39,35 @@ export default function About() {
           </div>
           <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
             <p>
-              Welcome to Quasilinear Musings! I am Timothy, currently working as a data scientist at
-              Lynx Analytics. For more information check out my{' '}
-              <a href="https://www.linkedin.com/in/timlrx">Linkedin profile</a>.
+              Welcome to Quasilinear Musings! This blog serves as a playground for me to experiment
+              with ideas and share some of my findings. It's a reflection of my career path and
+              interests - especially on the technical side of things. For more information, check
+              out my <Link href="https://www.linkedin.com/in/timlrx">Linkedin profile</Link>.
             </p>
             <p>
-              This blog serves as a playground for me to share some of my works in a more accessible
-              manner and explore the use of data to communicate ideas. I code predominantly in R or
-              Python. Check out my analysis on migration and food consumption which I have written
-              up as part of my masters thesis <a href="/mig_cons_slides/">slides available here</a>{' '}
-              or preview the <a href="/dashboard/">Singapore economy dashboard</a>. For a more
-              technical read check out how to{' '}
-              <a href="/2018/04/08/creating-a-custom-cross-validation-function-in-pyspark">
+              I am proficient in R, Python and Javascript. My current interests are in the areas of
+              network analytics, full-stack development, technology and labour economics so expect
+              to see more of these stuff in the future! This blog is bootstrapped from the awesome{' '}
+              <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
+                Tailwind Nextjs Starter Blog Template
+              </Link>{' '}
+              (coincidentally written by me). Source code for the website is available at my{' '}
+              <Link href="https://github.com/timlrx/timlrx.com">Github page</Link>.
+            </p>
+            <p>
+              Highlights - check out my analysis on migration and food consumption which I have
+              written up as part of my masters thesis{' '}
+              <Link href="/static/mig_cons_slides/index.html">slides available here</Link> or
+              preview the{' '}
+              <Link href="/dashboard/sg-dashboard.html">Singapore economy dashboard</Link>. For a
+              more technical read check out how to{' '}
+              <Link href="/blog/creating-a-custom-cross-validation-function-in-pyspark">
                 create a custom cross-validation function in pyspark
-              </a>{' '}
+              </Link>{' '}
               or my thoughts on{' '}
-              <a href="/2018/08/09/applications-of-dags-in-causal-inference">
+              <Link href="/blog/applications-of-dags-in-causal-inference">
                 using DAGs in causal inference
-              </a>
-              .
-            </p>
-            <p>
-              My current interests are in the areas of labour economics, technology change,
-              econometrics, NLP and graph theory so expect to see more of these stuff in the future!
-              This blog is written in R markdown using the excellent
-              <a href="https://github.com/rstudio/blogdown">Blogdown</a> package that is a wrapper
-              for Hugo (a static site generator). Source code for the website is available at my{' '}
-              <a href="https://github.com/timlrx/website-hugo">Github page</a>.
+              </Link>
             </p>
           </div>
         </div>
