@@ -1,0 +1,15 @@
+{
+  "title": "Quasilinear Musings",
+  "author": "Timothy Lin",
+  "headerTitle": "Quasilinear Musings",
+  "description": "Thoughts from a wandering mind",
+  "language": "en-us",
+  "siteUrl": "https://www.timlrx.com",
+  "siteRepo": "https://github.com/timlrx/website-hugo",
+  "image": "/static/images/avatar.png",
+  "socialBanner": "/static/images/twitter-card.png",
+  "email": "timothy.lin@alumni.ubc.ca",
+  "github": "https://github.com/timlrx",
+  "twitter": "https://twitter.com/timlrxx",
+  "linkedin": "https://www.linkedin.com/in/timlrx"
+}
