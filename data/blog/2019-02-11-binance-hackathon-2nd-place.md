@@ -6,11 +6,11 @@ tags: ['javascript', 'react', 'visualisation', 'networks', 'notes', 'crypto']
 summary: 'Technical overview of our 2nd place solution and my experience at the Binance hackathon'
 ---
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 It has been about a month since my team and I placed 2nd in a [hackathon organised by Binance](https://www.binancefair.com/safu-hackathon/). Since it was my first time officially doing front-end development, I thought it would be fun to blog about my experience in the hackathon and document the technical solution which I coded up in react.js.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">A massive congratulations to the three winning teams of the <a href="https://twitter.com/hashtag/Binance?src=hash&amp;ref_src=twsrc%5Etfw">#Binance</a> <a href="https://twitter.com/hashtag/SAFU?src=hash&amp;ref_src=twsrc%5Etfw">#SAFU</a> Hackathon who shared a prize of $100,000 USD worth of <a href="https://twitter.com/search?q=%24BNB&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$BNB</a>! Teams Perlin, Crypto Lynx &amp; the overall winners Merkle Blox we salute you! <a href="https://twitter.com/hashtag/BUIDL?src=hash&amp;ref_src=twsrc%5Etfw">#BUIDL</a> <a href="https://twitter.com/hashtag/BinanceBlockchainWeek?src=hash&amp;ref_src=twsrc%5Etfw">#BinanceBlockchainWeek</a> <a href="https://t.co/ywixYx43S7">pic.twitter.com/ywixYx43S7</a></p>&mdash; Binance (@binance) <a href="https://twitter.com/binance/status/1087288650608472064?ref_src=twsrc%5Etfw">January 21, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+
+<blockquote className="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">A massive congratulations to the three winning teams of the <a href="https://twitter.com/hashtag/Binance?src=hash&ref_src=twsrc%5Etfw">#Binance</a> <a href="https://twitter.com/hashtag/SAFU?src=hash&ref_src=twsrc%5Etfw">#SAFU</a> Hackathon who shared a prize of $100,000 USD worth of <a href="https://twitter.com/search?q=%24BNB&src=ctag&ref_src=twsrc%5Etfw">$BNB</a>! Teams Perlin, Crypto Lynx &amp; the overall winners Merkle Blox we salute you! <a href="https://twitter.com/hashtag/BUIDL?src=hash&ref_src=twsrc%5Etfw">#BUIDL</a> <a href="https://twitter.com/hashtag/BinanceBlockchainWeek?src=hash&ref_src=twsrc%5Etfw">#BinanceBlockchainWeek</a> <a href="https://t.co/ywixYx43S7">pic.twitter.com/ywixYx43S7</a></p>— Binance (@binance) <a href="https://twitter.com/binance/status/1087288650608472064?ref_src=twsrc%5Etfw">January 21, 2019</a></blockquote>
 
 ## Background
 
