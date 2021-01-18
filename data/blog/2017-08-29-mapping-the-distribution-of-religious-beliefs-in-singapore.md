@@ -2,6 +2,7 @@
 title: Mapping the Distribution of Religious Beliefs in Singapore
 author: Timothy Lin
 date: '2017-08-29'
+lastmod: '2021-01-16'
 tags: ['Singapore', 'R', 'spatial', 'sg-social', 'visualisation']
 summary: Examining the spatial distribution of Singapore's population
 ---

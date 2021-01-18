@@ -2,6 +2,7 @@
 title: Feature Selection Using Feature Importance Score - Creating a PySpark Estimator
 author: Timothy Lin
 date: '2018-06-19'
+lastmod: '2021-01-16'
 tags: ['python', 'spark', 'big data']
 subtitle: Extending Pyspark's MLlib native feature selection function by using a feature importance score generated from a machine learning model and extracting the variables that are plausibly the most important
 ---

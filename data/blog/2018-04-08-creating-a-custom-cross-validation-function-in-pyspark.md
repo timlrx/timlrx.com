@@ -2,6 +2,7 @@
 title: Creating a Custom Cross-Validation Function in PySpark
 author: Timothy Lin
 date: '2018-04-08'
+lastmod: '2021-01-16'
 tags: ['python', 'spark', 'big data']
 summary: Custom cross-validation class written in PySpark with support for user-defined category such as by time, geographical or consumer segments.
 ---

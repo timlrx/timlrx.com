@@ -2,6 +2,7 @@
 title: Uploading Jupyter Notebook Files to Blogdown
 author: Timothy Lin
 date: '2018-03-25'
+lastmod: '2021-01-16'
 tags: ['python', 'blogdown']
 summary: Simple guide to convert jupyter notebooks to markdown posts which can be published in your favourite static site generator
 ---
