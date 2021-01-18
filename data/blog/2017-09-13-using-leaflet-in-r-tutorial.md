@@ -2,6 +2,7 @@
 title: Using Leaflet in R - Tutorial
 author: Timothy Lin
 date: '2017-09-13'
+lastmod: '2021-01-16'
 tags: ['Singapore', 'R', 'spatial', 'visualisation', 'notes']
 summary: A tutorial on using Leaflet in R for geospatial visualisation
 ---

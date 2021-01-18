@@ -2,6 +2,7 @@
 title: Visualising Networks in ASOIAF - Part II
 author: Timothy Lin
 date: '2018-10-14'
+lastmod: '2021-01-16'
 tags: ['r', 'notes', 'visualisation', 'graph-theory', 'networks']
 summary: Part II in the network exploration of the Game of Thrones series. In this post, we combine the plots together and use gganimate to visualise relationships across all 5 books.
 ---

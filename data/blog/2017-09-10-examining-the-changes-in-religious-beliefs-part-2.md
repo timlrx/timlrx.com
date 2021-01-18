@@ -2,6 +2,7 @@
 title: Examining the Changes in Religious Beliefs - Part 2
 author: Timothy Lin
 date: '2017-09-10'
+lastmod: '2021-01-16'
 tags: ['Singapore', 'R', 'spatial', 'sg-social', 'visualisation']
 summary: Exploring the changes in religious beliefs in Singapore between 2000 to 2015
 ---
