@@ -236,7 +236,7 @@ top_hiring_industries %>%
 
 ![job posting by industry](/static/r/ind-job-postings.png)
 
-Let's examine the difference between the job posting statistics and the official employment numbers as published by the Department of Statistics quarterly statistics (You can take a look at my [SG economy dashboard](/dashboard/sg-dashboard#employment)). Certain industries such as transportation, banking, education and healthcare are in line with the national employment trend. Interestingly, there is still quite a strong demand from the construction and manufacturing industry despite the negative outlook within those sectors. The discrepancy could be a result of structural mismatch between the workers that are laid off and the type of workers which those firms are looking to hire.
+Let's examine the difference between the job posting statistics and the official employment numbers as published by the Department of Statistics quarterly statistics (You can take a look at my [SG economy dashboard](/dashboard/sg-dashboard.html)). Certain industries such as transportation, banking, education and healthcare are in line with the national employment trend. Interestingly, there is still quite a strong demand from the construction and manufacturing industry despite the negative outlook within those sectors. The discrepancy could be a result of structural mismatch between the workers that are laid off and the type of workers which those firms are looking to hire.
 
 #### How does firm size correlate with hiring?
 

@@ -6,7 +6,7 @@ tags: ['javascript', 'react', 'visualisation', 'networks', 'notes', 'crypto']
 summary: 'Technical overview of our 2nd place solution and my experience at the Binance hackathon'
 ---
 
-It has been about a month since my team and I placed 2nd in a [hackathon organised by Binance](https://www.binancefair.com/safu-hackathon/). Since it was my first time officially doing front-end development, I thought it would be fun to blog about my experience in the hackathon and document the technical solution which I coded up in react.js.
+It has been about a month since my team and I placed 2nd in a [hackathon organised by Binance](https://www.binance.com/en/blog/294032626086199296/Binance-SAFU-Hackathon-Making-the-Blockchain-World-More-SAFU). Since it was my first time officially doing front-end development, I thought it would be fun to blog about my experience in the hackathon and document the technical solution which I coded up in react.js.
 
 <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
 
