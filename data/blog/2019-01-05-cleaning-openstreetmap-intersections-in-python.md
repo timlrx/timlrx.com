@@ -13,7 +13,7 @@ It has been a while since I have posted anything on Python, so I thought it is t
 
 In this post, I explore the problem of simplifying route intersections. An intersection of two divided roads creates four nodes, at the points where an edge intersects another edge. While this level of detail is useful if one wants to know the possible turning options while driving down a road, often times this is not needed. Simplifying the map by aggregating the route intersection nodes into a single point makes modeling the map as a graph easier to comprehend and visualise.
 
-The `osmnx` package has a `clean_intersection` function which returns the centroids of intersections. However, it does actually modify the graph which makes it not convenient for further analytical work. This post builds on the existing function and provides a solution to modify the road network and visualise it. I will use the example as [this notebook](https://github.com/gboeing/osmnx-examples/blob/master/notebooks/14-clean-intersection-node-clusters.ipynb) so one can easily compare both approaches.
+The `osmnx` package has a `clean_intersection` function which returns the centroids of intersections. However, it does actually modify the graph which makes it not convenient for further analytical work. This post builds on the existing function and provides a solution to modify the road network and visualise it. I will use the example as [this notebook](https://github.com/gboeing/osmnx-examples/blob/v0.11/notebooks/14-clean-intersection-node-clusters.ipynb) so one can easily compare both approaches.
 
 ### Code
 
