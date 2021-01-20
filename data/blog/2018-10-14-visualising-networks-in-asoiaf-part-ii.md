@@ -169,6 +169,6 @@ The animated plot shows quite clearly how the narrative of ASOIAF has evolved th
 
 ### Conclusion
 
-I hope you enjoyed this network view of the ASOIAF series and I can't wait to update it when the Winds of Winter is released and see how it further changes over time. My guess is that characters in the North would gain more prominence and we should see new communities budding off from there. Maybe a new community of white walkers would also form though I wonder what their names would be. The arrival of Daenerys Targaryen to Westeros and probable meeting of all the 'kings' would also help create more links between the different communities.
+I hope you enjoyed this network view of the ASOIAF series and I can't wait to update it when the Winds of Winter is released and see how it further changes over time. My guess is that characters in the North would gain more prominence and we should see new communities budding off from there. Maybe a new community of white walkers would also form though I wonder what their names would be. The arrival of Daenerys Targaryen to Westeros and meeting of all the 'kings' would also help create more links between the different communities.
 
 On the data science side, I hope this post gives you a glimpse of how network analysis can be to other less well known areas such as texts and it is reasonably straightforward with the help of so many R packages. In short, words are not really wind and the context which they are situated in tells us a lot on how they are all connected to each other.
