@@ -4,10 +4,10 @@ author: Timothy Lin
 date: '2018-10-14'
 lastmod: '2021-01-16'
 tags: ['r', 'notes', 'visualisation', 'graph-theory', 'networks']
-summary: Part II in the network exploration of the Game of Thrones series. In this post, we combine the plots together and use gganimate to visualise relationships across all 5 books.
+summary: Part II in the network exploration of the Game of Thrones series. In this post, we combine the plots together and use gganimate to visualise relationships across all 5 books
 ---
 
-This is the second post of a character network analysis of George R. R. Martin's A Song Of Ice and Fire (ASOIAF) series as well as my first submission to the [R Bloggers community](https://www.r-bloggers.com/). A warm welcome to all readers out there! In my [first post](/blog/visualising-networks-in-asoiaf), I touched on the [Tidygraph](https://github.com/thomasp85/tidygraph) package to manipulate dataframes and [ggraph](https://github.com/thomasp85/ggraph) for network visualisation as well as some tricks to fix the position of nodes when ploting multiple graphs containing the same node set and labeling based on polar coordinates. In this post, we combine the plots together and use [gganimate](https://github.com/thomasp85/gganimate) to visualise all 5 books.
+This is the second post of a character network analysis of George R. R. Martin's A Song Of Ice and Fire (ASOIAF) series as well as my first submission to the [R Bloggers community](https://www.r-bloggers.com/). A warm welcome to all readers out there! In my [first post](/blog/visualising-networks-in-asoiaf), I touched on the [Tidygraph](https://github.com/thomasp85/tidygraph) package to manipulate dataframes and [ggraph](https://github.com/thomasp85/ggraph) for network visualisation as well as some tricks to fix the position of nodes when plotting multiple graphs containing the same node set and labeling based on polar coordinates. In this post, we combine the plots together and use [gganimate](https://github.com/thomasp85/gganimate) to visualise all 5 books.
 
 ### The ASOIAF Network
 
@@ -169,6 +169,6 @@ The animated plot shows quite clearly how the narrative of ASOIAF has evolved th
 
 ### Conclusion
 
-I hope you enjoyed this network view of the ASOIAF series and I can't wait to update it when the Winds of Winter is released and see how it further changes over time. My guess is that characters in the North would gain more prominence and we should see new communities budding off from there. Maybe a new community of white walkers would also form though I wonder what their names would be. The arrival of Daenerys Targaryen to Westeros and probable meeting of all the 'kings' would also help create more links between the different communities.
+I hope you enjoyed this network view of the ASOIAF series and I can't wait to update it when the Winds of Winter is released and see how it further changes over time. My guess is that characters in the North would gain more prominence and we should see new communities budding off from there. Maybe a new community of white walkers would also form though I wonder what their names would be. The arrival of Daenerys Targaryen to Westeros and meeting of all the 'kings' would also help create more links between the different communities.
 
 On the data science side, I hope this post gives you a glimpse of how network analysis can be to other less well known areas such as texts and it is reasonably straightforward with the help of so many R packages. In short, words are not really wind and the context which they are situated in tells us a lot on how they are all connected to each other.

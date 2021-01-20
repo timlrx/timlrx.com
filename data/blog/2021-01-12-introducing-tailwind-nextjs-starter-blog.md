@@ -4,7 +4,7 @@ date: '2021-01-12'
 lastmod: '2021-01-18'
 tags: ['next-js', 'tailwind', 'guide']
 draft: false
-summary: 'Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template.'
+summary: 'Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template'
 ---
 
 ![tailwind-nextjs-banner](/static/images/twitter-card.png)

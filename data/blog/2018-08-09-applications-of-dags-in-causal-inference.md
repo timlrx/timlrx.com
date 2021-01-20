@@ -50,11 +50,11 @@ $$
 
 can be translated to the following DAG:
 
-<img src="/static/r/connectedGraph-1.png" title="plot of chunk connectedGraph" alt="plot of chunk connectedGraph" width="60%" height="50%" />
+<img src="/static/r/connectedGraph-1.png" title="plot of chunk connectedGraph" alt="plot of chunk connectedGraph" />
 
 Intervening (or randomising) on a particular variable (e.g. $X$) is translated to removing the arrows then goes into that variable. Doing this graph surgery on the above example we get the modified graph:
 
-<img src="/static/r/modGraph-1.png" title="plot of chunk modGraph" alt="plot of chunk modGraph" width="60%" height="50%" />
+<img src="/static/r/modGraph-1.png" title="plot of chunk modGraph" alt="plot of chunk modGraph" />
 
 In Pearl's notation, we are interested in finding out the effect of $P(Y=y \vert do(X=x))$ where we intervene to fix $X$ at a particular value, e.g. $x$. Establishing whether a causal effect of a certain variable of interest can be determined from a particular causal model can then be translated to examining the structure of the graph for certain properties which allow for such an effect to be determined. If so, the causal effect could theoretically be calculated from the conditional probabilities produced by the relationships given in the graph. Pearl introduces a set of methods (do-calculus) to translate the do operator into conditional probabilities that could be calculated with observational data. He also establishes the potential outcomes model as a special case of the graphical approach.
 
@@ -81,7 +81,7 @@ All causal graphs can be decomposed into the following three main structures:
 **Chains**  
 Chains are defined by three nodes and two edges, with one edge directed into the middle variable and one edge directed out of it:
 
-<img src="/static/r/chains-1.png" title="plot of chunk chains" alt="plot of chunk chains" width="60%" height="50%" />
+<img src="/static/r/chains-1.png" title="plot of chunk chains" alt="plot of chunk chains" />
 
 Without controlling for anything, any two variables in a chain are correlated. However, two variables at the edge of the chain $(Z$ and $X)$ are independent given any variable in the middle of the chain $(Y)$.
 
@@ -89,7 +89,7 @@ Without controlling for anything, any two variables in a chain are correlated. H
 
 Two edges originating from a central variable makes up a fork:
 
-<img src="/static/r/fork-1.png" title="plot of chunk fork" alt="plot of chunk fork" width="60%" height="50%" />
+<img src="/static/r/fork-1.png" title="plot of chunk fork" alt="plot of chunk fork"  />
 
 Since the variables share a common cause, they are correlated with each other. However, conditional on the common cause $(X)$ the other two variables $(Z$ and $Y)$ are independent.
 
@@ -97,7 +97,7 @@ Since the variables share a common cause, they are correlated with each other. H
 
 As the name suggests, a collider is a struture formed when two nodes have edges directed into one common node:
 
-<img src="/static/r/collider-1.png" title="plot of chunk collider" alt="plot of chunk collider" width="60%" height="50%" />
+<img src="/static/r/collider-1.png" title="plot of chunk collider" alt="plot of chunk collider"/>
 
 In this case, the two variables, $Z$ and $X$, are independent. However, conditioning on the collision node, $Y$, creates a dependency between the two.
 
@@ -110,7 +110,7 @@ Let's move from these small components to a larger graph. In a larger graph, two
 
 The discussion on forks show the importance of controlling for common causes in order to infer the causal effect but is this sufficient for inferring the causal effect? Consider the following scenario where $X$ is the variable of interest and $Y$ is the outcome variable:
 
-<img src="/static/r/mgraph-1.png" title="plot of chunk mgraph" alt="plot of chunk mgraph" width="60%" height="50%" />
+<img src="/static/r/mgraph-1.png" title="plot of chunk mgraph" alt="plot of chunk mgraph"  />
 
 Controlling for the common cause, $Z$, eliminates $Z$ as a cause of bias but it induces a dependency between $E$ and $A$ which means that a causal effect cannot be estimated. It turns out that one has to condition on one of the following variable sets: $\{E, Z\}$, $\{A, Z\}$ or $\{E, A, Z\}$ for the true effect to be estimated. Hence, controlling for a common causes is not sufficient to estimate the causal effect.
 
@@ -124,7 +124,7 @@ The above set of variables fulfill what Pearl calls the backdoor criterion. Thes
 The backdoor criterion can be useful when particular parent variables are not observed but we can condition on other child nodes to block the path between $X$ and $Y$.
 
 The DAG approach also shows what variables that should not be adjusted for. Consider the following modified graph:  
-<img src="/static/r/mgraph2-1.png" title="plot of chunk mgraph2" alt="plot of chunk mgraph2" width="60%" height="50%" />
+<img src="/static/r/mgraph2-1.png" title="plot of chunk mgraph2" alt="plot of chunk mgraph2" />
 
 Here, controlling for $Z$, a collider node, introduces a bias when we could simply get away with comparing the bivariate relationship between $X$ and $Y$. In this case, controlling for more variables is not necessarily better and the DAG provides a systemic method on what variables to control and what not to.
 
@@ -147,13 +147,13 @@ The main difference appears to be when basic house characteristics is added into
 
 Denote agent ownership with $X$, sales price with $Y$, house characteristics with $C$, quality with $Q$, and keywords with $K$ (I omit block effects for the sake of brevity). The only situation in which one could come to the conclusion of Levitt and Syverson is if house quality, keywords and block effects all act as independent confounders:
 
-<img src="/static/r/levittsyverson1-1.png" title="plot of chunk levittsyverson1" alt="plot of chunk levittsyverson1" width="60%" height="50%" />
+<img src="/static/r/levittsyverson1-1.png" title="plot of chunk levittsyverson1" alt="plot of chunk levittsyverson1"/>
 
 Yet, Gelbach is still not being precise enough when he hypothesise that house characteristics could be 'correlated' with the other control variables. There are many possible causal models that could create a correlation between these variables, but the main takeaway and interpretation would differ depending on which causal model is true. Hence, it is necessary to come up with a causal story even before one can properly interpret the coefficients.
 
 From the variable names and descriptions, it could be possible that Gelbach has the following causal model in mind: An unobserved factor of housing quality, $U$, is a direct cause of the other variables ($C$, $Q$, $K$) and each of these variables serve as a proxy for the same underlying cause:
 
-<img src="/static/r/levittsyverson2-1.png" title="plot of chunk levittsyverson2" alt="plot of chunk levittsyverson2" width="60%" height="50%" />
+<img src="/static/r/levittsyverson2-1.png" title="plot of chunk levittsyverson2" alt="plot of chunk levittsyverson2" />
 
 Under such a hypothetical pathway, controlling for $C$ would serve two purposes: it would block the path from $C$ to $Y$ and also act as a proxy for $U$. If the proxy effect dominates then one could come to the conclusion of Gelbach that the coefficient on the agent dummy would move just as much if any of the other control variables were added first. However, if one were to believe such a model, the only meaningful specification would be to include all the controls (i.e. block all confounding backdoor paths between $X$ and $Y$) and an additive interpretation, as well as all other earlier specifications, would make no sense.
 
@@ -162,7 +162,7 @@ Of course, one could also propose another causal model in which an agent's exper
 #### Instrumental variables (IV)
 
 The IV approach could be summarised by the following DAG:  
-<img src="/static/r/iv-1.png" title="plot of chunk iv" alt="plot of chunk iv" width="60%" height="50%" />
+<img src="/static/r/iv-1.png" title="plot of chunk iv" alt="plot of chunk iv"/>
 
 $Z$ is the instrumental variable and it affects $Y$ only through $X$. The economics literature emphasise the importance of an instrument fulfilling two conditions:
 
@@ -182,7 +182,7 @@ Examining the pathway between rainfall and growth, it is clear that growth canno
 
 Next, we have to consider the pathways between rainfall and conflict. Again, I think it is fair to rule out any other channels which causes rainfall (i.e. any arrows pointing towards rainfall) but this still leaves all sorts of possible influences of rainfall on conflict, i.e., it is hard to justify the exclusion restriction. The restriction only holds if the set of controls, $C$, blocks all possible causal channels between rainfall, $Z$, and civil conflict, $Y$:
 
-<img src="/static/r/rainfall-1.png" title="plot of chunk rainfall" alt="plot of chunk rainfall" width="60%" height="50%" />
+<img src="/static/r/rainfall-1.png" title="plot of chunk rainfall" alt="plot of chunk rainfall" />
 
 The authors try to address the potential violations of the exclusion restriction by examining other channels such as tax revenue, road networks and heatwaves and argue that these factors do not affect their estimates and 'other effects are likely to be minor'. However, I believe there are other obvious intermediate channels where rainfall could affect civil conflicts directly. One example, pointed out in the appendix of the paper, is that of mass migration due to droughts. Another possibility is rainfall (either too little or too much) directly preventing riots from forming (it was used an as instrument on riots in a study in a U.S. based study).
 
@@ -200,7 +200,7 @@ In a way the front-door criterion is quite similar to the instrumental variable 
 
 Pearl gives an example of trying to ascertain the effect of smoking, $X$, on lung cancer, $Y$. Genotype, $U$, is an unobserved confounding variable but we know that smoking only causes lung cancer through the amount of tar deposits, $Z$. This can be modeled by the following DAG:
 
-<img src="/static/r/frontdoor-1.png" title="plot of chunk frontdoor" alt="plot of chunk frontdoor" width="60%" height="50%" />
+<img src="/static/r/frontdoor-1.png" title="plot of chunk frontdoor" alt="plot of chunk frontdoor" />
 
 In this example, we cannot block the back-door path since genotype is unobserved and hence, cannot directly estimate the effect of $X$ on $Y$. Instead, identification comes from our knowledge of the effect of $X$ on $Z$, which we can directly estimate, and the effect of $Z$ on $Y$ which we can estimate by controlling for $X$ as this blocks the backdoor path between $Z$ and $Y$. The overall effect of $X$ on $Y$ can then be derived by chaining the effect of $X$ on $Z$ and $Z$ on $Y$. Interested readers can read the book for a more complete mathematical treatment.
 
