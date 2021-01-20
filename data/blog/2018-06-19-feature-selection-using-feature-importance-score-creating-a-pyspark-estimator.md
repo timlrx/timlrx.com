@@ -4,7 +4,7 @@ author: Timothy Lin
 date: '2018-06-19'
 lastmod: '2021-01-16'
 tags: ['python', 'spark', 'big data']
-subtitle: Extending Pyspark's MLlib native feature selection function by using a feature importance score generated from a machine learning model and extracting the variables that are plausibly the most important
+summary: Extending Pyspark's MLlib native feature selection function by using a feature importance score generated from a machine learning model and extracting the variables that are plausibly the most important
 ---
 
 In this post I discuss how to create a new pyspark estimator to integrate in an existing machine learning pipeline. This is an extension of my [previous post](/blog/creating-a-custom-cross-validation-function-in-pyspark/) where I discussed how to create a custom cross validation function. Recently, I have been looking at integrating existing code in the pyspark ML pipeline framework. A pipeline is a fantastic concept of abstraction since it allows the analyst to focus on the main tasks that needs to be carried out and allows the entire piece of work to be reusable.

@@ -4,10 +4,10 @@ author: Timothy Lin
 date: '2018-10-14'
 lastmod: '2021-01-16'
 tags: ['r', 'notes', 'visualisation', 'graph-theory', 'networks']
-summary: Part II in the network exploration of the Game of Thrones series. In this post, we combine the plots together and use gganimate to visualise relationships across all 5 books.
+summary: Part II in the network exploration of the Game of Thrones series. In this post, we combine the plots together and use gganimate to visualise relationships across all 5 books
 ---
 
-This is the second post of a character network analysis of George R. R. Martin's A Song Of Ice and Fire (ASOIAF) series as well as my first submission to the [R Bloggers community](https://www.r-bloggers.com/). A warm welcome to all readers out there! In my [first post](/blog/visualising-networks-in-asoiaf), I touched on the [Tidygraph](https://github.com/thomasp85/tidygraph) package to manipulate dataframes and [ggraph](https://github.com/thomasp85/ggraph) for network visualisation as well as some tricks to fix the position of nodes when ploting multiple graphs containing the same node set and labeling based on polar coordinates. In this post, we combine the plots together and use [gganimate](https://github.com/thomasp85/gganimate) to visualise all 5 books.
+This is the second post of a character network analysis of George R. R. Martin's A Song Of Ice and Fire (ASOIAF) series as well as my first submission to the [R Bloggers community](https://www.r-bloggers.com/). A warm welcome to all readers out there! In my [first post](/blog/visualising-networks-in-asoiaf), I touched on the [Tidygraph](https://github.com/thomasp85/tidygraph) package to manipulate dataframes and [ggraph](https://github.com/thomasp85/ggraph) for network visualisation as well as some tricks to fix the position of nodes when plotting multiple graphs containing the same node set and labeling based on polar coordinates. In this post, we combine the plots together and use [gganimate](https://github.com/thomasp85/gganimate) to visualise all 5 books.
 
 ### The ASOIAF Network
 
