@@ -7,7 +7,7 @@ draft: false
 summary: 'Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template'
 ---
 
-![tailwind-nextjs-banner](/static/images/twitter-card.png)
+![tailwind-nextjs-banner](/static/img/demo-twitter-card.png)
 
 Welcome to my new blog written with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/). I have made the blog available as a [starter template](https://github.com/timlrx/tailwind-nextjs-starter-blog) so feel free to fork and modify to your needs. Comes out of the box configured with the latest technologies to make technical writing a breeze. Easily configurable and customizable. Perfect as a replacement to existing Jekyll and Hugo individual blogs.
 
