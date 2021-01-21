@@ -42,4 +42,4 @@ yarn-error.log*
 /r-code
 
 # personal
-.psd
+*.psd
