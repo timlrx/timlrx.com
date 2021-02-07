@@ -153,7 +153,7 @@ How can we summarise the "essence" of a node by taking into account all its neig
 
 Nodes that are closer together in the embedding space are more similar in the original network.^[Similarity can be defined in various ways e.g. adjacency or paths.] Given an anonymised network dataset, we can calculate the embedding of each node and derive the likelihood of each node being actually connected to a given node on the true dataset. The more features we obscure and obfuscate, the less accurate is the de-anonymisation rate.
 
-![graph recovery from node embeddings](/static/img/anonymisation/graph-recovery-from-node-embeddings.png)
+![graph recovery from node embeddings](/static/img/anonymisation/graph-recovery-from-node-embedding.png)
 
 _Source: Zhang et al. 2017_
 
