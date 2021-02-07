@@ -3,7 +3,7 @@ title: TraceTogether and the Difficulty of Graph Anonymisation
 date: '2021-02-07'
 tags: ['graph theory', 'networks', 'singapore', 'privacy', 'musings']
 draft: false
-summary: An illustrated explaination of the challenges of graph anonymisation and the difficulty of striking a balance between usefulness and anonymity. Written as a response to Singapore's TraceTogether privacy saga
+summary: An explanation of the challenges of graph anonymisation and the difficulty of striking a balance between usefulness and anonymity. Written as a response to Singapore's TraceTogether privacy saga
 images: ['/static/img/anonymisation/connections.png']
 ---
 
