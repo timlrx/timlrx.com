@@ -1,7 +1,7 @@
 const headerNavLinks = [
   { href: '/blog', title: 'Blog' },
   { href: '/tags', title: 'Tags' },
-  { href: '/dashboard/sg-dashboard.html', title: 'SG-Dashboard' },
+  { href: '/projects', title: 'Projects' },
   { href: '/about', title: 'About' },
 ]
 
