@@ -64,12 +64,7 @@ load(paste(file_path,recent_date,"-emp.RData", sep=""))
 latest_quarter <- emp$quarter[dim(emp)[1]]
 
 ytd_emp <- emp %>% 
-           group_by(industry, year) %>%
-           mutate(avg_emp = mean(emp)) %>%
-           filter(quarter == latest_quarter) %>%
-           group_by(industry) %>%
-           mutate(change_emp = avg_emp - lag(avg_emp)) %>%
-           ungroup()
+           filter(quarter == latest_quarter)
 
 overall_change_emp <- emp %>%
   filter(year >= 2000 & industry=="Overall Economy") %>%
