@@ -4,6 +4,7 @@ date: '2021-02-21'
 tags: ['marketing', 'musings', 'notes']
 draft: false
 summary: A good project is only one part of the puzzle. Getting stars is really all about marketing and promoting it. A guide on growth hacking a Github project.
+image: /static/img/github_stars/github-marketing-funnel.png
 ---
 
 ![stars background](/static/img/github_stars/stars-bg.jpg)
