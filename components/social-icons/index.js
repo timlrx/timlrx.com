@@ -17,8 +17,6 @@ const components = {
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {
-  if (!href) return null
-
   const SocialSvg = components[kind]
 
   return (
