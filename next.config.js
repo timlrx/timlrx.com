@@ -37,6 +37,19 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        // These rewrites are checked after headers/redirects
+        // and before pages/public files which allows overriding
+        // page files
+        {
+          source: '/',
+          destination: '/index',
+        },
+      ],
+    }
+  },
   async redirects() {
     return [
       {
