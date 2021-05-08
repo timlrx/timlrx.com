@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import { kebabCase } from '@/lib/utils'
+import kebabCase from '@/lib/utils/kebabCase'
 import { getAllTags } from '@/lib/tags'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'

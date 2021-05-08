@@ -7,12 +7,11 @@ import PageTitle from '@/components/PageTitle'
 import generateRss from '@/lib/generate-rss'
 
 export async function getStaticPaths() {
-  const posts = await getFiles('blog')
-
+  const posts = getFiles('blog')
   return {
     paths: posts.map((p) => ({
       params: {
-        slug: formatSlug(p),
+        slug: formatSlug(p).split('/'),
       },
     })),
     fallback: false,
