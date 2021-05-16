@@ -1,5 +1,5 @@
 import siteMetadata from '@/data/siteMetadata'
-import { kebabCase } from '@/lib/utils'
+import kebabCase from '@/lib/utils/kebabCase'
 import { getAllTags } from '@/lib/tags'
 import Tag from '@/components/Tag'
 import Link from '@/components/Link'

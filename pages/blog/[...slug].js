@@ -1,5 +1,5 @@
 import fs from 'fs'
-import hydrate from 'next-mdx-remote/hydrate'
+import { MDXRemote } from 'next-mdx-remote'
 import { getFiles, getFileBySlug, getAllFilesFrontMatter, formatSlug } from '@/lib/mdx'
 import PostLayout from '@/layouts/PostLayout'
 import MDXComponents from '@/components/MDXComponents'
@@ -34,15 +34,12 @@ export async function getStaticProps({ params }) {
 
 export default function Blog({ post, prev, next }) {
   const { mdxSource, frontMatter } = post
-  const content = hydrate(mdxSource, {
-    components: MDXComponents,
-  })
 
   return (
     <>
       {frontMatter.draft !== true ? (
         <PostLayout frontMatter={frontMatter} prev={prev} next={next}>
-          {content}
+          <MDXRemote {...mdxSource} components={MDXComponents} />
         </PostLayout>
       ) : (
         <div className="mt-24 text-center">
