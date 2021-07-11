@@ -1,9 +1,9 @@
 ---
 title: Automated Market Makers (AMM) Explained
 date: '2021-05-16'
-tags: ['defi', 'amm']
+tags: ['defi', 'amm', 'crypto']
 draft: false
-summary: This post introduces Automated Market Makers, a key concept powering the decentralized finance space.
+summary: This post introduces Automated Market Makers, a key protocol powering decentralized exchanges.
 images: ['/static/img/amm/amm-explained.png']
 ---
 
@@ -136,7 +136,7 @@ Unlike a centralized market maker system like Citadel in which revenue is depend
 
 **Technical side note**: Rather than distributing tokens for every trade that takes place to every liquidity provider, which would just add to "shoe leather cost", the fees are added back to the pool and the same number of liquidity tokens held by a liquidity provider can now be redeemed for a higher value.
 
-If every pool were to provide the same fees, liquidity providers who are hoping to maximise profit would choose pools that have the highest trade activity. For new pools consisting of less well-known tokens, additional incentives can be offered to liquidity providers such as bonus token distributions.
+If every pool were to provide the same fees, liquidity providers who are hoping to maximise profit would choose pools that have the highest trade activity.^[To be more precise, profit maximisation is a function of trading fee share, trading activity, additional bonuses and token prices. LPs can suffer a loss due to a decline in token prices and/or fluctuation in prices, also known as impermanent loss.] For new pools consisting of less well-known tokens, additional incentives can be offered to liquidity providers such as bonus token distributions.
 
 ## Incentives for users
 
@@ -184,7 +184,7 @@ Liquidity tokens are also not used for bookkeeping sake and can be used for yiel
 
 In Uniswap a pool consists of two assets, predominantly a very popular token like Ethereum and a less popular one. What happens when a user wants to trade between two less popular tokens? She would need to do multiple trades incurring higher transaction fees in the process. The two asset pool structure is also not capital efficient for liquidity providers who could potentially get more transaction fees is capital can flow freely across pools.
 
-[Balancer](https://balancer.fi/) was created with the idea of smart pools that allows for greater customizability. It allows up to 8 assets in a pool with arbitrary weights and fees, which can be dynamically adjusted and allow for more complex logic to be programmed. Thus, pools in balancer can be thought of as "inverse exchange traded funds (ETFs)". Like ETFs they are continuously rebalanced but differ as liquidity providers are paid for providing capital. Their documentation summarises it well:
+[Balancer](https://balancer.fi/) was born out of a research project at BlockScience in 2018, founded by Fernando Martinelli and Mike McDonald. It was created with the idea of smart pools that allows for greater customizability. It allows up to 8 assets in a pool with arbitrary weights and fees, which can be dynamically adjusted and allow for more complex logic to be programmed. Thus, pools in balancer can be thought of as "inverse exchange traded funds (ETFs)". Like ETFs they are continuously rebalanced but differ as liquidity providers are paid for providing capital. Their documentation summarises it well:
 
 > Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.
 
@@ -206,7 +206,7 @@ Trades conducted on AMM platforms affect the price of each of the tokens in the 
 
 In the constant product formula used by Uniswap and generalised in Balancer, a small change in the quantity bought or sold of particular tokens could result in negative price slippage of a couple of percentage points. How can we reduce price slippage, especially for assets like stablecoins (tokens pegged to fiat currency like the USD) where we have a good sense of the "ideal" price of the exchange?
 
-[Curve](https://curve.fi/) solves this problem by introducing a StableSwap formula, where the rate of change of price around the ideal price (i.e. 2nd derivative) does not change as quickly compared to the constant product formula. The stableswap invariant curve is shown below:
+[Curve](https://curve.fi/), a brainchild of Michael Egorov, solves this problem by introducing a StableSwap formula, where the rate of change of price around the ideal price (i.e. 2nd derivative) does not change as quickly compared to the constant product formula. The stableswap invariant curve is shown below:
 
 ![stableswap-formula.png](/static/img/amm/stableswap-formula.png)
 
@@ -218,7 +218,7 @@ The capital efficiency benefit for liquidity providers as a result of Curve's in
 
 Since the introduction of AMM technology, adoption and usage of decentralized exchanges have grown significantly. Uniswap is now in the top 10 cryptocurrency exchanges by daily traded volume, behind Binance, Upbit, Okex, Huobi, Coinbase and Bitfinex.^[Data taken from [Coinmarketcap centralized exchange data](https://coinmarketcap.com/rankings/exchanges/), filtering out exchanges with scores greater than 5, and [Coinmarketcap DEX data](https://coinmarketcap.com/rankings/exchanges/dex/)]
 
-It will be interesting to see how the technology gets applied into other markets or further innovations in the space to deal with different asset classes.
+I hope this article gives you a good introduction and broader appreciation of the AMM space. To what extent will algorithmic protocols successfully replace or complement traditional exchanges? Can decentralized governance of AMM protocol truly happen? Will AMM technology branch out from crypto to other asset classes? It's still early days in the space but an interesting one to keep track of.
 
 ## Related Resources
 
@@ -226,4 +226,5 @@ It will be interesting to see how the technology gets applied into other markets
 - [Balancer whitepaper](https://balancer.fi/whitepaper.pdf)
 - [Curve stableswap whitepaper](https://curve.fi/files/stableswap-paper.pdf)
 - [Calculating the value of a liquidity provider token](https://dailydefi.org/articles/lp-token-value-calculation/)
-- [Impermanent loss explained](https://pintail.medium.com/uniswap-a-good-deal-for-liquidity-providers-104c0b6816f2)
+- [Understanding Uniswap returns](https://pintail.medium.com/understanding-uniswap-returns-cc593f3499ef)
+- [Impermanent loss explained](https://chainbulletin.com/impermanent-loss-explained-with-examples-math/)
