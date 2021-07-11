@@ -2,9 +2,8 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: {
-    content: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js'],
-  },
+  mode: 'jit',
+  purge: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -21,7 +20,7 @@ module.exports = {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        blue: colors.lightBlue,
+        primary: colors.sky,
         code: {
           green: '#b5f4a5',
           yellow: '#ffe484',
@@ -36,11 +35,11 @@ module.exports = {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.blue.500'),
+              color: theme('colors.primary.500'),
               '&:hover': {
-                color: theme('colors.blue.600'),
+                color: theme('colors.primary.600'),
               },
-              code: { color: theme('colors.blue.400') },
+              code: { color: theme('colors.primary.400') },
             },
             h1: {
               fontWeight: '700',
@@ -93,11 +92,11 @@ module.exports = {
           css: {
             color: theme('colors.gray.300'),
             a: {
-              color: theme('colors.blue.500'),
+              color: theme('colors.primary.500'),
               '&:hover': {
-                color: theme('colors.blue.400'),
+                color: theme('colors.primary.400'),
               },
-              code: { color: theme('colors.blue.400') },
+              code: { color: theme('colors.primary.400') },
             },
             h1: {
               fontWeight: '700',

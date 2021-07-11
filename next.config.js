@@ -5,8 +5,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  future: {
-    webpack5: true,
+  eslint: {
+    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
@@ -38,24 +38,11 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
-  async rewrites() {
-    return {
-      beforeFiles: [
-        // These rewrites are checked after headers/redirects
-        // and before pages/public files which allows overriding
-        // page files
-        {
-          source: '/',
-          destination: '/index',
-        },
-      ],
-    }
-  },
   async redirects() {
     return [
       {
-        source: '/post',
-        destination: '/blog',
+        source: '/:path/index.xml',
+        destination: '/:path/feed.xml',
         permanent: true,
       },
       {

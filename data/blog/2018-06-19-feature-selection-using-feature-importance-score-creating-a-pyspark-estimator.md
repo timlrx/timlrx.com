@@ -56,27 +56,29 @@ df = spark.read.option("delimiter", ";").csv("../data/bank-additional/bank-addit
 df.dtypes
 ```
 
-    [('age', 'int'),
-     ('job', 'string'),
-     ('marital', 'string'),
-     ('education', 'string'),
-     ('default', 'string'),
-     ('housing', 'string'),
-     ('loan', 'string'),
-     ('contact', 'string'),
-     ('month', 'string'),
-     ('day_of_week', 'string'),
-     ('duration', 'int'),
-     ('campaign', 'int'),
-     ('pdays', 'int'),
-     ('previous', 'int'),
-     ('poutcome', 'string'),
-     ('emp.var.rate', 'double'),
-     ('cons.price.idx', 'double'),
-     ('cons.conf.idx', 'double'),
-     ('euribor3m', 'double'),
-     ('nr.employed', 'double'),
-     ('y', 'string')]
+```
+[('age', 'int'),
+('job', 'string'),
+('marital', 'string'),
+('education', 'string'),
+('default', 'string'),
+('housing', 'string'),
+('loan', 'string'),
+('contact', 'string'),
+('month', 'string'),
+('day_of_week', 'string'),
+('duration', 'int'),
+('campaign', 'int'),
+('pdays', 'int'),
+('previous', 'int'),
+('poutcome', 'string'),
+('emp.var.rate', 'double'),
+('cons.price.idx', 'double'),
+('cons.conf.idx', 'double'),
+('euribor3m', 'double'),
+('nr.employed', 'double'),
+('y', 'string')]
+```
 
 There are some problematic variable names and we should replace the dot seperator with an underscore.
 
@@ -261,7 +263,9 @@ The feature importance score that is returned comes in the form of a sparse vect
 mod.stages[-1].featureImportances
 ```
 
-    SparseVector(63, {0: 0.0257, 1: 0.1596, 2: 0.0037, 3: 0.2212, 4: 0.0305, 5: 0.0389, 6: 0.0762, 7: 0.0423, 8: 0.1869, 9: 0.063, 10: 0.0002, 12: 0.0003, 13: 0.0002, 14: 0.0003, 15: 0.0005, 16: 0.0002, 18: 0.0006, 19: 0.0003, 20: 0.0002, 21: 0.0, 22: 0.001, 23: 0.0003, 24: 0.0005, 26: 0.0005, 27: 0.0007, 28: 0.0008, 29: 0.0003, 30: 0.0, 31: 0.0001, 34: 0.0002, 35: 0.0021, 37: 0.0001, 38: 0.0003, 39: 0.0003, 40: 0.0003, 41: 0.0001, 42: 0.0002, 43: 0.0284, 44: 0.0167, 45: 0.0038, 46: 0.0007, 47: 0.0008, 48: 0.0132, 49: 0.0003, 50: 0.0014, 51: 0.0159, 52: 0.0114, 53: 0.0103, 54: 0.0036, 55: 0.0002, 56: 0.0021, 57: 0.0002, 58: 0.0006, 59: 0.0005, 60: 0.0158, 61: 0.0038, 62: 0.0121})
+```
+SparseVector(63, {0: 0.0257, 1: 0.1596, 2: 0.0037, 3: 0.2212, 4: 0.0305, 5: 0.0389, 6: 0.0762, 7: 0.0423, 8: 0.1869, 9: 0.063, 10: 0.0002, 12: 0.0003, 13: 0.0002, 14: 0.0003, 15: 0.0005, 16: 0.0002, 18: 0.0006, 19: 0.0003, 20: 0.0002, 21: 0.0, 22: 0.001, 23: 0.0003, 24: 0.0005, 26: 0.0005, 27: 0.0007, 28: 0.0008, 29: 0.0003, 30: 0.0, 31: 0.0001, 34: 0.0002, 35: 0.0021, 37: 0.0001, 38: 0.0003, 39: 0.0003, 40: 0.0003, 41: 0.0001, 42: 0.0002, 43: 0.0284, 44: 0.0167, 45: 0.0038, 46: 0.0007, 47: 0.0008, 48: 0.0132, 49: 0.0003, 50: 0.0014, 51: 0.0159, 52: 0.0114, 53: 0.0103, 54: 0.0036, 55: 0.0002, 56: 0.0021, 57: 0.0002, 58: 0.0006, 59: 0.0005, 60: 0.0158, 61: 0.0038, 62: 0.0121})
+```
 
 ```python
 def ExtractFeatureImp(featureImp, dataset, featuresCol):
@@ -304,7 +308,9 @@ varidx = [x for x in varlist['idx'][0:10]]
 varidx
 ```
 
-    [3, 8, 1, 6, 9, 7, 5, 4, 43, 0]
+```
+[3, 8, 1, 6, 9, 7, 5, 4, 43, 0]
+```
 
 ```python
 slicer = VectorSlicer(inputCol="features", outputCol="features2", indices=varidx)
