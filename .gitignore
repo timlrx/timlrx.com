@@ -19,7 +19,7 @@ public/sitemap.xml
 *.xml
 
 # rss feed
-/public/index.xml 
+/public/feed.xml 
 
 # misc
 .DS_Store
