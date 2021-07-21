@@ -74,7 +74,7 @@ export const BlogSeo = ({ authorDetails, title, summary, date, lastmod, url, ima
       name: siteMetadata.author,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteMetadata.siteUrl}${siteMetadata.socialBanner}`,
+        url: `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
       },
     },
     description: summary,

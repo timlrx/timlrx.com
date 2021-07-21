@@ -1,28 +1,18 @@
 ---
-name: Timothy Lin
-avatar: /static/img/avatar.png
-occupation: Co-founder
-company: Cylynx
-email: timothy.lin@alumni.ubc.ca
-twitter: https://twitter.com/timlrxx
-linkedin: https://www.linkedin.com/in/timlrx
-github: https://github.com/timlrx
+name: Ashraf Alam
+avatar: /static/images/ashraf-profile.jpg
+occupation: Software Architect and Author
+company: EISK
+email: address@yoursite.com
+twitter: https://twitter.com/ashrafulalam
+linkedin: https://www.linkedin.com/in/ashrafalam/
+github: https://github.com/AshrafAlam
 ---
 
-Welcome to Quasilinear Musings! This blog serves as a playground for me to experiment
-with ideas and share some of my findings. It's a reflection of my career path and
-interests - especially on the technical side of things. For more information, check
-out my [Linkedin profile](https://www.linkedin.com/in/timlrx).
+Ashraf Alam is specialised in designing and building high-performance web applications in cloud computing environment. He is currently serving as System Architect at Schoders, an asset management company operating worldwide. Ashraf is driving Digital Platform strategy and roadmap for Schroders to create innovative digital services for its customers.
 
-I am proficient in R, Python and Javascript. My current interests are in the areas of
-network analytics, full-stack development, technology and labour economics so expect
-to see more of these stuff in the future! This blog is bootstrapped from the awesome
-[Tailwind Nextjs Starter Blog Template](https://github.com/timlrx/tailwind-nextjs-starter-blog)
-(coincidentally written by me). Source code for the website is available at my
-[Github page](https://github.com/timlrx/timlrx.com).
+Prior Schroders, Ashraf was a part of the cloud platform team at Autodesk for building high performance secured services for its several millions of customers and users.
 
-Highlights - check out my analysis on migration and food consumption which I have
-written up as part of my masters thesis [slides available here](/static/mig_cons_slides/index.html) or
-preview the [Singapore economy dashboard](/dashboard/sg-dashboard.html). For a
-more technical read check out how to [create a custom cross-validation function in pyspark](/blog/creating-a-custom-cross-validation-function-in-pyspark)
-or my thoughts on [using DAGs in causal inference](/blog/applications-of-dags-in-causal-inference)
+Through his professional experience, Ashraf's proven ability in technology leadership role and in-depth knowledge in technology led him gaining reputation with many success stories. Few of these include writing Kernel for a cloud-based SaaS platform, leading engineering effort to build enterprise applications for large organisations, such as Target, Motorola etc.
+
+Ashraf has been involved as speaker, organiser, writer and judge in different technical online and offline events and inspired technical communities to create a better world. His activities include engagements with Microsoft Imagine Cup, IEEE Computer Society & Microsoft Conferences and ACM Programming Contests.
