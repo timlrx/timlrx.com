@@ -14,8 +14,9 @@ const SimpleAnalyticsScript = () => {
   )
 }
 
-export const logEvent = (eventName, ...rest) => {
-  return window.sa_event?.(eventName, ...rest)
+// https://docs.simpleanalytics.com/events
+export const logEvent = (eventName, callback) => {
+  return window.sa_event?.(eventName, callback)
 }
 
 export default SimpleAnalyticsScript
