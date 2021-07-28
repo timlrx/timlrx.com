@@ -13,6 +13,12 @@ const siteMetadata = {
   twitter: 'https://twitter.com/timlrxx',
   linkedin: 'https://www.linkedin.com/in/timlrx',
   locale: 'en-US',
+  analytics: {
+    // supports plausible, simpleAnalytics or googleAnalytics
+    plausibleDataDomain: 'timlrx.com', // e.g. tailwind-nextjs-starter-blog.vercel.app
+    simpleAnalytics: true, // true or false
+    googleAnalyticsId: 'UA-100201704-1', // e.g. UA-000000-2 or G-XXXXXXX
+  },
   comment: {
     provider: '', // supported providers: giscus, utterances, disqus
     giscusConfig: {
