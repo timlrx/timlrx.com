@@ -1,11 +1,13 @@
 ---
-title: 'Introducing Tailwind Nexjs Starter Blog'
+title: 'Introducing Tailwind Nextjs Starter Blog'
 date: '2021-01-12'
-lastmod: '2021-01-18'
+lastmod: '2021-08-02'
 tags: ['next-js', 'tailwind', 'guide']
 draft: false
 summary: 'Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template'
 ---
+
+**Note: Checkout the [official website](https://tailwind-nextjs-starter-blog.vercel.app/blog/introducing-tailwind-nextjs-starter-blog) for the updated version of the post**
 
 ![tailwind-nextjs-banner](/static/img/demo-twitter-card.png)
 
