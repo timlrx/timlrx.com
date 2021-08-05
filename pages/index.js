@@ -25,13 +25,9 @@ export default function Home({ posts }) {
           <h2 className="mb-16 text-lg prose text-gray-600 dark:text-gray-400">
             {`Welcome to my blog - ${siteMetadata.description}. I am the co-founder of Cylynx, a data
             scientist by profession and economist by training. In my free time, I like developing `}
-            <Link href="/projects">
-              <a>side projects</a>
-            </Link>
+            <Link href="/projects">side projects</Link>
             {' and '}
-            <Link href="/blog">
-              <a>blogging</a>
-            </Link>
+            <Link href="/blog">blogging</Link>
             {' about them. Have a good read!'}
           </h2>
         </div>
