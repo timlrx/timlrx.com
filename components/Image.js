@@ -1,7 +1,6 @@
-import Img from 'react-optimized-image'
+import NextImage from 'next/image'
 
-const Image = ({ src, alt }) => {
-  return <Img src={src} alt={alt} />
-}
+// eslint-disable-next-line jsx-a11y/alt-text
+const Image = ({ ...rest }) => <NextImage {...rest} />
 
 export default Image

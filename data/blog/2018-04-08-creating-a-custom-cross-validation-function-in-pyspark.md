@@ -198,27 +198,31 @@ cv = CustomCrossValidator(estimator=lr, estimatorParamMaps=grid, evaluator=evalu
 cv.extractParamMap()
 ```
 
-    {Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='parallelism', doc='the number of threads to use when running parallel algorithms (>= 1).'): 4,
-     Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='seed', doc='random seed.'): 7665653429569288359,
-     Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='estimator', doc='estimator to be cross-validated'): LogisticRegression_487fb6aaeb91e051211c,
-     Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='estimatorParamMaps', doc='estimator param maps'): [{Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 0},
-      {Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 1},
-      {Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 5}],
-     Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='evaluator', doc='evaluator used to select hyper-parameters that maximize the validator metric'): BinaryClassificationEvaluator_44cc9ebbba7a7a85e22e,
-     Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='splitWord', doc="Tuple to split train and test set e.g. ('train', 'test')"): ['train',
-      'test'],
-     Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='cvCol', doc='Column name to filter train and test list'): 'cv'}
+```
+{Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='parallelism', doc='the number of threads to use when running parallel algorithms (>= 1).'): 4,
+Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='seed', doc='random seed.'): 7665653429569288359,
+Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='estimator', doc='estimator to be cross-validated'): LogisticRegression_487fb6aaeb91e051211c,
+Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='estimatorParamMaps', doc='estimator param maps'): [{Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 0},
+{Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 1},
+{Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 5}],
+Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='evaluator', doc='evaluator used to select hyper-parameters that maximize the validator metric'): BinaryClassificationEvaluator_44cc9ebbba7a7a85e22e,
+Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='splitWord', doc="Tuple to split train and test set e.g. ('train', 'test')"): ['train',
+'test'],
+Param(parent='CustomCrossValidator_4acca941d35632cf8f28', name='cvCol', doc='Column name to filter train and test list'): 'cv'}
+```
 
 ```python
 cvModel = cv.fit(d)
 ```
 
-    fold 0
-    fold 1
-    {Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 0} Detailed Score [0.5, 0.5] Avg Score 0.5
-    {Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 1} Detailed Score [0.8333333333333333, 0.8333333333333333] Avg Score 0.8333333333333333
-    {Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 5} Detailed Score [0.8333333333333333, 0.8333333333333333] Avg Score 0.8333333333333333
-    Best Model:  {Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 1} Detailed Score [0.8333333333333333, 0.8333333333333333] Avg Score 0.8333333333333333
+```
+fold 0
+fold 1
+{Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 0} Detailed Score [0.5, 0.5] Avg Score 0.5
+{Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 1} Detailed Score [0.8333333333333333, 0.8333333333333333] Avg Score 0.8333333333333333
+{Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 5} Detailed Score [0.8333333333333333, 0.8333333333333333] Avg Score 0.8333333333333333
+Best Model:  {Param(parent='LogisticRegression_487fb6aaeb91e051211c', name='maxIter', doc='max number of iterations (>= 0).'): 1} Detailed Score [0.8333333333333333, 0.8333333333333333] Avg Score 0.8333333333333333`
+```
 
 ### Concluding Thoughts
 

@@ -3,9 +3,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({
+  reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  experimental: {
-    modern: true,
+  eslint: {
+    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
@@ -40,8 +41,8 @@ module.exports = withBundleAnalyzer({
   async redirects() {
     return [
       {
-        source: '/post',
-        destination: '/blog',
+        source: '/:path/index.xml',
+        destination: '/:path/feed.xml',
         permanent: true,
       },
       {

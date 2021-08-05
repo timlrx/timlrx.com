@@ -46,8 +46,6 @@ import matplotlib.pyplot as plt
 plt.plot(np.random.normal(size=100), np.random.normal(size=100), 'ro')
 ```
 
-    [<matplotlib.lines.Line2D at 0x22850dc7780>]
-
 ![png](/static/img/python_img/Panda_Plotting_1_1.png)
 
 ## Using pandas plotting functions
@@ -59,15 +57,11 @@ normals = pd.Series(np.random.normal(size=10))
 normals.plot()
 ```
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x22850eef940>
-
 ![png](/static/img/python_img/Panda_Plotting_3_1.png)
 
 ```python
 normals.cumsum().plot(grid=True)
 ```
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x22850ca6c88>
 
 ![png](/static/img/python_img/Panda_Plotting_4_1.png)
 
@@ -78,17 +72,11 @@ variables = pd.DataFrame({'normal': np.random.normal(size=100),
 variables.cumsum().plot()
 ```
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x228511b5940>
-
 ![png](/static/img/python_img/Panda_Plotting_5_1.png)
 
 ```python
 variables.cumsum().plot(subplots=True)
 ```
-
-    array([<matplotlib.axes._subplots.AxesSubplot object at 0x00000228511F13C8>,
-           <matplotlib.axes._subplots.AxesSubplot object at 0x00000228512DD710>,
-           <matplotlib.axes._subplots.AxesSubplot object at 0x00000228511E9208>], dtype=object)
 
 ![png](/static/img/python_img/Panda_Plotting_6_1.png)
 
@@ -99,8 +87,6 @@ for i,var in enumerate(['normal','gamma','poisson']):
     variables[var].cumsum(0).plot(ax=axes[i], title=var)
 axes[0].set_ylabel('cumulative sum')
 ```
-
-    <matplotlib.text.Text at 0x22851427160>
 
 ![png](/static/img/python_img/Panda_Plotting_7_1.png)
 
@@ -118,15 +104,11 @@ segments['long_sog'] = (segments.avg_sog > segments.avg_sog.mean())
 segments.groupby('year').seg_length.mean().plot(kind='bar')
 ```
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x2285271bd68>
-
 ![png](/static/img/python_img/Panda_Plotting_10_1.png)
 
 ```python
 segments.groupby(['year','long_seg']).seg_length.count().plot(kind='bar')
 ```
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x21c6332e6a0>
 
 ![png](/static/img/python_img/Panda_Plotting_11_1.png)
 
@@ -135,8 +117,6 @@ segments.groupby(['year','long_seg']).seg_length.count().plot(kind='bar')
 temp = pd.crosstab([segments.year, segments.long_seg], segments.long_sog)
 temp.plot(kind='bar', stacked=True)
 ```
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x21c6bda5908>
 
 ![png](/static/img/python_img/Panda_Plotting_12_1.png)
 
@@ -149,15 +129,11 @@ variables = pd.DataFrame({'normal': np.random.normal(size=100),
 variables.normal.hist(bins=30, grid=False)
 ```
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x21c4ae920f0>
-
 ![png](/static/img/python_img/Panda_Plotting_14_1.png)
 
 ```python
 variables.poisson.plot(kind='kde', xlim=(-4,6))
 ```
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x21c0a84fb00>
 
 ![png](/static/img/python_img/Panda_Plotting_15_1.png)
 
@@ -165,8 +141,6 @@ variables.poisson.plot(kind='kde', xlim=(-4,6))
 variables.gamma.hist(bins=20, normed=True)
 variables.gamma.plot(kind='kde', style='r--')
 ```
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x21c0dacae80>
 
 ![png](/static/img/python_img/Panda_Plotting_16_1.png)
 
@@ -176,30 +150,11 @@ variables.gamma.plot(kind='kde', style='r--')
 segments.plot(kind='scatter', x='seg_length', y='avg_sog')
 ```
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x241ae3c65f8>
-
 ![png](/static/img/python_img/Panda_Plotting_18_1.png)
 
 ```python
 segments_subset = segments.loc[1:10000,['seg_length', 'avg_sog', 'min_sog', 'max_sog']]
 pd.plotting.scatter_matrix (segments_subset, figsize=(12,8), diagonal='kde')
 ```
-
-    array([[<matplotlib.axes._subplots.AxesSubplot object at 0x00000241AE461BA8>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241B63B4A20>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241B405A898>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241AE5B85C0>],
-           [<matplotlib.axes._subplots.AxesSubplot object at 0x00000241AE75A748>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241AE75A780>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241AF813D30>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241AF857160>],
-           [<matplotlib.axes._subplots.AxesSubplot object at 0x00000241AF8E36A0>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241AF8F3BA8>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241AF9AD4E0>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241B06B1BA8>],
-           [<matplotlib.axes._subplots.AxesSubplot object at 0x00000241B072D320>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241B078F5C0>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241B080A278>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x00000241B0CA8BA8>]], dtype=object)
 
 ![png](/static/img/python_img/Panda_Plotting_19_1.png)

@@ -185,7 +185,9 @@ population_dict = Dict("Stars"=>2, "Circle"=>2)
 nh = init_neighborhood(population_dict, 4, 0.5)
 ```
 
+```
 Neighborhood(Any[Agent(1, "Stars", 3, 4, 0.5), Agent(2, "Stars", 4, 4, 0.5), Agent(3, "Circle", 1, 4, 0.5), Agent(4, "Circle", 2, 4, 0.5)], Dict{Any,Any}(4 => Agent(2, "Stars", 4, 4, 0.5),2 => Agent(4, "Circle", 2, 4, 0.5),3 => Agent(1, "Stars", 3, 4, 0.5),1 => Agent(3, "Circle", 1, 4, 0.5)), 4)
+```
 
 Instead of writing `Dict("Stars"=>2, "Circle"=>2)` we could have written `Dict("⭐"=>2,"◯"=>2)` Julia supports the use of unicode symbols which makes it nice to write math like operations.
 
