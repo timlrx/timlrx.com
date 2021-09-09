@@ -15,9 +15,9 @@ const siteMetadata = {
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics or googleAnalytics
-    plausibleDataDomain: 'timlrx.com', // e.g. tailwind-nextjs-starter-blog.vercel.app
+    plausibleDataDomain: false, // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: true, // true or false
-    googleAnalyticsId: 'UA-100201704-1', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalyticsId: false, // e.g. UA-000000-2 or G-XXXXXXX
   },
   comment: {
     provider: '', // supported providers: giscus, utterances, disqus
