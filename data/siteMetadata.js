@@ -19,6 +19,10 @@ const siteMetadata = {
     simpleAnalytics: true, // true or false
     googleAnalyticsId: false, // e.g. UA-000000-2 or G-XXXXXXX
   },
+  newsletter: {
+    // Please add your .env file and modify it according to your selection
+    provider: 'emailOctopus',
+  },
   comment: {
     provider: '', // supported providers: giscus, utterances, disqus
     giscusConfig: {
