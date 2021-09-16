@@ -86,7 +86,7 @@ If models are inherently discriminatory, it is up to humans to decide what shoul
 
 ## Ethics and Fairness
 
-The debate on ethics, fairness and justice is not new and has been contested by philosophers and political scientists from Plato to Rawls. I will probably not do justice in summarising the nuances in the debate, but I think it's still worth highlighting a few different perspectives to show how standards of what is fair varies. To contextualise the discussion, I use an example of ethics and fairness in hiring.
+The debate on ethics, fairness and justice is not new and has been contested by philosophers and political scientists from Plato to Rawls. I will probably not do justice in summarising the nuances in the debate, but I think it's still worth highlighting a few different perspectives to show how standards of what is fair varies.
 
 Before we can dive into the question of what is fair or equitable, we have to ask "fair" by what values or standards?^[Could something be fair but unethical or unfair but ethical? It lies very much in the definition of the terms, but here are examples of each. One could argue that as a system for justice "an eye for an eye" is fair but unethical. On the other hand, treating people with different vaccination statuses differently would probably be unfair but ethical.] The issue of what is right or wrong brings us into the heart of ethics.
 
