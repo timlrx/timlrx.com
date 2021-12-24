@@ -1,8 +1,10 @@
 ---
 title: A Human-centric Approach to Fairness in AI
 date: '2021-09-16'
+lastmod: '2021-12-24'
 tags: ['fairness', 'ethics', 'veritas', 'philosophy', 'data science', 'singapore']
 draft: false
+bibliography: 'responsible-ai.bib'
 summary: Fairness is messy and complicated. Attempts to distil it down to a single metric is unhelpful and counter-productive. As business owners and model developers we should embrace the struggle in trying to apply fairness in artificial intelligence and data analytics models.
 images: ['/static/img/fairness/human-centric-approach-to-ai-cover.png']
 layout: PostLayout
@@ -38,9 +40,9 @@ If fairness could be distilled down to a single metric, a data scientist can inc
 
 ## A brief survey of fairness metrics
 
-<span className="citation">Barocas, Hardt and Narayanan <a href="#ref-barocas-hardt-narayanan" role="doc-biblioref">2019</a></span> lists 19 demographic fairness criteria for classification problems. This includes measures such as _Demographic Parity / Statistical Parity_ (<span className="citation">Dwork et al. <a href="#dwork-2012" role="doc-biblioref">2011</a></span>), _Equalized Odds Metric_ (<span className="citation">Hardt, Price, Srebo <a href="#ref-Hardt" role="doc-biblioref">2016</a></span>) and _Calibration within Groups_ (<span className="citation">Chouldechova <a href="#ref-Chouldechova" role="doc-biblioref">2017</a></span>). They are all statistical measures derived from the predictions of a classification model and differ in terms of which element(s) of the confusion matrix they are trying to test for equivalence.
+@barocas-hardt-narayanan lists 19 demographic fairness criteria for classification problems. This includes measures such as _Demographic Parity / Statistical Parity_ [@dwork2012], _Equalized Odds Metric_ [@hardt-price-srebo] and _Calibration within Groups_ [@chouldechova2017]. They are all statistical measures derived from the predictions of a classification model and differ in terms of which element(s) of the confusion matrix they are trying to test for equivalence.
 
-In another survey of fairness definitions, <span className="citation">Verma and Rubin <a href="#ref-Sahil-Rubin" role="doc-biblioref">2018</a></span> listed 20 definitions of fairness, 13 belonging to statistical measures, 3 being classified as similarity-based measures and the remaining 4 stemming from causal reasoning. Applying a logistic regression to a German credit dataset, they showed that approximately half of their definitions are satisfied while the other half are not satisfied:
+In another survey of fairness definitions, @verma-rubin listed 20 definitions of fairness, 13 belonging to statistical measures, 3 being classified as similarity-based measures and the remaining 4 stemming from causal reasoning. Applying a logistic regression to a German credit dataset, they showed that approximately half of their definitions are satisfied while the other half are not satisfied:
 
 ![fairness-metrics-verma-rubin](/static/img/fairness/verma-table.png)
 
@@ -48,7 +50,7 @@ Concluding their assessment of their analysis, they wrote:
 
 > So, is the classifier fair? Clearly, the answer to this question depends on the notion of fairness one wants to adopt. We believe more work is needed to clarify which definitions are appropriate to each particular situation.
 
-<span className="citation">Saxena et al. <a href="#ref-Saxena" role="doc-biblioref">2019</a></span>, and <span className="citation">Srivastava, Heidari and Krause <a href="#ref-Srivastava" role="doc-biblioref">2019</a></span> conducted experiments to find out how public attitudes map to fairness definitions for machine learning. The first paper found calibrated fairness tends to be preferred in the context of loan decisions while the second study found that demographic parity most closely matches people's idea of fairness as applied to criminal risk prediction and skin cancer risk prediction.
+@saxena2019, and @srivastava2019 conducted experiments to find out how public attitudes map to fairness definitions for machine learning. The first paper found calibrated fairness tends to be preferred in the context of loan decisions while the second study found that demographic parity most closely matches people's idea of fairness as applied to criminal risk prediction and skin cancer risk prediction.
 
 ![srivastava-fairness-ui](/static/img/fairness/srivastava-fairness-question.png)
 
@@ -62,7 +64,7 @@ The right approach I argue would be to take a more holistic view of what's fair 
 
 ## Data as mirrors
 
-In a discussion on automated hiring systems and biases^[The word bias in this post should be understood in the social justice sense and not as the statistical concept] in the hiring process, <span className="citation">Stoyanovich, Howe and Jagadish <a href="#ref-Stoyanovich-Howe-Jadadish" role="doc-biblioref">2020</a></span> eloquently warns about the inherent biases of a dataset using an analogy of data as a mirrored reflection of the world:
+In a discussion on automated hiring systems and biases^[The word bias in this post should be understood in the social justice sense and not as the statistical concept] in the hiring process, @stoyanovich-howe-jagadish eloquently warns about the inherent biases of a dataset using an analogy of data as a mirrored reflection of the world:
 
 > Informally, data is a mirror reflection of the world. More often than not, this reflection is distorted. One reason for this may be that the mirror itself (the measurement process) is distorted: it faithfully reflects some portions of the world, while amplifying or diminishing others. Another reason may be that even if the mirror was perfect, it may be reflecting a distorted world — a world such as it is, and not as it could or should be.
 
@@ -80,7 +82,7 @@ In the context of a hiring decision, the model might make a classification based
 
 Sometimes it discriminates too much and is not effective in real world applications - i.e. the model has overfitted the dataset. Hence, the use of a hold-out test set to cross-validate the results and ensure it is able to generalize more broadly in world world cases. Nonetheless, left unconstrained, a model will pursue the single goal it is created for, discriminate against all attributes to maximise an objective function, including attributes such as race, gender or religion.
 
-Even if such attributes are omitted, the model would also be able to learn existing attributes in a dataset and its correlation with the protected attributes. <span className="citation">Barocas, Hardt and Narayanan <a href="#ref-barocas-hardt-narayanan" role="doc-biblioref">2019</a></span> gives an example of how browsing data might be used differentiate the sexes. While each website provides a small signal, their joint distribution can strongly predict whether a user is male or female.
+Even if such attributes are omitted, the model would also be able to learn existing attributes in a dataset and its correlation with the protected attributes. @barocas-hardt-narayanan gives an example of how browsing data might be used differentiate the sexes. While each website provides a small signal, their joint distribution can strongly predict whether a user is male or female.
 
 If models are inherently discriminatory, it is up to humans to decide what should be discriminated against and what is not.^[I think there's no lack of a human's ability to discriminate as well, we do it every day. There just seems to be a fear when it comes to making such discriminations explicit.] Relying on a single utility function to determine the tradeoffs between fairness and efficiency seems to be a way of evading responsibility and accountability.
 
@@ -106,7 +108,7 @@ In a utilitarian framework, every consequence can be measured and compared, incl
 
 Such a way of thinking falls squarely in the realm of duty ethics or deontology. Some choices cannot be justified by their effects, no matter how good their consequences are - right takes priority over good.
 
-While there are variations within the deontological ethics community such, whether to focus on an agent's duties or a victim's rights, they share in common a belief as espoused by <span className="citation">Kant <a href="#ref-Kant" role="doc-biblioref">1785</a></span> that the only thing unqualifiedly good is a good will.^[Differing definitions on what a good will is gives us different Kantian schools of thought.]
+While there are variations within the deontological ethics community such, whether to focus on an agent's duties or a victim's rights, they share in common a belief as espoused by @kant1785 that the only thing unqualifiedly good is a good will.^[Differing definitions on what a good will is gives us different Kantian schools of thought.]
 
 For the rest of human decision making that does not classify as moral decisions, there is no categorical imperative to do anything associated about it.^[It might be morally praiseworthy but that's no categorical ought.] This seems like a more sane basis to ground our decision making process on and seems to be more aligned with moral intuitions of society in general. Practically, this translates to a different way of evaluating models - if the system does not make decisions that contradict what we believe as categorical imperatives then there is no reason not to give the machine the flexibility to optimize.
 
@@ -114,7 +116,7 @@ For the rest of human decision making that does not classify as moral decisions,
 
 Instead of thinking about what goodness and ethics might mean for a machine, we can ask what are the characteristics of a good person. Through that lens, we might say that a person is ethical if he lives by certain traits or virtues which one might regard as morally good.
 
-The apparent simplicity and practicality of such a system of morality are also its greatest strengths. <span className="citation">Foot <a href="#ref-Foot" role="doc-biblioref">2016</a></span> in Virtue and Morality, lists three essential feature of a virtue:
+The apparent simplicity and practicality of such a system of morality are also its greatest strengths. @foot1997 in Virtue and vices, lists three essential feature of a virtue:
 
 1. It's a disposition of the will
 2. It's beneficial to others, or to its possessor as well as to others
@@ -122,7 +124,7 @@ The apparent simplicity and practicality of such a system of morality are also i
 
 This list might correspond to virtues like Aristotle's Nicomachean Ethics which includes values such as Courage, Magnanimity and Truthfulness, or it could correspond to theological values of the church - Faith, Hope and Charity.
 
-In this age of technology and automation, <span className="citation">Vallor <a href="#ref-Vallor" role="doc-biblioref">2016</a></span> argues that virtue ethics can be a shining beacon that guides decision makers in techno-sociological choices as it is "ideally suited for adaptation to the open-ended and varied encounters with particular technologies that will shape the human condition in this and coming centuries". While agreeing on a common standard of shared virtue ethic might be a herculean task, it is not unreasonable to expect companies and individuals to have a set of core values that they believe in, and would form the basis of evaluating the impact of AIDA models.^[The list of values proposed by Vallor could be a good start: honesty, self-control, humility, justice, courage, empathy, care, civility, flexibility, perspective, magnanimity, and technomoral wisdom.]
+In this age of technology and automation, @vallor2016 argues that virtue ethics can be a shining beacon that guides decision makers in techno-sociological choices as it is "ideally suited for adaptation to the open-ended and varied encounters with particular technologies that will shape the human condition in this and coming centuries". While agreeing on a common standard of shared virtue ethic might be a herculean task, it is not unreasonable to expect companies and individuals to have a set of core values that they believe in, and would form the basis of evaluating the impact of AIDA models.^[The list of values proposed by Vallor could be a good start: honesty, self-control, humility, justice, courage, empathy, care, civility, flexibility, perspective, magnanimity, and technomoral wisdom.]
 
 One might ask, how would it be possible to embed moral virtues in an artificial intelligence system and question whether that can be operationalised. Rather than expecting a system to learn a set of values, I think it makes more sense to ask whether the outcomes produced by these systems conform to our internal values. Instead of asking whether a gun is ethical, we should ask in what context and what circumstances is the use of a gun ethical.
 
@@ -152,7 +154,7 @@ In the context of AI decision making systems, concepts of equality or equity des
 
 If that is the case, it would be better to name these measures as "equivalence metrics" rather than "fairness metrics" as they do not map to an ethical sense of fairness. We can ask whether the number of males and females recommended by our AI model is the same or if the estimated false positive or false negative rates are equivalent, but not whether the model is actually _fair_. Fairness requires situating the equivalence metric in the context that it is being applied, understanding historical or structural factors that could possible explain the differences and a value judgement based on some ethical reasoning.
 
-Another benefit of using the term equivalence rather than fairness is that many of these measures are simply incompatible. Degenerate solutions notwithstanding, mathematically, as formulated in a classification problem, one cannot have equivalence across classes in the number of predicted positives as well as equivalence in the false positive or false negative rates.^[See <span className="citation">Barocas, Hardt and Narayanan <a href="#ref-barocas-hardt-narayanan" role="doc-biblioref">2019</a></span> for a proof of independence versus separation.] More broadly, how we think about fairness varies across scenarios, but given a specific problem, we can probably articulate why we think a particular distribution or outcome is fair.^[Note, this refers to one outcome, not 20 different fairness outcomes.]
+Another benefit of using the term equivalence rather than fairness is that many of these measures are simply incompatible. Degenerate solutions notwithstanding, mathematically, as formulated in a classification problem, one cannot have equivalence across classes in the number of predicted positives as well as equivalence in the false positive or false negative rates.^[See @barocas-hardt-narayanan for a proof of independence versus separation.] More broadly, how we think about fairness varies across scenarios, but given a specific problem, we can probably articulate why we think a particular distribution or outcome is fair.^[Note, this refers to one outcome, not 20 different fairness outcomes.]
 
 A lot of what is discussed in the machine learning literature touches on fairness (or rather equivalence in certain outcomes) between groups, yet this narrowly constricts fairness to the notion of equality. Of course, we should think about fairness in the context of prejudiced groups, but we should also ask whether it is fair to an individual. Adding constraints in models might lead to worse outcomes for other individuals. If the decision making processs has serious consequences e.g. a fraud model, it is hard to think that we are truly fair by forcing models to obtain an equal number of fraud cases across certain demographic attributes.
 
@@ -166,36 +168,4 @@ While there is much debate within ethics on what constitutes right and wrong, by
 
 ## References
 
-<div id="ref-barocas-hardt-narayanan">
-<p> Barocas, Solon, Moritz Hardt and Arvind Narayanan <em> Fairness and Machine Learning.</em> 2019. <a href="http://www.fairmlbook.org">http://www.fairmlbook.org</a></p>
-</div>
-<div id="ref-Chouldechova">
-<p> Chouldechova, Alexandra. "Fair prediction with disparate impact: A study of bias in recidivism prediction instruments." <em> Big data 5.</em> no. 2 (2017): 153-163.</p>
-</div>
-<div id="ref-dwork-2012">
-<p> Dwork, Cynthia, Moritz Hardt, Toniann Pitassi, Omer Reingold, and Richard Zemel. "Fairness through awareness." <em> In Proceedings of the 3rd innovations in theoretical computer science conference</em>, pp. 214-226. 2012.</p>
-</div>
-<div id="ref-Foot">
-<p> Foot, Philippa. "Virtues and vices." <em> Virtue ethics.</em> (1997): 163-177.</p>
-</div>
-<div id="ref-Hardt">
-<p> Hardt, Moritz, Eric Price, and Nati Srebro. "Equality of opportunity in supervised learning." <em> Advances in neural information processing systems 29.</em> (2016): 3315-3323.</p>
-</div>
-<div id="ref-Kant">
-<p> Kant, Immanuel. <em> Groundwork of the Metaphysic of Morals.</em> Oxford University Press, 1785/2002</p>
-</div>
-<div id="ref-Sahil-Rubin">
-<p> Verma, Sahil, and Julia Rubin. "Fairness definitions explained." <em> In 2018 ieee/acm international workshop on software fairness (fairware).</em> pp. 1-7. IEEE, 2018.</p>
-</div>
-<div id="ref-Saxena">
-<p> Saxena, Nripsuta Ani, Karen Huang, Evan DeFilippis, Goran Radanovic, David C. Parkes, and Yang Liu. "How do fairness definitions fare? Examining public attitudes towards algorithmic definitions of fairness." <em> In Proceedings of the 2019 AAAI/ACM Conference on AI, Ethics, and Society.</em> pp. 99-106. 2019.</p>
-</div>
-<div id="ref-Srivastava">
-<p> Srivastava, Megha, Hoda Heidari, and Andreas Krause. "Mathematical notions vs. human perception of fairness: A descriptive approach to fairness for machine learning." <em> In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining.</em> pp. 2459-2468. 2019.</p>
-</div>
-<div id="ref-Stoyanovich-Howe-Jadadish">
-<p> Stoyanovich, Julia, Bill Howe, and H. V. Jagadish. "Responsible data management."<em> Proceedings of the VLDB Endowment</em> 13, no. 12 (2020): 3474-3488. </p>
-</div>
-<div id="ref-Vallor">
-<p> Vallor, Shannon. <em> Technology and the virtues: A philosophical guide to a future worth wanting.</em>  Oxford University Press, 2016.</p>
-</div>
+[^ref]

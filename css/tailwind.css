@@ -14,6 +14,10 @@
   @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
 }
 
+.csl-entry {
+  @apply my-5;
+}
+
 html {
   scroll-behavior: smooth;
 }
