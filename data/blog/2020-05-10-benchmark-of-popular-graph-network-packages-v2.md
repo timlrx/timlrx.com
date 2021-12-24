@@ -2,7 +2,7 @@
 title: Benchmark of popular graph/network packages v2
 author: Timothy Lin
 date: '2020-05-10'
-bibliography: [network-packages.bib]
+# bibliography: 'network-packages.bib'
 link-citations: true
 tags: ['benchmarks', 'networks', 'notes', 'python', 'r', 'julia']
 summary: A revised benchmark of graphs / network computation packages featuring an updated methodology and more comprehensive testing. Find out how Networkx, igraph, graph-tool, Networkit, SNAP and lightgraphs perform
@@ -44,14 +44,7 @@ The benchmark was carried out using a Google Compute n1-standard-16 instance (16
 
 Where applicable, all algorithms were tested using all 16 cores. I compared 6 different packages:
 
-<ul>
-<li>graph-tool, v2.31 <span className="citation">(Peixoto <a href="#ref-graphtool" role="doc-biblioref">2014</a>)</span></li>
-<li>igraph, v0.8.2 <span className="citation">(Csardi and Nepusz <a href="#ref-igraph" role="doc-biblioref">2006</a>)</span></li>
-<li>networkit, v6.1.0 <span className="citation">(Staudt, Sazonovs, and Meyerhenke <a href="#ref-networkit" role="doc-biblioref">2016</a>)</span></li>
-<li>networkx, v2.4 <span className="citation">(Hagberg, Swart, and S Chult <a href="#ref-networkx" role="doc-biblioref">2008</a>)</span></li>
-<li>SNAP, v5.0.0 <span className="citation">(Leskovec and Sosič <a href="#ref-snap" role="doc-biblioref">2016</a>)</span></li>
-<li>lightgraphs, v2.0-dev <span className="citation">(Seth Bromberger and contributors <a href="#ref-lighgraphs" role="doc-biblioref">2017</a>)</span></li>
-</ul>
+- lightgraphs, v2.0-dev [@lighgraphs]
 
 Networkx is written in Python while the other four packages, with the exception of lightgraphs, are based on C / C++ but have Python APIs. Igraph has an R and Mathematica binding as well though the benchmark was carried out on the Python one. Lightgraphs offers a performant platform for network and graph analysis in Julia.
 
