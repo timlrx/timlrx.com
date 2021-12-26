@@ -2,7 +2,7 @@
 title: A Human-centric Approach to Fairness in AI
 date: '2021-09-16'
 lastmod: '2021-12-24'
-tags: ['fairness', 'ethics', 'veritas', 'philosophy', 'data science', 'singapore']
+tags: ['fairness', 'ethics', 'veritas', 'philosophy', 'responsible-ai', 'data science', 'singapore']
 draft: false
 bibliography: 'responsible-ai.bib'
 summary: Fairness is messy and complicated. Attempts to distil it down to a single metric is unhelpful and counter-productive. As business owners and model developers we should embrace the struggle in trying to apply fairness in artificial intelligence and data analytics models.
