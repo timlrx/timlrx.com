@@ -1,5 +1,5 @@
 ---
-title: Building open source projects - Lessons I learned (2021)
+title: Building open source projects - Lessons learned (2021)
 date: '2022-01-12'
 tags: ['open-source', 'musings', 'notes']
 draft: false
