@@ -1,0 +1,189 @@
+---
+title: SQLite WASM with Custom Extensions
+date: '2023-06-18'
+tags: ['sqlite', 'wasm', 'notes']
+draft: false
+summary: A concise guide on building SQLite WASM on Ubuntu Linux with custom extensions. Run SQLite in the browser and enable new possibilities by providing an interface to other C libraries through custom extensions.
+images: ['/static/img/sqlite-wasm-post-banner.png']
+layout: PostLayout
+---
+
+<TOCInline toc={props.toc} asDisclosure toHeading={3} />
+ 
+The WebAssembly (WASM) ecosystem has matured over the past couple of years, with growing browser support and tooling across different programming languages. On the application side, some very interesting projects that caught my attention include [SQL.js](https://github.com/sql-js/sql.js/), the pioneer project that demonstrated that it could be possible for SQLite to run completely within the browser, and [Pyodide](https://pyodide.org/en/stable/), which allows for a Python distribution to run within the browser.
+
+I wrote down some notes over the weekend going through the [official SQLite WASM release](https://sqlite.org/wasm/doc/trunk/index.md) while attempting to create a SQLite WASM build with a custom extension. Materials for the post are based on [SQLite documentation](https://sqlite.org/wasm/doc/trunk/building.md) and forum discussions on the latest changes which simplifies adding custom extensions.
+
+## Prerequisites
+
+### Install GCC and Cmake
+
+```bash
+$ sudo apt update
+$ sudo apt install build-essential cmake
+```
+
+### Install Enscripten SDK
+
+> Emscripten is a complete Open Source compiler toolchain to WebAssembly. Using Emscripten you can:
+>
+> Compile C and C++ code, or any other language that uses LLVM, into WebAssembly, and run it on the Web, Node.js, or other wasm runtimes.
+
+```bash
+# Clone the emscripten repository:
+$ sudo apt install git
+$ git clone https://github.com/emscripten-core/emsdk.git
+$ cd emsdk
+
+# Download and install the latest SDK tools:
+$ ./emsdk install latest
+
+# Make the "latest" SDK "active" for the current user:
+$ ./emsdk activate latest
+
+# Add to shell
+$ echo 'source "/home/user/emsdk/emsdk_env.sh"' >> $HOME/.bash_profile
+```
+
+### Install WASM Binary Toolkit (Wabt tools)
+
+We need `wasm-strip` for a production build as:
+
+> Emscripten's approach to mangling and minifying symbol names is incompatible with the sqlite3 build (resulting in completely non-functional JS files), the builds have to be created with full debugging info enabled using -g3. That inhibits Emscripten's minification of symbols but it also leads to huge .wasm files. wasm-strip can then shrink those by removing the debugging symbols. wasm-strip is automatically used if the build finds it. If it is not found, the build will warn but function, the main drawback being that the .wasm files will be extremely large.
+
+```bash
+$ git clone --recursive https://github.com/WebAssembly/wabt
+$ cd wabt
+$ git submodule update --init
+
+# Add to shell
+$ export PATH="$HOME/wabt/build:$PATH"
+```
+
+## Building SQLite WASM
+
+### Development build
+
+Each build produces a number of artifacts, including:
+
+- `jswasm/sqlite3.{js,mjs,wasm}` are the core-most versions of the library and its APIs. Several other JS and WASM files are also built to this directory. sqlite3.mjs is the same as sqlite3.js except for very minor differences required for loading it as an ES6 module.
+- `jswasm/_-bundler-friendly._` are variant builds intended to be used with JS "bundler" tools.
+- `fiddle/fiddle-module.{js,wasm}` are the core of the fiddle application. The fiddle/ directory can be copied as-is and served via a web server to host the sqlite3 fiddle application.
+
+```bash
+$ https://github.com/sqlite/sqlite.git
+$ cd sqlite
+$ ./configure --enable-all
+$ make sqlite3.c
+$ cd ext/wasm
+$ make
+```
+
+Test out the package by running a local web server and opening the `index.html` file in a browser:
+
+```bash
+$ python3 -m http.server
+```
+
+You should be greeted with a test page that includes an interactive fiddle application.
+
+![SQLite WASM Test Page](/static/img/sqlite-wasm-test-page.png)
+
+### Production build
+
+```bash
+$ make release
+```
+
+To zip and release it similar to the [SQLite download page](https://sqlite.org/download.html):
+
+```bash
+$ make dist
+```
+
+## Adding a new extension
+
+To statically link and distribute SQLite WASM with a custom built-in extension, we can create a `sqlite3_wasm_extra_init.c` file in the `ext/wasm` directory of the source tree and re-run `make`. This is a [relatively new feature](https://sqlite.org/forum/info/1e1c04f3ed1bc96b) released on 27 Feb 23 and simplifies adding custom extensions.
+
+As explained in the [wasm_sqlite_with_stats repository](https://github.com/llimllib/wasm_sqlite_with_stats):
+
+> [it uses a] preprocessor macro called SQLITE_EXTRA_INIT which will, if defined, load extra code into sqlite after finishing up its own initialization. If you point SQLITE_EXTRA_INIT at a function that calls sqlite3_auto_extension with a pointer to your extension's init function, it will load right after sqlite loads itself and the functions defined within will be available to sqlite.
+
+However, there's no need to tinker with the build steps as shown in the above referenced repository since the new changes have made it much easier to add a custom extension.
+
+### Adding a rot13 function
+
+Let's add the official rot13 extension to our build.
+
+We can copy the file from the `ext` directory:
+
+```bash
+cp ../misc/rot13.c .
+```
+
+or download it from this [link](https://www.sqlite.org/src/file/ext/misc/rot13.c).
+
+Next, create `sqlite3_wasm_extra_init.c` with the following contents:
+
+```c
+/*
+** If the canonical build process finds the file
+** sqlite3_wasm_extra_init.c in the main wasm build directory, it
+** arranges to include that file in the build of sqlite3.wasm and
+** defines SQLITE_EXTRA_INIT=sqlite3_wasm_extra_init.
+**
+** The C file must define the function sqlite3_wasm_extra_init() with
+** this signature:
+**
+**  int sqlite3_wasm_extra_init(const char *)
+**
+** and the sqlite3 library will call it with an argument of NULL one
+** time during sqlite3_initialize(). If it returns non-0,
+** initialization of the library will fail.
+*/
+
+#include "sqlite3.h"
+#include <stdio.h>
+#include "rot13.c"
+
+int sqlite3_wasm_extra_init(const char *z){
+  int nErr = 0;
+  nErr += sqlite3_auto_extension((void(*)())sqlite3_rot_init);
+  return nErr ? SQLITE_ERROR : SQLITE_OK;
+}
+```
+
+We use the [sqlite3_auto_extension](https://www.sqlite.org/c3ref/auto_extension.html) function to register the rot13 extension. Note, SQLite will call the function with an argument of NULL one time during sqlite3_initialize(). If it returns non-0, initialization of the library will fail.
+
+Re-run `make` in the `ext/wasm` directory. The new build will include the rot13 extension. However, as pointed out in the [forums](https://sqlite.org/forum/info/1e1c04f3ed1bc96b), this is not included in the fiddle and speedtest1 build by default as the fiddle includes `shell.c` which includes a number of built-in extensions that might clash with the custom extension.
+
+### Building a fiddle with the custom extension
+
+Nonetheless, it might still be convenient to build a fiddle with the custom extension so we can quickly test it out. To do so, we need to edit `fiddle.make` by adding the `DSQLITE_WASM_EXTRA_INIT` flag to [fiddle.emcc-flaggs](https://github.com/sqlite/sqlite/blob/version-3.42.0/ext/wasm/fiddle.make#L27-L43) i.e. it should look like:
+
+```make
+fiddle.emcc-flags = \
+  ...
+  -DSQLITE_SHELL_FIDDLE \
+  -DSQLITE_WASM_EXTRA_INIT
+```
+
+Also edit [fiddle.cses](https://github.com/sqlite/sqlite/blob/version-3.42.0/ext/wasm/fiddle.make#L55) to:
+
+```make
+fiddle.cses := $(dir.top)/shell.c $(sqlite3-wasm.cses)
+```
+
+The code might change in feature releases, but the general idea is that we need to add the `DSQLITE_WASM_EXTRA_INIT` flag and `sqlite3_wasm_extra_init.c` to the fiddle build.
+
+Re-run `make` in the `ext/wasm` directory and you should be able to use the rot13 function in the fiddle like so:
+
+```sql
+SELECT rot13('Uryyb Jbeyq');
+```
+
+![SQLite WASM Fiddle](/static/img/sqlite-wasm-fiddle.png)
+
+## Demo
+
+As everything is self-contained within the fiddle directory, we can just drag and drop it to Netlify and serve it as a static site. Try it out over [here](https://sqlite-wasm-rot13.netlify.app/).
