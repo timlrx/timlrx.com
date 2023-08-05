@@ -21,7 +21,7 @@ const siteMetadata = {
   },
   newsletter: {
     // Please add your .env file and modify it according to your selection
-    provider: 'emailOctopus',
+    provider: 'emailoctopus',
   },
   comment: {
     provider: '', // supported providers: giscus, utterances, disqus
