@@ -43,5 +43,13 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# R
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.my.cnf
+/r-code
+
 # Contentlayer
 .contentlayer
