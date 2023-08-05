@@ -90,7 +90,6 @@ export const Blog = defineDocumentType(() => ({
     authors: { type: 'list', of: { type: 'string' } },
     layout: { type: 'string' },
     bibliography: { type: 'string' },
-    'link-citations': { type: 'boolean' },
     canonicalUrl: { type: 'string' },
   },
   computedFields: {
