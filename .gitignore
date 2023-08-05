@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+/.yarn/*
+!/.yarn/releases
+!/.yarn/plugins
+!/.yarn/sdks
 
 # testing
 /coverage
@@ -19,7 +23,10 @@ public/sitemap.xml
 *.xml
 
 # rss feed
-/public/feed.xml 
+/public/feed.xml
+
+# search
+/public/search.json
 
 # misc
 .DS_Store
@@ -36,13 +43,5 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# R
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
-.my.cnf
-/r-code
-
-# personal
-*.psd
+# Contentlayer
+.contentlayer

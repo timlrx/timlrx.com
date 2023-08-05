@@ -11,22 +11,23 @@
 }
 
 .footnotes {
-  @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
+  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
+}
+
+.data-footnote-backref {
+  @apply no-underline;
 }
 
 .csl-entry {
   @apply my-5;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-.container-iframe {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%;
+/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
 }
 
 .responsive-iframe {
@@ -37,4 +38,12 @@ html {
   right: 0;
   width: 100%;
   height: 100%;
+}
+
+span.citation p {
+  display: inline;
+}
+
+li p {
+  display: inline;
 }

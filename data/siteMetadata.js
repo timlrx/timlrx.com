@@ -1,3 +1,4 @@
+/** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Quasilinear Musings',
   author: 'Timothy Lin',
@@ -14,10 +15,9 @@ const siteMetadata = {
   linkedin: 'https://www.linkedin.com/in/timlrx',
   locale: 'en-US',
   analytics: {
-    // supports plausible, simpleAnalytics or googleAnalytics
-    plausibleDataDomain: false, // e.g. tailwind-nextjs-starter-blog.vercel.app
-    simpleAnalytics: false, // true or false
-    googleAnalyticsId: 'UA-100201704-1', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalytics: {
+      googleAnalyticsId: 'UA-100201704-1', // e.g. G-XXXXXXX
+    },
   },
   newsletter: {
     // Please add your .env file and modify it according to your selection
@@ -60,6 +60,12 @@ const siteMetadata = {
     disqus: {
       // https://help.disqus.com/en/articles/1717111-what-s-a-shortname
       shortname: '',
+    },
+  },
+  search: {
+    provider: 'kbar', // kbar or algolia
+    kbarConfig: {
+      searchDocumentsPath: 'search.json', // path to load documents to search
     },
   },
 }
