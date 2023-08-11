@@ -1,7 +1,7 @@
 ---
 title: SQLite WASM with Custom Extensions
 date: '2023-06-18'
-lastmod: '2023-08-08'
+lastmod: '2023-08-11'
 tags: ['sqlite', 'wasm', 'notes']
 draft: false
 summary: A concise guide on building SQLite WASM on Ubuntu Linux with custom extensions. Run SQLite in the browser and enable new possibilities by providing an interface to other C libraries through custom extensions.
@@ -198,3 +198,7 @@ SELECT rot13('Uryyb Jbeyq');
 ## Demo
 
 As everything is self-contained within the fiddle directory, we can just drag and drop it to Netlify and serve it as a static site. Try it out over [here](https://sqlite-wasm-rot13.netlify.app/).
+
+## SQLite Extension Template
+
+11 Aug 2023, Update - I've created a [SQLite Extension Template](https://github.com/timlrx/sqlite-extension-template). It expands on what is covered in the post and supports building a C / C++ extension with a loadable module, static extension, WebAssembly distribution with fiddle and a Python package.
