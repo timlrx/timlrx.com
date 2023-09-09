@@ -1,0 +1,199 @@
+---
+title: The Best In-Browser Data Processing Framework is SQL
+date: '2023-09-09'
+lastmod: '2023-09-09'
+tags: ['sqlite', 'wasm', 'duckdb', 'benchmarks']
+draft: false
+summary: An in-browser benchmark comparing Arquero, Danfo.js, SQLite WASM and DuckDB WASM across a mix of transactional and analytical queries. SQL frameworks extend their impressive performance from the server to the browser.
+images: ['/static/img/browser-benchmark-banner.png']
+layout: PostLayout
+---
+
+Continuing the [explorations](./2023-06-18-sqlite-wasm-with-custom-extensions) on in-browser processing capabilities, recently I wrote a benchmark to evaluate various frameworks including Arquero, Danfo.fs, SQLite WASM, and DuckDB. 
+
+The conclusion? WebAssembly ports of high performance libraries like SQLite WASM and DuckDB are extremely performant and are probably the best approach for in-browser data processing from both a performance and developer experience perspective. 
+
+Dive straight to the [results](#results) and [run the benchmarks in your browser][benchmarks], or continue reading to learn why in-browser computation opens interesting possibilities in client-side computing. 
+
+<TOCInline toc={props.toc} asDisclosure toHeading={3} />
+
+## The Evolution of the Browser as a Data Sandbox
+
+![Data Streams in the Browser](/static/img/browser-benchmark-abstract.jpg)
+
+While it might be a little unusual to consider the browser a computing environment for data-intensive tasks, it is not without its merits. It has always been a popular medium to ship web-based games since the good old days of Macromedia Flash to more recent WebGL accelerated applications. 
+
+But the browser's potential doesn't stop at gaming; it extends to data processing as well. With the confluence of hardware improvements, new web and data standards, and the emergence of WebAssembly, the browser is now capable of handling increasingly complex tasks, even for large datasets.
+
+I will just briefly outline how these technologies have enabled the browser to become a powerful data computation tool. 
+
+Modern devices including laptops and handphones are now packed with powerful processors enabling users to run generative AI applications that were previously thought to be impossible. I think it parallels the trend of enterprises moving workloads away from distributed computing to more powerful single machines, and we shall see more workloads moving to the browser as well. 
+
+One of the pain points of working with data frameworks across various languages is the lack of interoperability.[^1] With the semi-convergence of data standards towards parquet and arrow for analytical workloads, it is now possible to read and write across various languages in a performant manner (i.e. not resorting to CSVs and JSON). Coupled with WebAssembly (WASM) coming into the picture, many of these native libraries can now be compiled to run in the browser. This is a huge win for developers as they can now leverage the same performant libraries across various languages and platforms, instead of having to re-implement them in JavaScript(JS).
+
+We have begun to see the emergence of in-browser data processing tools from libraries like [Perspective.js][perspective] which provide interactive analytics and visualization components for large streaming datasets[^2], to compute applications like [Observable][observable], a web-based Jupyter Notebook, and [Graphistry][graphistry], a GPU-accelerated graph analysis platform.
+
+## Benefits of In-Browser Data Processing
+
+As a platform, the browser is ubiquitous and is a great sandbox for data exploration and visualization.
+
+In addition, in-browser computing is a paradigm shift from large powerful backends that do the heavy lifting to local computation on individual client systems. This shift towards performing data processing directly in the browser brings the following benefits.
+
+### 1. Reduced Server Load
+Traditionally, data processing tasks have been offloaded to remote servers due to their resource-intensive nature. However, as browsers become more powerful and efficient, they can now handle a significant portion of this workload. This translates to reduced server load, lower operational costs, and quicker response times for users.
+
+### 2. Enhanced Privacy
+Processing data in the browser can bolster user privacy. By keeping data on the client side, sensitive information doesn't need to be transmitted to a remote server, reducing the risk of data breaches and enhancing data security.
+
+### 3. Offline Functionality
+Browsers have introduced sophisticated service workers and caching mechanisms, allowing web applications to work seamlessly offline or with intermittent connectivity. In-browser data processing enables applications to continue functioning even when there's no internet connection, offering a smoother user experience.
+
+### 4. Real-time Interactivity
+Modern web applications demand real-time interactivity. In-browser data processing can facilitate dynamic updates, interactive visualizations, and instant responses to user input. This leads to engaging and responsive user interfaces, making applications more user-friendly.
+
+## The Benchmark
+
+Now that we've established the browser's potential as a data computation environment, let's dive into the benchmarks. There are two prior related benchmarks:
+
+- [wa-sqlite benchmark][wa-sqlite] - Focuses on SQLite variants and primarily transactional queries. A very useful guide to gauge the capabilities of the different SQLite variants. I adapted most of the approach, layout, and design from Roy Hashimoto's benchmark.
+- [DuckDB WASM comparisons][DuckDB versus] - Compares DuckDB-Wasm, sql.js[^3], Arquero, and Lovefield on the TPC-H benchmark, which consists of mostly analytical queries. While it compares the WASM library, the benchmark runs on node.js and not directly in the browser.
+
+For this benchmark, I wanted to test a mix of transactional and analytical queries within the browser environment. I selected four libraries to benchmark - Arquero, Danfo.fs, SQLite WASM, and DuckDB. This is intended to cover a broad range of approaches from JavaScript native libraries (Danfo.js) to JS libraries that work with modern data formats (Arquero with Arrow.js), to WebAssembly ported staples (SQLite WASM) and analytical database (DuckDB). 
+
+![benchmark candidates](/static/img/browser-benchmark-logos.jpg)
+
+A quick discussion of each and the different variations benchmarked is in order.
+
+### Arquero
+
+[Arquero][arquero] is a JavaScript library created by the [University of Washington Interactive Data Lab](https://idl.cs.washington.edu/). It provides a fluent API for manipulating tabular data in the browser, taking inspiration from the various famous [dplyr] library. It supports loading data from Apache Arrow format, but not Parquet. As an intermediate step, I used [Parquet-WASM][parquet-wasm] to load it from Parquet into Arrow.  
+
+While the API is convenient for analytical processing, it is not a database, and adding, removing, or updating data is a hassle and definitely not as performant.[^4] As such, the benchmark skips the transactional queries and focuses on analytical queries.
+
+### Danjo.fs
+
+I was interested in including [Danfo.js][danfo] as it supports Tensorflow.js out of the box. I thought it would be interesting to see how a GPU-accelerated framework might perform on the benchmark, but on a closer look at the source code, the core data structures and transformations are handled in JS.[^5] Nevertheless, it's still a good library to include as it is a popular pandas-esque data frame library implemented in JS.
+
+While writing the queries, I had to fall back to regular JS for some of the operations as the library does not implement the full set of Pandas APIs like `transform`. Similar to Arquero, there is no efficient API to add, remove, or update rows and the benchmark skips those tests.
+
+### SQLite WASM
+
+[SQLite WASM][sqlite] is a port of SQLite to WebAssembly. SQLite probably needs no introduction, being one of the most widely adopted in-process, self-contained database engines. There are multiple compilations out in the wild each with varying capabilities.[^6] This benchmark is based on the official release. 
+
+Other than benchmarking the in-memory WASM library, I have also included 3 variants of interest, one with additional indexes defined, the second which stores the database in the Origin Private File System ([OPFS][opfs]), and the third which stores the database in OPFS with Sync Access Handles (OPFS-SAH). The latter two are interesting as they allow the database to persist in a file system specially carved out for application storage as part of the new [file system standard][whatwg-fs].
+
+From [benchmarks done previously in wa-sqlite][wa-sqlite] the OPFS approaches seem to be more performant than indexed DB, which is another possibility for storing the database and an older web standard.
+
+### DuckDB
+
+[DuckDB WASM][duckdb] is a relatively new in-process database that excels in analytical workloads. While traditional database systems like SQLite, Postgre, and MySQL are row-level stores that are optimized for transactional workloads, DuckDB is a columnar store that accelerates analytical workloads with its vectorized execution engine.[^7] As a columnar store, it has a zero-copy integration between its internal format and Apache Arrow, as well as out-of-the-box functions for reading and writing Parquet files.
+
+Other than the default DuckDB WASM in-memory library, I have included a benchmark of the library using the HTTP File System (HTTPFS) approach. This extension allows reading and writing remote files. For Parquet files, DuckDB uses the file metadata and HTTP range requests to only download the parts required by the query. In the benchmark, we skip the "Fetch" step and define a `CREATE VIEW` in the load step. Thus, there is no up-front large network load but each query sends multiple network requests to fetch the required data. This is intended to benchmark DuckDB WASM as a remote query engine for Parquet files.
+
+## Dataset and Queries
+
+![Bandcamp logo](/static/img/bandcamp-logo.webp)
+
+To benchmark the libraries discussed above, I run 9 different queries on the [1,000,000 Bandcamp sales dataset][bandcamp-data]. The dataset contains 1,000,000 items with 24 fields from Bandcamp's sales feed between 2020-09-09 and 2020-10-02. 
+
+Since each library requires different import formats, I converted the raw CSV file to the required formats before serving it from Cloudflare's R2 storage. The raw CSV file is 301MB uncompressed. The Gzipped CSV is 81MB and is used by Danfo.js. The compressed parquet zstd file is 74MB and is used for both Arquero and DuckDB, while the SQLite tests fetch and load a 100MB Gzipped database file.
+
+The queries are a mix of transactional and analytical queries. Putting aside the fetch and load times, which are useful as a reference, but should be interpreted carefully as it depends on the network speed as well as any caching behaviour, there are 9 queries in total. The first 3 are analytical queries in increasing orders of difficulty:
+
+1. Obtain the overall count, mean, and total sales across the entire dataset
+2. Obtain the total daily sales and revenue by day (some transformation is required from unix timestamp to date)
+3. Window query where we obtain the top 5 countries by sales for each item / slug type combination
+
+The next 3 queries are intended to benchmark random row reads:
+
+4. Select 10 random rows
+5. Create an index on `column00` (where applicable)
+6. Select 1000 random roles on the indexed column
+
+The final 3 queries are intended to benchmark update, insert, and delete operations:
+
+7. Update 1000 random rows
+8. Insert 1000 random rows
+9. Delete 1000 random rows
+
+Note that for queries 4, 6, 7, 8, and 9, the operations are conducted sequentially and are not batched. For the full source code, check out the [github respository][github].
+
+## Results
+
+I have included two sets of results - one from an 11th Gen Intel(R) Core(TM) i7-1165G7 @2.80GHz Windows laptop running Chrome 116 and the other from an Apple M2 Macbook Air on Firefox 117.
+
+### 11th Gen Intel(R) Core(TM) i7-1165G7 @2.80GHz Windows and Chrome 116
+
+| Test                                                                                           | arquero | danfo | sqlite | sqlite (indexed) | sqlite (OPFS) | sqlite (OPFS + SAH) | duckdb | duckdb (HttpFS) |
+| ---------------------------------------------------------------------------------------------- | ------- | ----- | ------ | ---------------- | ------------- | ------------------- | ------ | --------------- |
+| Fetch data                                                                                     | 3.009   | 16.86 | 2.661  | 2.483            | 2.438         | 4.951               | 1.508  | n/a             |
+| Load data                                                                                      | 2.866   | n/a   | 0.893  | 3.907            | 0.832         | 2.089               | 4.309  | 0.463           |
+| Test 1: SELECT top level metrics - overall count, mean and total sales                         | 0.067   | 0.193 | 0.376  | 0.103            | 2.402         | 0.72                | 0.014  | 0.859           |
+| Test 2: SELECT group by day and count daily sales and total revenue                            | 1.05    | 4.068 | 0.638  | 0.005            | 2.603         | 1.181               | 0.163  | 1.648           |
+| Test 3: SELECT for each item type, slug type combination the top 5 countries by overall counts | 4.847   | 3.413 | 1.432  | 0.165            | 3.311         | 1.938               | 0.114  | 1.477           |
+| Test 4: SELECT 10 random rows                                                                  | 0.517   | 1.665 | 0.991  | 0.002            | 12.033        | 2.412               | 0.032  | 7.325           |
+| Test 5: CREATE an index                                                                        | n/a     | n/a   | 0.573  | n/a              | 2.51          | 0.86                | 0.24   | n/a             |
+| Test 6: SELECT 1000 random rows with an index                                                  | n/a     | n/a   | 0.054  | 0.065            | 3.795         | 0.1                 | 1.048  | n/a             |
+| Test 7: UPDATE 2 fields in 1000 rows with an index                                             | n/a     | n/a   | 0.038  | 0.062            | 42.316        | 16.411              | 0.588  | n/a             |
+| Test 8: INSERT 1000 rows with an index                                                         | n/a     | n/a   | 0.041  | 0.078            | 51.042        | 15.851              | 1.397  | n/a             |
+| Test 9: DELETE 1000 rows with an index                                                         | n/a     | n/a   | 0.035  | 0.064            | 48.147        | 15.546              | 2.376  | n/a             |
+
+### Apple M2 Macbook Air and Firefox 117
+
+| Test                                                                                           | arquero | danfo | sqlite | sqlite (indexed) | sqlite (OPFS) | sqlite (OPFS + SAH) | duckdb | duckdb (HttpFS) |
+| ---------------------------------------------------------------------------------------------- | ------- | ----- | ------ | ---------------- | ------------- | ------------------- | ------ | --------------- |
+| Fetch data                                                                                     | 2.257   | 9.487 | 2.847  | 1.968            | 1.498         | 1.221               | 1.084  | n/a             |
+| Load data                                                                                      | 1.707   | n/a   | 0.206  | 2.788            | 0.12          | 0.69                | 4.081  | 0.303           |
+| Test 1: SELECT top level metrics - overall count, mean and total sales                         | 0.051   | 0.082 | 0.259  | 0.074            | 1.846         | 1.091               | 0.007  | 0.554           |
+| Test 2: SELECT group by day and count daily sales and total revenue                            | 0.634   | 2.73  | 0.476  | 0.001            | 2.185         | 1.35                | 0.169  | 1.123           |
+| Test 3: SELECT for each item type, slug type combination the top 5 countries by overall counts | 0.852   | 3.53  | 1.025  | 0.119            | 2.725         | 1.909               | 0.132  | 0.903           |
+| Test 4: SELECT 10 random rows                                                                  | 0.374   | 1.364 | 0.76   | 0.001            | 10.292        | 5.691               | 0.02   | 4.356           |
+| Test 5: CREATE an index                                                                        | n/a     | n/a   | 0.415  | n/a              | 2.101         | 1.344               | 0.207  | n/a             |
+| Test 6: SELECT 1000 random rows with an index                                                  | n/a     | n/a   | 0.02   | 0.025            | 0.923         | 0.089               | 0.748  | n/a             |
+| Test 7: UPDATE 2 fields in 1000 rows with an index                                             | n/a     | n/a   | 0.021  | 0.034            | 10.986        | 0.673               | 0.291  | n/a             |
+| Test 8: INSERT 1000 rows with an index                                                         | n/a     | n/a   | 0.025  | 0.043            | 14.697        | 0.735               | 0.55   | n/a             |
+| Test 9: DELETE 1000 rows with an index                                                         | n/a     | n/a   | 0.019  | 0.036            | 13.757        | 0.717               | 0.576  | n/a             |
+
+As it is a browser based benchmark, feel free to try it out yourself and [run it on your own machine][benchmarks]. It would be interesting to see how it fairs across various devices and browsers. 
+
+## Takeaways
+
+1. Having a specialized format to read and write data significantly reduces the fetch and load time. After deserializing, loading data for both Parquet and SQLite works at the memory buffer level, and is >2x faster than Danfo.js which uses papa parse to parse and type infer the CSV.
+2. As a swiss-army knife of data processing, in-memory DuckDB takes the cake. Without any additional indexes, it is able to perform analytical queries faster than the other libraries. Transactional queries are also reasonably performant and above my expectations for a columnar store.
+3. SQLite excels in transactional queries (no surprises there). If the queries are known in advance, it can even outperform DuckDB on analytical tasks by creating the appropriate indexes. This requires a bit more effort to benchmark and test the queries.
+4. For a single-user browser application, the OPFS-SAH approach is very attractive as it maintains full transactional capabilities while being reasonably performant. As highlighted to me by a user in the DuckDB discord group, on Firefox the read and write performance of OPFS-SAH is even comparable with in-memory DuckDB (in Chrome, it's only about 2x faster than the OPFS benchmark). Due to an existing bug in Safari, the OPFS-SAH approach will fail to run, though it is expected to be fixed in Safari 17. It's still a relatively new spec, so I expect the performance and supprot to converge over time across all browsers, but it's definitely a promising approach.
+5. There's still quite a bit of data moved for DuckDB in HTTPFS mode. This might be improved if additional indexes are defined. 
+****
+## Conclusion
+
+At the end of the day, the choice of which library to use is a matter of trade-offs: 
+
+Working on small dataset with mostly analytical queries? Arquero at 105kB might be a decent choice, though reading and writing to parquet would require an additional heavier dependency e.g. Parquet-WASM (1.3MB).
+
+For everything else, the SQL frameworks provide superior performance, developer experience (it's just _SQL_), and are packed with features. The usual differentiating factor of transactional vs analytical workload probably does not matter as much and the choice probably depends on whether there's a need (or requirement) to work with Parquet files, other file system requirements, and ecosystem tooling. DuckDB definitely packs in a whole bunch of _modern_ processing capabilities, with many nice to have features at the cost of a larger bundle size (3.5MB WASM), while SQLite WASM manages to squeeze in all its goodies in a 400kB WASM package.
+
+[^1]: Not to mention many of the libraries have differing and confusing syntaxes and not very performant - hint pandas.
+[^2]: It's also built on Apache Arrow, so +1 for interoperability.
+[^3]: Probably the first port of SQLite to WASM (2012). For this benchmark, we use the "official" SQLite WASM release.
+[^4]: Here's a [notebook on row manipulation with Arquero](https://observablehq.com/@uwdata/arquero-row-manipulation) from the authors showing that is possible to update, insert and delete rows via joins.
+[^5]: I am still looking for a GPU accelerated data processing library in JS, similar to cuDF or one that is built on GPU.js. If you know of any, feel free to drop a note on the project's Github page.
+[^6]: The [SQLite WASM][sqlite] homepage includes a list of the different versions. 
+[^7]: In the [h2o benchmarks][h2o-benchmark], DuckDB ranks as one of the top performers along other top OLAP databases and libraries like Clickhouse and Polars.
+
+[sqlite]: https://sqlite.org/wasm/doc/trunk/index.md
+[duckdb]: https://duckdb.org/docs/api/wasm/overview.html
+[arquero]: https://uwdata.github.io/arquero/
+[danfo]: https://danfo.jsdata.org/
+[perspective]: https://perspective.finos.org/
+[observable]: https://observablehq.com
+[graphistry]: https://www.graphistry.com/
+[dplyr]: https://dplyr.tidyverse.org/
+[wa-sqlite]: https://rhashimoto.github.io/wa-sqlite/demo/benchmarks.html
+[DuckDB versus]: https://shell.duckdb.org/versus
+[opfs]: https://web.dev/origin-private-file-system/
+[h2o-benchmark]: https://h2oai.github.io/db-benchmark/
+[bandcamp-data]: https://components.one/datasets/bandcamp-sales
+[whatwg-fs]: https://fs.spec.whatwg.org/
+[parquet-wasm]: https://github.com/kylebarron/parquet-wasm
+[benchmarks]: https://browser-data-benchmarks.netlify.app
+[github]: https://github.com/timlrx/browser-data-processing-benchmarks
