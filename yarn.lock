@@ -9750,7 +9750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.31":
+"postcss@npm:8.4.31, postcss@npm:^8.4.31":
   version: 8.4.31
   resolution: "postcss@npm:8.4.31"
   dependencies:
@@ -9761,7 +9761,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.23, postcss@npm:^8.4.24":
+"postcss@npm:^8.4.23":
   version: 8.4.29
   resolution: "postcss@npm:8.4.29"
   dependencies:
@@ -11417,7 +11417,7 @@ __metadata:
     next-contentlayer: 0.3.4
     next-themes: ^0.2.1
     pliny: 0.1.2
-    postcss: ^8.4.24
+    postcss: ^8.4.31
     prettier: ^3.0.0
     prettier-plugin-tailwindcss: ^0.5.6
     react: 18.2.0
