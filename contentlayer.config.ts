@@ -155,8 +155,10 @@ export default makeSource({
       rehypeSlug,
       rehypeAutolinkHeadings,
       rehypeKatex,
+      // @ts-ignore
       [rehypeCitation, { path: path.join(root, 'data') }],
       [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
+      // @ts-ignore
       rehypePresetMinify,
     ],
   },
