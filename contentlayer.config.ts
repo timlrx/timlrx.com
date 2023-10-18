@@ -97,7 +97,7 @@ export const Blog = defineDocumentType(() => ({
     images: { type: 'json' },
     authors: { type: 'list', of: { type: 'string' } },
     layout: { type: 'string' },
-    bibliography: { type: 'string' },
+    bibliography: { type: 'json' },
     canonicalUrl: { type: 'string' },
   },
   computedFields: {
@@ -156,7 +156,7 @@ export default makeSource({
       rehypeAutolinkHeadings,
       rehypeKatex,
       // @ts-ignore
-      [rehypeCitation, { path: path.join(root, 'data') }],
+      [rehypeCitation, { path: path.join(root, 'data'), linkCitations: true }],
       [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
       // @ts-ignore
       rehypePresetMinify,

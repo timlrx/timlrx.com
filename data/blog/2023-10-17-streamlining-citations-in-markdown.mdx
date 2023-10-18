@@ -1,0 +1,213 @@
+---
+title: "Streamlining Citations in Markdown - Cite Faster and Smarter"
+date: '2023-10-17'
+lastmod: '2023-10-17'
+tags: ['mdx', 'javascript', 'markdown', 'citations']
+draft: false
+summary: The art and craft of automating citations beyond the mountain of domain specific intricacies and regex. Rehype Citation is a plugin that allows citations and bibliography to be easily inserted from local and remote sources.
+images: ['/static/img/rehype-citation/rehype-citation.png']
+bibliography:
+  - 'https://raw.githubusercontent.com/jgm/pandoc/main/CITATION.cff'
+  - 'https://raw.githubusercontent.com/quarto-dev/quarto-cli/main/CITATION.cff'
+  - 'https://raw.githubusercontent.com/citation-js/citation-js/main/CITATION.cff' 
+  - 'https://raw.githubusercontent.com/rstudio/rmarkdown/main/CITATION.cff'
+  - 'https://raw.githubusercontent.com/timlrx/rehype-citation/main/CITATION.cff'
+layout: PostLayout
+---
+
+
+![Prior art](/static/img/rehype-citation/rehype-citation.png)
+
+Citations are an essential component of any academic or research document. They not only give credit to the original authors of the sources you've used but also lend credibility and authority to the work. However, anyone who has ever engaged in academic or research writing knows that managing and formatting citations is a painful task. While more academic focused tools like LaTeX or even Microsoft Word have built-in support for citation management and insertion, this is not the case for markdown documents.
+
+Much has been written about the pros and cons of Markdown. For me, it's a superior and pragmatic format. It allows writers to focus on the content while being hackable enough to support additional intricacies from syntax highlighting to diagrams and even arbitrary embedded code. 
+
+Furthermore, the compatibility of Markdown with various version control systems and platforms ensures that technical documentation remains consistent and accessible across different environments. It's a tool that caters to the needs of technical writers, offering a straightforward yet powerful means to communicate complex information with clarity and precision. All that is missing is a way to insert citations easily...
+
+Skip to the [Getting Started](#getting-started) section if you want to integrate citations into your markdown documents, try the [demo][demo] to see it in action, or read on to learn more about the technical details of how I built Rehype Citation to solve this problem.  
+
+<TOCInline toc={props.toc} asDisclosure toHeading={3} />
+
+## Prior Art
+
+![Prior art](/static/img/rehype-citation/prior-art.jpeg)
+
+There are a few existing solutions to this problem. The most common approach is to use a citation manager like Zotero or Mendeley to generate a BibTeX file and then use a tool like Pandoc [@github.com/jgm/pandoc] to convert the markdown document to HTML.
+
+This is the approach adopted by the wonderful RMarkdown [@github.com/rstudio/rmarkdown], Bookdown, and Quarto [@10.5281/zenodo.5960048] projects, and what I was using for my previous blog.
+
+Moving to a new JS and React-based blog, I had to re-create these capabilities from scratch. While the [UnifiedJS][Unified] ecosystem provides a lot of the building blocks, it still took quite a bit of effort to figure out the intricacies of citation parsing. As far as I am aware, this is the only isomorphic plugin (it runs on both the browser and server) that supports citations and bibliography in markdown.
+
+[Citeproc][Citeproc] and Citation-JS [@10.7717/peerj-cs.214] deserve much of the credit for making this possible. The parsers and integration with various file formats (BibTex, Citation File Format etc.) were adapted from Citation-JS with few changes made, mostly to reduce pulling in additional dependencies which bloat up the browser package.[^1]
+
+A year ago, I wrote the first version of the plugin with the main aim of porting Pandoc citation functionality to my new blog setup. Since then, I have been refining it and adding new features. The plugin is now at version 2.0 and packs a bunch of quality of life improvements - citing has never been easier!
+
+## How it Works
+
+<Bleed>
+![Unified Remark Rehype Pipeline](/static/img/rehype-citation/unified-pipeline.png)
+</Bleed>
+
+[UnifiedJS][Unified] provides an interface for processing content with syntax trees. Markdown/MDX processing pipelines help transform markdown files into HTML through a multi-step process, illustrated in the diagram above (follow the black arrows). 
+
+There are two main entry points for an intermediate representation of a markdown file to be modified - while parsing from markdown to a markdown abstract syntax tree (MDAST) i.e. [Remark][Remark] and from the HTML abstract syntax tree (HAST) to HTML i.e. [Rehype][Rehype]. Between the two, there's a remark-rehype plugin that converts MDAST to HAST. 
+
+As its name implies, [Rehype Citation][rehype-citation] is a plugin for [Rehype][Rehype] or more specifically `rehype-stringify` i.e. it takes the HTML AST with all the citation related markup and transforms it, substituting citation references where applicable and inserts an optional bibliography at the end of the document.
+
+It interfaces with [Citeproc][Citeproc] to format citations to the desired style as specified by the CSL file. Based on the citation format, the citation inserted may differ (e.g. author-year vs numeric). Let's take a look at how to integrate it with an application before exploring more technical intricacies.
+
+## Getting Started
+
+Given a markdown file, here's a simple example of how to use `rehype-citation` within a unified js pipeline. 
+
+```js
+import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeCitation from 'rehype-citation'
+
+unified()
+  .use(remarkParse)
+  .use(remarkRehype)
+  .use(rehypeCitation, rehypeCitationOptions)
+  .use(rehypeStringify)
+  .process(markdown)
+```
+
+Here's a [demo][demo] of how it looks like in action and the [source code][demo-source-code].
+
+Alternatively, if you are using another processing library like `next-mdx-remote`, `mdx-bundler` or Astro, you should be able to add `rehypeCitation` to the list of rehype plugins and integrate it with your existing markdown transformation pipeline.
+
+## Customizing Options
+
+Most of the options are similar to Pandoc's citation options and are documented in the [Github repository][api], but let me go through some of the more interesting and useful ones over here as well.
+
+### `bibliography`
+
+In version 2, the plugin now accepts a list of bibliography files. This can be passed in the options or taken from the front-matter of the markdown file. File formats supported include BibTex, BibLaTeX, CSL-JSON, and Citation File Format (CFF). File paths can be either local or remote.
+
+__Tip__: Using a list of remote CFF[^2] files directly from Github, as I have done here for in this article makes citing super straightforward.
+
+![Citation Link](/static/img/rehype-citation/citation-link.webp)
+
+With Github support for `CITATION.cff` files, a link is added to the repository page in the right sidebar, with the label "Cite this repository." Instead of copying and formatting the information, this plugin acts as a citation manager and handles in-line citations where they are used. The DOI or URL (if there's no DOI available) will be used as the citation key.
+
+For example, to cite this package, you can specify the `CITATION.cff` file from the repository - https://raw.githubusercontent.com/timlrx/rehype-citation/main/CITATION.cff - as a bibliography source in the markdown front-matter and cite it via its DOI in the body of the markdown document.
+
+```md
+---
+title: "Streamlining Citations in Markdown - Cite Faster and Smarter"
+date: '2023-10-17'
+...
+bibliography:
+  - 'https://raw.githubusercontent.com/jgm/pandoc/main/CITATION.cff'
+  - 'https://raw.githubusercontent.com/quarto-dev/quarto-cli/main/CITATION.cff'
+  - 'https://raw.githubusercontent.com/citation-js/citation-js/main/CITATION.cff' 
+  - 'https://raw.githubusercontent.com/rstudio/rmarkdown/main/CITATION.cff'
+  - 'https://raw.githubusercontent.com/timlrx/rehype-citation/main/CITATION.cff'
+---
+Hello World [@10.5281/zenodo.10004327]
+```
+
+Hello World [@10.5281/zenodo.10004327]
+
+### `csl`
+
+Citation Style Language (CSL) is a popular XML-based format for specifying citation styles. The plugin supports both local and remote CSL files. From the [CSL repository][csl], there are currently over 1600+ formats. Memorizing the rules and intricacies of each of them is an insane task. [Citeproc][Citeproc] comes to the rescue and handles all the formatting on our behalf.
+
+The plugin defaults to `apa` and supports other formats like `vancouver`, `harvard1`, `chicago` and `mla`.[^3] Other CSL are not included by default by can be easily used by pointing the `csl` option to the style of interest from the repository as shown in this [example](https://rehype-citation.netlify.app/custom-csl).
+
+The plugin has been tested and works with author-date, author, numeric (e.g. Vancouver), note (e.g. Chicago fullnote) styles. For the full note styles, it even interleaves properly with existing footnotes!
+
+### `linkCitations`
+
+Introduced around the middle of the year, citations will be hyperlinked to the corresponding bibliography entries (for author-date and numeric styles only). This brings the plugin to feature parity with Pandoc and makes it easier to navigate between citations and bibliography entries.
+
+## Technical Details
+
+Working with citation logic was more messy than I initially envisioned. Citation formats are a human-constructed domain-specific language which means that they are not totally consistent and there are many edge cases. In this section, I will go through some of the more interesting technical details and challenges I faced while building this plugin.
+
+### Citation Parsing
+
+The first challenge is parsing a text node and identifying if it contains one or more citation references and associated information about it. For each citation reference, we also need to identify its citation key and misc info about it e.g. `suffix`, `prefix`. This is done by using a regular expression to match the text node against a pattern. The pattern is constructed based on the citation format and can be quite complex.[^4] Examples of citation references include:
+
+- `[-@Nash1950]`
+- `[@Nash1950; @Nash1951]`
+- `[@Nash1950{pp. iv, vi-xi, (xv)-(xvii)}]`
+- `[see @Nash1950 pp 12-13; @Nash1951]`
+- `@Nash1951 [p. 33]`
+
+I started with some simpler regexes but eventually adopted the solution used in [Zettlr][zettr], where you can see a beauty of a regex such as this:
+
+```js
+/**
+ * I hate everything at this. This can match every single possible variation on
+ * whatever the f*** you can possibly do within square brackets according to the
+ * documentation. I opted for named groups for these because otherwise I have no
+ * idea what I have been doing here.
+ *
+ * * Group prefix: Contains the prefix, ends with a dash if we should suppress the author
+ * * Group citekey: Contains the actual citekey, can be surrounded in curly brackets
+ * * Group explicitLocator: Contains an explicit locator statement. If given, we MUST ignore any form of locator in the suffix
+ * * Group explicitLocatorInSuffix: Same as above, but not concatenated to the citekey
+ * * Group suffix: Contains the suffix, but may start with a locator (if explicitLocator and explicitLocatorInSuffix are not given)
+ *
+ * @var {RegExp}
+ */
+export const fullCitationRE =
+  /(?<prefix>.+)?(?:@(?<citekey>[\p{L}\d_][^\s{]*[\p{L}\d_]|\{.+\}))(?:\{(?<explicitLocator>.*)\})?(?:,\s+(?:\{(?<explicitLocatorInSuffix>.*)\})?(?<suffix>.*))?/u
+```
+
+It does a good job picking out the citation keys along with all the necessary information required about the citation.
+
+### Handling Stateful Citations
+
+Citeproc works by managing a registry of each citation item. The registry handles important details such as disambiguation, sort sequence, and citation order.
+
+There are two main methods for a registry instance, `makeCitationCluster()`, a simpler method that can be used to generate citations but does not adjust the registry, and `processCitationCluster()` which maintains citations dynamically within a document.
+
+[`gen-citation.js`](https://github.com/timlrx/rehype-citation/blob/main/src/gen-citation.js) passes the various parsed options to the `processCitationCluster()` method. The registry is updated with the new citation and the citation is formatted according to the CSL style. The formatted citation is then inserted into the document.
+
+Since Citeproc does not handle linking citations out of the box, additional parsing logic has to be added to determine which section of an author-date citation should be linked to which bibliography entry.
+
+### Isomorphic Support
+
+The plugin is isomorphic and works on both the [browser][demo] and server. There are two issues to solve - normalizing fetch across both environments and transforming HAST (HTML abstract syntax tree) from and to HTML.
+
+To support fetching remote sources on both Node and browser environments, we use the `cross-fetch` package.[^5] Addition checks are made to ensure fetching local files works only on the server environment as the browser does not have file system access.
+
+The second issue is transforming between HAST and HTML. It should be pretty straightforward to see why we need to convert from HAST to HTML, but why is there a need to convert the other direction as well? That's because Citeproc outputs HTML directly but we need to convert it back to HAST for it to be processed by the rest of the Rehype pipeline. 
+
+To solve this, we use `hast-util-from-parse5` for Node and `hast-util-from-dom` for browser environments and create two builds of the plugin. In the browser build, we alias the HTML transform util from the node version to the browser version.[^6]
+
+## Conclusion
+
+[Rehype-Citation][rehype-citation] aims to make it easier to insert citations and bibliography into markdown documents. It's a work in progress (error messages can be more helpful etc.) but I am happy that it is near feature parity with the Pandoc version with additional out-of-the box utility like handling remote and CFF files.
+
+This article documents some of the considerations while building the plugin and I hope it has given you a better understanding of the messy world of academic citations or some inspiration to build your own markdown plugin.
+
+## References
+
+[^1]: Due to how the code is written, there's a lot of circular dependencies and global imports which makes it difficult to tree-shake and bundle. A lot of citation logic is stateful and working with the global context needs to be handled carefully.
+
+[^2]: The citation file format is plain text with human- and machine-readable citation information. With Github support for `CITATION.cff` files, it's a great way to share citation information for your project. Support for CFF files was recently added in version 2 of the plugin.
+
+[^3]: If you are using it in the browser, you can [generate your own plugin](https://github.com/timlrx/rehype-citation#generating-your-own-remark-citation-plugins) with the CSL of choice to reduce the overall bundle size.
+
+[^4]: I tried getting Chat GPT to generate the regexes but it failed at many of the edge cases. Between Citeproc, Citation-js and Zettr, I eventually figured out something that works well enough.
+
+[^5]: It should now be possible to use the native `fetch` API on node as well.
+
+[^6]: There's a newly introduced `hast-util-from-html-isomorphic` that does something similar as well. This might be a better option if you are creating a new package.
+
+
+[rehype-citation]: https://github.com/timlrx/rehype-citation
+[demo]: https://rehype-citation.netlify.app/
+[demo-source-code]: https://github.com/timlrx/rehype-citation/tree/main/demo/app
+[api]: https://github.com/timlrx/rehype-citation#api
+[Unified]: https://github.com/unifiedjs/unified
+[Rehype]: https://github.com/rehypejs/rehype
+[Remark]: https://github.com/remarkjs/remark
+[Citeproc]: https://github.com/Juris-M/citeproc-js
+[csl]: https://github.com/citation-style-language/styles
+[zettr]: https://github.com/Zettlr/Zettlr
