@@ -7,7 +7,6 @@ import tagData from '../app/tag-data.json' assert { type: 'json' }
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import { sortPosts } from 'pliny/utils/contentlayer.js'
 
-
 const generateRssItem = (config, post) => `
   <item>
     <guid>${config.siteUrl}/blog/${post.slug}</guid>

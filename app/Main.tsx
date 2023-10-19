@@ -9,12 +9,12 @@ const MAX_DISPLAY = 5
 export default function Home({ posts }) {
   return (
     <>
-      <div className="flex flex-col items-center my-6 xl:flex-row gap-x-12 xl:mb-12">
-        <div className="pt-6 mr-8">
+      <div className="my-6 flex flex-col items-center gap-x-12 xl:mb-12 xl:flex-row">
+        <div className="mr-8 pt-6">
           <h1 className="pb-6 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Hi, I’m Timothy Lin
           </h1>
-          <h2 className="text-lg prose text-gray-600 dark:text-gray-400">
+          <h2 className="prose text-lg text-gray-600 dark:text-gray-400">
             {`Welcome to my blog - ${siteMetadata.description}. I am the co-founder of Cylynx, a data
             scientist by profession and economist by training. In my free time, I like developing `}
             <Link href="/projects">side projects</Link>
@@ -23,7 +23,7 @@ export default function Home({ posts }) {
             {' about them. Have a good read!'}
           </h2>
         </div>
-        <div className="flex items-center justify-center mx-2 my-12 w-[300px] sm:w-[400px] md:w-[550px]">
+        <div className="mx-2 my-12 flex w-[300px] items-center justify-center sm:w-[400px] md:w-[550px]">
           <NewsletterForm title="Stay updated, receive the latest post straight to your mailbox" />
         </div>
       </div>
