@@ -83,9 +83,7 @@ Generating it multiple times, results in variations in the results. In one run, 
 }
 ```
 
-While in another, it returned a key "Spaghetti Bolognese" with a nested array of ingredients. Even with the use of one-shot or multi-shot prompts, there's no guarantee that the output will be consistent.^[Here's a sample text] When utilizing the API, employing the new `JSON mode` feature can secure a valid JSON object without extraneous text and instructions.[^longnote]. Nevertheless, this method doesn't guarantee a meaningful or consistent schema in the output.[^1]
-
-[^longnote]: Here's one with multiple blocks.
+While in another, it returned a key "Spaghetti Bolognese" with a nested array of ingredients. Even with the use of one-shot or multi-shot prompts, there's no guarantee that the output will be consistent. When utilizing the API, employing the new `JSON mode` feature can secure a valid JSON object without extraneous text and instructions. Nevertheless, this method doesn't guarantee a meaningful or consistent schema in the output.[^1]
 
 Imagine if we can reliably coerce the output to the __exact__ format that is required. This would remove the need for arbitrary validation logic. With well-structured and predictable responses, integration of the output with other functions or downstream APIs becomes seamless. Ensuring accurate structured outputs stands as a prerequisite in the development of reliable AI applications.
 
