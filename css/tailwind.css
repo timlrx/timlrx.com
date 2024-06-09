@@ -30,20 +30,22 @@ input:-webkit-autofill:focus {
     color 600000s 0s;
 }
 
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+.katex-display {
+  overflow: auto hidden;
 }
 
-span.citation p {
-  display: inline;
+.content-header-link {
+  opacity: 0;
+  margin-left: -24px;
+  padding-right: 4px;
 }
 
-li p {
-  display: inline;
+.content-header:hover .content-header-link,
+.content-header-link:hover {
+  opacity: 1;
+}
+
+.linkicon {
+  display: inline-block;
+  vertical-align: middle;
 }
