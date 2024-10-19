@@ -11,7 +11,7 @@ const ContentSecurityPolicy = `
   style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net;
   frame-src youtube.com www.youtube.com timlrx.shinyapps.io;
   img-src * blob: data:;
-  media-src *.s3.amazonaws.com;
+  media-src *.s3.amazonaws.com github.com raw.githubusercontent.com *.timlrx.com;
   connect-src *;
   font-src 'self' fonts.gstatic.com cdn.jsdelivr.net
 `

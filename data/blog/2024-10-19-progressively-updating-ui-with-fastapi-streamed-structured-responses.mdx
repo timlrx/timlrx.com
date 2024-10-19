@@ -2,31 +2,42 @@
 title: "Progressively Updating UI with FastAPI and Streamed Structured Responses"
 date: '2024-10-19'
 lastmod: '2024-10-19'
-tags: ['data science', 'llm', 'generative ai', 'ui', 'next', 'notes']
+tags: ['data science', 'llm', 'generative ai', 'musings', 'next-js', 'notes']
 draft: false
 summary: Walkthrough on streaming structured objects to create progressively updating interfaces with FastAPI and Next.js.
 images: ['/static/img/streaming/streaming_cover.png']
 layout: PostLayout
 ---
 
-Almost a year ago, I discussed various approaches to [generate structured objects from large language models (LLMs)][Generating Structured Objects] and the advantages of doing so. Since then, support for structured output has grown significantly, and many model providers, including OpenAI, Anthropic, and Google, as well as open-source LLMs and inference frameworks like Mistral, Llama3, and Ollama, have added support for JSON output and tool usage.[^1]  
+Almost a year ago, I wrote about various approaches to [generating structured objects from large language models (LLMs)][Generating Structured Objects] and the advantages of doing so. Since then, support for structured output has grown significantly, and many model providers, including OpenAI, Anthropic, and Google, as well as open-source LLMs and inference frameworks like Mistral, Llama3, and Ollama, have added support for JSON output and tool usage.[^1]  
 
-In addition to the increased support for structured output, numerous client libraries have been released to improve the developer experience of using these features. One of the most notable ones in the Node.js ecosystem is Vercel's [AI SDK], which allows for easy integration of LLMs into web applications by providing a developer friendly API for interacting with LLMs on the backend and useful hooks to speed up development on the frontend. A particularly interesting feature is the ability to stream partial structured objects from the backend to the frontend, which can be used to progressively update the UI as an LLM streams a structured response.
+In addition to the increased support for structured output, numerous client libraries have been released to improve the developer experience of using these features. One of the most notable ones in the Node.js ecosystem is Vercel's [AI SDK], which allows for easy integration of LLMs into web applications by providing a developer friendly API for interacting with LLMs on the backend and useful hooks to speed up development on the frontend. A particularly interesting feature is the ability to stream partially structured objects from the backend to the frontend, which can be used to progressively update the UI as an LLM streams a structured response.
 
-Recently, I decided to take a deeper look at how this streaming functionality was accomplished and wrote my own version using Python's FastAPI framework. Here's the [full demo][Demo] which uses the backend with a static Next.js application, similar to Vercel's example. The demo featues 3 different approaches to stream text and objects from the backend to the frontend:
+![Cover Image](/static/img/streaming/streaming_cover.png)
+
+Recently, I decided to take a deeper look at how this streaming functionality was accomplished and wrote my own version using Python's FastAPI framework. Here's the [demo application][Demo] which uses the backend with a static Next.js application, similar to Vercel's example. The demo features 3 different approaches to stream text and objects from the backend to the frontend:
 
 1. Text stream with Vercel [AI SDK] useChat hook
 2. Object stream as text with useObject hook
-3. Partial json object stream with custom hook implementation  
+3. Partial JSON object stream with a custom hook implementation  
 
-For the source code, you can check out the [Github Repo].
+For the source code, check out the [Github Repo].
+
+<TOCInline toc={props.toc} asDisclosure toHeading={3} />
+
 
 ## Text Streams
 
+<video controls>
+  <source
+    src="https://github.com/timlrx/timlrx.com/raw/refs/heads/master/public/static/files/text-stream.mp4"
+    type="video/mp4"
+  />
+</video>
 
 _Corresponding [backend code](https://github.com/timlrx/next-fastapi-object-stream/blob/main/api/index.py#L67-L83) and [frontend chat interface](https://github.com/timlrx/next-fastapi-object-stream/blob/main/app/chat/page.tsx)_.
 
-Text streams are fairly common and there are multiple good resources on how to implement them, such as [Afterward Tech's post on FastAPI and SSE][Afterward Blog SSE] and [Stefan Krawczyk's post on building a streaming agent with Burr, FastAPI and React]. On the backend the data is sent in a series of [chunks][Mozilla Chunked], and on the frontend, the client listens for these events and updates the UI accordingly.[^2]  
+Text streams are fairly common and there are multiple good resources on how to implement them, such as [Afterward Tech's post on FastAPI and SSE][Afterward Blog SSE] and [Stefan Krawczyk's post on building a streaming agent with Burr, FastAPI and React]. On the backend the data is sent in a series of [chunks][Mozilla Chunked], which the frontend client listens for and updates the UI accordingly.
 
 With a FastAPI backend, we can use the [`StreamingResponse` wrapper][StreamingResponse] or alternatively Starlette's `EventSourceResponse` to stream the response. Both use the chunked transfer encoding to send the data but Starlette's `EventSourceResponse` adheres to the [Server-Sent Events (SSE) protocol](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).[^2]. On the client side, we can handle SSE with the `EventSource` API as shown in Afterward Tech's post or fetch and parse the chunks manually as shown in Stefan's post. Alternatively, we can use a library like Vercel's [AI SDK] to handle the stream.
 
@@ -68,9 +79,16 @@ const { messages, input, handleInputChange, handleSubmit, isLoading } =
 
 ## Object Stream as Text
 
+<video controls>
+  <source
+    src="https://github.com/timlrx/timlrx.com/raw/refs/heads/master/public/static/files/expense-text-stream.mp4"
+    type="video/mp4"
+  />
+</video>
+
 _Corresponding [backend code](https://github.com/timlrx/next-fastapi-object-stream/blob/main/api/index.py#L86-L101) and [frontend object stream interface](https://github.com/timlrx/next-fastapi-object-stream/blob/main/app/page.tsx)_.
 
-Object streams are a bit more complex as we need to handle the parsing of the object on the frontend. I decided to see how we could use the `useObject` hook since it is designed to handle object streams and allows specififying a [Zod] schema to validate the object. This turns out to be a bit more complicated than I initially thought as the hook expects a text stream but the backend was sending [Partial Pydantic Responses] courtesy of the [Instructor] package.
+Object streams are slightly more complex as we need to handle the parsing of the object on the frontend. I decided to see how we could use the `useObject` hook since it is designed to handle object streams and allows specifying a [Zod] schema to validate the object. This is a bit more complicated than I initially thought as the hook expects a text stream but the backend was sending [Partial Pydantic Responses] courtesy of the [Instructor] package.
 
 The solution I came up with was to convert the object stream to a text stream on the backend that can be parsed by the `useObject` hook. 
 Here's the [`pydantic_to_text_stream` function](https://github.com/timlrx/simple-ai-agents/blob/main/simple_ai_agents/utils.py#L246) that handles this logic:[^3]
@@ -154,9 +172,9 @@ async def query(request: Request):
     return response
 ```
 
-Essentially, the function keeps track of the JSON history and yields the incremental difference between consecutive JSON strings. The `full` mode returns the full matching prefix while the `delta` mode returns only the incremental difference. In my initial implementation, I only compared the current JSON string with the last JSON string in the history. However, this could lead to certain errors where the Pydantic partial is not yet finished and reverted back to a previous state, resulting in the client throwing an error. To fix this, we check if the current JSON string is actually updated and only yield the difference if it is.
+The function keeps track of the JSON history and yields the incremental difference between consecutive JSON strings. The `full` mode returns the full matching prefix while the `delta` mode returns only the incremental difference. In my initial implementation, I only compared the current JSON string with the last JSON string in the history. However, this could lead to certain errors where the Pydantic partial is not yet finished and reverted back to a previous state, resulting in the client throwing an error. To fix this, we check if the current JSON string is actually updated and only yield the difference if it is.
 
-AA nice benefit of this approach is that it reduces the amount of data sent over the wire, as we only send the incremental difference that we are sure has changed, though there's a very slight (but arguably negligible) overhead since it requires an additional confirmation step to ensure the JSON string is actually updated.
+A nice benefit of this approach is that it reduces the amount of data sent over the wire, as we only send the incremental difference that we are sure has changed, though there's a very slight (but arguably negligible) overhead since it requires an additional confirmation step to ensure the JSON string is actually updated.
 
 On the frontend, we define an `Expense` type and directly use the `useObject` hook to handle the stream:
 
@@ -195,9 +213,16 @@ Since `expenses` is automatically updated with new changes, we can directly use 
 
 ## Partial JSON Object Stream
 
-Corresponding [backend code](https://github.com/timlrx/next-fastapi-object-stream/blob/main/api/index.py#L104-L120) and [frontend streaming interface with custom hook](https://github.com/timlrx/next-fastapi-object-stream/blob/main/app/expense-object/page.tsx).
+<video controls>
+  <source
+    src="https://github.com/timlrx/timlrx.com/raw/refs/heads/master/public/static/files/expense-object-stream.mp4"
+    type="video/mp4"
+  />
+</video>
 
-What if we wanted to stream partial JSON objects directly to the frontend without having the server convert them to text deltas? This would allow us to directly use the Pydantic partial objects at the price of sending over more data and having the frontend handle the parsing.
+Corresponding [backend code](https://github.com/timlrx/next-fastapi-object-stream/blob/main/api/index.py#L104-L120) and [frontend streaming interface with a custom hook](https://github.com/timlrx/next-fastapi-object-stream/blob/main/app/expense-object/page.tsx).
+
+What if we wanted to stream partial JSON objects to the frontend without first having the server convert them to text deltas? This would allow us to directly use the Pydantic partial objects at the price of sending over more data and having the frontend handle the parsing.
 
 The backend would look pretty straightforward, and we would directly dump the Pydantic model to JSON and stream it:
 
@@ -221,7 +246,7 @@ async def query(request: Request):
     return response
 ```
 
-On the frontend, we would need to handle the parsing of the partial JSON objects. This means that we can no longer use the `useObject` hook and would need to write a custom hook to handle the stream. Here's my `useStreamJson` hook that handles the stream and parses the partial JSON objects:
+On the frontend, we now need to parse the partial JSON objects. This means that we can no longer use the `useObject` hook and would need to write a custom hook to handle the stream. Here's my `useStreamJson` hook that handles the stream and parses the partial JSON objects:
 
 ```tsx
 import { useState, useCallback } from "react";
@@ -332,16 +357,20 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 };
 ```
 
-## Conclusion
+## The Possibilities of Streaming User Interfaces
 
-In this post, I explored three different approaches to streaming data from a Python backend to a Next.js frontend, using FastAPI and Vercel's AI SDK and compared the differences between two approaches to stream objects to create generative interfaces.
+In this post, I explored three different approaches to streaming data from a Python backend to a Next.js frontend, using FastAPI and Vercel's AI SDK, and compared the differences between two approaches to stream objects to create generative interfaces. Feel free to explore the [demo][Demo] and the [source code][Github Repo] to dive deeper into the implementation details.
 
-Streaming data from the backend to the frontend opens up exciting possibilities for building responsive and interactive user interfaces. By progressively updating the UI as data becomes available, we can create a more engaging user experience and provide faster feedback to users. Feel free to explore the [demo][Demo] and the [source code][Github Repo] to dive deeper into the implementation details. Happy streaming!
+One of the things that intrigues me with the rise of generative AI is the new user experiences and modes of interaction that it would allow. By leveraging the real-time capabilities of streaming structured data to the frontend, we can create personalized user journeys that adapt to a user's input and preferences.
+This could take the form of minor UX improvements, like the expense categorization example we explored, where the user can see the model's output in real-time as they input their expense details. The instant feedback and the ability to see the model's output can make the interaction feel more engaging and transparent.
 
+However, the possibilities extend far beyond simple form interactions. Imagine a streaming dashboard that adapts to a user's queries and presents relevant data and insights in real-time. As the user explores different aspects of their data, the dashboard could dynamically generate visualizations, summarize key findings, and even suggest actions based on the patterns it detects. Taking it a step further, we could envision more creative (or perhaps dystopian) applications, like a generative news website that streams a personalized news feed based on a user's interests and preferences.
+
+By leveraging the power of real-time data streams and adaptive models, we can create experiences that are more engaging, personalized, and valuable to users. As developers and designers, it's an exciting time to explore these possibilities and push the boundaries of what's possible.
 
 [^1]: Though there are notable differences between the approaches in terms of their effectiveness, especially for more complex parsing tasks and multiple tool calls. Nonetheless, this is still a significant step forward in terms of usability compared to 1 year ago.
 [^2]: Ab Hassanein explains the differences between the two in his [blog post](https://medium.com/@ab.hassanein/streaming-responses-in-fastapi-d6a3397a4b7b).
-[^3]: I published the function and an asynchronous version of it in the [Simple AI Agents] library so one could simply import it with `from simple_ai_agents.utils import pydantic_to_text_stream` and use it in a  project.
+[^3]: I published the function and an asynchronous version of it in the [Simple AI Agents] library so one could simply import it by running `from simple_ai_agents.utils import pydantic_to_text_stream` and use it in a project.
 
 [Generating Structured Objects]: https://www.timlrx.com/blog/generating-structured-output-from-llms
 [AI SDK]: https://sdk.vercel.ai/docs/introduction
