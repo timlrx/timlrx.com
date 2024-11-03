@@ -14,6 +14,7 @@ const siteMetadata = {
   twitter: 'https://twitter.com/timlrxx',
   linkedin: 'https://www.linkedin.com/in/timlrx',
   locale: 'en-US',
+  stickyNav: true,
   analytics: {
     googleAnalytics: {
       googleAnalyticsId: 'UA-100201704-1', // e.g. G-XXXXXXX

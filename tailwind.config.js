@@ -28,6 +28,11 @@ module.exports = {
         primary: colors.sky,
         gray: colors.slate,
       },
+      zIndex: {
+        60: '60',
+        70: '70',
+        80: '80',
+      },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
