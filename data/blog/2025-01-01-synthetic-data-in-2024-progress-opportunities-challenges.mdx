@@ -1,0 +1,158 @@
+---
+title: Synthetic Data in 2024 - Progress, Opportunities and Challenges
+date: '2025-01-01'
+tags: ['synthetic-data', 'responsible-ai', 'data science', 'notes']
+draft: false
+bibliography: 'synthetic-data.bib'
+summary: A review of key developments in the synthetic data landscape over the past few years, driven by advances in generative AI and falling costs, and a practitioner's perspective on the opportunities and challenges ahead.
+images: ['/static/img/synthetic/verification-sourcing-matrix.png']
+layout: PostLayout
+---
+
+<TOCInline toc={props.toc} asDisclosure toHeading={3} />
+
+## Introduction
+
+Looking back on my one year journey with [Resaro], one of the most exciting topics we have been exploring is the use of synthetic data for training and testing. Across our work, we have tried to leverage synthetic data methods to augment limited data and generative models to unlock efficiencies in the synthetic data generation workflow.
+
+Much of this would have been out of reach just a year ago. However, we're now at a unique inflection point where converging technologies and economic forces have transformed the synthetic data landscape, making it not just a viable alternative to real data but sometimes the only practical alternative.
+
+Before diving deeper, it's important to distinguish between two waves of synthetic data generation. The earlier attempt primarily focused on three approaches:
+
+- Interpolation methods, mainly for tabular data
+- Augmentation techniques, which created output of a limited variety
+- Model-based simulation, that was both time-consuming and expensive
+
+In contrast, the new wave centers on **generative** synthetic data generation methods. In this post, I'll trace how capabilities have evolved across image and text modalities over the past few years, leading to the current state-of-the-art in synthetic data generation. Subsequently, I'll explore the implications of the paradigm shift for practitioners looking to leverage synthetic data in downstream model training tasks and key challenges that remain to be addressed.
+
+## The Rise Of Generative Synthetic Data
+
+To understand how synthetic data generation has evolved, we need to look at the progression of generative models over the past few years. In the image domain, this journey can be broken down into distinct phases - Generative Adversarial Networks (GANs) [@brock2019gan; @karras2020stylegan] in 2019 and 2020, diffusion models e.g. Stable Diffusion [@rombach2022sd; @podell2023sdxl] and Imagen [@saharia2022imagen] in 2022 and 2023, and newer models such as Flux [@bflflux] in 2024 onwards.
+
+Overlaying it with the milestones in synthetic data generation, we would get the following timeline:
+
+![Synthetic Data Generation Timeline](/static/img/synthetic/generative-synthetic-timeline.png)
+_Figure 1: Synthetic data generation timeline_
+
+In the timeline above, I have coloured the events in two colours. <span style={{backgroundColor: "#FBEA99", color: "black"}}>yellow boxes</span> represent research findings from the GAN era (2019-2020), while <span style={{backgroundColor: "#A5D7FF", color: "black"}}>blue boxes</span> represent findings from the diffusion model era (2023-2024).[^1] The colours also represent the leap in generative model capabilities across these two periods.
+
+## GAN and Diffusion Eras
+
+In the GAN era, generative images provided minimal benefits compared to real images. @ravuri2019seeing discovered that using only BigGAN [@brock2019gan] generated images resulted in an increase in classification error. Even when combined with the ImageNet dataset, the improvements were marginal. While @chai2021ensembling found that ensembling the classification results from an input image together with its GAN-perturbed versions can improve **test time** accuracy, modeling or augmentation based approach [see @perez2017] remained the preferred choice for synthetic image generation.
+
+The emergence of diffusion models has fundamentally changed this landscape. Recent studies have shown remarkable progress - @azizi2023synthetic showed that the performance of a downstream classifier model trained on a mixture of fine-tuned Imagen images with real data outperforms a model trained on real data alone, while @tian2024stablerep subsequently showed that they were able to obtain performance gains even from images generated using the standard Stable Diffusion 1.5.
+
+![Scaling behaviour from Fan et al. 2023](/static/img/synthetic/diffusion-scaling-behaviour.png)
+_Figure 2: Scaling behaviour from Fan et al. 2023_
+
+Examining the scaling laws of synthetic diffusion data, @fan2024scaling revealed that while generated images are less efficient per sample for training, in certain **out of domain (OOD)** tasks, they can actually be more **efficient** than real data.[^3] Figure 2 adopted from @fan2024scaling demonstrates that for ImageNet-Sketch and ImageNet-R tasks, synthetic data proved to be more efficient than real data.
+
+![SynthClip vs CLIP comparison on multi-task performance](/static/img/synthetic/synthclip-eval.png)
+_Figure 3: SynthClip vs CLIP comparison on multi-task performance_
+
+Since then, synthetic data has been used to train models beyond classification tasks including semantic segmentation and even a contrastive learning model (CLIP).[^2] In the synthCLIP model, @hammoud2024synthclip showed that while it performs more poorly than CLIP, increasing the amount of synthetic data can help close the gap between the two models (Figure 3).
+
+## Synthetic Data for Text Generation
+
+The evolution of synthetic text data follows a different trajectory than its image counterpart. The game changer, large language models (LLMs), made it suddenly possible to generate realistic text at scale. Synthetic text data is therefore simply generated by **sampling** from these LLMs with optional verification steps to ensure the quality of the generated text.
+
+But why is synthetic text data so crucial now? As Ilya Sutskever pointed out in a recent NeurIPS talk:
+
+> data is like the fossil fuel of AI. It was created over time, and now we’re using it. But we’ve reached a point where there’s no more significant new data to collect.
+
+\- @sutskever2024neurips
+
+Data scarcity presents a real challenge, especially given the scaling law hypothesis [@hoffmann2022chinchilla]. This hypothesis suggests that model parameters and pre-training data should grow proportionally for optimal performance. Simply increasing model size without matching data quality and quantity won't yield the desired improvements. Synthetic data offers a potential solution, enabling us to scale models beyond the limitations of human-generated content.
+
+Beyond addressing data scarcity, synthetic data shows promise in creating **superior datasets** that are more comprehensive, accurate, and diverse than their natural counterparts. Take the Phi series of models [@abdin2024phi4] for example - they are trained mostly on synthetic data generated using diverse techniques to induce stronger reasoning and problem-solving capabilities in the model.
+
+The most significant breakthroughs in synthetic text data have emerged in the reasoning and problem-solving domains. While technical details are limited for models like OpenAI's O1, Qwen's QwQ, and Deepseek's R1, their impressive capabilities likely stem from carefully curated and validated reasoning traces. The winning formula appears to be combining foundation models' data generation capabilities with rigorous verification techniques.
+
+It is also interesting to ask whether synthetic data generated from LLMs can assist in conventional NLP tasks. @li2023synthetic find that using text generated from a GPT-3.5 model negatively impacts the performance of various classification tasks ranging from SMS spam to Tweet emotion classification. They attributed it to the lack of diversity in the generated text with the generated data not capturing the range of complexity and domain knowledge present in the real data.[^4]
+
+## The Economics of Generative Synthetic Data
+
+The cost of generating synthetic data has dropped dramatically. While GPT-3's inference cost was around \$60 per million token, GPT-4o-mini now costs less than \$1 per million token. That's a 60x cost reduction in less than two years, with a more powerful model to boot!
+
+![Declining Cost of LLM Inference](/static/img/synthetic/llm_cost.jpg)
+_Figure 4: Declining Cost of LLM Inference (from a16z)_
+
+Figure 4 taken from [a16z](https://x.com/a16z/status/1856760107004035270) plots the cost over time, holding performance as measured by MMLU scores constant. Both frontier and smaller models have seen significant price drops, and this trend shows no signs of slowing down, making large-scale synthetic data generation increasingly accessible.[^5]
+
+Image generation is following a similar trajectory, though not quite as dramatic. Early in the year, generating an image with the state-of-the-art Stable Diffusion 3 cost about \$0.065. Fast forward to December 2024, and the newer Flux schnell model on Together AI's platform costs just \$0.0027 per image.
+
+The convergence of the growth in capabilities of generative models coupled with the declining cost of inference will have far-reaching implications for the use of synthetic data in training across a variety of domains. In the following sections, I'll explore what this paradigm shift means for the future of synthetic data.
+
+## Models as Data++
+
+![Interpolating Datasets](/static/img/synthetic/interpolating-datasets.png)
+_Figure 4: Interpolating Datasets with a Generative Model_
+
+The title of this section is taken from @isola2023cvpr talk where he shared the idea that generative models can transform input data into enhanced versions of itself i.e data++. Thanks to the rich amount of latent information stored within a generative model, this allows an end user to compound an original dataset in three ways:
+
+1. **Bigger data** - Generative models turn small data into large data by fitting a continuous density to the data samples. This allows for the generation of interpolated new samples not present in the original dataset.
+2. **Controllable data** - Generative models enable conditional data generation by steering the latent space in specific directions. This combination of big data and fine-grained control leads to more diverse datasets.
+3. **Better data** - Generative models can be used to sample better data, e.g. more standardised views, cleaner images, etc. that can boost downstream model performance.
+
+However, generative models aren't a silver bullet for all data challenges. Instead, the focus shifts from data collection to mastering two key skills: steering generative models toward desired outcomes and sampling better data effectively. For data-constrained scenarios, this approach might be the only viable path to scaling up data and improving performance.
+
+While the talk focuses on image data, the generative text models have been the first to leverage this idea at scale. However, verifying what constitutes "better data" remains challenging and highly problem-specific. Some domains offer clear verification paths - like formal methods for programming code or mathematical proofs. Others, particularly image data, pose more significant challenges. Traditional metrics like FID or IS don't reliably predict downstream model performance. Currently, the best approach is to evaluate quality using downstream models, but developing model-agnostic quality assessment methods remains an open challenge - one that seems crucial for unlocking the full potential of generative models.
+
+## Synthetic Data Goes Mainstream
+
+While synthetic data generation has primarily been the domain of researchers and companies developing foundational models like OpenAI and Deepseek, we're at a turning point. The combination of more capable generative models and falling inference costs makes this technology accessible to a much broader audience.
+
+![Interpolating Datasets](/static/img/synthetic/synclr-images.png)
+_Figure 5: Examples of Synthetic Captions and Images from SynCLR_
+
+Consider this: recreating an ImageNet-scale [@deng2009imagenet] classification model - once an ambitious undertaking - now costs approximately **$38k**, if trained using entirely synthetic data.[^6] Compared to assembling a team of researchers, getting a crew of Mechanical Turk annotators and spending 2.5 years to collect the data, the synthetic data approach looks like a bargain!
+
+In the original ImageNet project, a large amount of time was spent on labelling. Fei-Fei Li noted that each Mechanical Turk annotator could label a maximum of 2 images/sec. With each image being labelled 3 times, this translates to around 35 weeks of human labour. Generative AI flips this problem on its head - instead of labeling existing images, we generate images based on predetermined labels or captions.
+
+As the concept of generating synthetic data becomes more mainstream, in large part due to the growing acceptance of the use of LLMs for data generation, and growing familiarity with fine-tuning such models for domain specific tasks, it seems likely that using synthetic data to **train / fine-tune smaller distilled models** will become the norm in the year ahead.
+
+## The Quest For Better Data
+
+![Model Collapse](/static/img/synthetic/model-collapse.png)
+_Figure 6: Stable Diffusion Model Collapse as Percentage of Synthetic Data (y-axis) and Iterations (x-axis) Increases_
+
+It would not be a complete discussion on synthetic data without addressing the elephant in the room - **model collapse**. While studies like @hataya2023will; @shumailov2024ai; @bohacek2023nepotistically have raised concerns about models trained on synthetic data degrading progressively when trained on their outputs, the practical impact of this issue may be less severe than feared.
+
+The model collapse theory assumes that a new generative model is trained solely on synthetic data. However, @gerstgrasser2024modelcollapse challenge the assumption and show that test loss remains relatively constant when a generative model is trained on an **accumulating mixture of real and newly generated data** - a much more practical and realistic scenario. This holds across various architectures including transformers for language modeling, diffusion models and VAEs on image data.
+
+Why does model collapse occur? One explanation is that synthetic data contains artifacts that compound during retraining, creating cascading errors in subsequent iterations. The solution to this is to treat synthetic data just like any other dataset and vet the quality of the data before using it for re-training or downstream tasks. @feng2024modelcollapse showed that introducing verifiers, even with noisy and imperfect ones can help mitigate the risk of model collapse i.e. **verification is all you need**!
+
+## A Practical Framework for Synthetic Data Adoption
+
+![Synthetic data decision framework](/static/img/synthetic/verification-sourcing-matrix.png)
+_Figure 7: Synthetic data decision framework_
+
+What does this imply for practitioners looking to leverage synthetic data in their workflows? Figure 7 presents a decision framework for evaluating the use of synthetic data in a given scenario along two key dimensions - data collection difficulty and verification complexity.
+
+For use cases where data collection is easy e.g. translations or street view images, existing generative models can be leveraged directly, as they're likely trained on similar datasets. The focus shifts to quality verification for specific tasks. Even imperfect curation methods can improve downstream performance - consider using LLMs or vLLMs as judges, and fine-tune them on human preferences for more subjective tasks.[^7]
+
+When data collection is challenging but verification is straightforward (like mathematical proofs or architectural diagrams), one can look into automating the verification process within the generation pipeline. This approach allows you to build diverse datasets for training and fine-tuning new models. However, for areas with significant research interest (like mathematics), it might be more cost-effective to wait for foundational model labs to do the heavy lifting.
+
+The most challenging scenarios involve cases where both data collection and verification are difficult - think music composition grading or artistic image evaluation. This is a space for future research to translate what was previously deemed as hard to verify or subjective tasks into more objective metrics that can be used for comparison, or perhaps they may just represent the limits of the current state of artificial intelligence.
+
+Looking ahead, while challenges remain - particularly around verification and quality assurance - the path forward is clear: synthetic data will play an increasingly crucial role in advancing AI capabilities, democratising access to high-quality training data, and enabling innovations that were previously out of reach due to data limitations. The key to success will lie not in whether to use synthetic data, but in how to use it effectively within our specific contexts and constraints.
+
+## References
+
+[^ref]
+
+[^1]: There's a lag between when the generative model is first published and when researchers start exploring its potential for data generation. It would be interesting to see how the Flux model and newer models will perform in the coming years ahead.
+
+[^2]: Interestingly, not as much work has been done to train a generative image model with a blend of synthetic and real data as is popular in the LLMs space.
+
+[^3]: They quantify the scaling effectiveness of real and synthetic data by modeling the test loss as being inversely proportional to the dataset scale raised to a power.
+
+[^4]: It would be interesting to see how the performance changes with the latest generation of LLMs and improved prompting / sampling techniques to more accurately mimic the real data distribution. My sense is that this shows that we just have to be more careful in how we generate synthetic data and measure the quality of the data according to the downstream task.
+
+[^5]: It is arguable whether the declining cost of inference is a sign of growing economies of scale or just an "artificial" subsidy as VC funding continues to pour into AI research. Looking purely at the effectiveness to cost ratio of open-source models, I think there's a strong case to be made for the former, though the latter has made it such that it is more cost-effective to use commercial APIs for inference as opposed to serving models on-premises.
+
+[^6]: 14,197,122 images \* \$0.0027 = \$38,332
+
+[^7]: While LLMs as judge has been used extensively to evaluate text output, it would be interesting to see how vLLMs can be similarly adapted to evaluate image outputs. While imperfect, this could be the basis for a more standardised pipeline to curate image datasets.
+
+[Resaro]: https://www.resaro.ai
