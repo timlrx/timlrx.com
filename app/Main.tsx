@@ -11,20 +11,27 @@ export default function Home({ posts }) {
   return (
     <>
       <div className="my-6 flex flex-col gap-x-12 lg:mb-12 lg:flex-row">
-        <div className="space-y-8 pt-16">
-          <div className="space-y-2">
+        <div className="flex flex-col items-start justify-start  space-y-6 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
+          <div className="space-y-4 md:border-r-2 md:border-gray-200 dark:md:border-gray-700">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 sm:text-4xl">
               Timothy Lin
             </h1>
-            <p className="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">
-              Data scientist, economist, and software engineer
+            <p className="mr-2 w-96 text-sm uppercase tracking-wider text-primary-500">
+              {siteMetadata.description}
             </p>
           </div>
-
-          <div className="space-y-6">
-            <p className="max-w-xl text-gray-600 dark:text-gray-400">
-              {siteMetadata.description}. I am the co-founder of Cylynx, combining data science with
-              economic insights to build better solutions.
+          <div>
+            <p className="max-w-xl space-y-4 text-gray-600 dark:text-gray-400">
+              <p>
+                My main areas of interest includes quantitative research, socio-technological
+                change, open-source software and web technology. I try to combine them in my work in
+                various unique ways.
+              </p>
+              <p>
+                I am currently a product manager at Resaro and maintainer of a couple of popular
+                open-source projects including Contentlayer, Pliny, and this Tailwind Next.js blog
+                template.
+              </p>
             </p>
           </div>
         </div>
