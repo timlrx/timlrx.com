@@ -20,18 +20,16 @@ export default function Home({ posts }) {
               {siteMetadata.description}
             </p>
           </div>
-          <div>
-            <p className="max-w-xl space-y-4 text-gray-600 dark:text-gray-400">
-              <p>
-                My main areas of interest includes quantitative research, socio-technological
-                change, open-source software and web technology. I try to combine them in my work in
-                various unique ways.
-              </p>
-              <p>
-                I am currently a product manager at Resaro and maintainer of a couple of popular
-                open-source projects including Contentlayer, Pliny, and this Tailwind Next.js blog
-                template.
-              </p>
+          <div className="max-w-xl space-y-4 text-gray-600 dark:text-gray-400">
+            <p>
+              My main areas of interest includes quantitative research, socio-technological change,
+              open-source software and web technology. I try to combine them in my work in various
+              unique ways.
+            </p>
+            <p>
+              I am currently a product manager at Resaro and maintainer of a couple of popular
+              open-source projects including Contentlayer, Pliny, and this Tailwind Next.js blog
+              template.
             </p>
           </div>
         </div>
