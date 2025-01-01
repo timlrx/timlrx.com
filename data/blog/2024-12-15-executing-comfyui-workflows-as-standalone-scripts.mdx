@@ -1,7 +1,7 @@
 ---
-title: "Executing ComfyUI Workflows as Standalone Scripts"
+title: 'Executing ComfyUI Workflows as Standalone Scripts'
 date: '2024-12-16'
-lastmod: '2024-12-16'
+lastmod: '2025-01-01'
 tags: ['data science', 'generative ai', 'comfyui', 'notes']
 draft: false
 summary: A guide on how to execute ComfyUI workflows as standalone scripts.
@@ -15,7 +15,7 @@ layout: PostLayout
 
 However, the default setup of ComfyUI relies on a web-based interface and a server backend to execute workflows, with both parts of the code very much intertwined. This makes running ComfyUI workflows in a standalone manner particularly difficult and adds additional setup hassle and execution overhead as developers look to deploy their workflows in more lean applications or as part of a headless processing pipeline.
 
-Recently, I was exploring various solutions to run ComfyUI workflows as standalone scripts, but I could not find any suitable workarounds. The closest alternative was [ComfyUI-to-Python-Extension], which converts ComfyUI workflows to Python scripts. However, this still requires an intermediate converstion step that would make **dyanmic** workflows more difficult to execute.
+Recently, I was exploring various solutions to run ComfyUI workflows as standalone scripts, but I could not find any suitable workarounds. The closest alternative was [ComfyUI-to-Python-Extension], which converts ComfyUI workflows to Python scripts. However, this still requires an intermediate conversion step that would make **dynamic** workflows more difficult to execute.
 
 After a couple of hours of tinkering, I pieced together a solution that allows you to run ComfyUI workflows as standalone scripts. Check out the [Github Gist] for the source code or read on for more implementation details.
 
@@ -29,19 +29,21 @@ As part of this post, I will also be referencing the SDXL Turbo workflow which y
 
 ## Understanding the Workflow JSON Format
 
-When working with ComfyUI, it's crucial to understand the different the two different JSON formats used to represent workflows. 
+When working with ComfyUI, it's crucial to understand the different the two different JSON formats used to represent workflows.
 
 ### Workflow.json (Frontend Format)
 
 This is probably the more widely used and recognised format. It is required to layout the graph editor in ComfyUI frontend user interface for visual representation and editing of workflows.
 
 Key points:
+
 - Contains node positions, links, and visual metadata.
 - Each node has a unique visual identifier, often numeric (e.g., "1", "2", "3").
 - Links between nodes are represented as explicit connections.
 - Follows the [Litegraph] format, which is designed for graph visualization and manipulation.
 
 Example:
+
 ```json:workflow.json
 {
   "nodes": [
@@ -107,7 +109,6 @@ Example:
 }
 ```
 
-
 ### Workflow API JSON (Backend Format)
 
 ![ComfyUI API Export](/static/img/comfyui/comfyui_api_export.png)
@@ -115,12 +116,14 @@ Example:
 The workflow API JSON can be accessed by switching to `dev` mode and exporting the workflow as an API JSON. Internally, it is also used in the execution of a workflow.
 
 Key points:
+
 - Provides a more compact representation optimized for execution.
 - Eliminates visual/UI-specific metadata such as node positions and sizes.
 - Links between nodes are embedded directly within the node inputs.
 - Each node is identified by a unique key (e.g., "5", "6", "7").
 
 Example:
+
 ```json:workflow.api.json
 {
 "7": {
@@ -161,7 +164,7 @@ You can find the complete standalone execution script in this [GitHub Gist].
 
 The `WorkflowExecutor` is responsible for orchestrating the execution of a ComfyUI workflow. It initializes the execution environment, manages caching, and handles node execution. In the `execute` method, it first validates the workflow JSON, using ComfyUI's `validate_prompt` function before constructing it as a `DynamicPrompt` that gets converted to an `ExecutionList`.
 
-We will then iterate over the `ExecutionList` and execute each node in the workflow using the `_execute_node` method. This relies on ComfyUI's `get_input_data` to retrieve input data for each node and passes it to the `get_output_data` function which executes the node and returns the output data.[^2] 
+We will then iterate over the `ExecutionList` and execute each node in the workflow using the `_execute_node` method. This relies on ComfyUI's `get_input_data` to retrieve input data for each node and passes it to the `get_output_data` function which executes the node and returns the output data.[^2]
 
 ### `ExecutionCache`
 
@@ -173,7 +176,7 @@ Combining the `WorkflowExecutor` and `ExecutionCache` classes provides a relativ
 
 ![ComfyUI SDXL Turbo Image](/static/img/comfyui/ComfyUI_00001.png)
 
-Now that we have a standalone execution script ready, let's walk through the process of converting the SD Turbo workflow into a standalone execution script. 
+Now that we have a standalone execution script ready, let's walk through the process of converting the SD Turbo workflow into a standalone execution script.
 
 First, we need to convert the SD Turbo workflow to the API format. You can do this from the user interface in `dev` mode by exporting the workflow as an API JSON from ComfyUI and saving it as `sdxl_workflow_api.json`.
 
@@ -188,8 +191,7 @@ print("Workflow executed successfully")
 print("Executed nodes: %s", results['executed_nodes'])
 ```
 
-If all goes well, you should be able to get a picture similar to the one above in the `output` directory! I hope this guide makes working with ComfyUI workflows a little easier and more pleasant. 
-
+If all goes well, you should be able to get a picture similar to the one above in the `output` directory! I hope this guide makes working with ComfyUI workflows a little easier and more pleasant.
 
 [^1]: While it is also possible to write a script to convert the `Workflow.json` programmatically, there are some challenges in doing so, since a lot of the logic is tied to the ComfyUI frontend. For simplicity, I recommend using the API JSON format.
 
