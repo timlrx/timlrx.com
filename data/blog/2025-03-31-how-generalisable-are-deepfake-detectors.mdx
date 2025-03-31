@@ -1,0 +1,182 @@
+---
+title: The Generalisability Gap - Evaluating Deepfake Detectors Across Domains
+date: '2025-03-31'
+tags: ['deepfakes', 'responsible-ai', 'data science']
+draft: false
+bibliography: 'deepfakes.bib'
+summary: We assess the generalisability of deepfake detectors across different datasets and deepfake generation methods.
+images: ['/static/deepfakes/tsne-plot.png']
+layout: PostLayout
+---
+
+<TOCInline toc={props.toc} asDisclosure toHeading={3} />
+
+Originally published as a [blog article for Resaro](https://resaro.ai/insights/evaluating-deepfake-detectors-across-domains).
+
+## Introduction
+
+The rise of deepfakes has raised concerns about the potential misuse of this technology for disinformation, fraud, and other malicious purposes. To counter this threat, researchers have developed deepfake detectors that can identify deepfakes with widely published claims of 99%+ accuracy. Yet, this space evolves extremely quickly, with new and more realistic algorithms being released on a weekly basis.
+
+To keep up with the evolving threat landscape, detectors need to be generalisable across different datasets and deepfake generation methods. With the release of a new deepfake dataset - [DeepAction][DeepAction Dataset] [@bohacek2024] - we took the opportunity to assess the generalisability of open-source deepfake detectors across the dataset and deepfake generation methods.
+
+While much of our work involves evaluating closed-source models, there's much to be learned from open-source models and we hope that the lessons learned from our assessment will be useful to the wider community evaluating deepfake detectors and those building generalisable models.
+
+## Key Takeaways
+
+1. When fine-tuned on new data, deepfake detectors can perform well even outside their original training domain (faces) - achieving 95%+ AUC scores on action videos. This suggests the underlying architectures are capable of adapting to new types of deepfakes when properly trained.
+
+2. However, pre-trained models perform poorly when tested on new types of deepfakes without fine-tuning - even for models designed to be more generalisable and pre-trained on large datasets, AUC scores drop to 67-71%. This highlights the challenge of building truly generalisable detectors.
+
+3. Generalisability exists on a spectrum - while newer architectures like UCF and CLIP show promise, their effectiveness must be validated on unseen datasets that mirror real-world deployment conditions.
+
+4. Feature separation in the latent space does not automatically translate to strong classification performance. However, when a model learns meaningful representations, adapting it to new domains can be as simple as retraining the final classification layer - as demonstrated by CLIP's rapid improvement from 71% to 94% AUC by freezing the underlying parameters and training a new classifier.
+
+## DeepAction Dataset
+
+![TSNE Plot](/static/deepfakes/deepaction.gif)
+
+The [DeepAction Dataset], is a comprehensive collection of human action videos consisting of 3,100 AI-generated clips from seven text-to-video models (BD AnimateDif [@AnimateDiff], CogVideoX-5B [@CogVideoX], RunwayML Gen3 [@runwaygen3], Stable Diffusion [@blattmann2023], Veo [@Veo], and VideoPoet [@VideoPoet]) and 100 matching real videos from Pexels. 
+
+The dataset encompasses 100 distinct human actions, with videos generated using prompts like "a person walking through a park" or "a person vacuuming the living room". While existing datasets commonly used to benchmark deepfake detectors like FaceForensics++ [@roessler2019faceforensics] and Celeb-DF [@li2020celebdf] focuses on facial manipulations, DeepAction enables evaluation of deepfake detectors on full-body actions and scenes - providing a new lens on detector generalisability.
+
+We preprocessed the dataset using the following steps:
+
+1. Split the videos into 60/20/20 train/validation/test sets based on video IDs to prevent overlap[^1]
+2. Sampled up to 32 frames per video using DeepfakeBench [@DeepfakeBench]
+3. Applied a 224x224 pixel center crop to each frame
+
+Note, this requires a modification to DeepfakeBench as the original implementation crops faces from the images, which is not suitable for action videos. 
+
+## Deepfake Detector Candidates
+
+We evaluated three open-source deepfake detectors, each representing different approaches to detection:
+
+1. **Xception** [@roessler2019faceforensics] serves as our baseline candidate. Built on the XceptionNet architecture [@chollet2017xception], it's widely adopted in deepfake detection research. We use the pre-trained model from @DF40, fine-tuned on the FaceForensics++ (FF++) dataset.
+
+2. **UCF** [@yan2023ucf] represents recent advances in generalisable detection. Released in 2023, it employs contrastive regularization to learn both common and specific forgery features. Our evaluation uses the pre-trained model from @DeepfakeBench, fine-tuned on FF++.
+
+3. **CLIP** [@radford2021clip] demonstrates the potential of large-scale training. Though designed for general visual-linguistic tasks, its rich representations make it effective for deepfake detection. Recent benchmarks in @DF40 show it outperforming other state-of-the-art detectors. On the DeepAction dataset, @bohacek2024 achieved 85% frame accuracy and 97% video accuracy using just an SVM trained on CLIP embeddings. We use the ViT-B/16 variant from @DF40, fine-tuned on FF++.
+
+This selection spans traditional specialist models (Xception), modern generalization-focused approaches (UCF), and large-scale representation learning (CLIP). All three models were pre-trained on FF++ to enable fair comparison on the DeepAction dataset.
+
+## Adaptability of Deepfake Detectors to New Datasets
+
+To evaluate how well these algorithms would be able to adapt from the facial recognition domain to action videos, we fine-tuned them on the DeepAction data before evaluating them on the test set. The frame-level results (N = 10564) are summarised in Table 1 below.
+
+| Model    | Train Set  | Sensitivity | Specificity | Accuracy | AUC    | F1     |
+| -------- | ---------- | ----------- | ----------- | -------- | ------ | ------ |
+| Xception | DeepAction | 0.9137      | 0.9227      | 0.9182   | 0.9736 | 0.9526 |
+| UCF      | DeepAction | 0.9335      | 0.7023      | 0.8179   | 0.9515 | 0.9566 |
+| CLIP     | DeepAction | 0.9322      | 0.903       | 0.9176   | 0.9686 | 0.962  |
+
+_Table 1: Performance of deepfake detectors trained and tested on the DeepAction dataset at the frame level_
+
+Our evaluation uses multiple metrics:
+- Area Under Curve (AUC): The primary metric used in DeepfakeBench [@DeepfakeBench]
+- Macro-average accuracy: Adopted from @bohacek2024 to handle class imbalance
+- Sensitivity, specificity, and F1 score: To provide a complete performance picture
+
+All models show strong performance, with the main differentiator being their trade-off between sensitivity and specificity.
+
+Video-leve[^2] (N = 399) results mirror the frame-level findings, confirming that these architectures can effectively adapt to non-facial content when properly fine-tuned. This suggests that the fundamental feature extraction capabilities of these models extend beyond their original training domain.
+
+| Model    | Train Set  | Sensitivity | Specificity | Accuracy | AUC    | F1     |
+| -------- | ---------- | ----------- | ----------- | -------- | ------ | ------ |
+| Xception | deepaction | 0.9368      | 0.9474      | 0.9421   | 0.9838 | 0.9661 |
+| UCF      | deepaction | 0.9474      | 0.7368      | 0.8421   | 0.96   | 0.9664 |
+| CLIP     | deepaction | 0.95        | 0.8947      | 0.9224   | 0.9737 | 0.9717 |
+
+_Table 2: Performance of deepfake detectors trained and tested on the DeepAction dataset at the video level_
+
+
+## Generalisability of Pre-trained Detectors
+
+While surveillance of emerging deepfake threats and continuous improvement of detector models by fine-tuning on the latest techniques is effective, it is not always possible to know the exact nature of such threats in advance. To evaluate the generalisability of pre-trained models, we take our three models pre-trained on the FF++ dataset and evaluate them on DeepAction without further fine-tuning. The results are summarised in Table 3 below.
+
+| Model    | Train Set | Sensitivity | Specificity | Accuracy | AUC    | F1     |
+| -------- | --------- | ----------- | ----------- | -------- | ------ | ------ |
+| Xception | FF++      | 0.3885      | 0.8816      | 0.635    | 0.6668 | 0.5567 |
+| UCF      | FF++      | 0.8747      | 0.278       | 0.5764   | 0.6797 | 0.9117 |
+| CLIP     | FF++      | 0.3527      | 0.8931      | 0.6229   | 0.7085 | 0.5189 |
+
+_Table 3: Performance of deepfake detectors trained on FF++ at the frame level_
+
+All three models perform significantly worse when evaluated on the DeepAction dataset without fine-tuning. The Xception model and CLIP seem to do a poorer job at identifying deepfakes, while the UCF model seems to prioritise sensitivity over specificity. This suggests the models trained on a different distribution of data are optimized for different aspects of performance, making direct comparison misleading.
+
+![ROC Curve](/static/deepfakes/roc_curve_ff.png)
+_Figure 1: ROC Curve of pre-trained models_
+
+In cases where we are able to obtain the prediction probabilities, we can plot the ROC curve to better understand the trade-off between sensitivity and specificity. The ROC curve for the pre-trained models is shown in Figure 1. This provides a more useful comparison of the models and would allow us to pick the model that best suits our needs - if we value a low specificity (false positive rate) we would choose the Xception model but if we value a high sensitivity (true positive rate) we would choose the CLIP model. This analysis suggests that while no single pre-trained model generalizes perfectly, we could combine models with complementary strengths to offer a more performant solution for detecting across deepfake types.
+
+## Why do Pre-trained Models Perform Poorly?
+
+While in a typical evaluation of a black box model, one would be left to speculate on why the models may not be as generalisable as one would hope, the benefit of using open-source models is that we can dive one level deeper into the feature embedding space to understand what might be going on.
+
+![TSNE Plot](/static/deepfakes/tsne_plot.png)
+_Figure 2: Visualising feature embeddings_
+
+Figure 2 shows t-SNE visualisations of feature embeddings for each model before and after fine-tuning. The top row shows embeddings from models trained only on FF++, while the bottom row shows embeddings after fine-tuning on DeepAction. Blue points represent real videos, while other colors indicate different deepfake generation methods. Each model's embedding structure reveals distinct patterns in how it learns to distinguish real from fake content.
+
+### Xception - A Specialist Model
+
+![Heatmap Plot](/static/deepfakes/xception_heatmap.png)
+_Figure 3: Leave-one-out analysis by testing data subset_
+
+The Xception model reveals characteristics of a specialist architecture that excels with training data but struggles to generalize. Examining the t-SNE embeddings shows that before fine-tuning, the model fails to meaningfully separate real from fake videos - all data points appear randomly distributed. However, after fine-tuning on DeepAction, a clear separation emerges between real and fake content, suggesting the model can learn the task but requires explicit training examples.
+
+To further test the generalisability of the Xception model, we conducted a leave-one-out analysis where we trained the model on all but one of the generated DeepAction videos and evaluated it on all videos (including the held-out set). The matrix of results is shown in Figure 3.
+
+Performance drops significantly when the model is evaluated on unseen data, especially for BDAnimateDiff, RunwayML and Veo. @bohacek2024, noted the data generated from Veo was a pre-released model and that might explain why the model performs so poorly without any samples to train on. Interestingly, the performance drop was negligible for StableDiffusion.
+
+### UCF and Spectrums of Generalisability
+
+![UCF Architecture](/static/deepfakes/ucf_architecture.png)
+<i>Figure 4: UCF architecture [@yan2023ucf] - separating an input content into content and forgery specific-features</i>
+
+The UCF model shows some structure in its TSNE embeddings when trained on FF++, though without a clear separation between real and fake data points. This structure likely emerges from UCF's contrastive regularization technique, which explicitly separates content-specific from forgery-specific features (Figure 4).
+
+While the forgery features learned on FF++ might be generalised across other facial manipulation and forgery techniques, it might not translate as effectively to the DeepAction dataset where scenes with portrait like faces are rare and backgrounds more complex. 
+
+| Model | FF++   | Celeb-DF V1 | DFDC   | DeepAction |
+| ----- | ------ | ----------- | ------ | ---------- |
+| UCF   | 0.9705 | 0.7793      | 0.7191 | 0.6797     |
+
+<i>Table 4: AUC scores of UCF model trained on FF++ and evaluated on different datasets. First three results taken from @DeepfakeBench </i>
+
+Table 4 shows the AUC scores of the UCF model trained on FF++ and evaluated on different datasets. The model performs well on the FF++ dataset but the AUC scores drop significantly as the test dataset varies increasingly from the training dataset. The drop in performance from Celeb faces to more diverse methods and perturbations in DFDC to a completely different domain in DeepAction shows a limitation even in a model that was designed to be more generalisable.
+
+### CLIP - Learning Good Features ≠ Good Classification
+
+The TSNE visualization of CLIP's embeddings presents an intriguing puzzle: despite showing clear separation between real and fake data points, the model achieves only marginally better classification performance than Xception or UCF (AUC 0.71 vs 0.67).
+
+This disconnect highlights a fundamental insight about deep learning models: the ability to learn discriminative features (visible in the TSNE plot) does not automatically translate to strong classification performance. The classification head must still learn to correctly weigh and combine these features for the specific task at hand.
+
+Fortunately, for our pre-trained model, this is a simple remedy. By freezing CLIP's pre-trained parameters and training only a new classification layer on the DeepAction dataset, we achieved:
+
+AUC score: 0.94 (up from 0.71)
+Accuracy: 0.85 (up from 0.62)
+
+This dramatic improvement mirrors @bohacek2024 findings with their SVM approach (0.84 accuracy) and suggests that while CLIP learns robust, transferable features, adapting these features to new domains may require targeted fine-tuning of the classification layer.
+
+## Conclusion
+
+Our evaluation of three open-source deepfake detectors reveals both the potential and limitations of generalisable synthetic media detection:
+
+When fine-tuned on new domains, deepfake detectors show remarkable adaptability - even models originally trained on facial deepfakes achieve 0.95+ AUC scores on synthetic action videos. However, without fine-tuning, performance degrades significantly as test data diverges from the training distribution, even for newer architectures like UCF and CLIP that were designed for better generalization.
+
+Our analysis also reveals a critical insight: strong feature learning doesn't guarantee strong classification. While models can learn rich, discriminative features (evident in their latent space), translating these features into accurate predictions often requires targeted fine-tuning of the classification layer.
+
+We have evaluated the generalisability of three open-source deepfake detectors across different datasets and deepfake generation methods, and found that fine-tuning the models on the DeepAction dataset significantly improved their performance and deepfake detectors.  Even those trained on facial images, can easily adapt to other types of images.
+
+However, generalising pre-trained models still remains a challenge. While newer architectures like UCF and CLIP show promise in being more generalisable, it is important to validate their performance on unseen datasets that hopefully mirrors the distribution of the data they are likely to be deployed on. Understanding this distinction between feature learning and classification performance provides a path forward: future detectors may benefit more from focusing on robust feature extraction and making it available rather than trying to build one-size-fits-all classifiers.
+
+
+## References
+
+[^ref]
+
+[^1]: While this is similar to @bohacek2024 train/test split, it also means that the number of real videos (19) evaluated in the test set is relatively limited and standard errors may be high. This is a limitation of the dataset and should be taken into account when interpreting the results.
+
+[^2]: Since none of our models consider temporal features, each frame is scored and evaluated independently. Results at the video level is then decided by the class with the highest proportion of frames (i.e. majority voting). 
+
+[DeepAction Dataset]: https://huggingface.co/datasets/faridlab/deepaction_v1

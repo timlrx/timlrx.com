@@ -1668,15 +1668,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@citation-js/core@npm:^0.7.1":
-  version: 0.7.13
-  resolution: "@citation-js/core@npm:0.7.13"
+"@citation-js/core@npm:^0.7.14":
+  version: 0.7.18
+  resolution: "@citation-js/core@npm:0.7.18"
   dependencies:
     "@citation-js/date": ^0.5.0
     "@citation-js/name": ^0.4.2
     fetch-ponyfill: ^7.1.0
     sync-fetch: ^0.4.1
-  checksum: 15e7ee19951e166ce17cc70c30f65e27664d3bdb3cf36a7c33afa8726e41d94537d05df8606bc7a0997b287ea20b78556ed4e56bce2f0238d315a8c6601111bc
+  checksum: 94a4c42612eb425e16b08ac3720fe3e798263830960ccb81be99a557c9c5b9d1b6515cfdf4303287a3533d658845f457bf4cbae7f558983477b729cf052f0699
   languageName: node
   linkType: hard
 
@@ -1694,40 +1694,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@citation-js/plugin-bibjson@npm:^0.7.2":
-  version: 0.7.13
-  resolution: "@citation-js/plugin-bibjson@npm:0.7.13"
+"@citation-js/plugin-bibjson@npm:^0.7.14":
+  version: 0.7.18
+  resolution: "@citation-js/plugin-bibjson@npm:0.7.18"
   dependencies:
     "@citation-js/date": ^0.5.0
     "@citation-js/name": ^0.4.2
   peerDependencies:
     "@citation-js/core": ^0.7.0
-  checksum: aea0dc07a1ead88dea2b35504f3cb3003befb3f370b5c2844cd7e8ac8dae1b1ce9b15574a1b4278a024c0a46ad25651a6c959a4fbbe7d806a06903399472167f
+  checksum: 94de821f0290272963831ffaf98b57cca1313e423eefd72e4b4f24080b41bbb52d9308d9ad033cbbb97820f467bc45347ff12b028659c2b5e90c414c32e7c6dc
   languageName: node
   linkType: hard
 
-"@citation-js/plugin-bibtex@npm:^0.7.2":
-  version: 0.7.13
-  resolution: "@citation-js/plugin-bibtex@npm:0.7.13"
+"@citation-js/plugin-bibtex@npm:^0.7.14":
+  version: 0.7.18
+  resolution: "@citation-js/plugin-bibtex@npm:0.7.18"
   dependencies:
     "@citation-js/date": ^0.5.0
     "@citation-js/name": ^0.4.2
     moo: ^0.5.1
   peerDependencies:
     "@citation-js/core": ^0.7.0
-  checksum: dfbb8930fc40020ea0ced29623aa919c10fc864ff111604abf74c1c05e02bd26109e369680d8449113842a4ac8925a445aaa21f8bed69b107bb55968069496fd
+  checksum: f0dc77ef3f6ca1cc37ef7a07bcc914fc6c136a8687e55063cf44d7ce82ad3f06dd5b53aa4b73e28d2800fa1d509ee87d045695a3a6814f5d18477d63ba4efb5b
   languageName: node
   linkType: hard
 
-"@citation-js/plugin-csl@npm:^0.7.2":
-  version: 0.7.13
-  resolution: "@citation-js/plugin-csl@npm:0.7.13"
+"@citation-js/plugin-csl@npm:^0.7.14":
+  version: 0.7.18
+  resolution: "@citation-js/plugin-csl@npm:0.7.18"
   dependencies:
     "@citation-js/date": ^0.5.0
     citeproc: ^2.4.6
   peerDependencies:
     "@citation-js/core": ^0.7.0
-  checksum: 048f721f75c9f35de2f11a5aa35dc09e888cf8fda38b5867b0ffdc187420a38e6d13323b0497d6bf2ac4a841763977ec9c64c671498ee77204c47007accb72a1
+  checksum: eec193b5bb066ceef9b4b8843a6b197e14f4df4ce0bc06b894d24fd7936ab7370b23a7af1d9414db5b9752af941636aa026526a8517da3855cf45a5a04479d3a
   languageName: node
   linkType: hard
 
@@ -11229,16 +11229,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-citation@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "rehype-citation@npm:2.0.0"
+"rehype-citation@npm:2.3.1":
+  version: 2.3.1
+  resolution: "rehype-citation@npm:2.3.1"
   dependencies:
-    "@citation-js/core": ^0.7.1
+    "@citation-js/core": ^0.7.14
     "@citation-js/date": ^0.5.1
     "@citation-js/name": ^0.4.2
-    "@citation-js/plugin-bibjson": ^0.7.2
-    "@citation-js/plugin-bibtex": ^0.7.2
-    "@citation-js/plugin-csl": ^0.7.2
+    "@citation-js/plugin-bibjson": ^0.7.14
+    "@citation-js/plugin-bibtex": ^0.7.14
+    "@citation-js/plugin-csl": ^0.7.14
     citeproc: ^2.4.63
     cross-fetch: ^4.0.0
     hast-util-from-dom: ^5.0.0
@@ -11247,7 +11247,7 @@ __metadata:
     parse5: ^7.1.2
     unified: ^11.0.0
     unist-util-visit: ^5.0.0
-  checksum: 2de393dc0480e8047fe0d7713e5acc45fd9defe687888e0111259fef31786b428d82372807d3b5c021a3065af1415f9e8a9760f3ee8375d55880d09ae8e2d1f6
+  checksum: 9867669bc0e594710ba4ff22421d92cf92ca4fb116d9f0075b6e74ec4a09b542f5910c03b6d7448ce973196501c829639c221d0c6ed840f7f2cc63b61e596fdc
   languageName: node
   linkType: hard
 
@@ -12710,7 +12710,7 @@ __metadata:
     react-dom: 19.1.0
     reading-time: 1.5.0
     rehype-autolink-headings: ^7.1.0
-    rehype-citation: ^2.0.0
+    rehype-citation: 2.3.1
     rehype-katex: ^7.0.0
     rehype-preset-minify: 7.0.0
     rehype-prism-plus: ^2.0.0

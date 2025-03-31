@@ -174,3 +174,35 @@ input:-webkit-autofill:focus {
   display: inline-block;
   vertical-align: middle;
 }
+
+/* Base styles for elements with data-tooltip */
+[data-tooltip] {
+  @apply relative inline-block cursor-pointer;
+}
+
+/* The tooltip element that appears on hover */
+[data-tooltip]::after {
+  @apply absolute invisible opacity-0 
+         bg-gray-800 text-white text-sm rounded-md py-2 px-3
+         w-max max-w-xs break-words text-left z-50
+         left-1/2 transform -translate-x-1/2 bottom-full mb-2
+         shadow-lg transition-opacity duration-200;
+  content: attr(data-tooltip);
+}
+
+/* Arrow for the tooltip */
+[data-tooltip]::before {
+  @apply absolute invisible opacity-0
+         w-0 h-0 z-50
+         left-1/2 transform -translate-x-1/2 bottom-full
+         border-solid border-8 border-transparent border-t-gray-800
+         transition-opacity duration-200;
+  content: '';
+  margin-bottom: -6px;
+}
+
+/* Show tooltip and arrow on hover */
+[data-tooltip]:hover::after,
+[data-tooltip]:hover::before {
+  @apply visible opacity-100;
+}

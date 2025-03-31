@@ -179,7 +179,15 @@ export default makeSource({
         },
       ],
       rehypeKatex,
-      [rehypeCitation, { path: path.join(root, 'data'), linkCitations: true }],
+      [
+        rehypeCitation,
+        {
+          path: path.join(root, 'data'),
+          linkCitations: true,
+          showTooltips: true,
+          tooltipAttribute: 'data-tooltip',
+        },
+      ],
       [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
       rehypePresetMinify,
     ],
