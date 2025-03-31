@@ -11,12 +11,12 @@ export default function Home({ posts }) {
   return (
     <>
       <div className="my-6 flex flex-col gap-x-12 lg:mb-12 lg:flex-row">
-        <div className="flex flex-col items-start justify-start  space-y-6 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
+        <div className="flex flex-col items-start justify-start space-y-6 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
           <div className="space-y-4 md:border-r-2 md:border-gray-200 dark:md:border-gray-700">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 sm:text-4xl">
+            <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl dark:text-gray-100">
               Timothy Lin
             </h1>
-            <p className="mr-2 w-96 text-sm uppercase tracking-wider text-primary-500">
+            <p className="text-primary-500 mr-2 w-96 text-sm tracking-wider uppercase">
               {siteMetadata.description}
             </p>
           </div>
@@ -36,8 +36,8 @@ export default function Home({ posts }) {
       </div>
 
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h2 className="font-mono text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">
+        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+          <h2 className="font-mono text-sm tracking-wider text-gray-500 uppercase dark:text-gray-400">
             Latest Writing
           </h2>
         </div>
@@ -101,7 +101,7 @@ export default function Home({ posts }) {
 
       <div className="py-16">
         <div className="mx-auto w-[290px] lg:w-[400px]">
-          <h2 className="mb-8 font-mono text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">
+          <h2 className="mb-8 font-mono text-sm tracking-wider text-gray-500 uppercase dark:text-gray-400">
             Newsletter
           </h2>
           <NewsletterForm title="Stay updated, receive the latest post straight to your mailbox" />
