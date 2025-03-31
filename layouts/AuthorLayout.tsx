@@ -13,16 +13,16 @@ export default function AuthorLayout({ children, content }: Props) {
 
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 xl:px-0">
-      <div className="space-y-8 pb-12 pt-16">
+      <div className="space-y-8 pt-16 pb-12">
         <div className="space-y-2">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-4xl">About</h1>
+          <h1 className="text-2xl font-bold text-gray-900 sm:text-4xl dark:text-gray-100">About</h1>
         </div>
 
         <div className="grid gap-12 pt-4 md:grid-cols-7">
           {/* Author Info */}
           <div className="flex flex-row items-start gap-8 md:col-span-2 md:flex-col">
             {avatar && (
-              <div className="w-[150px] overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 lg:w-[200px]">
+              <div className="w-[150px] overflow-hidden rounded-lg bg-gray-100 lg:w-[200px] dark:bg-gray-800">
                 <Image
                   src={avatar}
                   alt="avatar"
@@ -37,10 +37,10 @@ export default function AuthorLayout({ children, content }: Props) {
               <div className="space-y-2">
                 <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">{name}</h2>
                 <div className="space-y-1">
-                  <p className="font-mono text-sm uppercase text-gray-600 dark:text-gray-400">
+                  <p className="font-mono text-sm text-gray-600 uppercase dark:text-gray-400">
                     {occupation}
                   </p>
-                  <p className="font-mono text-sm uppercase text-gray-600 dark:text-gray-400">
+                  <p className="font-mono text-sm text-gray-600 uppercase dark:text-gray-400">
                     {company}
                   </p>
                 </div>
@@ -56,7 +56,7 @@ export default function AuthorLayout({ children, content }: Props) {
           </div>
 
           {/* Author Bio */}
-          <div className="prose prose-gray max-w-none dark:prose-invert md:col-span-5">
+          <div className="prose prose-gray dark:prose-invert max-w-none md:col-span-5">
             {children}
           </div>
         </div>

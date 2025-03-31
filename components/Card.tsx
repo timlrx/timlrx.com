@@ -26,7 +26,7 @@ const Card = ({ title, description, imgSrc, href }) => (
           />
         ))}
     </div>
-    <div className="flex flex-1 flex-col justify-between space-y-4 py-6 lg:pl-8 lg:pt-0">
+    <div className="flex flex-1 flex-col justify-between space-y-4 py-6 lg:pt-0 lg:pl-8">
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
           {href ? (

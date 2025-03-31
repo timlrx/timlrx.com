@@ -90,9 +90,9 @@ export default function ListLayoutWithTags({
   return (
     <>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 xl:px-0">
-        <div className="space-y-8 pb-12 pt-16">
+        <div className="space-y-8 pt-16 pb-12">
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 sm:text-4xl">
+            <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl dark:text-gray-100">
               {title}
             </h1>
           </div>
@@ -102,7 +102,7 @@ export default function ListLayoutWithTags({
             <aside className="hidden md:block md:w-64">
               <div className="sticky top-24 space-y-8">
                 <div className="space-y-4">
-                  <h2 className="font-mono text-sm uppercase tracking-wider text-gray-500 dark:text-gray-300">
+                  <h2 className="font-mono text-sm tracking-wider text-gray-500 uppercase dark:text-gray-300">
                     Filter by tag
                   </h2>
                   <nav className="flex flex-col space-y-3">
@@ -112,8 +112,8 @@ export default function ListLayoutWithTags({
                         href={`/tags/${slug(tag)}`}
                         className={`font-mono text-sm uppercase ${
                           pathname === `/tags/${slug(tag)}`
-                            ? 'font-extrabold text-primary-600 dark:text-primary-400'
-                            : 'text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400'
+                            ? 'text-primary-600 dark:text-primary-400 font-extrabold'
+                            : 'hover:text-primary-600 dark:hover:text-primary-400 text-gray-600 dark:text-gray-300'
                         }`}
                         aria-label={`View posts tagged ${tag}`}
                       >
