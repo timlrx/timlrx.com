@@ -71,6 +71,7 @@ module.exports = () => {
         hostname: 'picsum.photos',
       }],
     },
+    trailingSlash: true,
     async headers() {
       return [
         {
@@ -78,6 +79,14 @@ module.exports = () => {
           headers: securityHeaders,
         },
       ]
+    },
+    turbopack: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
     },
     webpack: (config, options) => {
       config.module.rules.push({
